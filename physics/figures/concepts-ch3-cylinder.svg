@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 250" role="img" aria-label="Gaussian cylinder · line charge">
+  <rect width="420" height="250" fill="#fafafa"/>
+  <text x="210" y="22" text-anchor="middle" font-family="Figtree,Segoe UI,sans-serif" font-size="13" fill="#111">Gaussian cylinder · line charge</text>
+
+  <line x1="210" y1="45" x2="210" y2="210" stroke="#e85d4c" stroke-width="3"/>
+  <ellipse cx="210" cy="70" rx="65" ry="16" fill="none" stroke="#0d6e6e" stroke-width="2"/>
+  <ellipse cx="210" cy="185" rx="65" ry="16" fill="none" stroke="#0d6e6e" stroke-width="2"/>
+  <line x1="145" y1="70" x2="145" y2="185" stroke="#0d6e6e" stroke-width="2"/>
+  <line x1="275" y1="70" x2="275" y2="185" stroke="#0d6e6e" stroke-width="2"/>
+  <text x="245" y="130" font-size="12">r</text>
+  <text x="210" y="235" text-anchor="middle" font-size="12">E = λ/(2πε0 r)</text>
+
+</svg>

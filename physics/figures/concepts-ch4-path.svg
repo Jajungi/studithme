@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 230" role="img" aria-label="Path independence">
+  <rect width="420" height="230" fill="#fafafa"/>
+  <text x="210" y="22" text-anchor="middle" font-family="Figtree,Segoe UI,sans-serif" font-size="13" fill="#111">Path independence</text>
+
+  <circle cx="100" cy="160" r="6" fill="#111"/><circle cx="320" cy="80" r="6" fill="#111"/>
+  <path d="M100 160 Q180 60 320 80" fill="none" stroke="#0d6e6e" stroke-width="2"/>
+  <path d="M100 160 Q200 180 320 80" fill="none" stroke="#c45c26" stroke-width="2" stroke-dasharray="5 3"/>
+  <text x="210" y="210" text-anchor="middle" font-size="12">ΔV same for any path · conservative E</text>
+
+</svg>

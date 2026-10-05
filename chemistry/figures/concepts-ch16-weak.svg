@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 210" role="img" aria-label="Weak acid ICE · HA ⇌ H+ + A−">
+  <rect width="460" height="210" fill="#fafafa"/>
+  <text x="230" y="22" text-anchor="middle" font-family="Figtree,Segoe UI,sans-serif" font-size="13" fill="#111">Weak acid ICE · HA ⇌ H+ + A−</text>
+
+  <text x="230" y="70" text-anchor="middle" font-size="14">HA ⇌ H+ + A−</text>
+  <text x="230" y="110" text-anchor="middle" font-size="13">Ka = [H+][A−]/[HA]</text>
+  <text x="230" y="150" text-anchor="middle" font-size="12" fill="#555">ICE: x ≈ √(Ka · C) if C/Ka ≫ 100</text>
+  <text x="230" y="180" text-anchor="middle" font-size="12">% ionization = (x/C)×100</text>
+
+</svg>

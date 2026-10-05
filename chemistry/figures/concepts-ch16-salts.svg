@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 210" role="img" aria-label="Salt hydrolysis flowchart">
+  <rect width="500" height="210" fill="#fafafa"/>
+  <text x="250" y="22" text-anchor="middle" font-family="Figtree,Segoe UI,sans-serif" font-size="13" fill="#111">Salt hydrolysis flowchart</text>
+
+  <rect x="30" y="55" width="140" height="100" rx="8" fill="#fde8d8" stroke="#111"/>
+  <text x="100" y="95" text-anchor="middle" font-size="13">acidic</text>
+  <text x="100" y="120" text-anchor="middle" font-size="11" fill="#555">NH4+ · Fe3+</text>
+  <rect x="180" y="55" width="140" height="100" rx="8" fill="#eee" stroke="#111"/>
+  <text x="250" y="95" text-anchor="middle" font-size="13">neutral</text>
+  <text x="250" y="120" text-anchor="middle" font-size="11" fill="#555">NaCl · KNO3</text>
+  <rect x="330" y="55" width="140" height="100" rx="8" fill="#dceef8" stroke="#111"/>
+  <text x="400" y="95" text-anchor="middle" font-size="13">basic</text>
+  <text x="400" y="120" text-anchor="middle" font-size="11" fill="#555">CH3COO− · CO3 2−</text>
+
+</svg>

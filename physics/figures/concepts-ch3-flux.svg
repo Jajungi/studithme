@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 210" role="img" aria-label="Electric flux ΦE = E·A">
+  <rect width="420" height="210" fill="#fafafa"/>
+  <text x="210" y="22" text-anchor="middle" font-family="Figtree,Segoe UI,sans-serif" font-size="13" fill="#111">Electric flux ΦE = E·A</text>
+
+  <ellipse cx="180" cy="120" rx="70" ry="40" fill="#dceef8" stroke="#111"/>
+  <line x1="180" y1="120" x2="180" y2="50" stroke="#0d6e6e" stroke-width="2"/>
+  <text x="195" y="70" font-size="12" fill="#0d6e6e">n̂</text>
+  <line x1="100" y1="80" x2="160" y2="110" stroke="#e67e22" stroke-width="2"/>
+  <text x="100" y="75" font-size="12" fill="#e67e22">E</text>
+  <text x="300" y="120" font-size="14">Φ_E = E A cosθ</text>
+
+</svg>

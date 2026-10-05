@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 180" role="img" aria-label="Dynamic equilibrium">
+  <rect width="460" height="180" fill="#fafafa"/>
+  <text x="230" y="22" text-anchor="middle" font-family="Figtree,Segoe UI,sans-serif" font-size="13" fill="#111">Dynamic equilibrium</text>
+
+  <text x="110" y="95" text-anchor="middle" font-size="15">reactants</text>
+  <path d="M170 80 h100" stroke="#111" stroke-width="2"/><polygon points="270,80 258,75 258,85" fill="#111"/>
+  <path d="M270 110 h-100" stroke="#111" stroke-width="2"/><polygon points="170,110 182,105 182,115" fill="#111"/>
+  <text x="350" y="95" text-anchor="middle" font-size="15">products</text>
+  <text x="230" y="150" text-anchor="middle" font-size="12" fill="#555">forward rate = reverse rate</text>
+
+</svg>

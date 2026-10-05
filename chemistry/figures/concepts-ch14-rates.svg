@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 220" role="img" aria-label="Average rate · Δ[ ] / Δt">
+  <rect width="480" height="220" fill="#fafafa"/>
+  <text x="240" y="22" text-anchor="middle" font-family="Figtree,Segoe UI,sans-serif" font-size="13" fill="#111">Average rate · Δ[ ] / Δt</text>
+
+  <line x1="60" y1="180" x2="420" y2="180" stroke="#111"/>
+  <line x1="60" y1="180" x2="60" y2="40" stroke="#111"/>
+  <path d="M80 50 Q180 60 260 110 T400 160" fill="none" stroke="#0d6e6e" stroke-width="3"/>
+  <line x1="140" y1="70" x2="220" y2="100" stroke="#c45c26" stroke-width="2"/>
+  <text x="40" y="50" font-size="11" fill="#555">[A]</text>
+  <text x="410" y="195" font-size="11" fill="#555">t</text>
+  <text x="250" y="70" font-size="12">rate = −Δ[A]/Δt</text>
+
+</svg>

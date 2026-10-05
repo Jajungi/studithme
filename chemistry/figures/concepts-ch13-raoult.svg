@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 230" role="img" aria-label="Raoult · vapor pressure lowering">
+  <rect width="460" height="230" fill="#fafafa"/>
+  <text x="230" y="22" text-anchor="middle" font-family="Figtree,Segoe UI,sans-serif" font-size="13" fill="#111">Raoult · vapor pressure lowering</text>
+
+  <rect x="60" y="60" width="140" height="100" fill="#dceef8" stroke="#111"/>
+  <text x="130" y="115" text-anchor="middle" font-size="12">pure solvent</text>
+  <path d="M100 60 Q110 40 120 60" stroke="#3a7bd5" fill="none" stroke-width="2"/>
+  <path d="M140 60 Q150 35 160 60" stroke="#3a7bd5" fill="none" stroke-width="2"/>
+  <text x="130" y="185" text-anchor="middle" font-size="11">P°</text>
+  <rect x="260" y="60" width="140" height="100" fill="#cfe8f5" stroke="#111"/>
+  <circle cx="300" cy="120" r="8" fill="#e85d4c"/><circle cx="340" cy="110" r="8" fill="#e85d4c"/>
+  <path d="M300 60 Q310 45 320 60" stroke="#3a7bd5" fill="none" stroke-width="2"/>
+  <text x="330" y="185" text-anchor="middle" font-size="11">P = x_solvent P°</text>
+  <text x="230" y="215" text-anchor="middle" font-size="12" fill="#555">solute particles block escape → P ↓</text>
+
+</svg>

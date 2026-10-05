@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 230" role="img" aria-label="Pillbox at conductor surface">
+  <rect width="420" height="230" fill="#fafafa"/>
+  <text x="210" y="22" text-anchor="middle" font-family="Figtree,Segoe UI,sans-serif" font-size="13" fill="#111">Pillbox at conductor surface</text>
+
+  <rect x="60" y="120" width="300" height="70" fill="#ddd" stroke="#111"/>
+  <text x="210" y="160" text-anchor="middle" font-size="12">conductor · E=0</text>
+  <rect x="175" y="85" width="70" height="55" fill="none" stroke="#0d6e6e" stroke-width="2" stroke-dasharray="4 3"/>
+  <path d="M210 85 V50" stroke="#0d6e6e" stroke-width="2"/>
+  <text x="250" y="70" font-size="12">E = σ/ε0</text>
+
+</svg>

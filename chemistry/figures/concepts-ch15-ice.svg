@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 230" role="img" aria-label="ICE table">
+  <rect width="480" height="230" fill="#fafafa"/>
+  <text x="240" y="22" text-anchor="middle" font-family="Figtree,Segoe UI,sans-serif" font-size="13" fill="#111">ICE table</text>
+
+  <rect x="50" y="45" width="380" height="155" fill="#fff" stroke="#111"/>
+  <line x1="50" y1="80" x2="430" y2="80" stroke="#111"/>
+  <line x1="140" y1="45" x2="140" y2="200" stroke="#111"/>
+  <text x="210" y="68" text-anchor="middle" font-size="12">A</text>
+  <text x="300" y="68" text-anchor="middle" font-size="12">B</text>
+  <text x="380" y="68" text-anchor="middle" font-size="12">C</text>
+  <text x="95" y="110" text-anchor="middle" font-size="12">I</text>
+  <text x="95" y="145" text-anchor="middle" font-size="12">C</text>
+  <text x="95" y="180" text-anchor="middle" font-size="12">E</text>
+  <text x="210" y="145" text-anchor="middle" font-size="12" fill="#0d6e6e">−x</text>
+  <text x="300" y="145" text-anchor="middle" font-size="12" fill="#0d6e6e">−x</text>
+  <text x="380" y="145" text-anchor="middle" font-size="12" fill="#0d6e6e">+x</text>
+
+</svg>

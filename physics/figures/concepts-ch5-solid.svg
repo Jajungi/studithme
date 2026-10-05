@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 230" role="img" aria-label="Uniform sphere energy">
+  <rect width="420" height="230" fill="#fafafa"/>
+  <text x="210" y="22" text-anchor="middle" font-family="Figtree,Segoe UI,sans-serif" font-size="13" fill="#111">Uniform sphere energy</text>
+
+  <circle cx="150" cy="120" r="55" fill="#dceef8" stroke="#111"/>
+  <circle cx="150" cy="120" r="55" fill="none" stroke="#0d6e6e" stroke-dasharray="4 3"/>
+  <text x="280" y="100" font-size="12">shell: U = kQ²/(2R)</text>
+  <text x="280" y="130" font-size="12">uniform solid: larger</text>
+  <text x="210" y="200" text-anchor="middle" font-size="12" fill="#555">assemble by bringing charge from ∞</text>
+
+</svg>

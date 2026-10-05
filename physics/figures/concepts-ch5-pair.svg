@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 210" role="img" aria-label="Pair assembly energy">
+  <rect width="420" height="210" fill="#fafafa"/>
+  <text x="210" y="22" text-anchor="middle" font-family="Figtree,Segoe UI,sans-serif" font-size="13" fill="#111">Pair assembly energy</text>
+
+  <circle cx="130" cy="110" r="14" fill="#e85d4c"/><text x="130" y="115" text-anchor="middle" font-size="11" fill="#fff">q1</text>
+  <circle cx="290" cy="110" r="14" fill="#3a7bd5"/><text x="290" y="115" text-anchor="middle" font-size="11" fill="#fff">q2</text>
+  <line x1="144" y1="110" x2="276" y2="110" stroke="#888"/>
+  <text x="210" y="100" text-anchor="middle" font-size="12">r</text>
+  <text x="210" y="170" text-anchor="middle" font-size="14">U = k q1 q2 / r</text>
+
+</svg>
