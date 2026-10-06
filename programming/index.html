@@ -366,37 +366,124 @@ print(total)
 <p class="en">The first example prints one line per character. The second adds only 1 and 7, so the sum is 8, and the even value 4 is left out by <code>continue</code>.</p>
 </section>
 </article>
-<article class="entry" id="range" data-keys="range 범위 끝 빠짐">
+<article class="entry" id="range" data-keys="range 범위 끝 빠짐 stop step">
 <header class="entry-head"><h3><code>range</code></h3><p class="kind"><span class="ko">함수</span><span class="en">function</span></p></header>
-<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">range는 정수 수열을 만들어 for에 넘기는 함수다. 끝 값은 수열에 포함되지 않는다.</p><p class="en">range is a function that produces an integer sequence for for. The stop value is not included.</p></section>
-<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>range(시작, 끝, 간격)</code></p><p class="ko"><code>range(1, 4)</code>는 1, 2, 3이다. 시작을 생략하면 0부터다. 1부터 n까지 포함하려면 끝을 <code>n + 1</code>로 둔다. 간격이 음수면 감소한다.</p><p class="en"><code>range(1, 4)</code> is 1, 2, 3. Omitting the start begins at 0. To include every integer from 1 through n, set the stop to <code>n + 1</code>. A negative step counts downward.</p></section>
-<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>for i in range(1, 4):
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><code>range</code>는 정수만으로 된 수열을 만드는 함수다. <code>for</code>에 넘기면 그 수들이 이름에 하나씩 들어간다. 핵심은 끝 값(stop)이 수열에 들어가지 않는다는 점이다. <code>range(1, 4)</code>는 1, 2, 3이고 4는 없다. 시작(start)과 간격(step)을 함께 정할 수 있다.</p>
+<p class="en"><code>range</code> builds a sequence of integers. Passed to <code>for</code>, those integers bind to the loop name one by one. The stop value is never included: <code>range(1, 4)</code> is 1, 2, 3 and not 4. A start and a step can be set together with the stop.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>range(stop)
+range(start, stop)
+range(start, stop, step)</code></p>
+<p class="ko">인자가 하나면 0부터 <code>stop</code> 직전까지다. 둘이으면 <code>start</code>부터 <code>stop</code> 직전까지다. 셋이면 그 사이를 <code>step</code>만큼 건너뛴다. 1부터 n까지 모두 필요하면 끝을 <code>n + 1</code>로 둔다. <code>step</code>이 음수면 큰 수에서 작은 수로 내려간다. 이 경우에도 끝 값은 포함되지 않는다.</p>
+<p class="en">One argument means 0 up to, but not including, <code>stop</code>. Two arguments mean <code>start</code> up to, but not including, <code>stop</code>. Three arguments jump by <code>step</code>. To include every integer from 1 through n, set the stop to <code>n + 1</code>. A negative <code>step</code> counts downward, and the stop is still excluded.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko"><code>range</code> 자체는 리스트가 아니다. <code>for</code>가 필요할 때마다 다음 정수를 꺼낸다. 리스트로 보고 싶으면 <code>list(range(...))</code>를 쓴다. 끝 값이 빠지는 규칙은 슬라이스 <code>s[start:stop]</code>과 같은 계열이다.</p>
+<p class="en"><code>range</code> itself is not a list. <code>for</code> pulls the next integer when it needs one. Use <code>list(range(...))</code> when a real list is required. Excluding the stop matches the rule of a slice <code>s[start:stop]</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>for i in range(1, 4):
     print(i)
 # 1
 # 2
-# 3</code></pre></section>
+# 3</code></pre>
+<p class="ko">시작 1은 들어가고 끝 4는 빠진다.</p>
+<p class="en">Start 1 is included and stop 4 is left out.</p>
+<pre><code>for i in range(0, 5, 2):
+    print(i)
+# 0
+# 2
+# 4</code></pre>
+<p class="ko">0부터 시작해 2씩 건너뛴다. 5는 끝이라 수열에 없다.</p>
+<p class="en">It starts at 0 and jumps by 2. 5 is the stop, so it is not in the sequence.</p>
+<pre><code>for i in range(3, 0, -1):
+    print(i)
+# 3
+# 2
+# 1</code></pre>
+<p class="ko">간격이 -1이라 3, 2, 1 순이다. 끝 0은 포함되지 않는다.</p>
+<p class="en">With step -1 the order is 3, 2, 1. The stop 0 is not included.</p>
+</section>
 </article>
-<article class="entry" id="nested" data-keys="중첩 for 구구단 nested">
+<article class="entry" id="nested" data-keys="중첩 for 구구단 nested break">
 <header class="entry-head"><h3><code>중첩 for</code></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header>
-<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">중첩 반복은 바깥 반복이 한 번 진행할 때마다 안쪽 반복이 자기 묶음을 처음부터 다시 돈다.</p><p class="en">In a nested loop, each step of the outer loop runs the inner loop over its whole sequence again.</p></section>
-<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>for a in 묶음:
-    for b in 묶음:</code></p><p class="ko">구구단처럼 두 개의 독립된 번호가 필요할 때 쓴다. 안쪽 for는 바깥 본문보다 한 단계 더 들여쓴다.</p><p class="en">Use it when two independent indexes are required, as in a multiplication table. The inner for is indented one level deeper than the outer body.</p></section>
-<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>for i in range(2, 4):
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">중첩 <code>for</code>는 바깥 반복이 한 칸 진행할 때마다 안쪽 반복이 자기 묶음을 처음부터 끝까지 다시 도는 구조다. 바깥 값이 고정된 상태에서 안쪽 값이 모두 바뀌고, 안쪽이 끝나면 바깥이 다음 칸으로 간다.</p>
+<p class="en">A nested <code>for</code> runs the whole inner sequence again for each step of the outer loop. While the outer value stays fixed, the inner value walks its full sequence; when the inner loop finishes, the outer loop moves to its next element.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>for a in 묶음:
+    for b in 묶음:</code></p>
+<p class="ko">서로 다른 두 번호가 필요할 때 쓴다. 구구단, 표의 행·열, 좌표 쌍이 그 예다. 안쪽 <code>for</code>는 바깥 본문보다 한 단계 더 들여쓴다. 안쪽에 둔 <code>break</code>는 안쪽 반복만 끝내고, 바깥 반복은 다음 칸으로 이어진다.</p>
+<p class="en">Use it when two independent numbers are required, as in a multiplication table, a grid of rows and columns, or coordinate pairs. The inner <code>for</code> is indented one level deeper than the outer body. A <code>break</code> inside the inner loop ends only that inner loop; the outer loop continues with its next element.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">바깥이 n번, 안쪽이 m번이면 안쪽 본문은 대략 n×m번 실행된다. 디버깅할 때는 바깥 값이 바뀔 때마다 안쪽이 다시 0번 칸부터 시작하는지 보면 된다.</p>
+<p class="en">If the outer loop runs n times and the inner loop m times, the inner body runs about n×m times. When debugging, check that the inner loop restarts from its first element every time the outer value changes.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>for i in range(2, 4):
     for j in range(1, 3):
         print(i, j)
 # 2 1
 # 2 2
 # 3 1
-# 3 2</code></pre></section>
+# 3 2</code></pre>
+<p class="ko">바깥 <code>i</code>가 2일 때 안쪽 <code>j</code>는 1, 2를 모두 돈다. 그다음 <code>i</code>가 3이 되면 안쪽은 다시 1, 2부터 시작한다.</p>
+<p class="en">While outer <code>i</code> is 2, inner <code>j</code> walks 1 then 2. When <code>i</code> becomes 3, the inner loop starts again at 1 and 2.</p>
+<pre><code>for i in range(2, 4):
+    for j in range(1, 4):
+        if j == 2:
+            break
+        print(i, j)
+# 2 1
+# 3 1</code></pre>
+<p class="ko">안쪽 <code>break</code>는 <code>j == 2</code>에서 안쪽만 끝낸다. 바깥 <code>i</code>는 3으로 이어지므로 출력은 두 줄이다.</p>
+<p class="en">The inner <code>break</code> ends only the inner loop when <code>j == 2</code>. Outer <code>i</code> still continues to 3, so two lines are printed.</p>
+</section>
 </article>
-<article class="entry" id="while-else" data-keys="while else break"><header class="entry-head"><h3><code>while else</code></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header><section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko"><code>while</code> 뒤의 <code>else</code>는 조건이 거짓이 되어 반복이 평범하게 끝났을 때 실행된다. <code>break</code>나 <code>return</code>으로 빠져나가면 <code>else</code>는 실행되지 않는다. 본문에서 예외가 나도 실행되지 않는다.</p><p class="en">The <code>else</code> after <code>while</code> runs when the condition becomes false and the loop ends normally. It does not run when the loop leaves by <code>break</code> or <code>return</code>, or when an exception occurs in the body.</p></section><section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>while 조건:
+<article class="entry" id="while-else" data-keys="while else break 평범하게 종료">
+<header class="entry-head"><h3><code>while else</code></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><code>while</code> 뒤에 붙는 <code>else</code>는 반복이 조건이 거짓이 되어 평범하게 끝났을 때만 실행된다. 본문에서 <code>break</code>로 빠져나가면 <code>else</code>는 실행되지 않는다. <code>return</code>으로 함수를 나가거나, 본문에서 예외가 나도 실행되지 않는다. <code>continue</code>는 반복을 끝내지 않으므로 <code>else</code> 실행 여부와는 별개다.</p>
+<p class="en">The <code>else</code> after <code>while</code> runs only when the loop ends normally because the condition became false. It does not run after a <code>break</code>, after a <code>return</code>, or after an exception in the body. <code>continue</code> does not end the loop, so it is separate from whether <code>else</code> later runs.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>while 조건:
     본문
-else:</code></p><p class="ko"><code>while</code>과 <code>else</code> 모두 콜론으로 끝난다. <code>else</code>는 생략할 수 있다.</p><p class="en">Both <code>while</code> and <code>else</code> end with a colon. The <code>else</code> may be omitted.</p></section><section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>k = 0
+else:
+    평범하게 끝났을 때</code></p>
+<p class="ko"><code>while</code>과 <code>else</code> 모두 콜론으로 끝난다. <code>else</code>는 생략할 수 있다. “끝까지 돌았는지”를 표시하고 싶을 때 쓴다. 중간에 목표를 찾으면 <code>break</code>하고, 못 찾고 조건이 거짓이 되면 <code>else</code>에서 안내를 출력하는 식이다.</p>
+<p class="en">Both <code>while</code> and <code>else</code> end with a colon. The <code>else</code> may be omitted. Use it when the program should mark that the loop ran to completion. A common pattern is to <code>break</code> when a target is found, and to print a note in <code>else</code> when the condition became false without a find.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko"><code>for</code>에도 같은 형태의 <code>else</code>가 있다. 칸을 모두 돌고 평범하게 끝나면 실행되고, <code>break</code>로 끝나면 실행되지 않는다. 수업의 홀수 합 예제에서 <code>for</code> 뒤 <code>else: print(total)</code>이 그 쓰임이다.</p>
+<p class="en"><code>for</code> has the same kind of <code>else</code>. It runs after every element is visited normally, and it stays silent after a <code>break</code>. In the lecture odd-sum example, <code>else: print(total)</code> after <code>for</code> is that use.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>k = 0
 while k &lt; 2:
     k = k + 1
 else:
     print(k)
-# 2</code></pre></section></article>
+# 2</code></pre>
+<p class="ko">조건이 거짓이 되어 끝났으므로 <code>else</code>가 실행되고 2가 출력된다.</p>
+<p class="en">The loop ended because the condition became false, so <code>else</code> runs and prints 2.</p>
+<pre><code>k = 0
+while k &lt; 5:
+    k = k + 1
+    if k == 2:
+        break
+else:
+    print("normal end")
+print("after", k)
+# after 2</code></pre>
+<p class="ko"><code>break</code>로 끝났으므로 <code>else</code>의 문장은 실행되지 않는다. 반복 밖의 <code>print</code>만 실행된다.</p>
+<p class="en">Because the loop ended with <code>break</code>, the <code>else</code> body does not run. Only the <code>print</code> after the loop runs.</p>
+</section>
+</article>
 <article class="entry" id="break" data-keys="break 반복 중단 terminate">
 <header class="entry-head"><h3><code>break</code></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header>
 <section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
@@ -439,6 +526,15 @@ else:
 <p class="en"><code>break</code> ends the loop; <code>continue</code> skips only the current pass. In the sum of odd numbers from 1 through 100, even values hit <code>continue</code> so <code>total += i</code> does not run, and the sum is 2500. In the list example, a negative value hits <code>break</code>, an even value hits <code>continue</code>, and only the other odd values are added. The odd sum before <code>-1</code> is 32; 22 and 31 after it are never seen.</p>
 </section>
 <section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>total = 0
+for i in range(1, 11):
+    if i % 2 == 0:
+        continue
+    total += i
+print(total)
+# 25</code></pre>
+<p class="ko">1부터 10까지 본다. 짝수면 <code>continue</code>로 합산을 건너뛰고, 홀수 1·3·5·7·9만 더해 25가 된다. 이 예에는 <code>break</code>가 없다.</p>
+<p class="en">The loop looks at 1 through 10. Even values hit <code>continue</code> and skip the sum; only the odds 1, 3, 5, 7, and 9 are added, so the total is 25. This example has no <code>break</code>.</p>
 <pre><code>data = [1, 4, 7, 3, 8, 6, 9, 5, 0, 2, 7, -1, 22, 31]
 total = 0
 for i in data:
@@ -452,23 +548,80 @@ for i in data:
         print(i)
         total += i
 print("Sum of odd numbers:", total)
-# 1, 7, 3, 9, 5, 7 을 더한 뒤 -1 에서 종료
 # Sum of odd numbers: 32</code></pre>
-<p class="ko">칸을 앞에서부터 본다. 짝수면 안내만 출력하고 다음 칸으로 간다. 양수 홀수면 그 수를 출력하고 합에 더한다. 음수가 나오는 순간 <code>break</code>로 반복이 끝나서, 리스트 뒤쪽은 읽지 않는다.</p>
-<p class="en">The loop reads cells from the front. An even value prints a note and moves on. A positive odd value is printed and added. As soon as a negative value appears, <code>break</code> ends the loop, so the rest of the list is unread.</p>
+<p class="ko">수업 예제다. 음수에서 <code>break</code>, 짝수에서 <code>continue</code>, 나머지 홀수만 더한다. <code>-1</code> 앞까지 모은 합은 32이고, 뒤의 22와 31은 읽지 않는다.</p>
+<p class="en">This is the lecture example. A negative value hits <code>break</code>, an even value hits <code>continue</code>, and only the other odd values are added. The sum before <code>-1</code> is 32; 22 and 31 after it are unread.</p>
 </section>
 </article>
-<article class="entry" id="enumerate" data-keys="enumerate 번호 start"><header class="entry-head"><h3><code>enumerate</code></h3><p class="kind"><span class="ko">함수</span><span class="en">function</span></p></header><section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko"><code>enumerate</code>는 묶음의 칸을 <code>(번호, 값)</code> 쌍으로 내놓는다. 번호는 기본으로 0부터 시작하고, <code>start</code>로 시작 번호를 바꿀 수 있다.</p><p class="en"><code>enumerate</code> yields each element as an <code>(index, value)</code> pair. The index starts at 0 unless <code>start</code> changes it.</p></section><section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>for i, x in enumerate(묶음):</code></p><p class="ko">왼쪽에서 쌍을 두 이름에 푼다. <code>enumerate(묶음, start=1)</code>이면 첫 번호가 1이다.</p><p class="en">The left side unpacks each pair into two names. <code>enumerate(seq, start=1)</code> starts the index at 1.</p></section><section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>for i, ch in enumerate("Hi"):
+<article class="entry" id="enumerate" data-keys="enumerate 번호 start index">
+<header class="entry-head"><h3><code>enumerate</code></h3><p class="kind"><span class="ko">함수</span><span class="en">function</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><code>enumerate</code>는 묶음의 각 칸을 <code>(번호, 값)</code> 쌍으로 내놓는 함수다. 값만 도는 <code>for x in 묶음</code>과 달리, 몇 번째 칸인지도 함께 필요할 때 쓴다. 번호는 기본으로 0부터 시작한다.</p>
+<p class="en"><code>enumerate</code> yields each element of a sequence as an <code>(index, value)</code> pair. Unlike <code>for x in sequence</code>, which only binds the value, it is used when the position is needed as well. The index starts at 0 by default.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>for i, x in enumerate(묶음):
+for i, x in enumerate(묶음, start=1):</code></p>
+<p class="ko">왼쪽에서 쌍을 두 이름에 푼다. 첫 이름이 번호, 둘째가 값이다. <code>start</code>를 주면 첫 번호가 그 값으로 바뀐다. 사람 눈에 보이는 1번부터 세고 싶을 때 <code>start=1</code>을 둔다.</p>
+<p class="en">The left side unpacks each pair into two names: the first is the index and the second is the value. With <code>start</code>, the first index becomes that value. Use <code>start=1</code> when the count should begin at 1 for display.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">번호는 묶음을 고치지 않는다. 리스트의 칸을 번호로 바꾸려면 여전히 <code>lst[i] = 값</code>처럼 인덱스를 쓴다. <code>enumerate</code>가 내주는 번호와 리스트 인덱스는 기본값 0에서 같은 위치다.</p>
+<p class="en">The index does not modify the sequence. To change a list cell by position, still use <code>lst[i] = value</code>. With the default start of 0, the number from <code>enumerate</code> matches the list index of that cell.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>for i, ch in enumerate("Hi"):
     print(i, ch)
 # 0 H
-# 1 i</code></pre></section></article>
-<article class="entry" id="for-dict" data-keys="for dict 키 zip"><header class="entry-head"><h3><code>for 딕셔너리</code></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header><section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">딕셔너리를 <code>for</code>로 돌면 값이 아니라 키가 이름에 들어간다. <code>zip</code>은 여러 묶음의 같은 위치를 쌍으로 묶어, 짧은 쪽이 끝나면 멈춘다.</p><p class="en">A <code>for</code> over a dictionary binds keys, not values. <code>zip</code> pairs elements that share a position and stops when the shortest sequence ends.</p></section><section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>for key in d:
-for a, b in zip(xs, ys):</code></p><p class="ko">키와 값을 함께 보려면 <code>d.items()</code>를 돈다.</p><p class="en">Iterate <code>d.items()</code> when both the key and the value are needed.</p></section><section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>for key in {"name": "Ada"}:
+# 1 i</code></pre>
+<p class="ko">첫 글자 H의 번호는 0, 둘째 글자 i의 번호는 1이다.</p>
+<p class="en">The character H has index 0 and i has index 1.</p>
+<pre><code>for i, ch in enumerate("Hi", start=1):
+    print(i, ch)
+# 1 H
+# 2 i</code></pre>
+<p class="ko"><code>start=1</code>이면 화면에 보이는 순번이 1, 2로 시작한다. 글자 자체는 같다.</p>
+<p class="en">With <code>start=1</code> the displayed numbers begin at 1 and 2. The characters themselves stay the same.</p>
+</section>
+</article>
+<article class="entry" id="for-dict" data-keys="for dict 키 zip items">
+<header class="entry-head"><h3><code>for 딕셔너리 · zip</code></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">딕셔너리를 <code>for</code>로 돌면 값이 아니라 키(key)가 이름에 들어간다. 값까지 함께 보려면 <code>d.items()</code>가 내주는 <code>(키, 값)</code> 쌍을 돈다. <code>zip</code>은 여러 묶음에서 같은 위치의 칸을 짝으로 묶는다. 짧은 쪽의 칸이 끝나면 <code>zip</code>도 멈춘다.</p>
+<p class="en">A <code>for</code> over a dictionary binds keys, not values. To see values as well, iterate the <code>(key, value)</code> pairs from <code>d.items()</code>. <code>zip</code> pairs cells that share a position across several sequences, and it stops when the shortest sequence ends.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>for key in d:
+for key, value in d.items():
+for a, b in zip(xs, ys):</code></p>
+<p class="ko">키만 필요하면 <code>for key in d</code>로 충분하다. 메뉴 이름과 가격처럼 짝이 필요하면 <code>items()</code>를 쓴다. 두 리스트를 나란히 처리할 때는 <code>zip</code>을 쓴다. 길이가 다르면 남는 칸은 짝이 없어 버려진다.</p>
+<p class="en"><code>for key in d</code> is enough when only keys are needed. Use <code>items()</code> when pairs such as a menu name and a price are required. Use <code>zip</code> to walk two lists side by side. When the lengths differ, leftover cells without a partner are dropped.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko"><code>key in d</code> 멤버십 검사도 키만 본다. 값 안에 어떤 수가 있는지는 <code>in</code>으로 바로 확인하지 않는다. <code>zip</code>의 결과는 한 번 돌면 끝나는 이터레이터라서, 같은 짝을 다시 쓰려면 다시 <code>zip(...)</code>을 호출하거나 <code>list(zip(...))</code>로 저장한다.</p>
+<p class="en">Membership with <code>key in d</code> also checks keys only. It does not look inside the values. The result of <code>zip</code> is an iterator that is spent after one pass, so call <code>zip(...)</code> again or store <code>list(zip(...))</code> when the pairs are needed twice.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>menu = {"Burger": 5500, "Pizza": 8500}
+for key in menu:
     print(key)
-for a, b in zip([2, 3], [1]):
+# Burger
+# Pizza</code></pre>
+<p class="ko">키만 순서대로 출력된다. 가격 숫자는 이 반복의 이름에 들어오지 않는다.</p>
+<p class="en">Only the keys are printed in order. The prices do not bind to the loop name in this form.</p>
+<pre><code>for key, price in menu.items():
+    print(key, price)
+# Burger 5500
+# Pizza 8500</code></pre>
+<p class="ko"><code>items()</code>로 키와 값을 한 쌍씩 받는다.</p>
+<p class="en"><code>items()</code> yields each key with its value as a pair.</p>
+<pre><code>for a, b in zip([2, 3], [1]):
     print(a, b)
-# name
-# 2 1</code></pre></section></article>
+# 2 1</code></pre>
+<p class="ko">둘째 묶음 길이가 1이라 짝은 한 개뿐이다. 남는 3은 출력되지 않는다.</p>
+<p class="en">The second sequence has length 1, so there is only one pair. The leftover 3 is not printed.</p>
+</section>
+</article>
 <div class="walk-mount" data-walk="loops"></div>
 </section>
 <section class="chapter" id="indexing"><header class="chapter-head"><p class="num">08</p><div><h2><span class="ko">인덱스와 슬라이스</span><span class="en">Index and slice</span></h2><p class="lead"><span class="ko">문자열, 리스트, 튜플은 0부터 번호를 센다. 슬라이스의 끝 번호는 빠진다.</span><span class="en">Strings, lists, and tuples count from 0. The stop of a slice is excluded.</span></p></div></header><article class="entry" id="index-rule" data-keys="인덱스 index 0 -1">
@@ -1064,6 +1217,6 @@ print(d)
     </main>
   </div>
   <script src="js/site.js?v=6"></script>
-  <script src="js/walks.js?v=15"></script>
+  <script src="js/walks.js?v=16"></script>
 </body>
 </html>
