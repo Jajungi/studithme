@@ -62,12 +62,12 @@
         [w("# print(\"skip\")", "cmt", "cmt")]
       ],
       steps: [
-        step("b에 2를 넣는다", "Store 2 in b", "오른쪽 2를 계산해 이름 b에 연결한다. 아직 출력은 없다.", "The 2 on the right is bound to b. Nothing has been written yet.", { line: 0, name: ["n2"], lane: lane("b", "b는 정수 2다.", "b is the integer 2.", [[cell("b", "2", "hot", "")]]) }),
-        step("print가 한 줄을 쓴다", "print writes one line", "float(b)는 2를 실수 2.0으로 바꾼 새 값이다. print는 쉼표 사이를 공백으로 구분해 b = 2.0을 출력하고 None을 반환한다.", "float(b) is a new float, 2.0. print writes b = 2.0, with a space between the arguments, and returns None.", { line: 1, name: ["pr", "fl", "b1"], out: ["s1"] }),
-        step("input이 한 줄을 받는다", "input reads one line", "키보드에 4를 치면 text는 글자 \"4\"다. 정수 4가 아니다.", "Typing 4 makes text the characters \"4\", not the integer 4.", { line: 2, name: ["inp"], idx: ["prompt"] }),
-        step("int가 정수로 바꾼다", "int builds an integer", "int(\"4\")는 정수 4를 반환한다. text는 여전히 문자열이다. n에 4를 넣는다.", "int(\"4\") returns the integer 4. text is still a string. n becomes 4.", { line: 3, name: ["tx", "nL"], out: ["intn"], lane: lane("n", "n은 정수 4다. text는 \"4\"로 남는다.", "n is the integer 4. text is still \"4\".", [[cell("n", "4", "hot", ""), cell("text", "\"4\"", "in", "")]]) }),
-        step("f-string을 출력한다", "Print the f-string", "중괄호 안의 n을 먼저 계산한다. n이 4이므로 문자열은 \"n=4\"이고, print가 그 줄을 출력한다.", "The n inside the braces is evaluated first. n is 4, so the string is \"n=4\", and print writes that line.", { line: 4, name: ["fs"], out: ["pr2"] }),
-        step("주석은 건너뛴다", "The comment is skipped", "# 부터 그 줄 끝은 실행되지 않는다. print(\"skip\")은 호출되지 않고, 터미널도 늘지 않는다.", "From # to the end of the line is not executed. print(\"skip\") is not called, and the terminal does not grow.", { line: 5, idx: ["cmt"] })
+        step("b에 2를 넣는다", "Store 2 in b", "대입 = 은 비교가 아니다. 오른쪽 정수 2를 계산한 뒤 이름 b에 연결한다. 이 줄만으로는 화면에 아무것도 나오지 않는다. 오른쪽 칸에서 b가 2를 가리키는 상태를 본다.", "Assignment = is not a comparison. The integer 2 on the right is evaluated and bound to the name b. This line alone writes nothing to the screen. The lane shows b referring to 2.", { line: 0, name: ["n2"], lane: lane("b", "b는 정수 2다. 출력은 아직 없다.", "b is the integer 2. There is no output yet.", [[cell("b", "2", "hot", "")]]) }),
+        step("print가 한 줄을 쓴다", "print writes one line", "안쪽부터 본다. float(b)는 b의 2를 받아 새 실수 2.0을 만든다. print는 문자열 \"b =\"와 그 2.0을 쉼표로 받아, 기본 sep인 공백 하나로 이어 b = 2.0을 한 줄에 쓴다. 호출의 반환값은 None이지만 이 프로그램은 그 값을 저장하지 않는다.", "Read the inside first. float(b) takes b’s 2 and builds a new float 2.0. print receives the string \"b =\" and that 2.0, joins them with the default sep of one space, and writes b = 2.0 on one line. The call returns None, but this program does not store that return value.", { line: 1, name: ["pr", "fl", "b1"], out: ["s1"] }),
+        step("input이 한 줄을 받는다", "input reads one line", "안내 문구 Enter a number: 가 뜬 뒤 입력을 기다린다. 이 종합 예에서는 키보드에 4와 Enter를 친 것으로 둔다. 반환값은 글자 \"4\"이며 이름 text에 담긴다. 숫자처럼 보여도 자료형은 str이라서, 아직 4 + 1 같은 정수 연산에 바로 쓰지 않는다.", "The prompt Enter a number: appears, then input waits. In this combined example the typed line is 4 and Enter. The return value is the characters \"4\", stored in text. Even though it looks numeric, its type is str, so it is not yet used in integer arithmetic such as 4 + 1.", { line: 2, name: ["inp"], idx: ["prompt"] }),
+        step("int가 정수로 바꾼다", "int builds an integer", "int(text)는 문자열 \"4\"를 읽어 정수 4를 새로 만든다. 그 결과가 n에 대입된다. text 이름은 여전히 문자열 \"4\"를 가리킨다. 변환은 새 값을 만들 뿐, 인자를 제자리에서 바꾸지 않는다. 이제 n으로는 정수 연산을 할 수 있다.", "int(text) reads the string \"4\" and builds the integer 4. That result is assigned to n. The name text still refers to the string \"4\". Conversion creates a new value; it does not change the argument in place. n can now take part in integer arithmetic.", { line: 3, name: ["tx", "nL"], out: ["intn"], lane: lane("n / text", "n은 정수 4, text는 글자 \"4\"로 남는다.", "n is the integer 4; text remains the characters \"4\".", [[cell("n", "4", "hot", ""), cell("text", "\"4\"", "in", "")]]) }),
+        step("f-string을 출력한다", "Print the f-string", "f\"n={n}\"에서 중괄호 안의 n을 먼저 계산한다. n이 4이므로 문자열 값은 \"n=4\"가 된다. 그 문자열을 print가 받아 한 줄을 쓴다. f-string 표기만으로는 출력되지 않고, print가 있어야 터미널에 나타난다.", "In f\"n={n}\", the n inside the braces is evaluated first. Because n is 4, the string value is \"n=4\". print receives that string and writes one line. An f-string alone does not print; print is what makes it appear in the terminal.", { line: 4, name: ["fs"], out: ["pr2"] }),
+        step("주석은 건너뛴다", "The comment is skipped", "줄이 # 로 시작하므로 그 줄 전체는 실행되지 않는다. print(\"skip\")은 호출되지 않고, 터미널 출력도 늘어나지 않는다. 주석은 결과를 바꾸지 않고 사람을 위한 메모이거나, 잠시 끈 코드다.", "Because the line starts with #, the whole line is not executed. print(\"skip\") is never called, and the terminal output does not grow. A comment does not change results; it is a note for people, or a line kept out of execution for the moment.", { line: 5, idx: ["cmt"] })
       ],
       terms: [
         [],
@@ -87,11 +87,11 @@
         [w("print", "pr", "fn"), w("("), w("type", "ty", "fn"), w("("), w("n", "nT"), w("))")]
       ],
       steps: [
-        step("n은 9", "n is 9", "오른쪽 9를 이름 n에 넣는다.", "The 9 on the right is bound to n.", { line: 0, name: ["nine"], lane: lane("n", "n은 정수 9다.", "n is the integer 9.", [[cell("n", "9", "hot", "")]]) }),
-        step("n은 7이 된다", "n becomes 7", "오른쪽의 n은 아직 9다. 9 - 2인 7을 n에 다시 넣는다.", "The n on the right is still 9. 9 - 2 is 7, and that 7 is stored back in n.", { line: 1, name: ["nR", "two"], out: ["nL"], lane: lane("n", "계산 뒤 n은 7이다.", "After the calculation, n is 7.", [[cell("n", "7", "hot", "")]]) }),
-        step("a와 b가 같은 2", "a and b share 2", "2를 한 번 계산하고, 그 값을 a와 b에 연결한다.", "2 is evaluated once, and that value is bound to both a and b.", { line: 2, name: ["both"], lane: lane("a, b", "a와 b는 둘 다 2다.", "Both a and b are 2.", [[cell("a", "2", "hot", ""), cell("b", "2", "in", "")]]) }),
-        step("두 칸을 두 이름에 넣는다", "Two cells, two names", "왼쪽 이름은 두 개고 오른쪽 칸도 두 개다. 0번 Ada가 name, 1번 \"20\"이 age다. \"20\"은 글자다.", "The left side has two names and the right side has two cells. Cell 0, Ada, becomes name, and cell 1, \"20\", becomes age. \"20\" is text.", { line: 3, name: ["pair"], lane: lane("[\"Ada\", \"20\"]", "0이 첫 칸이다.", "0 is the first cell.", [[cell("0", "Ada", "hot", "→ name"), cell("1", "\"20\"", "in", "→ age")]]) }),
-        step("type이 int를 출력한다", "type prints int", "지금 n은 7이다. type(n)은 int를 반환하고 print가 <class 'int'>를 출력한다.", "n is now 7. type(n) returns int, and print writes <class 'int'>.", { line: 4, name: ["nT"], out: ["ty", "pr"] })
+        step("n은 9", "n is 9", "오른쪽 정수 9를 이름 n에 연결한다. 대입만으로는 출력이 없다. 이후 줄에서 n을 읽으면 이 9부터 시작한다.", "The integer 9 on the right is bound to the name n. Assignment alone produces no output. Later lines that read n start from this 9.", { line: 0, name: ["nine"], lane: lane("n", "n은 정수 9다.", "n is the integer 9.", [[cell("n", "9", "hot", "")]]) }),
+        step("n은 7이 된다", "n becomes 7", "오른쪽을 먼저 계산한다. 그때 n은 아직 9이므로 9 - 2는 7이다. 그 7을 다시 왼쪽 n에 연결한다. 예전의 9와의 연결은 끊긴다. 한 줄 안에서 ‘읽기 → 계산 → 다시 담기’ 순서다.", "The right side runs first. At that moment n is still 9, so 9 - 2 is 7. That 7 is bound back to n on the left. The old link to 9 is dropped. In one line the order is read → compute → store again.", { line: 1, name: ["nR", "two"], out: ["nL"], lane: lane("n", "계산 뒤 n은 7이다.", "After the calculation, n is 7.", [[cell("n", "7", "hot", "")]]) }),
+        step("a와 b가 같은 2", "a and b share 2", "연쇄 대입이다. 식 2를 한 번만 계산하고, 그 같은 결과를 a와 b에 차례로 연결한다. 지금은 불변 정수라서 두 이름이 같은 값을 가리키는 상태로 보면 된다.", "This is chained assignment. The expression 2 is evaluated once, and that same result is bound to a and then to b. Here it is an immutable integer, so both names refer to that value.", { line: 2, name: ["both"], lane: lane("a, b", "a와 b는 둘 다 2다.", "Both a and b are 2.", [[cell("a", "2", "hot", ""), cell("b", "2", "in", "")]]) }),
+        step("두 칸을 두 이름에 넣는다", "Two cells, two names", "언패킹이다. 왼쪽 이름 개수와 오른쪽 칸 개수가 둘로 같다. 위 숫자 0이 첫 칸이다. 가운데 값이 Ada인 칸은 name으로, 값이 \"20\"인 칸은 age로 간다. \"20\"은 따옴표가 있는 글자라서 정수 20이 아니다.", "This is unpacking. There are two names on the left and two cells on the right. Top number 0 is the first cell. The cell whose value is Ada goes to name; the cell whose value is \"20\" goes to age. \"20\" is quoted text, not the integer 20.", { line: 3, name: ["pair"], lane: lane("[\"Ada\", \"20\"]", "위: 칸 번호. 가운데: 값. 아래: 들어가는 이름.", "Top: index. Middle: value. Bottom: destination name.", [[cell("0", "Ada", "hot", "→ name"), cell("1", "\"20\"", "in", "→ age")]]) }),
+        step("type이 int를 출력한다", "type prints int", "이 시점의 n은 앞에서 7로 바뀐 상태다. type(n)은 형 int를 반환하고, print가 그 결과를 <class 'int'> 형태로 한 줄에 쓴다. type 호출은 n의 값을 바꾸지 않는다.", "At this point n is still the 7 from earlier. type(n) returns the type int, and print writes that result as <class 'int'> on one line. Calling type does not change the value of n.", { line: 4, name: ["nT"], out: ["ty", "pr"] })
       ],
       terms: [
         [],
@@ -113,14 +113,14 @@
         [w("print", "pp", "fn"), w("("), w("pair", "pr"), w(")")]
       ],
       steps: [
-        step("9.9에서 소수점을 버린다", "Drop the fraction of 9.9", "int(9.9)는 9다. print가 9를 출력한다.", "int(9.9) is 9. print writes 9.", { line: 0, name: ["f99"], out: ["i1"] }),
-        step("글자 9를 정수로 읽는다", "Read the character 9 as an integer", "int(\"9\")는 9다. \"9.0\"처럼 점이 있으면 int는 직접 받지 않는다.", "int(\"9\") is 9. int does not accept a string such as \"9.0\" directly.", { line: 1, name: ["s9"], out: ["i2"] }),
-        step("2를 2.0으로 바꾼다", "Turn 2 into 2.0", "float(2)는 실수 2.0이다.", "float(2) is the float 2.0.", { line: 2, name: ["n2"], out: ["fl"] }),
-        step("수를 글자로 붙인다", "Join a number as text", "str(1)이 \"1\"을 만든 뒤에 \"a = \"와 붙는다. 출력은 a = 1이다.", "str(1) makes \"1\", which is then joined to \"a = \". The output is a = 1.", { line: 3, name: ["one"], out: ["st", "sa"] }),
-        step("글자를 칸으로 옮긴다", "Move characters into cells", "list(\"ab\")는 ['a', 'b']다. 0번이 a, 1번이 b다.", "list(\"ab\") is ['a', 'b']. Cell 0 is a and cell 1 is b.", { line: 4, name: ["ab"], out: ["ls"], lane: lane("\"ab\"", "글자 하나가 칸 하나다.", "Each character is one cell.", [[cell("0", "a", "hot", "chars[0]"), cell("1", "b", "in", "chars[1]")]]) }),
-        step("chars를 출력한다", "Print chars", "print가 ['a', 'b']를 출력한다. \"ab\" 자체는 그대로다.", "print writes ['a', 'b']. The string \"ab\" itself is unchanged.", { line: 5, name: ["ch"], out: ["pc"] }),
-        step("리스트를 튜플로 고정한다", "Freeze the list into a tuple", "tuple([1, 2])는 (1, 2)다. 만들어진 튜플의 칸은 대입으로 바꾸지 못한다.", "tuple([1, 2]) is (1, 2). Those cells cannot be replaced by assignment.", { line: 6, name: ["lst"], out: ["tu"] }),
-        step("pair를 출력한다", "Print pair", "print가 (1, 2)를 출력한다.", "print writes (1, 2).", { line: 7, name: ["pr"], out: ["pp"] })
+        step("9.9에서 소수점을 버린다", "Drop the fraction of 9.9", "int는 새 정수를 만든다. 실수 9.9를 넣으면 소수점 아래를 버려 9가 된다. 반올림이 아니라 버림이다. print가 그 9를 한 줄에 쓴다.", "int builds a new integer. Given the float 9.9 it drops the fraction and yields 9. That is truncation, not rounding. print writes that 9 on one line.", { line: 0, name: ["f99"], out: ["i1"] }),
+        step("글자 9를 정수로 읽는다", "Read the character 9 as an integer", "인자 \"9\"는 문자열이지만 정수 모양이라 int가 정수 9로 읽는다. 점아 있는 \"9.0\"은 이 단계에서 직접 받지 않는다. 그때는 float를 먼저 거친다.", "The argument \"9\" is a string, but it looks like an integer, so int reads it as 9. A dotted \"9.0\" is not accepted at this step; go through float first.", { line: 1, name: ["s9"], out: ["i2"] }),
+        step("2를 2.0으로 바꾼다", "Turn 2 into 2.0", "float(2)는 정수 2와 값이 같아 보여도 자료형이 실수인 새 값 2.0을 만든다. print가 2.0을 출력한다.", "float(2) builds a new value 2.0 that looks like 2 but has float type. print writes 2.0.", { line: 2, name: ["n2"], out: ["fl"] }),
+        step("수를 글자로 붙인다", "Join a number as text", "문자열과 수를 + 로 이으려면 형이 같아야 한다. str(1)이 글자 \"1\"을 만들고 \"a = \"와 이어져 \"a = 1\"이 된 뒤 print가 그 줄을 쓴다.", "Joining text and a number with + needs matching types. str(1) makes the characters \"1\", which join to \"a = \" as \"a = 1\", and print writes that line.", { line: 3, name: ["one"], out: ["st", "sa"] }),
+        step("글자를 칸으로 옮긴다", "Move characters into cells", "list(\"ab\")는 새 리스트를 만든다. 문자열의 글자 하나가 칸 하나다. 0번 칸 a, 1번 칸 b가 chars에 대입된다. 원본 \"ab\" 문자열은 그대로다.", "list(\"ab\") builds a new list. Each character of the string becomes one cell. Cell 0 is a and cell 1 is b, assigned to chars. The original string \"ab\" is unchanged.", { line: 4, name: ["ab"], out: ["ls"], lane: lane("\"ab\" → chars", "위: 칸 번호. 아래: 그 칸의 글자.", "Top: index. Bottom: character in that cell.", [[cell("0", "a", "hot", "chars[0]"), cell("1", "b", "in", "chars[1]")]]) }),
+        step("chars를 출력한다", "Print chars", "print가 리스트 표기 ['a', 'b']를 한 줄에 쓴다. 이 출력은 chars가 가리키는 리스트를 보여 줄 뿐, \"ab\"를 바꾸지 않는다.", "print writes the list notation ['a', 'b'] on one line. That display shows the list chars refers to; it does not change \"ab\".", { line: 5, name: ["ch"], out: ["pc"] }),
+        step("리스트를 튜플로 고정한다", "Freeze the list into a tuple", "tuple([1, 2])는 칸 값이 같은 새 튜플 (1, 2)를 만든다. 이 튜플의 칸은 나중에 pair[0] = ... 형태의 대입으로 바꾸지 못한다.", "tuple([1, 2]) builds a new tuple (1, 2) with the same cell values. Those cells cannot later be replaced by an assignment such as pair[0] = ....", { line: 6, name: ["lst"], out: ["tu"] }),
+        step("pair를 출력한다", "Print pair", "print가 튜플 표기 (1, 2)를 출력한다. 종합 예시의 변환 흐름이 여기서 끝난다.", "print writes the tuple notation (1, 2). The conversion path of this combined example ends here.", { line: 7, name: ["pr"], out: ["pp"] })
       ],
       terms: [
         ["9"],
@@ -660,9 +660,9 @@
   };
 
   var titles = {
-    io: ["통합 코드", "Combined code"],
-    values: ["통합 코드", "Combined code"],
-    convert: ["통합 코드", "Combined code"],
+    io: ["개념 모아 해보기", "Try the concepts together"],
+    values: ["개념 모아 해보기", "Try the concepts together"],
+    convert: ["개념 모아 해보기", "Try the concepts together"],
     ops: ["통합 코드", "Combined code"],
     cond: ["통합 코드", "Combined code"],
     modules: ["통합 코드", "Combined code"],

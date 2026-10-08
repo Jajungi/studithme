@@ -66,125 +66,416 @@
 <section><h3><span class="ko">정리</span><span class="en">Summary</span></h3><p><a href="#memo"><span class="ko">최종 정리</span><span class="en">Summary</span></a></p></section>
 </div>
 </section>
-<section class="chapter" id="io"><header class="chapter-head"><p class="num">01</p><div><h2><span class="ko">출력과 입력</span><span class="en">Output and input</span></h2><p class="lead"><span class="ko">계산이 끝나도 결과는 표준 출력에 스스로 나타나지 않는다. 보여줄 때만 print를 호출한다.</span><span class="en">A finished calculation does not appear by itself. Call print only when the result should be shown.</span></p></div></header><article class="entry" id="print" data-keys="print 프린트 출력 function">
+<section class="chapter" id="io"><header class="chapter-head"><p class="num">01</p><div><h2><span class="ko">출력과 입력</span><span class="en">Output and input</span></h2><p class="lead"><span class="ko">계산이 끝나도 결과는 표준 출력에 스스로 나타나지 않는다. 보여줄 때만 print를 호출한다.</span><span class="en">A finished calculation does not appear by itself. Call print only when the result should be shown.</span></p></div></header><article class="entry" id="print" data-keys="print 프린트 출력 function sep end None">
 <header class="entry-head"><h3><code>print</code></h3><p class="kind"><span class="ko">함수</span><span class="en">function</span></p></header>
-<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">print는 인자(argument)를 표준 출력(standard output)에 기록하는 함수(function)다. 호출 자체는 항상 None을 반환한다. 화면에 나타난 내용과 반환값(return value)은 별개다.</p><p class="en">print is a function that writes its arguments to standard output. The call itself always returns None. What appears on the screen is separate from the return value.</p></section>
-<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>print(값들, sep=" ", end="\n")</code></p><p class="ko">인자는 쉼표로 나눈다. 구분자(separator)의 기본값은 공백 하나이고, 끝을 닫는 문자의 기본값은 줄바꿈이다. 수와 문자열(string)을 한 호출에 함께 둘 수 있다. <code>+</code>로 문자열과 수를 연결하면 TypeError다.</p><p class="en">Separate arguments with commas. The default separator is one space, and the default ending is a newline. A number and a string may share one call. Joining a string and a number with <code>+</code> raises TypeError.</p></section>
-<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4><p class="ko">반환값을 변수에 대입하면 출력은 이루어지지만 변수에는 None이 남는다. <code>reverse</code>는 print의 매개변수(parameter)가 아니므로 <code>print(lst, reverse=True)</code>도 TypeError다. 역순 출력은 sorted나 슬라이스(slice)의 일이다.</p><p class="en">Assigning the return value stores None, even though the output still appears. <code>reverse</code> is not a parameter of print, so <code>print(lst, reverse=True)</code> also raises TypeError. Reversing belongs to sorted or to a slice.</p></section>
-<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>b = 2
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">print는 인자(argument)를 표준 출력에 한 줄(또는 지정한 끝 문자)로 기록하는 함수다. 화면에 글자가 나타나는 일과, 호출이 돌려주는 값은 별개다. 호출의 반환값은 항상 None이다.</p>
+<p class="en">print is a function that writes its arguments to standard output, ending with a newline by default. What appears on the screen is separate from the value the call returns. The return value is always None.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>print(값들, sep=" ", end="
+")</code></p><p class="ko">여러 값은 쉼표로 나란히 둔다. 기본으로 값 사이에는 공백 하나(sep)가 들어가고, 마지막에는 줄바꿈(end)이 붙는다. 수와 문자열을 한 호출에 함께 둘 수 있다. 문자열과 수를 <code>+</code>로 이어 붙이려면 먼저 str로 맞춰야 한다.</p>
+<p class="en">Pass several values separated by commas. By default one space (sep) goes between values and a newline (end) follows the last one. A number and a string may share one call. To join a string and a number with <code>+</code>, convert with str first.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko"><code>x = print(1)</code>처럼 대입하면 화면에는 1이 나오지만 x에는 None이 남는다. <code>reverse</code>는 print의 매개변수가 아니라서 <code>print(lst, reverse=True)</code>는 TypeError다. 역순으로 보여 주려면 sorted나 슬라이스를 쓴다.</p>
+<p class="en">With <code>x = print(1)</code>, 1 still appears on the screen, but x stores None. <code>reverse</code> is not a parameter of print, so <code>print(lst, reverse=True)</code> raises TypeError. To show a reversed order, use sorted or a slice.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>b = 2
 print("b =", float(b))
-# b = 2.0
-
-x = print(1)
-# 1이 출력되고 x는 None</code></pre></section>
+# b = 2.0</code></pre>
+<p class="ko">쉼표로 나눈 두 인자가 공백 하나로 이어져 한 줄에 출력된다.</p>
+<p class="en">The two comma-separated arguments are joined by one space on a single line.</p><pre><code>print(1, 2, sep="-")
+# 1-2
+print("A", end="")
+print("B")
+# AB</code></pre>
+<p class="ko">sep으로 가운데 글자를 바꾸고, end를 빈 문자열로 두면 다음 print가 같은 줄에 이어 쓴다.</p>
+<p class="en">sep changes the middle text, and an empty end lets the next print continue on the same line.</p><pre><code>x = print(1)
+print(x)
+# 1
+# None</code></pre>
+<p class="ko">첫 줄은 print가 화면에 쓴 1이고, 둘째 줄은 반환값 None을 다시 출력한 것이다.</p>
+<p class="en">The first line is the 1 that print wrote; the second line is the return value None printed again.</p>
+</section>
 </article>
-<article class="entry" id="input" data-keys="input 입력 function">
+<article class="entry" id="input" data-keys="input 입력 function str int">
 <header class="entry-head"><h3><code>input</code></h3><p class="kind"><span class="ko">함수</span><span class="en">function</span></p></header>
-<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">input은 표준 입력에서 한 줄을 읽어 문자열로 반환하는 함수다. 숫자가 보여도 자료형(type)은 str이다.</p><p class="en">input is a function that reads one line from standard input and returns it as a string. Even a numeric-looking line has type str.</p></section>
-<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>input("안내 문구")</code></p><p class="ko">안내 문구는 선택이다. Enter 앞의 문자만 반환되고, 줄바꿈 자체는 포함되지 않는다. 정수 연산에 쓰려면 <code>int(input())</code>처럼 형 변환(type conversion)을 먼저 한다.</p><p class="en">The prompt is optional. Only the characters before Enter are returned; the newline itself is not included. For integer arithmetic, convert first, as in <code>int(input())</code>.</p></section>
-<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4><p class="ko"><code>int</code>는 정수 형태의 문자열만 받는다. <code>abc</code>나 <code>9.0</code>이라는 글을 <code>int</code>에 직접 넣으면 ValueError다.</p><p class="en"><code>int</code> accepts only a string that is already an integer form. Passing the text <code>abc</code> or <code>9.0</code> straight to <code>int</code> raises ValueError.</p></section>
-<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>n = int(input("Enter a number: "))
-# 4를 입력하면 n은 정수 4</code></pre></section>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">input은 키보드(표준 입력)에서 Enter 전까지의 한 줄을 읽어, 그 글자들을 문자열(str)로 반환하는 함수다. 화면에 숫자처럼 보여도 자료형은 문자열이므로, 바로 더하기·곱하기 같은 수 연산에 넣지 않는다.</p>
+<p class="en">input reads one line from the keyboard (standard input) up to Enter and returns those characters as a string (str). Even when the line looks like a number, its type is str, so it is not used directly in arithmetic.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>input("안내 문구")</code></p><p class="ko">괄호 안의 안내 문구는 선택이다. 있으면 입력 전에 그 글자가 화면에 나온다. 반환값에는 줄바꿈 문자가 포함되지 않는다. 정수로 쓰려면 <code>n = int(input(...))</code>처럼 변환 결과를 이름에 담는다.</p>
+<p class="en">The prompt inside the parentheses is optional. When present, it is shown before the user types. The returned string does not include the newline. To use the value as an integer, store a conversion such as <code>n = int(input(...))</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko"><code>int</code>는 정수 모양의 문자열만 받는다. <code>"abc"</code>나 <code>"9.0"</code>을 그대로 int에 넣으면 ValueError다. 소수 형태 글자는 <code>float</code>를 거친 뒤 필요하면 다시 int로 만든다.</p>
+<p class="en"><code>int</code> accepts only a string that already looks like an integer. Passing <code>"abc"</code> or <code>"9.0"</code> straight to int raises ValueError. A decimal-looking string goes through <code>float</code> first, then int if needed.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>text = input("Enter a number: ")
+# 키보드에 4 와 Enter
+print(text)       # 4  (글자)
+print(type(text)) # &lt;class 'str'&gt;</code></pre>
+<p class="ko">입력한 4는 글자 "4"다. type으로 보면 str이다.</p>
+<p class="en">The typed 4 is the characters "4". type shows str.</p><pre><code>n = int(input("Enter a number: "))
+# 4 입력
+print(n + 1)
+# 5</code></pre>
+<p class="ko">int로 바꾼 뒤에야 4 + 1이 5가 된다. text에만 두고 int를 빼먹으면 문자열 연산이 된다.</p>
+<p class="en">Only after int does 4 + 1 become 5. Leaving the value as text without int keeps string behavior.</p>
+</section>
 </article>
-<article class="entry" id="fstring" data-keys="f-string f문자열 formatted">
+<article class="entry" id="fstring" data-keys="f-string f문자열 formatted 중괄호">
 <header class="entry-head"><h3><code>f-string</code></h3><p class="kind"><span class="ko">표기</span><span class="en">notation</span></p></header>
-<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">f-string은 문자열을 만드는 표기다. 중괄호 안의 식(expression)을 계산해 그 자리에 넣는다. 이 표기만으로는 출력되지 않는다.</p><p class="en">An f-string is notation that builds a string. It evaluates the expression inside braces and inserts the result. The notation alone does not print anything.</p></section>
-<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>f"글자 {식} 글자"</code></p><p class="ko">따옴표 앞에 <code>f</code>를 붙인다. 중괄호 안에는 이름뿐 아니라 연산과 비교도 둘 수 있다. 화면에 내려면 print에 넘긴다.</p><p class="en">Prefix the quotes with <code>f</code>. The braces may hold a name, an operation, or a comparison. Pass the result to print when it should be shown.</p></section>
-<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>one, two, three = 1, 2, 3
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">f-string은 문자열을 조립하는 표기다. 따옴표 앞에 f를 붙이고, 중괄호 <code>{ }</code> 안에 이름이나 식을 두면, 그 식을 계산한 결과가 그 자리의 글자가 된다. 이 표기만으로는 화면에 출력되지 않는다. 보여줄 때는 print에 넘긴다.</p>
+<p class="en">An f-string is notation that builds a string. With f before the quotes, a name or expression inside braces <code>{ }</code> is evaluated and its result becomes text in that place. The notation alone does not print. Pass the result to print to show it.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>f"글자 {식} 글자"</code></p><p class="ko">중괄호 안에는 변수 이름뿐 아니라 연산·비교·함수 호출도 둘 수 있다. 바깥 따옴표와 안쪽 문자열 따옴표가 겹치지 않게 고른다. 형식 지정(소수 자리 등)은 수업의 <code>str.format</code>과 비슷한 자리에도 쓸 수 있으나, 이 단원 예제는 식 삽입에 초점을 둔다.</p>
+<p class="en">Braces may hold a variable name, an operation, a comparison, or a call. Choose quote marks so the outer quotes do not clash with quotes inside. Format specs (such as decimal places) can appear in a similar slot to <code>str.format</code>, but the examples here focus on inserting expressions.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">f-string의 결과는 하나의 str 값이다. 대입하면 그 문자열이 이름에 남고, print 없이도 다른 함수 인자로 넘길 수 있다.</p>
+<p class="en">The result of an f-string is one str value. Assigned to a name it stays available, and it can be passed to another function without printing.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>n = 4
+msg = f"n={n}"
+print(msg)
+# n=4</code></pre>
+<p class="ko">중괄호 안의 n이 4로 바뀌어 문자열 "n=4"가 된다.</p>
+<p class="en">The n inside the braces becomes 4, so the string is "n=4".</p><pre><code>one, two, three = 1, 2, 3
 print(f"one&lt;two&lt;three : {one &lt; two &lt; three}")
-# one&lt;two&lt;three : True</code></pre></section>
+# one&lt;two&lt;three : True</code></pre>
+<p class="ko">중괄호 안에서 연쇄 비교가 계산되고, 그 bool 결과가 글자로 들어간다.</p>
+<p class="en">A chained comparison is evaluated inside the braces, and that bool becomes text.</p>
+</section>
 </article>
 <article class="entry" id="comment" data-keys="주석 comment # 따옴표">
 <header class="entry-head"><h3><code>#</code></h3><p class="kind"><span class="ko">표기</span><span class="en">notation</span></p></header>
-<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">주석(comment)으로 실행에서 빼는 기호는 <code>#</code>다. 그 위치부터 그 줄의 끝까지 인터프리터가 읽지 않는다.</p><p class="en">The comment marker is <code>#</code>. From that point to the end of the line, the interpreter does not read the text.</p></section>
-<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code># 여기부터 줄 끝은 무시</code></p><p class="ko">코드와 같은 줄의 뒤에도 둘 수 있다. 설명을 남기거나, 한 줄을 잠시 실행에서 제외할 때 쓴다.</p><p class="en">It may also follow code on the same line. Use it to leave a remark, or to keep one line out of execution for the moment.</p></section>
-<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4><p class="ko"><code>"""..."""</code>는 주석이 아니라 여러 줄 문자열이다. 이름에 대입하지 않으면 그 값은 버려진다. 실습 파일은 이 문자열로 코드 블록을 꺼 두었다.</p><p class="en"><code>"""..."""</code> is a multiline string, not a comment. If it is not assigned to a name, the value is discarded. The lab files use that string to hold a block of code out of the way.</p></section>
-<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>print(1)
-# print(2)  이 줄은 실행되지 않는다</code></pre></section>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">주석 기호 <code>#</code>부터 그 줄 끝까지는 실행되지 않는다. 인터프리터가 그 구간을 코드로 읽지 않는다. 프로그램의 결과값에는 영향을 주지 않는다.</p>
+<p class="en">From the comment marker <code>#</code> to the end of that line, nothing is executed. The interpreter does not read that span as code. Comments do not change the program’s results.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code># 여기부터 줄 끝은 무시</code></p><p class="ko">줄 맨 앞에 두어 한 줄 전체를 끄거나, 코드 뒤에 두어 짧은 설명을 남긴다. 잠시 실행하고 싶지 않은 줄을 지우는 대신 #로 막아 두는 때도 많다.</p>
+<p class="en">Place it at the start of a line to disable the whole line, or after code to leave a short note. A common habit is to keep a line out of execution with # instead of deleting it.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">큰따옴표 세 개 <code>"""..."""</code>는 주석 문법이 아니라 여러 줄 문자열이다. 이름에 대입하지 않으면 그 값은 만들어졌다가 버려진다. 실습 파일에서 코드 덩어리를 이렇게 감싸 둔 경우가 있다.</p>
+<p class="en">Triple quotes <code>"""..."""</code> are not comment syntax; they build a multiline string. If it is not assigned, the value is created and then discarded. Lab files sometimes wrap a block of code that way.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>print(1)
+# print(2)
+print(3)
+# 1
+# 3</code></pre>
+<p class="ko">가운데 줄은 # 때문에 호출되지 않는다. 1과 3만 출력된다.</p>
+<p class="en">The middle line is not called because of #. Only 1 and 3 are printed.</p><pre><code>n = 4  # temporary value
+print(n)
+# 4</code></pre>
+<p class="ko">코드와 같은 줄의 # 뒤는 설명이다. n = 4는 그대로 실행된다.</p>
+<p class="en">Text after # on the same line is a remark. n = 4 still runs.</p>
+</section>
 </article>
 <div class="walk-mount" data-walk="io"></div>
 </section>
-<section class="chapter" id="values"><header class="chapter-head"><p class="num">02</p><div><h2><span class="ko">변수와 자료형</span><span class="en">Names and types</span></h2><p class="lead"><span class="ko">이름은 값을 가리킨다. = 은 같다는 비교가 아니라 대입(assignment)이다.</span><span class="en">A name refers to a value. = is assignment, not a comparison of equality.</span></p></div></header><article class="entry" id="assign" data-keys="대입 assignment = 변수">
+<section class="chapter" id="values"><header class="chapter-head"><p class="num">02</p><div><h2><span class="ko">변수와 자료형</span><span class="en">Names and types</span></h2><p class="lead"><span class="ko">이름은 값을 가리킨다. = 은 같다는 비교가 아니라 대입(assignment)이다.</span><span class="en">A name refers to a value. = is assignment, not a comparison of equality.</span></p></div></header><article class="entry" id="assign" data-keys="대입 assignment = 변수 이름">
 <header class="entry-head"><h3><code>=</code></h3><p class="kind"><span class="ko">연산자</span><span class="en">operator</span></p></header>
-<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">대입 연산자(assignment operator)는 오른쪽 식(expression)을 계산한 뒤, 그 결과를 왼쪽 이름에 연결한다. 비교에는 <code>==</code>를 쓴다.</p><p class="en">The assignment operator evaluates the expression on the right, then binds that result to the name on the left. Equality uses <code>==</code>.</p></section>
-<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>이름 = 식</code></p><p class="ko">왼쪽은 이름이어야 한다. 이미 있는 이름에 다시 대입하면 예전의 연결은 끊기고 새 값을 가리킨다. <code>n = n - 2</code>는 현재 값으로 오른쪽을 계산한 다음 그 결과를 다시 n에 넣는다.</p><p class="en">The left side must be a name. Assigning again to an existing name drops the old binding and refers to the new value. <code>n = n - 2</code> evaluates the right side from the current value, then stores the result back in n.</p></section>
-<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>n = 9
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">대입 <code>=</code>은 “같다”는 비교가 아니다. 오른쪽 식을 먼저 계산하고, 그 결과 값을 왼쪽 이름에 연결한다. 같은지 비교할 때는 <code>==</code>를 쓴다.</p>
+<p class="en">Assignment <code>=</code> is not a comparison of equality. The right-hand expression is evaluated first, then that result is bound to the name on the left. Equality uses <code>==</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>이름 = 식</code></p><p class="ko">왼쪽은 값이 아니라 이름이어야 한다. 이미 쓰이던 이름에 다시 대입하면, 예전에 가리키던 값과의 연결은 끊기고 새 값을 가리킨다. <code>n = n - 2</code>는 오른쪽에 적힌 현재 n으로 계산한 뒤, 그 결과를 다시 n에 넣는다.</p>
+<p class="en">The left side must be a name, not a bare value. Assigning again to a name drops the old binding and refers to the new value. <code>n = n - 2</code> evaluates the right side from the current n, then stores the result back in n.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">대입문 자체는 화면에 아무것도 쓰지 않는다. 값을 확인하려면 print를 따로 호출한다. 수업에서 변수를 두는 이유는 같은 값을 이름으로 다시 쓰기 위함이다.</p>
+<p class="en">An assignment writes nothing to the screen by itself. Call print to inspect a value. Names exist so the same value can be reused by that name.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>n = 9
+print(n)
+# 9</code></pre>
+<p class="ko">이름 n이 정수 9를 가리킨다.</p>
+<p class="en">The name n refers to the integer 9.</p><pre><code>n = 9
 n = n - 2
-# n은 7</code></pre></section>
+print(n)
+# 7</code></pre>
+<p class="ko">오른쪽의 n은 아직 9다. 9 - 2인 7이 계산된 뒤 n에 다시 연결된다.</p>
+<p class="en">The n on the right is still 9. 9 - 2 yields 7, which is then bound to n again.</p>
+</section>
 </article>
-<article class="entry" id="chain" data-keys="연쇄 대입 a = b =">
+<article class="entry" id="chain" data-keys="연쇄 대입 a = b = 같은 값">
 <header class="entry-head"><h3><code>a = b = 값</code></h3><p class="kind"><span class="ko">표기</span><span class="en">notation</span></p></header>
-<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">연쇄 대입은 오른쪽 식을 한 번 계산하고, 그 같은 결과를 왼쪽의 이름들에 차례로 연결한다.</p><p class="en">Chained assignment evaluates the right-hand expression once and binds that same result to each name on the left.</p></section>
-<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>a = b = 식</code></p><p class="ko">이름들은 같은 값을 가리킨다. 정수를 이렇게 나눠 담는 것은 실습의 <code>a = b = 2</code>와 같다.</p><p class="en">The names refer to the same value. Sharing an integer this way is the lab form <code>a = b = 2</code>.</p></section>
-<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>a = b = 2
-# a와 b 모두 2</code></pre></section>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">연쇄 대입은 오른쪽 식을 한 번만 계산하고, 그 같은 결과를 왼쪽에 나열된 이름에 차례로 연결한다. <code>a = b = 2</code>이면 a와 b가 모두 2를 가리킨다.</p>
+<p class="en">Chained assignment evaluates the right-hand expression once and binds that same result to each name listed on the left. With <code>a = b = 2</code>, both a and b refer to 2.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>a = b = 식</code></p><p class="ko">초기값을 여러 이름에 같이 줄 때 쓴다. 나중에 <code>a = 3</code>만 다시 대입하면 a만 바뀌고 b는 이전 값을 유지한다(불변 정수·문자열의 경우).</p>
+<p class="en">Use it to give several names the same initial value. A later <code>a = 3</code> rebinds only a; b keeps the previous value when that value is an immutable int or string.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">리스트처럼 가변 객체를 연쇄 대입하면 두 이름이 같은 리스트를 공유한다. 한쪽에서 append하면 다른 이름에서도 보인다. 정수를 나누어 담는 실습 예제와는 상황이 다르다.</p>
+<p class="en">Chained assignment of a mutable object such as a list makes both names share that list. An append through one name is visible through the other. That differs from the lab case of sharing an integer.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>a = b = 2
+print(a, b)
+# 2 2</code></pre>
+<p class="ko">식 2가 한 번 계산되고 a와 b에 연결된다.</p>
+<p class="en">The expression 2 is evaluated once and bound to both a and b.</p><pre><code>a = b = 2
+a = 5
+print(a, b)
+# 5 2</code></pre>
+<p class="ko">a만 5로 다시 연결된다. b는 여전히 2다.</p>
+<p class="en">Only a is rebound to 5. b is still 2.</p>
+</section>
 </article>
-<article class="entry" id="unpack" data-keys="언패킹 unpacking">
+<article class="entry" id="unpack" data-keys="언패킹 unpacking 튜플 리스트">
 <header class="entry-head"><h3><code>언패킹</code></h3><p class="kind"><span class="ko">표기</span><span class="en">notation</span></p></header>
-<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">언패킹(unpacking)은 묶음의 칸을 왼쪽 이름들에 순서대로 나눠 담는다. 리스트(list), 튜플(tuple), 문자열처럼 순서가 있는 값에 쓴다.</p><p class="en">Unpacking places each element of a sequence into the names on the left, in order. It applies to an ordered value such as a list, a tuple, or a string.</p></section>
-<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>a, b = 묶음</code></p><p class="ko">왼쪽 이름의 개수와 오른쪽 칸의 개수가 같아야 한다. 다르면 ValueError다. 쉼표로 나뉜 오른쪽은 튜플로 묶인 뒤 풀린다.</p><p class="en">The number of names on the left must equal the number of elements on the right. A mismatch raises ValueError. A comma-separated right side is packed into a tuple and then unpacked.</p></section>
-<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>name, age = ["Ada", "20"]
-# name은 "Ada", age는 "20"</code></pre></section>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">언패킹은 오른쪽 묶음의 칸을 왼쪽 이름에 앞에서부터 하나씩 나눠 담는 대입이다. 리스트·튜플·문자열처럼 순서가 있는 값에 쓴다. 0번 칸이 첫 이름, 1번 칸이 둘째 이름으로 간다.</p>
+<p class="en">Unpacking is an assignment that places each cell of a sequence into the names on the left, from front to back. It applies to ordered values such as lists, tuples, and strings. Cell 0 goes to the first name, cell 1 to the second.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>a, b = 묶음</code></p><p class="ko">왼쪽 이름의 개수와 오른쪽 칸의 개수가 같아야 한다. 다르면 ValueError다. 오른쪽을 쉼표로만 나열하면 튜플로 묶인 뒤 풀린다. 남는 칸을 한 이름에 리스트로 모을 때는 나중 단원의 <code>*</code> 패킹을 쓴다.</p>
+<p class="en">The number of names on the left must equal the number of cells on the right. A mismatch raises ValueError. A comma-separated right side is packed into a tuple and then unpacked. Gathering leftover cells into one name uses <code>*</code> packing in a later chapter.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">칸의 값 자료형은 그대로다. <code>["Ada", "20"]</code>을 풀면 age에도 글자 "20"이 들어가며, 정수 20이 아니다. 수 연산이 필요하면 int로 변환한다.</p>
+<p class="en">Each cell keeps its type. Unpacking <code>["Ada", "20"]</code> puts the text "20" in age, not the integer 20. Convert with int before arithmetic.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>name, age = ["Ada", "20"]
+print(name)  # Ada
+print(age)   # 20
+print(type(age))  # &lt;class 'str'&gt;</code></pre>
+<p class="ko">0번 Ada → name, 1번 "20" → age. age는 문자열이다.</p>
+<p class="en">Cell 0 Ada → name, cell 1 "20" → age. age is a string.</p><pre><code>a, b = 1, 2
+print(a, b)
+# 1 2</code></pre>
+<p class="ko">오른쪽 1, 2가 튜플로 묶인 뒤 a와 b에 풀린다.</p>
+<p class="en">The right-hand 1, 2 is packed into a tuple, then unpacked into a and b.</p><pre><code># a, b = [1]
+# ValueError: not enough values to unpack</code></pre>
+<p class="ko">이름 두 개인데 칸이 하나면 오류다.</p>
+<p class="en">Two names and one cell raise an error.</p>
+</section>
 </article>
-<article class="entry" id="types" data-keys="자료형 type int float str bool">
+<article class="entry" id="types" data-keys="자료형 type int float str bool True False">
 <header class="entry-head"><h3><code>int float str bool</code></h3><p class="kind"><span class="ko">자료형</span><span class="en">type</span></p></header>
-<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">자료형(type)은 값이 어떤 연산에 들어갈 수 있는지를 정한다. 이 실습의 기본 형은 정수 int, 실수 float, 문자열 str, 논리값 bool이다. bool의 값은 True와 False뿐이다.</p><p class="en">A type decides which operations a value may enter. The basic types in these labs are the integer int, the float, the string str, and the Boolean bool. The only Boolean values are True and False.</p></section>
-<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>type(값)</code></p><p class="ko"><code>type(값)</code>은 그 값의 자료형을 반환한다. 출력에 찍으면 <code>&lt;class 'int'&gt;</code>처럼 보인다. 형 이름 자체로 변환할 때는 다음 장의 int, float, str을 호출한다.</p><p class="en"><code>type(value)</code> returns the type of that value. Printed, it looks like <code>&lt;class 'int'&gt;</code>. To convert, call int, float, or str, covered in the next chapter.</p></section>
-<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>number = 9
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">자료형(type)은 그 값으로 어떤 연산을 할 수 있는지를 정한다. 이 수업의 기본 형은 정수 int, 실수 float, 문자열 str, 논리값 bool이다. bool 값은 True와 False뿐이다. <code>type(값)</code>은 그 값의 형을 반환한다.</p>
+<p class="en">A type decides which operations a value may take part in. The basic types in this course are int, float, str, and bool. The only bool values are True and False. <code>type(value)</code> returns that value’s type.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>type(값)</code></p><p class="ko">출력하면 <code>&lt;class 'int'&gt;</code>처럼 보인다. 형을 바꿀 때는 다음 단원의 int, float, str 같은 변환 함수를 호출한다. type 호출만으로는 원래 값이 바뀌지 않는다.</p>
+<p class="en">Printed, it looks like <code>&lt;class 'int'&gt;</code>. To change type, call a conversion such as int, float, or str in the next chapter. Calling type alone does not change the original value.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">같은 글자라도 자료형이 다르면 쓰임이 다르다. 정수 4와 문자열 "4"는 print 결과는 비슷해 보여도, 하나는 더하기가 되고 하나는 글자 연결이 된다.</p>
+<p class="en">The same characters can mean different things under different types. The integer 4 and the string "4" may look alike when printed, but one takes part in addition and the other in text joining.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>number = 9
 print(type(number))
-# &lt;class 'int'&gt;</code></pre></section>
+# &lt;class 'int'&gt;</code></pre>
+<p class="ko">9는 int다.</p>
+<p class="en">9 is an int.</p><pre><code>print(type(9.0))   # &lt;class 'float'&gt;
+print(type("9"))   # &lt;class 'str'&gt;
+print(type(True))  # &lt;class 'bool'&gt;</code></pre>
+<p class="ko">점·따옴표·True 표기에 따라 형이 갈린다.</p>
+<p class="en">A dot, quotes, or the True literal selects the type.</p>
+</section>
 </article>
-<article class="entry" id="naming" data-keys="이름 규칙 naming keyword _"><header class="entry-head"><h3><code>이름 규칙</code></h3><p class="kind"><span class="ko">규칙</span><span class="en">rule</span></p></header><section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">이름은 값을 가리키는 별칭이다. 예약어는 이름으로 쓰지 않는다. 특수문자는 밑줄 <code>_</code>만 허용되고, 숫자로 시작할 수 없다.</p><p class="en">A name is an alias for a value. A reserved keyword cannot be a name. The only special character allowed is the underscore <code>_</code>, and a name cannot start with a digit.</p></section><section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="ko">대문자와 소문자는 다른 이름이다. <code>n</code>과 <code>N</code>은 별개다. 공백이 들어간 이름은 쓸 수 없다.</p><p class="en">Upper and lower case are different names. <code>n</code> and <code>N</code> are distinct. A name cannot contain a space.</p><p class="sig"><code>score_1</code></p></section><section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>score_1 = 10
-# 1score = 10  은 이름이 숫자로 시작한다</code></pre></section></article>
+<article class="entry" id="naming" data-keys="이름 규칙 naming keyword _ 변수명">
+<header class="entry-head"><h3><code>이름 규칙</code></h3><p class="kind"><span class="ko">규칙</span><span class="en">rule</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">이름은 값을 가리키는 별칭이다. 수업 규칙으로는 예약어(if, for, while 등)를 이름으로 쓰지 않고, 특수문자는 밑줄 <code>_</code>만 허용하며, 숫자로 시작할 수 없다. 대문자와 소문자는 다른 이름이다.</p>
+<p class="en">A name is an alias for a value. Course rules: reserved words (if, for, while, …) cannot be names; the only special character allowed is underscore <code>_</code>; a name cannot start with a digit. Upper and lower case are different names.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>score_1</code></p><p class="ko">여러 단어를 이을 때 공백 대신 밑줄을 쓴다. <code>n</code>과 <code>N</code>은 별개다. <code>1score</code>처럼 숫자로 시작하면 SyntaxError다.</p>
+<p class="en">Join words with underscores instead of spaces. <code>n</code> and <code>N</code> are distinct. Starting with a digit, as in <code>1score</code>, is a SyntaxError.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">의미 있는 이름을 쓰면 대입과 조건을 읽기 쉽다. 한 글자 이름은 짧은 반복 변수에 자주 쓰고, 점수·이름처럼 오래 남는 값에는 풀이름을 쓰는 편이 좋다.</p>
+<p class="en">Meaningful names make assignments and conditions easier to read. Single-letter names are common for short loop variables; longer-lived values such as scores or names are clearer with full words.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>score_1 = 10
+print(score_1)
+# 10</code></pre>
+<p class="ko">밑줄과 숫자는 이름 중간에 올 수 있다.</p>
+<p class="en">Underscores and digits may appear in the middle of a name.</p><pre><code># 1score = 10   # SyntaxError: invalid decimal literal
+# for = 3       # SyntaxError: invalid syntax</code></pre>
+<p class="ko">숫자로 시작하거나 예약어를 이름으로 쓰면 문법 오류다.</p>
+<p class="en">A leading digit or a keyword used as a name is a syntax error.</p>
+</section>
+</article>
 <div class="walk-mount" data-walk="values"></div>
 </section>
-<section class="chapter" id="convert"><header class="chapter-head"><p class="num">03</p><div><h2><span class="ko">형 변환</span><span class="en">Type conversion</span></h2><p class="lead"><span class="ko">변환 함수는 새 자료형의 값을 만들어 반환한다. 원래 이름은 다시 대입하기 전까지 그대로다.</span><span class="en">A conversion function builds and returns a value of the new type. The original name is unchanged until you assign again.</span></p></div></header><article class="entry" id="int" data-keys="int 정수 변환">
+<section class="chapter" id="convert"><header class="chapter-head"><p class="num">03</p><div><h2><span class="ko">형 변환</span><span class="en">Type conversion</span></h2><p class="lead"><span class="ko">변환 함수는 새 자료형의 값을 만들어 반환한다. 원래 이름은 다시 대입하기 전까지 그대로다.</span><span class="en">A conversion function builds and returns a value of the new type. The original name is unchanged until you assign again.</span></p></div></header><article class="entry" id="int" data-keys="int 정수 변환 truncation">
 <header class="entry-head"><h3><code>int()</code></h3><p class="kind"><span class="ko">함수</span><span class="en">function</span></p></header>
-<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">int는 정수로 변환한 새 값을 반환하는 함수다. 실수는 소수점 아래를 버리고, 정수 형태의 문자열은 그 정수로 읽는다.</p><p class="en">int is a function that returns a new integer. A float loses its fractional part. A string in integer form is read as that integer.</p></section>
-<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>int(값)</code></p><p class="ko"><code>int(9.9)</code>는 9다. <code>int("9")</code>도 9다. 소수점이 적힌 글 <code>"9.0"</code>은 int가 직접 받지 않는다. 그때는 <code>int(float("9.0"))</code>처럼 float를 거친다.</p><p class="en"><code>int(9.9)</code> is 9. <code>int("9")</code> is also 9. The text <code>"9.0"</code>, which contains a decimal point, is not accepted directly. Go through float: <code>int(float("9.0"))</code>.</p></section>
-<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4><p class="ko">input의 결과는 항상 문자열이므로, 합계나 횟수에 쓰려면 변환이 먼저다. 변환 결과를 이름에 담지 않으면 원래 변수는 바뀌지 않는다.</p><p class="en">The result of input is always a string, so convert it before using it as a total or a count. The original variable does not change unless the converted result is assigned to a name.</p></section>
-<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>int(9.9)          # 9
-int("9")          # 9
-int(float("9.0"))  # 9</code></pre></section>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">int는 정수로 해석한 새 값을 반환하는 함수다. 실수(float)를 넣으면 소수점 아래를 버리고(0 쪽으로 자름), 정수 모양의 문자열은 그 정수로 읽는다. 원래 변수는 대입하기 전까지 바뀌지 않는다.</p>
+<p class="en">int returns a new integer interpretation of its argument. A float loses its fractional part (truncated toward zero). A string that looks like an integer is read as that integer. The original variable stays unchanged until you assign.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>int(값)</code></p><p class="ko"><code>int(9.9)</code>는 9, <code>int("9")</code>도 9다. 점아 있는 글 <code>"9.0"</code>은 int가 직접 받지 않으므로 <code>int(float("9.0"))</code>처럼 float를 거친다. input 결과를 수에 쓰려면 이 변환이 먼저다.</p>
+<p class="en"><code>int(9.9)</code> is 9, and <code>int("9")</code> is 9 as well. The text <code>"9.0"</code>, which contains a dot, is not accepted directly—go through float: <code>int(float("9.0"))</code>. Convert input before using it as a number.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">버림이지 반올림이 아니다. <code>int(1.9)</code>는 1이다. 음수 float도 0 쪽으로 자른다. 변환에 실패하면 ValueError다.</p>
+<p class="en">This is truncation, not rounding. <code>int(1.9)</code> is 1. Negative floats also truncate toward zero. A failed conversion raises ValueError.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>print(int(9.9))   # 9
+print(int("9"))   # 9
+print(int(float("9.0")))  # 9</code></pre>
+<p class="ko">실수·정수 문자열·소수 문자열을 각각 정수로 만드는 경로다.</p>
+<p class="en">Three paths to an integer: from a float, from an integer string, and from a decimal string via float.</p><pre><code>text = "4"
+n = int(text)
+print(n + 1)
+# 5</code></pre>
+<p class="ko">input으로 받은 글자도 같은 방식으로 정수로 바꾼다.</p>
+<p class="en">Text from input is converted the same way.</p>
+</section>
 </article>
-<article class="entry" id="float" data-keys="float 실수">
+<article class="entry" id="float" data-keys="float 실수 변환">
 <header class="entry-head"><h3><code>float()</code></h3><p class="kind"><span class="ko">함수</span><span class="en">function</span></p></header>
-<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">float는 실수로 변환한 새 값을 반환한다. 정수 2는 2.0이 되고, 실수 형태의 문자열도 읽는다.</p><p class="en">float returns a new floating-point value. The integer 2 becomes 2.0, and a string in float form is read as well.</p></section>
-<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>float(값)</code></p><p class="ko">나눗셈 <code>/</code>의 결과는 피연산자가 정수여도 float다. 화면의 정수가 사실 실수인지 보려면 float로 만들거나 type으로 확인한다.</p><p class="en">The result of <code>/</code> is a float even when both operands are integers. To see that a displayed whole number is actually a float, convert with float or inspect it with type.</p></section>
-<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>b = 2
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">float는 실수로 변환한 새 값을 반환한다. 정수 2는 2.0이 되고, <code>"3.14"</code> 같은 실수 모양 문자열도 읽는다. 나눗셈 <code>/</code>의 결과는 피연산자가 정수여도 float다.</p>
+<p class="en">float returns a new floating-point value. The integer 2 becomes 2.0, and a float-shaped string such as <code>"3.14"</code> is read as well. The result of division <code>/</code> is a float even when both operands are integers.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>float(값)</code></p><p class="ko">화면에는 2처럼 보여도 type이 float일 수 있다. 확인하려면 <code>float(b)</code>나 <code>type</code>을 쓴다. 정수 나눗셈이 필요하면 <code>//</code>를 쓴다.</p>
+<p class="en">A value may look like 2 on the screen and still be a float. Check with <code>float(b)</code> or <code>type</code>. For integer division use <code>//</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">실수는 근사값으로 저장되는 경우가 있어, 아주 긴 소수 비교는 수업 범위 밖에서 주의가 필요하다. 이 단원 예제는 짧은 소수와 변환에 맞춘다.</p>
+<p class="en">Floats are often stored approximately; very long decimal comparisons need care beyond this chapter. Examples here stay with short decimals and conversion.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>b = 2
 print(float(b))
-# 2.0</code></pre></section>
+# 2.0
+print(type(float(b)))
+# &lt;class 'float'&gt;</code></pre>
+<p class="ko">정수 2를 실수 2.0으로 만든 새 값이다. b 자체는 여전히 int일 수 있다.</p>
+<p class="en">This is a new float 2.0 from the integer 2. b itself may still be an int.</p><pre><code>print(float("3.5"))
+# 3.5
+print(1 / 2)
+# 0.5</code></pre>
+<p class="ko">문자열 "3.5"도 float로 읽고, 슬래시 나눗셈은 float 결과를 만든다.</p>
+<p class="en">The string "3.5" is read as a float, and slash division yields a float.</p>
+</section>
 </article>
-<article class="entry" id="str" data-keys="str 문자열 변환">
+<article class="entry" id="str" data-keys="str 문자열 변환 +">
 <header class="entry-head"><h3><code>str()</code></h3><p class="kind"><span class="ko">함수</span><span class="en">function</span></p></header>
-<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">str은 값을 문자열로 나타낸 새 값을 반환한다. 수 자체는 문자열이 아니므로, <code>+</code>로 글자와 이어 붙이려면 이 변환이 필요하다.</p><p class="en">str returns a new string that represents the value. A number is not a string, so this conversion is required before joining it to text with <code>+</code>.</p></section>
-<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>str(값)</code></p><p class="ko">print에 쉼표로 넘길 때는 str이 없어도 된다. print가 각 인자를 따로 출력하기 때문이다. <code>+</code>를 쓰는 문장에서만 형이 맞아야 한다.</p><p class="en">str is unnecessary when the value is passed to print with a comma, because print writes each argument on its own. The types must agree only in an expression that uses <code>+</code>.</p></section>
-<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>a = 1
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">str은 값을 문자열로 나타낸 새 값을 반환한다. 수·bool 등은 글자가 아니므로, 문자열과 <code>+</code>로 이어 붙이려면 이 변환이 필요하다.</p>
+<p class="en">str returns a new string that represents the value. Numbers and bools are not text, so this conversion is required before joining them to a string with <code>+</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>str(값)</code></p><p class="ko">print에 쉼표로 넘길 때는 str이 없어도 된다. print가 각 인자를 따로 쓰기 때문이다. <code>"a = " + 1</code>처럼 <code>+</code>를 쓰는 식에서만 형을 맞춘다.</p>
+<p class="en">str is unnecessary when values are passed to print with commas, because print writes each argument on its own. Align types only in expressions that use <code>+</code>, such as <code>"a = " + 1</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">f-string <code>f"a = {a}"</code>도 같은 목적의 다른 표기다. 둘 중 수업에서 배운 쪽을 쓰면 된다.</p>
+<p class="en">An f-string <code>f"a = {a}"</code> is another notation for the same goal. Use whichever form the course has taught.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>a = 1
 print("a = " + str(a))
-# a = 1</code></pre></section>
+# a = 1</code></pre>
+<p class="ko">str(a)가 "1"을 만들고 "a = "와 이어진다.</p>
+<p class="en">str(a) makes "1", which joins to "a = ".</p><pre><code>a = 1
+print("a =", a)
+# a = 1</code></pre>
+<p class="ko">쉼표 print는 str 없이도 같은 화면을 만든다.</p>
+<p class="en">Comma print produces the same display without str.</p>
+</section>
 </article>
-<article class="entry" id="list-fn" data-keys="list 변환 빈 리스트">
+<article class="entry" id="list-fn" data-keys="list 변환 빈 리스트 복사">
 <header class="entry-head"><h3><code>list()</code></h3><p class="kind"><span class="ko">함수</span><span class="en">function</span></p></header>
-<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">list는 인자로 받은 묶음을 새 리스트(list)로 복사해 반환한다. 인자가 없으면 빈 리스트다. <code>[]</code>와 같다.</p><p class="en">list returns a new list copied from the sequence it is given. With no argument it returns an empty list, the same object kind as <code>[]</code>.</p></section>
-<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>list(묶음)</code></p><p class="ko">문자열을 넣으면 문자 하나씩이 칸이 된다. 튜플을 넣으면 그 칸을 담은 가변(mutable) 리스트가 된다. 원본 튜플은 바뀌지 않는다.</p><p class="en">A string becomes one element per character. A tuple becomes a mutable list of those elements. The original tuple is unchanged.</p></section>
-<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>list()          # []
-list("ab")      # ['a', 'b']
-list((1, 2))    # [1, 2]</code></pre></section>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">list는 인자로 받은 묶음의 칸을 새 리스트로 담아 반환한다. 인자가 없으면 빈 리스트 <code>[]</code>와 같은 종류의 값이다. 문자열을 넣으면 글자 하나하나가 칸이 된다.</p>
+<p class="en">list returns a new list that holds the cells of the sequence it is given. With no argument it is an empty list, the same kind as <code>[]</code>. A string becomes one cell per character.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>list(묶음)</code></p><p class="ko">튜플을 수정 가능한 리스트로 바꿀 때, 또는 문자열을 글자 리스트로 펼 때 쓴다. 원본 묶음은 그대로 두고 새 리스트를 만든다.</p>
+<p class="en">Use it to turn a tuple into a mutable list, or to expand a string into a list of characters. The original sequence stays; a new list is built.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">list(다른리스트)는 얕은 복사에 가깝다. 바깥 리스트는 새 객체이지만, 안쪽 가변 객체는 공유될 수 있다. 복사 단원에서 더 다룬다.</p>
+<p class="en">list(another_list) is a shallow-style copy: the outer list is new, but inner mutable objects may still be shared. The copy chapter covers this further.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>chars = list("ab")
+print(chars)
+# ['a', 'b']</code></pre>
+<p class="ko">글자 a가 0번 칸, b가 1번 칸이다.</p>
+<p class="en">Character a is cell 0 and b is cell 1.</p><pre><code>print(list())
+# []</code></pre>
+<p class="ko">인자 없이 호출하면 빈 리스트다.</p>
+<p class="en">A call with no argument is an empty list.</p>
+</section>
 </article>
-<article class="entry" id="tuple-fn" data-keys="tuple 변환">
+<article class="entry" id="tuple-fn" data-keys="tuple 변환 불변">
 <header class="entry-head"><h3><code>tuple()</code></h3><p class="kind"><span class="ko">함수</span><span class="en">function</span></p></header>
-<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">tuple은 인자로 받은 묶음을 새 튜플로 만들어 반환한다. 인자가 없으면 빈 튜플이고, <code>()</code>와 같다.</p><p class="en">tuple returns a new tuple built from the sequence it is given. With no argument the result is the empty tuple, the same as <code>()</code>.</p></section>
-<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>tuple(묶음)</code></p><p class="ko">리스트를 더 이상 수정하지 않을 묶음으로 고정할 때 쓴다. 만들어진 튜플의 칸은 대입으로 바꿀 수 없다.</p><p class="en">Use it to freeze a list into a sequence that will not be modified. Elements of the resulting tuple cannot be replaced by assignment.</p></section>
-<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>tuple([1, 2, 3])
-# (1, 2, 3)</code></pre></section>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">tuple은 인자로 받은 묶음을 새 튜플로 담아 반환한다. 튜플의 칸은 대입으로 바꾸지 못한다. 인자가 없으면 빈 튜플 <code>()</code>다.</p>
+<p class="en">tuple returns a new tuple holding the cells of the sequence it is given. Tuple cells cannot be replaced by assignment. With no argument it is the empty tuple <code>()</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>tuple(묶음)</code></p><p class="ko">리스트를 고정된 순서 묶음으로 남기고 싶을 때 쓴다. 언패킹·딕셔너리 키 등으로 순서가 있는 불변 값이 필요할 때도 쓴다.</p>
+<p class="en">Use it when a list should be kept as a fixed ordered bundle. It is also used when an immutable ordered value is needed for unpacking or as a dict key pattern later.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">값이 하나인 튜플은 <code>(10,)</code>처럼 쉼표가 필요하다. <code>(10)</code>은 그냥 정수 10이다. 그 표기는 튜플 단원에서 다시 본다.</p>
+<p class="en">A one-element tuple needs a comma, as in <code>(10,)</code>. <code>(10)</code> is just the integer 10. That notation returns in the tuple chapter.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>pair = tuple([1, 2])
+print(pair)
+# (1, 2)</code></pre>
+<p class="ko">리스트 [1, 2]의 칸이 튜플 (1, 2)로 복사된다.</p>
+<p class="en">The cells of [1, 2] are copied into the tuple (1, 2).</p><pre><code>print(tuple("ab"))
+# ('a', 'b')</code></pre>
+<p class="ko">문자열도 글자 단위로 튜플이 된다.</p>
+<p class="en">A string also becomes a tuple of characters.</p>
+</section>
 </article>
-<article class="entry" id="dict-fn" data-keys="dict 딕셔너리 만들기">
+<article class="entry" id="dict-fn" data-keys="dict 변환 빈 딕셔너리 {}">
 <header class="entry-head"><h3><code>dict()</code></h3><p class="kind"><span class="ko">함수</span><span class="en">function</span></p></header>
-<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">dict는 빈 딕셔너리(dictionary)를 반환한다. <code>{}</code>도 빈 딕셔너리이며, 빈 집합이 아니다.</p><p class="en">dict returns an empty dictionary. <code>{}</code> is also an empty dictionary, not an empty set.</p></section>
-<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>dict()</code></p><p class="ko">칸을 미리 정해 만들 때는 중괄호 안에 <code>키: 값</code>을 적는다. dict()로 시작한 뒤 키를 하나씩 대입해도 된다.</p><p class="en">To create it with entries already in place, write <code>key: value</code> pairs inside braces. Starting from dict() and then assigning keys one by one is also valid.</p></section>
-<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>empty = dict()
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">dict는 딕셔너리를 만드는 함수다. 인자 없이 <code>dict()</code>를 호출하면 빈 딕셔너리다. 중괄호 <code>{}</code>도 빈 딕셔너리이므로, 빈 집합이 필요하면 <code>set()</code>을 쓴다.</p>
+<p class="en">dict builds a dictionary. A call with no arguments, <code>dict()</code>, is an empty dictionary. Bare braces <code>{}</code> are also an empty dictionary, so an empty set uses <code>set()</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>dict()    {키: 값}</code></p><p class="ko">처음부터 짝을 넣으려면 <code>{"Burger": 5500}</code>처럼 중괄호 안에 키: 값 쌍을 적는다. 빈 dict를 만든 뒤 <code>d[키] = 값</code>으로 채울 수도 있다.</p>
+<p class="en">To create entries at once, write key: value pairs inside braces, as in <code>{"Burger": 5500}</code>. You may also start from an empty dict and fill it with <code>d[key] = value</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">키는 보통 문자열이나 수를 쓴다. 같은 키에 다시 대입하면 값만 바뀐다. 상세한 메서드는 딕셔너리 단원에서 본다.</p>
+<p class="en">Keys are usually strings or numbers. Assigning again to the same key replaces only the value. Methods are covered in the dictionary chapter.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>empty = dict()
 menu = {"Burger": 5500}
-# {} 는 딕셔너리다</code></pre></section>
+print(empty)  # {}
+print(menu["Burger"])  # 5500</code></pre>
+<p class="ko"><code>{}</code>는 빈 딕셔너리다. menu에서 키 "Burger"로 값을 읽는다.</p>
+<p class="en"><code>{}</code> is an empty dictionary. menu is read with the key "Burger".</p>
+</section>
 </article>
 <div class="walk-mount" data-walk="convert"></div>
 </section>
@@ -199,13 +490,33 @@ init_number // 2    # 4.0
 init_number % 2     # 1.0
 init_number ** 3    # 729.0</code></pre></section>
 </article>
-<article class="entry" id="aug" data-keys="+= -= *= 복합 대입">
+<article class="entry" id="aug" data-keys="+= -= *= /= //= %= 복합 대입">
 <header class="entry-head"><h3><code>+= -= *=</code></h3><p class="kind"><span class="ko">연산자</span><span class="en">operator</span></p></header>
-<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">복합 대입(augmented assignment)은 이름에 들어 있는 값과 오른쪽을 계산한 뒤, 그 결과를 같은 이름에 다시 대입한다.</p><p class="en">Augmented assignment computes with the value currently bound to the name and the right-hand side, then assigns the result back to that name.</p></section>
-<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>이름 += 값    이름 -= 값    이름 *= 값    이름 /= 값    이름 //= 값    이름 %= 값</code></p><p class="ko"><code>n *= 2</code>는 <code>n = n * 2</code>와 같다. <code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>//</code> <code>%</code>가 같은 꼴로 붙는다. 오른쪽 식이 먼저 계산된다. <code>t *= 2 + 3</code>은 <code>t = t * (2 + 3)</code>이다. 왼쪽은 이미 값이 있는 이름이어야 한다.</p><p class="en"><code>n *= 2</code> is the same computation as <code>n = n * 2</code>. The same pattern exists for <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>//</code>, and <code>%</code>. The expression on the right is evaluated first. <code>t *= 2 + 3</code> is <code>t = t * (2 + 3)</code>. The left side must already be a name that holds a value.</p></section>
-<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>n = 4
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">복합 대입은 “지금 이름에 들어 있는 값”과 오른쪽 식을 계산한 뒤, 그 결과를 같은 이름에 다시 넣는 표기다. <code>n *= 2</code>는 <code>n = n * 2</code>와 같은 뜻이다.</p>
+<p class="en">Augmented assignment means: take the value currently bound to the name, compute with the right-hand expression, then store that result back in the same name. <code>n *= 2</code> means the same as <code>n = n * 2</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>이름 += 값    이름 -= 값    이름 *= 값    이름 /= 값    이름 //= 값    이름 %= 값</code></p><p class="ko">오른쪽 식이 먼저 계산된다. 강의 표기 <code>variable ☆= expression</code>은 <code>variable = variable ☆ expression</code>이다. 그래서 <code>t *= 2 + 3</code>은 <code>t = t * (2 + 3)</code>이고, t가 4였다면 20이 된다. 왼쪽은 이미 값이 있는 이름이어야 한다.</p>
+<p class="en">The expression on the right is evaluated first. The lecture form <code>variable ☆= expression</code> means <code>variable = variable ☆ expression</code>. So <code>t *= 2 + 3</code> is <code>t = t * (2 + 3)</code>; if t was 4, it becomes 20. The left side must already hold a value.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">리스트에서 <code>lst += 묶음</code>은 extend와 비슷하게 같은 리스트에 칸을 이어 붙인다. 그 쓰임은 리스트 단원에서 다시 본다.</p>
+<p class="en">On a list, <code>lst += sequence</code> extends that same list, similar to extend. That use returns in the list chapter.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>n = 4
 n *= 2
-# n은 8</code></pre></section>
+print(n)
+# 8</code></pre>
+<p class="ko">4 * 2인 8이 n에 다시 담긴다.</p>
+<p class="en">4 * 2 yields 8, which is stored back in n.</p><pre><code>t = 4
+t *= 2 + 3
+print(t)
+# 20</code></pre>
+<p class="ko">먼저 2 + 3이 5가 되고, t = t * 5로 20이 된다.</p>
+<p class="en">First 2 + 3 becomes 5, then t = t * 5 makes 20.</p>
+</section>
 </article>
 <article class="entry" id="compare-ops" data-keys="비교 == != &lt; &gt; 연쇄">
 <header class="entry-head"><h3><code>비교</code></h3><p class="kind"><span class="ko">연산자</span><span class="en">operator</span></p></header>
@@ -222,10 +533,33 @@ print(1 &lt; 2 &lt; 3)    # True</code></pre></section>
 <section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>"Py" in "Python"                 # True
 "Math" in {"major": "Math"}      # False, 값은 보지 않는다</code></pre></section>
 </article>
-<article class="entry" id="pow" data-keys="pow 거듭제곱 **"><header class="entry-head"><h3><code>pow</code></h3><p class="kind"><span class="ko">함수</span><span class="en">function</span></p></header><section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko"><code>pow(a, b)</code>는 <code>a ** b</code>와 같은 거듭제곱이다. 둘 다 새 수를 반환하고, 원래 이름은 바뀌지 않는다.</p><p class="en"><code>pow(a, b)</code> is the same power as <code>a ** b</code>. Both return a new number, and the original name stays as it was.</p></section><section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>pow(밑, 지수)</code></p><p class="ko">밑이 2이고 지수가 3이면 결과는 8이다.</p><p class="en">A base of 2 and an exponent of 3 produce 8.</p></section><section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>print(pow(2, 3))
+<article class="entry" id="pow" data-keys="pow 거듭제곱 ** 밑 지수">
+<header class="entry-head"><h3><code>pow</code></h3><p class="kind"><span class="ko">함수</span><span class="en">function</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><code>pow(a, b)</code>는 밑 a를 지수 b만큼 곱한 거듭제곱이다. 연산자 <code>a ** b</code>와 같은 계산이다. 둘 다 새 수를 반환하고, 인자로 쓴 이름·값은 바뀌지 않는다.</p>
+<p class="en"><code>pow(a, b)</code> raises base a to the power b. It is the same computation as the operator <code>a ** b</code>. Both return a new number; the names and values used as arguments stay unchanged.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>pow(밑, 지수)    밑 ** 지수</code></p><p class="ko">밑이 2이고 지수가 3이면 8이다. 실수 밑이면 결과도 실수다. 수업 예 <code>pow(9.0, 3)</code>과 <code>9.0 ** 3</code>은 모두 729.0이다. 지수가 0.5이면 제곱근에 해당한다.</p>
+<p class="en">A base of 2 and an exponent of 3 yield 8. A float base yields a float result. In the course examples both <code>pow(9.0, 3)</code> and <code>9.0 ** 3</code> are 729.0. An exponent of 0.5 corresponds to a square root.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">세 번째 인자 <code>pow(a, b, m)</code> 형태의 나머지가 있는 거듭제곱은 이 수업 범위 밖이다. 두 인자 형태와 <code>**</code>만 쓴다.</p>
+<p class="en">The three-argument form <code>pow(a, b, m)</code> with a modulus is outside this course. Use the two-argument form and <code>**</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>print(pow(2, 3))
 print(2 ** 3)
 # 8
-# 8</code></pre></section></article>
+# 8</code></pre>
+<p class="ko">함수 표기와 연산자 표기가 같은 8을 만든다.</p>
+<p class="en">The function form and the operator form both produce 8.</p><pre><code>x = 9.0
+print(pow(x, 3))
+# 729.0</code></pre>
+<p class="ko">x는 그대로 9.0이고, 반환된 새 값만 출력된다.</p>
+<p class="en">x stays 9.0; only the returned new value is printed.</p>
+</section>
+</article>
 <article class="entry" id="precedence" data-keys="우선순위 precedence ** * +"><header class="entry-head"><h3><code>우선순위</code></h3><p class="kind"><span class="ko">규칙</span><span class="en">rule</span></p></header><section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">한 식에 연산자가 여러 개면 우선순위가 높은 연산이 먼저 계산된다. 이 수업에서 쓰는 순서는 <code>**</code>, 그다음 <code>* / // %</code>, 그다음 <code>+ -</code>, 그다음 비교, 그다음 <code>not</code>, <code>and</code>, <code>or</code>다.</p><p class="en">When one expression holds several operators, the higher-precedence operation runs first. In this class the order is <code>**</code>, then <code>* / // %</code>, then <code>+ -</code>, then comparisons, then <code>not</code>, <code>and</code>, and <code>or</code>.</p></section><section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="ko">괄호는 그 안의 식을 먼저 계산하게 만든다. 강의 표에는 비트 연산과 lambda도 있으나, 이 범위에서는 쓰지 않는다.</p><p class="en">Parentheses force the expression inside them to run first. The lecture table also lists bitwise operators and lambda, which are outside this set of chapters.</p></section><section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>print(2 + 3 * 4)
 print((2 + 3) * 4)
 # 14
@@ -238,12 +572,56 @@ print(not False)
 # True</code></pre></section></article>
 <div class="walk-mount" data-walk="ops"></div>
 </section>
-<section class="chapter" id="cond"><header class="chapter-head"><p class="num">05</p><div><h2><span class="ko">조건</span><span class="en">Conditions</span></h2><p class="lead"><span class="ko">조건이 참인 갈래만 실행한다. 본문은 들여쓰기로 묶인다.</span><span class="en">Only the branch whose condition is true runs. Indentation groups the body.</span></p></div></header><article class="entry" id="if" data-keys="if 조건 분기"><header class="entry-head"><h3><code>if</code></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header><section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko"><code>if</code>는 조건이 참일 때만 들여쓴 본문을 실행하는 문이다. 조건이 거짓이면 그 본문은 건너뛴다.</p><p class="en"><code>if</code> is a statement that runs its indented body only when the condition is true. A false condition skips that body.</p></section><section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>if 조건:</code></p><p class="ko">조건 뒤에 콜론을 둔다. 본문은 같은 너비로 들여쓴다. 강의는 스페이스 4칸을 권한다.</p><p class="en">Place a colon after the condition. Indent the body by the same width. The lecture recommends four spaces.</p></section><section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>n = 3
+<section class="chapter" id="cond"><header class="chapter-head"><p class="num">05</p><div><h2><span class="ko">조건</span><span class="en">Conditions</span></h2><p class="lead"><span class="ko">조건이 참인 갈래만 실행한다. 본문은 들여쓰기로 묶인다.</span><span class="en">Only the branch whose condition is true runs. Indentation groups the body.</span></p></div></header><article class="entry" id="if" data-keys="if 조건 분기 indent">
+<header class="entry-head"><h3><code>if</code></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><code>if</code>는 조건을 검사한 뒤, 그 조건이 참(true)일 때만 들여쓴 본문을 실행하는 문이다. 조건이 거짓이면 본문 전체를 건너뛰고 다음 문장으로 간다. 조건에는 비교·멤버십·bool 값이 온다.</p>
+<p class="en"><code>if</code> tests a condition and runs its indented body only when that condition is true. A false condition skips the whole body and continues with the next statement. The condition is usually a comparison, a membership test, or a bool.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>if 조건:</code></p><p class="ko">조건 뒤에 콜론(<code>:</code>)을 둔다. 본문은 같은 너비로 들여쓴다. 강의는 스페이스 4칸을 권한다. 탭과 스페이스를 섞지 않는다. 본문이 여러 줄이면 모두 같은 들여쓰기다.</p>
+<p class="en">Put a colon (<code>:</code>) after the condition. Indent the body by a consistent width. The lecture recommends four spaces. Do not mix tabs and spaces. Every line of a multi-line body shares that indent.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">조건식 자체가 True/False를 만든다. <code>if n &lt; 5:</code>에서 n이 3이면 비교 결과는 True라 본문이 실행된다. 본문에서 이름을 바꿔도, 이미 지나간 if의 조건을 다시 검사하지는 않는다.</p>
+<p class="en">The condition expression itself produces True or False. In <code>if n &lt; 5:</code>, when n is 3 the comparison is True and the body runs. Changing a name inside the body does not re-test that if’s condition.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>n = 3
 if n &lt; 5:
-    print("n is less than 5")</code></pre></section></article>
-<article class="entry" id="elif" data-keys="elif else 분기"><header class="entry-head"><h3><code>elif else</code></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header><section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko"><code>elif</code>는 앞의 조건이 거짓일 때 다음 조건을 본다. <code>else</code>는 앞의 조건이 모두 거짓일 때 실행된다. <code>elif</code>는 없어도 되고, 여러 개일 수 있다.</p><p class="en"><code>elif</code> tests the next condition when the previous one was false. <code>else</code> runs when every preceding condition was false. <code>elif</code> may be absent, or there may be several.</p></section><section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>if 조건:
+    print("n is less than 5")
+# n is less than 5</code></pre>
+<p class="ko">3 &lt; 5가 참이라 print가 실행된다.</p>
+<p class="en">3 &lt; 5 is true, so print runs.</p><pre><code>n = 8
+if n &lt; 5:
+    print("small")
+print("after")
+# after</code></pre>
+<p class="ko">조건이 거짓이라 if 본문은 건너뛰고, 들여쓰지 않은 print만 실행된다.</p>
+<p class="en">The condition is false, so the if body is skipped and only the unindented print runs.</p>
+</section>
+</article>
+<article class="entry" id="elif" data-keys="elif else 분기 다중 조건">
+<header class="entry-head"><h3><code>elif else</code></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><code>elif</code>는 바로 위 조건이 거짓이었을 때만 다음 조건을 검사한다. <code>else</code>는 위쪽 if/elif가 모두 거짓일 때 실행되는 마지막 갈래다. 위에서 참인 갈래가 하나 실행되면, 그 아래 elif·else는 보지 않는다.</p>
+<p class="en"><code>elif</code> tests its condition only when the condition above was false. <code>else</code> is the final branch when every earlier if/elif was false. Once one true branch has run, later elif and else are not tested.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>if 조건:
+    ...
 elif 조건:
-else:</code></p><p class="ko">한 번에 하나의 갈래만 실행된다. 위의 조건이 참이면 아래 <code>elif</code>와 <code>else</code>는 보지 않는다.</p><p class="en">Only one branch runs. When an earlier condition is true, the later <code>elif</code> and <code>else</code> are not tested.</p></section><section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>number = 5
+    ...
+else:
+    ...</code></p><p class="ko">elif는 생략할 수 있고, 여러 개를 이을 수 있다. else도 생략할 수 있다. 각 헤더는 콜론으로 끝나고, 본문은 들여쓴다. 서로 겹치지 않는 구간(음수 / 0 / 한 자리 / 그 외)을 나눌 때 쓴다.</p>
+<p class="en">elif may be omitted, or several may be chained. else may also be omitted. Each header ends with a colon and its body is indented. Use this to split non-overlapping ranges (negative / zero / single digit / other).</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">위 조건이 참이면 아래를 평가하지 않으므로, 비싼 계산이나 오류가 날 수 있는 식은 아래 갈래에 두어도 위가 참이면 실행되지 않는다. 수업 예제 number=5는 세 번째 갈래 <code>number &lt; 10</code>에서 single을 출력한다.</p>
+<p class="en">When an earlier condition is true, later ones are not evaluated, so a costly or error-prone expression in a lower branch stays unused. In the lecture example with number=5, the third branch <code>number &lt; 10</code> prints single.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>number = 5
 if number &lt; 0:
     print("negative")
 elif number == 0:
@@ -252,14 +630,57 @@ elif number &lt; 10:
     print("single")
 else:
     print("big")
-# single</code></pre></section></article>
-<article class="entry" id="nested-if" data-keys="중첩 if nested indent"><header class="entry-head"><h3><code>중첩 if</code></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header><section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">본문 안에 <code>if</code>를 다시 두면, 바깥 조건이 참인 동안에만 안쪽 조건을 본다.</p><p class="en">An <code>if</code> inside a body is tested only while the outer condition is true.</p></section><section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="ko">안쪽 블록은 바깥 본문보다 한 단계 더 들여쓴다.</p><p class="en">The inner block is indented one level deeper than the outer body.</p></section><section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>number = 5
+# single</code></pre>
+<p class="ko">5는 음수도 0도 아니고, 10보다 작아서 single 갈래만 실행된다. else는 보지 않는다.</p>
+<p class="en">5 is neither negative nor zero, and it is less than 10, so only the single branch runs. else is not taken.</p><pre><code>number = 0
+if number &lt; 0:
+    print("negative")
+elif number == 0:
+    print("zero")
+else:
+    print("positive")
+# zero</code></pre>
+<p class="ko">두 번째 갈래가 참이면 세 번째 else는 실행되지 않는다.</p>
+<p class="en">When the second branch is true, the else below does not run.</p>
+</section>
+</article>
+<article class="entry" id="nested-if" data-keys="중첩 if nested indent 안쪽">
+<header class="entry-head"><h3><code>중첩 if</code></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">중첩 if는 바깥 if의 본문 안에 또 if를 두는 구조다. 바깥 조건이 참일 때만 안쪽 조건을 검사한다. 바깥이 거짓이면 안쪽은 아예 보지 않는다.</p>
+<p class="en">A nested if places another if inside an outer if’s body. The inner condition is tested only when the outer condition is true. When the outer condition is false, the inner if is not looked at.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>if 바깥조건:
+    if 안쪽조건:
+        ...
+    else:
+        ...</code></p><p class="ko">안쪽 블록은 바깥 본문보다 한 단계 더 들여쓴다(강의: 스페이스 4칸씩). 바깥에서 큰 범위를 고르고, 안쪽에서 짝수/홀수처럼 세부 갈래를 나눌 때 쓴다.</p>
+<p class="en">The inner block is indented one level deeper than the outer body (lecture: four spaces each level). Use an outer test for a broad range, then an inner test for a detail such as even versus odd.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">안쪽 else는 안쪽 if에만 붙는다. 바깥 if의 else와 혼동하지 않도록 들여쓰기를 맞춘다. break는 반복 문에서 쓰는 말이고, if 갈래를 끝내는 전용 키워드는 아니다.</p>
+<p class="en">An inner else belongs only to the inner if. Keep indentation aligned so it is not read as the outer if’s else. break is for loops; it is not a special keyword for ending an if branch.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>number = 5
 if number &lt; 10:
     if number % 2 == 0:
         print("even")
     else:
         print("odd")
-# odd</code></pre></section></article>
+# odd</code></pre>
+<p class="ko">바깥 5 &lt; 10이 참이라 안쪽으로 들어간다. 5 % 2 == 0은 거짓이라 odd가 출력된다.</p>
+<p class="en">Outer 5 &lt; 10 is true, so control enters the inner if. 5 % 2 == 0 is false, so odd is printed.</p><pre><code>number = 12
+if number &lt; 10:
+    if number % 2 == 0:
+        print("even")
+print("done")
+# done</code></pre>
+<p class="ko">바깥이 거짓이면 안쪽 print는 실행되지 않는다.</p>
+<p class="en">When the outer condition is false, the inner prints do not run.</p>
+</section>
+</article>
 <div class="walk-mount" data-walk="cond"></div>
 </section>
 <section class="chapter" id="modules"><header class="chapter-head"><p class="num">06</p><div><h2><span class="ko">모듈</span><span class="en">Modules</span></h2><p class="lead"><span class="ko">모듈은 이미 있는 파이썬 파일을 이름으로 불러 쓰는 단위다.</span><span class="en">A module is an existing Python file, loaded and used by its name.</span></p></div></header><article class="entry" id="import" data-keys="import 모듈 module"><header class="entry-head"><h3><code>import</code></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header><section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">모듈은 파이썬 파일 하나다. <code>import</code>는 그 파일의 이름들을 현재 프로그램에서 쓸 수 있게 불러온다.</p><p class="en">A module is one Python file. <code>import</code> loads that file's names so the current program can use them.</p></section><section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>import 모듈</code></p><p class="ko">파일 이름의 <code>.py</code>는 적지 않는다. 불러온 뒤에는 <code>모듈.이름</code>으로 그 안의 값을 고른다.</p><p class="en">The <code>.py</code> suffix is omitted. After the import, <code>module.name</code> selects a value inside it.</p></section><section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>import math
@@ -1216,7 +1637,7 @@ print(d)
       <footer class="colophon"><p><span class="ko">수록 범위는 실습 day 1–day 4와 수업자료 Programming-2–6다. 예제 출력은 Python 3에서 확인했다.</span><span class="en">The scope is labs day 1–day 4 and lectures Programming-2–6. Example output was checked in Python 3.</span></p></footer>
     </main>
   </div>
-  <script src="js/site.js?v=6"></script>
-  <script src="js/walks.js?v=16"></script>
+  <script src="js/site.js?v=7"></script>
+  <script src="js/walks.js?v=18"></script>
 </body>
 </html>
