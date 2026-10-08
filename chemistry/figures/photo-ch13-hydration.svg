@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" viewBox="0 0 2700 2700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Nimbus Sans L,Helvetica,Liberation Sans,sans-serif" font-size="140">
+
+  <defs>
+    <radialGradient id="rgo" fx=".5" fy=".25">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#ca0202"/>
+    </radialGradient>
+
+    <radialGradient id="rgna" fx=".5" fy=".5">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#9a9a9a"/>
+    </radialGradient>
+
+    <radialGradient id="rgh" fx=".5" fy=".25">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#bfbfbf"/>
+    </radialGradient>
+
+    <g id="hydrogen">
+      <title>hydrogen</title>
+      <circle r="125" fill="url(#rgh)" stroke="#9a9a9a" stroke-width="2"/>
+    </g>
+    <g id="oxygen">
+      <title>oxygen</title>
+      <circle r="225" fill="url(#rgo)"/>
+    </g>
+    <g id="sodium">
+      <title>sodium</title>
+      <circle r="322.7" fill="url(#rgna)" stroke="#686868" stroke-width="5"/>
+    </g>
+    <g id="h2o">
+      <use x="+160" y="190" xlink:href="#hydrogen"/>
+      <use x="0" y="0" xlink:href="#oxygen"/>
+      <use x="-160" y="190" xlink:href="#hydrogen"/>
+    </g>
+  </defs>
+
+  <g transform="translate(1350 1350)">
+    <use xlink:href="#sodium"/>
+    <text x="-18" y="80" font-size="280" text-anchor="middle">Na<tspan dx="-35" dy="-100" font-size="224">+</tspan></text>
+
+    <use x="0" y="800" xlink:href="#h2o"/>
+    <use x="0" y="800" xlink:href="#h2o" transform="rotate(178)"/>
+    <use x="0" y="800" xlink:href="#h2o" transform="rotate(-58)"/>
+    <use x="0" y="800" xlink:href="#h2o" transform="rotate(232)"/>
+    <use x="0" y="800" xlink:href="#h2o" transform="rotate(63)" />
+    <use x="0" y="800" xlink:href="#h2o" transform="rotate(120)"/>
+  </g>
+
+  <text x="990"  y="2570">δ+</text>
+  <text x="1290" y="1900">δ−</text>
+  <text x="1540" y="2580">δ+</text>
+
+  <text x="1440" y="200" >δ+</text>
+  <text x="1230" y="920" >δ−</text>
+  <text x="980"  y="230" >δ+</text>
+
+  <text x="2100" y="2250">δ+</text>
+  <text x="1720" y="1620">δ−</text>
+  <text x="2400" y="1890">δ+</text>
+
+  <text x="2370" y="880" >δ+</text>
+  <text x="1630" y="1080">δ−</text>
+  <text x="2110" y="490" >δ+</text>
+
+  <text x="90"   y="1690">δ+</text>
+  <text x="850"  y="1600">δ−</text>
+  <text x="290"  y="2100">δ+</text>
+
+  <text x="400"  y="590" >δ+</text>
+  <text x="870"  y="1170">δ−</text>
+  <text x="140"  y="960" >δ+</text>
+</svg>
