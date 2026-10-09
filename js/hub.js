@@ -49,6 +49,18 @@ function bindSubjectLinks() {
   document.querySelectorAll('[data-subject]').forEach((anchor) => {
     anchor.addEventListener('click', () => {
       const id = anchor.getAttribute('data-subject') || '';
+      const existing = readLast();
+      // Keep a deeper problem URL written by the subject site.
+      if (
+        existing &&
+        existing.id === id &&
+        typeof existing.href === 'string' &&
+        existing.href.includes(`${id}/`) &&
+        existing.href.replace(/\/+$/, '') !== id
+      ) {
+        writeLast({ ...existing, at: Date.now() });
+        return;
+      }
       const label = anchor.getAttribute('data-label') || id;
       const href = anchor.getAttribute('href') || '';
       writeLast({ id, label, href, at: Date.now() });
