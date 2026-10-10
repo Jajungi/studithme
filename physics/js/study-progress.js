@@ -23,11 +23,12 @@
     }
   }
 
-  function setStatus(id, status) {
+  function setStatus(id, status, opts) {
+    opts = opts || {};
     const map = readProgress();
     const rank = { seen: 1, attempted: 2, solved: 3 };
     const prev = map[id] && map[id].status;
-    if (prev && (rank[prev] || 0) > (rank[status] || 0)) {
+    if (!opts.force && prev && (rank[prev] || 0) > (rank[status] || 0)) {
       map[id] = Object.assign({}, map[id], { at: Date.now() });
     } else {
       map[id] = { status: status, at: Date.now() };
