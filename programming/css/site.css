@@ -449,6 +449,66 @@ table.spec code {
   margin-top: 36px;
 }
 
+.where {
+  max-width: var(--measure);
+  margin: 28px 0 8px;
+}
+
+.where-cap {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.where-grid {
+  display: grid;
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .where-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 14px;
+  }
+}
+
+.where-card {
+  padding: 12px 14px;
+  background: var(--sunken);
+  border-radius: 8px;
+}
+
+.where-type {
+  margin: 0 0 8px;
+  color: var(--secondary);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.where-type code {
+  background: #fff;
+}
+
+.where-codes {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+.where-codes code {
+  margin: 0 2px 4px 0;
+  white-space: nowrap;
+}
+
+.where-note {
+  margin: 12px 0 0;
+  color: var(--secondary);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
 .entry h4 {
   margin: 32px 0 12px;
   color: var(--secondary);

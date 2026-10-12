@@ -7,7 +7,7 @@
   <meta name="description" content="프로그래밍 실습 day 1–4의 Python 문법. 단원별 실행 순서와 형식별 정리.">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="css/site.css?v=17">
+  <link rel="stylesheet" href="css/site.css?v=18">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1d1f'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -1457,21 +1457,48 @@ print(a)  # [[1], 2]
 print(d)  # [[9], 2]</code></pre></section></article>
 <div class="walk-mount" data-walk="copy"></div>
 </section>
-<section class="chapter" id="compare"><header class="chapter-head"><p class="num">16</p><div><h2><span class="ko">같이 보는 구분</span><span class="en">Distinctions</span></h2><p class="lead"><span class="ko">이름은 비슷해도 원본을 고치는지, 무엇을 반환하는지, 없을 때 무엇이 되는지, <strong>어느 형식(list·str·dict…)</strong>에 붙이는지가 다르다.</span><span class="en">Similar names still differ in whether they modify the original, what they return, what happens when the target is missing, and <strong>which type</strong> they attach to.</span></p></div></header><div class="table-wrap sheet"><table class="spec sheet"><caption><span class="ko">어디에 쓰나 · method / function</span><span class="en">Where it applies · method / function</span></caption>
-<thead><tr><th><span class="ko">코드</span><span class="en">Code</span></th><th><span class="ko">종류</span><span class="en">Kind</span></th><th><span class="ko">쓸 수 있는 형식</span><span class="en">Usable on</span></th></tr></thead><tbody>
-<tr><td><code>append / extend / insert / remove / sort / reverse</code></td><td>method</td><td><span class="ko">list만</span><span class="en">list only</span></td></tr>
-<tr><td><code>pop(i)</code> · index</td><td>method</td><td><span class="ko">list (튜플·문자열엔 없음)</span><span class="en">list (not on tuple/str)</span></td></tr>
-<tr><td><code>count / index</code></td><td>method</td><td><span class="ko">list, tuple, str</span><span class="en">list, tuple, str</span></td></tr>
-<tr><td><code>copy</code></td><td>method</td><td><span class="ko">list, dict (set에도 있음)</span><span class="en">list, dict (also set)</span></td></tr>
-<tr><td><code>split / join / replace / strip / lower… / format / splitlines</code></td><td>method</td><td><span class="ko">str만</span><span class="en">str only</span></td></tr>
-<tr><td><code>get / setdefault / update / keys / values / items / fromkeys / clear / popitem</code></td><td>method</td><td><span class="ko">dict만</span><span class="en">dict only</span></td></tr>
-<tr><td><code>d.pop(key)</code></td><td>method</td><td><span class="ko">dict (list의 pop과 인자·뜻이 다름)</span><span class="en">dict (unlike list.pop)</span></td></tr>
-<tr><td><code>add / discard / remove / update / | &amp; - ^</code></td><td>method·연산</td><td><span class="ko">set</span><span class="en">set</span></td></tr>
-<tr><td><code>sorted / sum / enumerate / zip / len</code></td><td>function</td><td><span class="ko">묶음 일반 (인자는 타입별 가능 여부 다름)</span><span class="en">general iterables (rules differ by type)</span></td></tr>
-<tr><td><code>print / input / type / int / float / str / list / tuple / dict / set</code></td><td>function</td><td><span class="ko">형식에 붙이지 않음 (인자를 받음)</span><span class="en">not attached to a value (take arguments)</span></td></tr>
-<tr><td><code>+ *</code> (이어 붙이기·반복)</td><td>연산</td><td><span class="ko">str, list, tuple (같은 종류끼리)</span><span class="en">str, list, tuple (same kinds)</span></td></tr>
-<tr><td><code>in</code></td><td>연산</td><td><span class="ko">str(부분) / list·tuple(칸) / dict(키) / set(원소)</span><span class="en">str substring / list·tuple element / dict key / set element</span></td></tr>
-</tbody></table></div>
+<section class="chapter" id="compare"><header class="chapter-head"><p class="num">16</p><div><h2><span class="ko">같이 보는 구분</span><span class="en">Distinctions</span></h2><p class="lead"><span class="ko">이름은 비슷해도 원본을 고치는지, 무엇을 반환하는지, 없을 때 무엇이 되는지, <strong>어느 형식(list·str·dict…)</strong>에 붙이는지가 다르다.</span><span class="en">Similar names still differ in whether they modify the original, what they return, what happens when the target is missing, and <strong>which type</strong> they attach to.</span></p></div></header><div class="where sheet">
+<p class="where-cap"><span class="ko">어디에 쓰나</span><span class="en">Where it applies</span></p>
+<div class="where-grid">
+<div class="where-card">
+<p class="where-type"><code>list</code> <span class="ko">만</span><span class="en">only</span></p>
+<p class="where-codes"><code>append</code> <code>extend</code> <code>insert</code> <code>remove</code> <code>sort</code> <code>reverse</code> <code>pop(i)</code></p>
+</div>
+<div class="where-card">
+<p class="where-type"><code>str</code> <span class="ko">만</span><span class="en">only</span></p>
+<p class="where-codes"><code>split</code> <code>join</code> <code>replace</code> <code>strip</code> <code>lower</code>… <code>format</code> <code>splitlines</code></p>
+</div>
+<div class="where-card">
+<p class="where-type"><code>dict</code> <span class="ko">만</span><span class="en">only</span></p>
+<p class="where-codes"><code>get</code> <code>setdefault</code> <code>update</code> <code>keys</code> <code>values</code> <code>items</code> <code>fromkeys</code> <code>clear</code> <code>popitem</code> <code>pop(key)</code></p>
+</div>
+<div class="where-card">
+<p class="where-type"><code>set</code></p>
+<p class="where-codes"><code>add</code> <code>discard</code> <code>remove</code> <code>update</code> <code>|</code> <code>&amp;</code> <code>-</code> <code>^</code></p>
+</div>
+<div class="where-card">
+<p class="where-type"><code>list</code> <code>tuple</code> <code>str</code></p>
+<p class="where-codes"><code>count</code> <code>index</code></p>
+</div>
+<div class="where-card">
+<p class="where-type"><code>list</code> <code>dict</code> <code>set</code></p>
+<p class="where-codes"><code>copy</code> <span class="ko">·</span> <code>clear</code> <span class="ko">(dict·list·set)</span><span class="en">(dict·list·set)</span></p>
+</div>
+<div class="where-card">
+<p class="where-type"><span class="ko">function · 묶음</span><span class="en">function · iterable</span></p>
+<p class="where-codes"><code>sorted</code> <code>sum</code> <code>enumerate</code> <code>zip</code> <code>len</code></p>
+</div>
+<div class="where-card">
+<p class="where-type"><span class="ko">function · 인자</span><span class="en">function · args</span></p>
+<p class="where-codes"><code>print</code> <code>input</code> <code>type</code> <code>int</code> <code>float</code> <code>str</code> <code>list</code> <code>tuple</code> <code>dict</code> <code>set</code></p>
+</div>
+<div class="where-card">
+<p class="where-type"><span class="ko">연산</span><span class="en">operators</span></p>
+<p class="where-codes"><code>+</code> <code>*</code> → <code>str</code>/<code>list</code>/<code>tuple</code> <span class="ko">(같은 종류)</span><span class="en">(same kind)</span><br><code>in</code> → <span class="ko">str 부분 · list/tuple 칸 · dict 키 · set 원소</span><span class="en">str part · list/tuple item · dict key · set element</span></p>
+</div>
+</div>
+<p class="where-note"><span class="ko"><code>list.pop(i)</code>와 <code>dict.pop(key)</code>는 이름만 같고 인자·뜻이 다르다.</span><span class="en"><code>list.pop(i)</code> and <code>dict.pop(key)</code> share a name but differ in arguments and meaning.</span></p>
+</div>
 <div class="table-wrap sheet"><table class="spec sheet"><caption><span class="ko">고치는지와 반환값</span><span class="en">Mutation and return value</span></caption>
 <thead><tr><th><span class="ko">코드</span><span class="en">Code</span></th><th><span class="ko">형식</span><span class="en">On</span></th><th><span class="ko">원본</span><span class="en">Original</span></th><th><span class="ko">반환</span><span class="en">Returns</span></th></tr></thead><tbody>
 <tr><td><code>lst.append(x)</code></td><td><span class="ko">list</span><span class="en">list</span></td><td><span class="ko">뒤에 한 칸 추가</span><span class="en">One element added at the end</span></td><td>None</td></tr>
@@ -1532,7 +1559,7 @@ print(d)  # [[9], 2]</code></pre></section></article>
       <footer class="colophon"><p><span class="ko">수록 범위는 실습 day 1–day 4와 수업자료 Programming-2–6다. 예제 출력은 Python 3에서 확인했다.</span><span class="en">The scope is labs day 1–day 4 and lectures Programming-2–6. Example output was checked in Python 3.</span></p></footer>
     </main>
   </div>
-  <script src="js/site.js?v=17"></script>
+  <script src="js/site.js?v=18"></script>
   <script src="js/walks.js?v=18"></script>
 </body>
 </html>
