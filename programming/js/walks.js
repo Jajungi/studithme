@@ -135,26 +135,26 @@
     },
     ops: {
       lines: [
-        [w("x"), w(" = "), w("9.0", "x0", "num")],
-        [w("print", null, "fn"), w("("), w("x", "xd"), w(" / "), w("2", "d2", "num"), w(")")],
-        [w("print", null, "fn"), w("("), w("pow", "pw", "fn"), w("("), w("x", "xp"), w(", "), w("3", "p3", "num"), w("))")],
+        [w("price"), w(" = "), w("9.0", "x0", "num")],
+        [w("print", null, "fn"), w("("), w("price", "xd"), w(" / "), w("2", "d2", "num"), w(")")],
+        [w("print", null, "fn"), w("("), w("pow", "pw", "fn"), w("("), w("price", "xp"), w(", "), w("3", "p3", "num"), w("))")],
         [w("n"), w(" = "), w("4", "n4", "num")],
         [w("n", "nL"), w(" *= "), w("2 + 3", "rhs", "num")],
         [w("print", null, "fn"), w("("), w("n", "np"), w(")")],
         [w("print", null, "fn"), w("("), w("2 + 3 * 4", "prec"), w(")")],
-        [w("print", null, "fn"), w("("), w("True and False", "bo"), w(")")],
-        [w("print", null, "fn"), w("("), w("\"Py\"", "py", "str"), w(" in "), w("\"Python\"", "py2", "str"), w(")")]
+        [w("ok"), w(" = "), w("n >= 20", "ge"), w(" and "), w("\"Py\"", "py", "str"), w(" in "), w("\"Python\"", "py2", "str")],
+        [w("print", null, "fn"), w("("), w("ok", "okp"), w(")")]
       ],
       steps: [
-        step("x는 9.0", "x is 9.0", "x에 실수 9.0을 넣는다. 출력은 아직 없다.", "The float 9.0 is stored in x. There is no output yet.", { line: 0, name: ["x0"], lane: lane("x", "x는 9.0이다.", "x is 9.0.", [[cell("x", "9.0", "hot", "")]]) }),
-        step("9.0 / 2는 4.5", "9.0 / 2 is 4.5", "/ 는 실수 나눗셈이다. print가 4.5를 출력한다. x는 9.0 그대로다.", "/ is real division. print writes 4.5. x is still 9.0.", { line: 1, name: ["xd", "d2"] }),
-        step("pow는 거듭제곱", "pow is exponentiation", "pow(x, 3)은 x ** 3과 같다. 9.0을 세 번 곱한 729.0이 출력된다.", "pow(x, 3) is the same as x ** 3. print writes 729.0, 9.0 multiplied by itself three times.", { line: 2, name: ["pw", "xp"], idx: ["p3"] }),
-        step("n은 4", "n is 4", "다음 복합 대입에 쓸 4를 n에 넣는다.", "4 is stored in n for the next augmented assignment.", { line: 3, name: ["n4"] }),
-        step("오른쪽을 먼저 계산한다", "The right side runs first", "2 + 3이 먼저 5가 된다. n *= 5는 n = n * 5라서 n은 20이 된다.", "2 + 3 becomes 5 first. n *= 5 is n = n * 5, so n becomes 20.", { line: 4, name: ["nL"], idx: ["rhs"], lane: lane("n", "4 * 5 = 20.", "4 * 5 = 20.", [[cell("n", "20", "hot", "")]]) }),
-        step("n을 출력한다", "Print n", "print가 20을 출력한다.", "print writes 20.", { line: 5, name: ["np"] }),
-        step("곱셈이 덧셈보다 먼저", "Multiplication precedes addition", "3 * 4가 먼저 12가 되고, 2 + 12는 14다. 괄호가 없으면 이 순서다.", "3 * 4 becomes 12 first, then 2 + 12 is 14. Without parentheses, that is the order.", { line: 6, idx: ["prec"] }),
-        step("and는 양쪽이 참이어야 한다", "and needs both sides true", "True and False는 False다. 왼쪽이 거짓이면 오른쪽은 계산하지 않는다. 여기는 왼쪽이 참이라 오른쪽 False까지 본다.", "True and False is False. When the left side is false, the right side is not evaluated. Here the left side is true, so the right side, False, is read.", { line: 7, idx: ["bo"] }),
-        step("\"Python\" 안에 \"Py\"", "\"Python\" contains \"Py\"", "연속된 \"Py\"가 있으므로 True다.", "The contiguous text \"Py\" is there, so the result is True.", { line: 8, name: ["py2"], idx: ["py"] })
+        step("가격 9.0으로 시작한다", "Start with price 9.0", "반값·거듭제곱·점수 조건에 쓸 실수 price에 9.0을 넣는다. 대입만으로는 출력이 없다.", "Store 9.0 in price for the half-price, power, and score checks that follow. Assignment alone writes nothing.", { line: 0, name: ["x0"], lane: lane("price", "price는 9.0이다.", "price is 9.0.", [[cell("price", "9.0", "hot", "")]]) }),
+        step("반값 4.5를 출력한다", "Print half price 4.5", "/ 는 실수 나눗셈이다. price / 2는 4.5이고 print가 그 값을 쓴다. price 자체는 9.0으로 남는다.", "/ is real division. price / 2 is 4.5 and print writes it. price itself stays 9.0.", { line: 1, name: ["xd", "d2"] }),
+        step("세 번 곱한 값을 본다", "See the value cubed", "pow(price, 3)은 price ** 3과 같다. 9.0을 세 번 곱한 729.0이 출력된다. 시험에서는 ** 와 pow를 같은 거듭제곱으로 본다.", "pow(price, 3) matches price ** 3. print writes 729.0, nine multiplied three times. On the exam, ** and pow are the same power idea.", { line: 2, name: ["pw", "xp"], idx: ["p3"] }),
+        step("점수 n은 4", "Score n is 4", "다음에 배수를 곱해 올릴 점수 n에 4를 넣는다.", "Store 4 in n; the next line will scale it.", { line: 3, name: ["n4"] }),
+        step("오른쪽 2 + 3을 먼저 본다", "Read 2 + 3 on the right first", "복합 대입에서도 오른쪽을 먼저 계산한다. 2 + 3이 5가 되고, n *= 5는 n = n * 5라서 n은 20이 된다.", "Even with augmented assignment the right side runs first. 2 + 3 becomes 5, and n *= 5 means n = n * 5, so n becomes 20.", { line: 4, name: ["nL"], idx: ["rhs"], lane: lane("n", "4 * 5 = 20.", "4 * 5 = 20.", [[cell("n", "20", "hot", "")]]) }),
+        step("올린 점수 20을 출력한다", "Print the scaled score 20", "print가 20을 출력한다. 이 값이 아래 합격 조건 n >= 20에 쓰인다.", "print writes 20. That value feeds the later check n >= 20.", { line: 5, name: ["np"] }),
+        step("곱이 덧셈보다 먼저다", "Multiplication precedes addition", "같은 식 안에서 우선순위를 확인한다. 3 * 4가 먼저 12가 되고 2 + 12는 14다. 괄호가 없으면 이 순서다.", "A bare expression checks precedence. 3 * 4 becomes 12 first, then 2 + 12 is 14. Without parentheses that is the order.", { line: 6, idx: ["prec"] }),
+        step("점수와 글자 조건을 한 줄로", "Score and text checks in one line", "n >= 20은 True다. and 오른쪽의 \"Py\" in \"Python\"도 True라서 ok는 True다. 왼쪽이 거짓이면 오른쪽 멤버십은 계산하지 않는다.", "n >= 20 is True. The right side \"Py\" in \"Python\" is also True, so ok is True. If the left side were false, the membership test would be skipped.", { line: 7, name: ["ge", "py2"], idx: ["py"], lane: lane("ok", "양쪽이 참이라 True다.", "Both sides true, so True.", [[cell("ok", "True", "hot", "")]]) }),
+        step("최종 ok를 출력한다", "Print final ok", "print가 True를 쓴다. 가격 계산·점수 배율·우선순위·논리·멤버십이 한 흐름으로 이어진 끝이다.", "print writes True. Half price, power, scaling, precedence, logic, and membership close one flow.", { line: 8, name: ["okp"] })
       ],
       terms: [
         [],
@@ -164,8 +164,8 @@
         ["4.5", "729.0"],
         ["4.5", "729.0", "20"],
         ["4.5", "729.0", "20", "14"],
-        ["4.5", "729.0", "20", "14", "False"],
-        ["4.5", "729.0", "20", "14", "False", "True"]
+        ["4.5", "729.0", "20", "14"],
+        ["4.5", "729.0", "20", "14", "True"]
       ]
     },
     cond: {
@@ -210,14 +210,14 @@
       lines: [
         [w("import ", null, "kw"), w("math", "m"), w(", "), w("random", "r")],
         [w("random.seed", "seed", "fn"), w("("), w("1", "one", "num"), w(")")],
-        [w("x"), w(" = "), w("1.0", "xv", "num")],
+        [w("t"), w(" = "), w("1.0", "xv", "num")],
         [w("print", null, "fn"), w("("), w("round", null, "fn"), w("("), w("math.pi", "pi"), w(", 2))")],
-        [w("print", null, "fn"), w("("), w("round", null, "fn"), w("("), w("math.exp", "ex", "fn"), w("(x), 2))")],
-        [w("print", null, "fn"), w("("), w("math.log", "lg", "fn"), w("(x))")],
-        [w("print", null, "fn"), w("("), w("math.log10", "l10", "fn"), w("(x))")],
-        [w("print", null, "fn"), w("("), w("math.sqrt", "sq", "fn"), w("(x))")],
-        [w("print", null, "fn"), w("("), w("round", null, "fn"), w("("), w("math.cos", "co", "fn"), w("(x), 2))")],
-        [w("print", null, "fn"), w("("), w("round", null, "fn"), w("("), w("math.sin", "si", "fn"), w("(x), 2))")],
+        [w("print", null, "fn"), w("("), w("round", null, "fn"), w("("), w("math.exp", "ex", "fn"), w("(t), 2))")],
+        [w("print", null, "fn"), w("("), w("math.log", "lg", "fn"), w("(t))")],
+        [w("print", null, "fn"), w("("), w("math.log10", "l10", "fn"), w("(t))")],
+        [w("print", null, "fn"), w("("), w("math.sqrt", "sq", "fn"), w("(t))")],
+        [w("print", null, "fn"), w("("), w("round", null, "fn"), w("("), w("math.cos", "co", "fn"), w("(t), 2))")],
+        [w("print", null, "fn"), w("("), w("round", null, "fn"), w("("), w("math.sin", "si", "fn"), w("(t), 2))")],
         [w("print", null, "fn"), w("("), w("round", null, "fn"), w("("), w("random.random", "rr", "fn"), w("(), 2))")],
         [w("print", null, "fn"), w("("), w("round", null, "fn"), w("("), w("random.uniform", "un", "fn"), w("(1, 10), 2))")],
         [w("print", null, "fn"), w("("), w("random.randrange", "rg1", "fn"), w("(10))")],
@@ -226,22 +226,22 @@
         [w("print", null, "fn"), w("("), w("random.choice", "ch", "fn"), w("("), w("\"abc\"", "abc", "str"), w("))")]
       ],
       steps: [
-        step("math와 random을 불러온다", "Load math and random", "import는 두 모듈의 이름을 이 프로그램에서 쓸 수 있게 한다.", "import makes both module names available in this program.", { line: 0, name: ["m", "r"] }),
-        step("같은 임의 수열로 고정한다", "Fix the random sequence", "random.seed(1) 뒤의 random 호출은 이 프로그램에서 아래 출력과 같다. 시드가 없으면 실행마다 달라진다.", "After random.seed(1), the random calls in this program match the output below. Without a seed, each run can differ.", { line: 1, name: ["seed"], idx: ["one"] }),
-        step("x는 1.0", "x is 1.0", "이후 math 함수는 이 1.0을 받는다.", "The later math functions receive this 1.0.", { line: 2, name: ["xv"] }),
-        step("원주율", "Pi", "math.pi를 소수 둘째 자리로 반올림하면 3.14다.", "Rounding math.pi to two decimal places yields 3.14.", { line: 3, name: ["pi"] }),
-        step("e의 x제곱", "e to the power x", "math.exp(1.0)은 e다. 소수 둘째 자리까지 보이면 2.72다.", "math.exp(1.0) is e. Shown to two decimal places, it is 2.72.", { line: 4, name: ["ex"] }),
-        step("자연로그", "Natural log", "math.log(1.0)은 0.0이다.", "math.log(1.0) is 0.0.", { line: 5, name: ["lg"] }),
-        step("밑이 10인 로그", "Base-10 log", "math.log10(1.0)도 0.0이다.", "math.log10(1.0) is also 0.0.", { line: 6, name: ["l10"] }),
-        step("제곱근", "Square root", "math.sqrt(1.0)은 1.0이다.", "math.sqrt(1.0) is 1.0.", { line: 7, name: ["sq"] }),
-        step("코사인", "Cosine", "math.cos(1.0)을 소수 둘째 자리까지 보이면 0.54다. 인자는 라디안이다.", "math.cos(1.0), shown to two decimal places, is 0.54. The argument is in radians.", { line: 8, name: ["co"] }),
-        step("사인", "Sine", "math.sin(1.0)을 소수 둘째 자리까지 보이면 0.84다.", "math.sin(1.0), shown to two decimal places, is 0.84.", { line: 9, name: ["si"] }),
-        step("0 이상 1 미만", "From 0 up to 1", "random.random()은 그 구간의 실수다. 이 시드에서는 소수 둘째 자리가 0.13이다.", "random.random() is a float in that interval. With this seed, two decimal places show 0.13.", { line: 10, name: ["rr"] }),
-        step("1 이상 10 미만의 실수", "A float from 1 up to 10", "random.uniform(1, 10)은 이 시드에서 소수 둘째 자리가 8.63이다.", "With this seed, random.uniform(1, 10) shows 8.63 to two decimal places.", { line: 11, name: ["un"] }),
-        step("0 이상 10 미만의 정수", "An integer from 0 up to 10", "random.randrange(10)의 끝 10은 빠진다. 이 시드에서는 1이다.", "The stop 10 of random.randrange(10) is excluded. With this seed the value is 1.", { line: 12, name: ["rg1"] }),
-        step("1 이상 10 미만의 정수", "An integer from 1 up to 10", "random.randrange(1, 10)도 끝 값은 빠진다. 이 시드에서는 5다.", "random.randrange(1, 10) also excludes the stop. With this seed the value is 5.", { line: 13, name: ["rg2"] }),
-        step("1 이상 10 이하", "From 1 through 10", "random.randint(1, 10)은 끝 값 10을 포함한다. 이 시드에서는 2다.", "random.randint(1, 10) includes the end value 10. With this seed the value is 2.", { line: 14, name: ["ri"] }),
-        step("묶음에서 하나", "One element of the sequence", "random.choice(\"abc\")는 a, b, c 중 하나를 고른다. 이 시드에서는 b다.", "random.choice(\"abc\") picks one of a, b, and c. With this seed it is b.", { line: 15, name: ["ch"], idx: ["abc"] })
+        step("수학·추첨 모듈을 연다", "Open math and random", "한 프로그램에서 원주율·지수·로그와 난수를 같이 쓴다. import로 math와 random 이름을 쓸 수 있게 한다.", "This program uses pi, exp, logs, and random draws together. import makes the names math and random available.", { line: 0, name: ["m", "r"] }),
+        step("추첨 결과를 고정한다", "Lock the draw sequence", "이어질 random 호출이 매 실행 같은 값이 되도록 seed(1)을 둔다. 시드가 없으면 아래 추첨 줄의 숫자가 달라질 수 있다.", "seed(1) makes the later random calls match the fixed terminal lines. Without a seed those draw lines can change each run.", { line: 1, name: ["seed"], idx: ["one"] }),
+        step("기준값 t는 1.0", "Baseline t is 1.0", "지수·로그·제곱근·삼각비에 넣을 기준값 t에 1.0을 둔다. 각도는 라디안으로 본다. 출력은 아직 없다.", "Store baseline 1.0 in t for exp, log, sqrt, and trig. Angles are in radians. No output yet.", { line: 2, name: ["xv"], lane: lane("t", "이후 math 호출이 이 t를 받는다.", "Later math calls receive this t.", [[cell("t", "1.0", "hot", "")]]) }),
+        step("원주율을 소수 둘째 자리로", "Pi to two decimals", "먼저 상수 math.pi를 확인한다. round(..., 2)로 3.14가 출력된다.", "First check the constant math.pi. round(..., 2) prints 3.14.", { line: 3, name: ["pi"] }),
+        step("e의 t제곱을 본다", "See e to the power t", "같은 t로 성장을 본다. math.exp(t)는 e^1.0이라 약 e이고, 소수 둘째 자리까지면 2.72다.", "Same t for growth: math.exp(t) is e^1.0, about e, shown as 2.72 to two decimals.", { line: 4, name: ["ex"] }),
+        step("자연로그로 되돌아본다", "Natural log undoes exp", "math.log(t)는 밑 e 로그다. t가 1.0이면 결과는 0.0이다. 방금 exp와 짝이 되는 줄이다.", "math.log(t) is the base-e log. For t 1.0 the result is 0.0. It pairs with the exp line above.", { line: 5, name: ["lg"] }),
+        step("상용로그도 같은 t", "Common log on the same t", "math.log10(t)는 밑 10이다. t가 1.0이면 역시 0.0이다.", "math.log10(t) uses base 10. For t 1.0 it is also 0.0.", { line: 6, name: ["l10"] }),
+        step("제곱근으로 길이를 본다", "Square root as a length check", "math.sqrt(t)는 1.0이다. 기준값의 제곱근을 확인하는 줄이다.", "math.sqrt(t) is 1.0. A quick length-style check on the baseline.", { line: 7, name: ["sq"] }),
+        step("코사인(라디안 t)", "Cosine of radian t", "math.cos(t)의 인자는 도(degree)가 아니라 라디안이다. 소수 둘째 자리까지 0.54다.", "math.cos(t) takes radians, not degrees. To two decimals it is 0.54.", { line: 8, name: ["co"] }),
+        step("사인(라디안 t)", "Sine of radian t", "이어서 math.sin(t)를 같은 각도로 본다. 소수 둘째 자리까지 0.84다. 여기까지가 수학 장면이다.", "Next, math.sin(t) at the same angle. To two decimals it is 0.84. That ends the math scene.", { line: 9, name: ["si"] }),
+        step("추첨 장면: 0 이상 1 미만", "Draw scene: from 0 up to 1", "이제 seed가 고정한 난수 줄이다. random.random()은 0 이상 1 미만 실수이고, 이 시드에서는 소수 둘째 자리 0.13이다.", "Random draws begin under the fixed seed. random.random() is a float in [0, 1), and this seed shows 0.13 to two decimals.", { line: 10, name: ["rr"] }),
+        step("1 이상 10 미만 실수 추첨", "Draw a float from 1 up to 10", "random.uniform(1, 10)도 같은 시드 수열의 다음 값이다. 소수 둘째 자리까지 8.63이다.", "random.uniform(1, 10) is the next value in that seeded sequence. To two decimals it is 8.63.", { line: 11, name: ["un"] }),
+        step("0 이상 10 미만 정수", "Integer from 0 up to 10", "random.randrange(10)의 끝 10은 빠진다. 이 시드에서는 1이다.", "The stop 10 of random.randrange(10) is excluded. With this seed the value is 1.", { line: 12, name: ["rg1"] }),
+        step("1 이상 10 미만 정수", "Integer from 1 up to 10", "random.randrange(1, 10)도 끝은 빠진다. 이 시드에서는 5다. randrange와 randint의 끝 포함 여부가 시험 포인트다.", "random.randrange(1, 10) also excludes the stop. With this seed it is 5. Inclusive stop vs exclusive stop is the exam point versus randint.", { line: 13, name: ["rg2"] }),
+        step("1 이상 10 이하 정수", "Integer from 1 through 10", "random.randint(1, 10)은 끝 10을 포함한다. 이 시드에서는 2다.", "random.randint(1, 10) includes the end 10. With this seed the value is 2.", { line: 14, name: ["ri"] }),
+        step("글자 묶음에서 하나 고른다", "Pick one character from a bundle", "마지막 추첨으로 random.choice(\"abc\")가 a·b·c 중 하나를 고른다. 이 시드에서는 b다. 수학 확인 뒤 추첨까지가 한 프로그램이다.", "Final draw: random.choice(\"abc\") picks one of a, b, c. With this seed it is b. Math checks then draws form one program.", { line: 15, name: ["ch"], idx: ["abc"] })
       ],
       terms: [
         [],
@@ -421,31 +421,37 @@
     },
     strings: {
       lines: [
-        [w("s"), w(" = "), w("\"  Python  \"", "raws", "str")],
-        [w("s", "sL"), w(" = "), w("s.strip()", "st")],
-        [w("print", null, "fn"), w("("), w("s.lower()", "low"), w(")")],
-        [w("print", null, "fn"), w("("), w("\"a.b\".replace(\".\", \"\")", "rp"), w(")")],
-        [w("print", null, "fn"), w("("), w("\"-\".join(\"AB\")", "jn"), w(")")],
-        [w("print", null, "fn"), w("("), w("\"a,b,c\".split(\",\", 1)", "sp"), w(")")],
-        [w("print", null, "fn"), w("("), w("\"Pi = {:.2f}\".format(3.14159)", "fm"), w(")")]
+        [w("raw"), w(" = "), w("\"  Python  \"", "raws", "str")],
+        [w("name", "sL"), w(" = "), w("raw.strip()", "st")],
+        [w("key"), w(" = "), w("name.lower()", "low")],
+        [w("print", "p1", "fn"), w("("), w("key", "k1"), w(")")],
+        [w("code"), w(" = "), w("\"a.b\".replace(\".\", \"\")", "rp")],
+        [w("tag"), w(" = "), w("\"-\".join(\"AB\")", "jn")],
+        [w("parts"), w(" = "), w("\"a,b,c\".split(\",\", 1)", "sp")],
+        [w("print", "p2", "fn"), w("("), w("code", "c1"), w(", "), w("tag", "t1"), w(", "), w("parts", "pt"), w(")")],
+        [w("print", "p3", "fn"), w("("), w("\"Pi = {:.2f}\".format(3.14159)", "fm"), w(")")]
       ],
       steps: [
-        step("양끝에 공백이 있다", "There are spaces at both ends", "s는 공백, Python, 공백이다. 가운데 글자는 아직 그대로다.", "s is spaces, then Python, then spaces. The letters in the middle are still as written.", { line: 0, name: ["raws"] }),
-        step("strip이 끝을 뺀다", "strip removes the ends", "strip은 양쪽 공백을 뺀 새 문자열 Python을 반환한다. 그 결과를 s에 다시 넣어야 이름이 바뀐다. 원래 글의 가운데는 건드리지 않는다.", "strip returns a new string, Python, with the spaces at both ends removed. That result has to be stored back in s. The letters in the middle are untouched.", { line: 1, name: ["st"], out: ["sL"], lane: lane("s", "공백이 빠지고 Python이 남는다.", "The spaces are removed and Python remains.", [[cell("s", "Python", "hot", "")]]) }),
-        step("lower가 소문자를 출력한다", "lower prints lowercase", "s.lower()는 python이라는 새 문자열이다. s 자체는 Python으로 남는다. print가 python을 출력한다.", "s.lower() is a new string, python. s itself remains Python. print writes python.", { line: 2, name: ["low"] }),
-        step("replace가 점을 지운다", "replace removes the dots", "\".\"를 빈 문자열로 바꾼 새 문자열 ab가 출력된다.", "A new string, ab, is printed, with \".\" replaced by an empty string.", { line: 3, name: ["rp"] }),
-        step("join이 사이에 끼운다", "join places the separator between", "구분자는 앞의 \"-\"다. A와 B 사이에 끼워 A-B가 출력된다.", "The separator is the \"-\" in front. It is placed between A and B, and A-B is printed.", { line: 4, name: ["jn"], lane: lane("AB", "글자 사이에 - 를 넣는다.", "A - is placed between the characters.", [[cell("0", "A", "in", ""), cell("1", "B", "hot", "")]]) }),
-        step("한 번만 자른다", "Split only once", "maxsplit이 1이라 첫 쉼표에서만 자른다. ['a', 'b,c']가 출력된다.", "maxsplit is 1, so only the first comma is a split. ['a', 'b,c'] is printed.", { line: 5, name: ["sp"] }),
-        step("소수 둘째 자리로 맞춘다", "Two digits after the decimal point", "{:.2f}는 소수점 아래 두 자리로 반올림한다. Pi = 3.14가 출력된다.", "{:.2f} rounds to two digits after the decimal point. Pi = 3.14 is printed.", { line: 6, name: ["fm"] })
+        step("입력 raw에 양끝 공백", "raw has end spaces", "사용자가 친 이름처럼 양끝에 공백이 있는 \"  Python  \"을 raw에 넣는다. 가운데 글자는 그대로다. 출력은 아직 없다.", "Like a typed name, raw holds \"  Python  \" with spaces at both ends. The middle letters stay. There is no output yet.", { line: 0, name: ["raws"], lane: lane("raw", "양끝에 공백이 있다.", "Spaces sit at both ends.", [[cell("raw", "\"  Python  \"", "hot", "")]]) }),
+        step("strip한 결과를 name에", "Store strip result in name", "raw.strip()은 양쪽 공백만 뺀 새 문자열 Python을 반환한다. 그 결과를 name에 넣는다. raw는 예전 글자 그대로다. 가운데는 건드리지 않는다.", "raw.strip() returns a new string Python with only the end spaces removed. That result is stored in name. raw keeps the old text. The middle is untouched.", { line: 1, name: ["st"], out: ["sL"], lane: lane("name", "공백이 빠진 Python이다.", "Python without the end spaces.", [[cell("name", "Python", "hot", ""), cell("raw", "그대로", "in", "")]]) }),
+        step("비교용 key를 소문자로", "Build a lowercase key", "name.lower()는 새 문자열 python이다, name은 Python으로 남는다. 대소문자 없이 비교할 때 쓸 key에 담는다. 아직 print는 없다.", "name.lower() is a new string python; name stays Python. Store it in key for a case-free lookup. No print yet.", { line: 2, name: ["low"], lane: lane("key", "소문자 키다.", "A lowercase key.", [[cell("key", "python", "hot", ""), cell("name", "Python", "in", "")]]) }),
+        step("key를 출력한다", "Print key", "print가 python을 한 줄에 쓴다. 정리·소문자화한 뒤의 조회 키를 확인하는 줄이다.", "print writes python on one line. This checks the cleaned lookup key.", { line: 3, name: ["k1"], out: ["p1"] }),
+        step("버전 코드에서 점을 뺀다", "Drop dots from a version code", "\"a.b\".replace(\".\", \"\")는 점을 빈 문자열로 바꾼 새 문자열 ab를 만들고 code에 넣는다. 원본 글자 식은 그대로 두고 결과만 담는다.", "\"a.b\".replace(\".\", \"\") builds ab and stores it in code. The literal is left alone; only the result is kept.", { line: 4, name: ["rp"], lane: lane("code", "점이 빠진 ab다.", "ab with the dots removed.", [[cell("code", "ab", "hot", "")]]) }),
+        step("태그 A-B를 만든다", "Build tag A-B", "\"-\".join(\"AB\")는 구분자 - 를 A와 B 사이에 끼운 A-B를 만들어 tag에 넣는다.", "\"-\".join(\"AB\") places - between A and B and stores A-B in tag.", { line: 5, name: ["jn"], lane: lane("tag", "글자 사이에 - 가 들어간다.", "- sits between the letters.", [[cell("0", "A", "in", ""), cell("1", "B", "hot", "→ A-B")]]) }),
+        step("CSV를 한 번만 가른다", "Split CSV only once", "\"a,b,c\".split(\",\", 1)은 첫 쉼표에서만 잘라 parts에 ['a', 'b,c']를 넣는다. 나머지 쉼표는 두 번째 칸 글자로 남는다.", "\"a,b,c\".split(\",\", 1) splits only on the first comma, so parts is ['a', 'b,c']. The later comma stays inside the second cell.", { line: 6, name: ["sp"], lane: lane("parts", "칸이 두 개다.", "Two cells.", [[cell("0", "a", "hot", ""), cell("1", "b,c", "in", "")]]) }),
+        step("코드·태그·조각을 출력한다", "Print code, tag, and parts", "한 print가 code, tag, parts를 공백으로 이어 쓴다. 터미널에는 ab A-B ['a', 'b,c'] 형태다.", "One print writes code, tag, and parts separated by spaces: ab A-B ['a', 'b,c'].", { line: 7, name: ["c1", "t1", "pt"], out: ["p2"] }),
+        step("안내 문구에 소수 자리를 맞춘다", "Format decimals in a label", "\"Pi = {:.2f}\".format(3.14159)는 소수 둘째 자리로 반올림한 새 문자열 Pi = 3.14를 만들고 print가 쓴다. 표기 정리 흐름의 마지막 줄이다.", "\"Pi = {:.2f}\".format(3.14159) builds Pi = 3.14 rounded to two decimals, and print writes it. Last line of the cleanup flow.", { line: 8, name: ["fm"], out: ["p3"] })
       ],
       terms: [
         [],
         [],
+        [],
         ["python"],
-        ["python", "ab"],
-        ["python", "ab", "A-B"],
-        ["python", "ab", "A-B", "['a', 'b,c']"],
-        ["python", "ab", "A-B", "['a', 'b,c']", "Pi = 3.14"]
+        ["python"],
+        ["python"],
+        ["python"],
+        ["python", "ab A-B ['a', 'b,c']"],
+        ["python", "ab A-B ['a', 'b,c']", "Pi = 3.14"]
       ]
     },
     funcs: {
@@ -686,16 +692,16 @@
   };
 
   var titles = {
-    io: ["개념 모아 해보기", "Try the concepts together"],
-    values: ["개념 모아 해보기", "Try the concepts together"],
-    convert: ["개념 모아 해보기", "Try the concepts together"],
+    io: ["통합 코드", "Combined code"],
+    values: ["통합 코드", "Combined code"],
+    convert: ["통합 코드", "Combined code"],
     ops: ["통합 코드", "Combined code"],
     cond: ["통합 코드", "Combined code"],
     modules: ["통합 코드", "Combined code"],
-    loops: ["개념 모아 해보기", "Try the concepts together"],
+    loops: ["통합 코드", "Combined code"],
     indexing: ["통합 코드", "Combined code"],
     strings: ["통합 코드", "Combined code"],
-    funcs: ["개념 모아 해보기", "Try the concepts together"],
+    funcs: ["통합 코드", "Combined code"],
     lists: ["통합 코드", "Combined code"],
     tuples: ["통합 코드", "Combined code"],
     dicts: ["통합 코드", "Combined code"],
