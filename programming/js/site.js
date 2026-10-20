@@ -116,6 +116,60 @@
     block.innerHTML = highlightPython(block.textContent);
   });
 
+  var SCROLL_KEY = "programming-ref-scroll";
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+
+  function stripHash() {
+    if (!location.hash) return;
+    history.replaceState(null, "", location.pathname + location.search);
+  }
+
+  function goToId(id) {
+    var el = document.getElementById(id);
+    if (!el) return false;
+    el.scrollIntoView({ block: "start" });
+    stripHash();
+    return true;
+  }
+
+  document.addEventListener("click", function (event) {
+    var link = event.target.closest('a[href^="#"]');
+    if (!link) return;
+    var href = link.getAttribute("href");
+    if (!href || href === "#" || href.length < 2) return;
+    if (href.indexOf("/") !== -1) return;
+    var id = decodeURIComponent(href.slice(1));
+    if (!document.getElementById(id)) return;
+    event.preventDefault();
+    goToId(id);
+    if (typeof updateCurrent === "function") updateCurrent();
+  }, true);
+
+  window.addEventListener("pagehide", function () {
+    try { sessionStorage.setItem(SCROLL_KEY, String(window.scrollY || window.pageYOffset || 0)); } catch (err) {}
+  });
+
+  (function restoreScroll() {
+    var saved = null;
+    try { saved = sessionStorage.getItem(SCROLL_KEY); } catch (err) {}
+    var hashId = location.hash ? decodeURIComponent(location.hash.slice(1)) : "";
+    stripHash();
+    if (saved !== null) {
+      var y = parseInt(saved, 10);
+      if (!isNaN(y)) {
+        requestAnimationFrame(function () {
+          window.scrollTo(0, y);
+        });
+        return;
+      }
+    }
+    if (hashId && document.getElementById(hashId)) {
+      requestAnimationFrame(function () {
+        goToId(hashId);
+      });
+    }
+  })();
+
   var search = document.getElementById("q");
   var empty = document.getElementById("empty");
   var count = document.getElementById("count");
@@ -275,6 +329,9 @@
   }
 
   document.addEventListener("scroll", updateCurrent, { passive: true });
-  window.addEventListener("hashchange", updateCurrent);
+  window.addEventListener("hashchange", function () {
+    stripHash();
+    updateCurrent();
+  });
   updateCurrent();
 })();
