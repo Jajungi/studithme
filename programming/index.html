@@ -7,7 +7,7 @@
   <meta name="description" content="프로그래밍 실습 day 1–4와 Programming-2–7의 Python 문법. 단원별 실행 순서와 형식별 정리.">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="css/site.css?v=22">
+  <link rel="stylesheet" href="css/site.css?v=23">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1d1f'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -1718,10 +1718,8 @@ print(t)  # abc</code></pre>
 <p class="en">Choose outer quotes so they do not clash with quotes inside. To place the same quote inside, use the escape <code>\'</code> or <code>\"</code>. A value made with triple quotes is still a string. It is not a comment.</p>
 </section>
 <section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
-<p class="ko">삼중 따옴표 블록을 코드 한가운데에 두고 이름에 대입하지 않으면, 그 문자열 값이 만들어졌다가 버려질 뿐 주석 처리가 아니다. 한 줄 주석은 <code>#</code>이다. 줄바꿈이 필요하면 삼중 따옴표 또는 <code>
-</code>을 쓴다.</p>
-<p class="en">A triple-quoted block sitting alone without assignment creates a string value that is discarded; it is not comment syntax. A one-line comment uses <code>#</code>. For a newline, use triple quotes or <code>
-</code>.</p>
+<p class="ko">삼중 따옴표 블록을 코드 한가운데에 두고 이름에 대입하지 않으면, 그 문자열 값이 만들어졌다가 버려질 뿐 주석 처리가 아니다. 한 줄 주석은 <code>#</code>이다. 줄바꿈이 필요하면 삼중 따옴표 또는 <code>\n</code>을 쓴다.</p>
+<p class="en">A triple-quoted block sitting alone without assignment creates a string value that is discarded; it is not comment syntax. A one-line comment uses <code>#</code>. For a newline, use triple quotes or <code>\n</code>.</p>
 </section>
 <section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
 <pre><code>print("it's")
@@ -1743,106 +1741,74 @@ print(note)
 <p class="en">To place the same quote inside, escape it with a backslash.</p>
 </section>
 </article>
-<article class="entry" id="escape" data-keys="이스케이프 \n \t \ \\">
+<article class="entry" id="escape" data-keys="이스케이프 \\n \\t \\ \\\">
 <header class="entry-head"><h3><code>이스케이프</code></h3><p class="kind"><span class="ko">표기</span><span class="en">literal</span></p></header>
 <section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
-<p class="ko">역슬래시 <code>\</code> 다음 문자는 보통의 글자가 아니라 특별한 의미로 읽힌다. <code>
-</code>은 줄바꿈, <code>	</code>는 탭, <code>\'</code>와 <code>\"</code>는 따옴표 글자, <code>\</code>는 역슬래시 글자다. 소스에 두 글자로 보여도, 문자열 안에서는 문자 하나로 들어간다.</p>
-<p class="en">The character after a backslash <code>\</code> is read with a special meaning. <code>
-</code> is a newline, <code>	</code> is a tab, <code>\'</code> and <code>\"</code> are quote characters, and <code>\</code> is a backslash character. What looks like two source characters becomes one character inside the string.</p>
+<p class="ko">역슬래시 <code>\</code> 다음 문자는 보통의 글자가 아니라 특별한 의미로 읽힌다. <code>\n</code>은 줄바꿈, <code>\t</code>는 탭, <code>\'</code>와 <code>\"</code>는 따옴표 글자, <code>\\</code>는 역슬래시 글자다. 소스에 두 글자로 보여도, 문자열 안에서는 문자 하나로 들어간다.</p>
+<p class="en">The character after a backslash <code>\</code> is read with a special meaning. <code>\n</code> is a newline, <code>\t</code> is a tab, <code>\'</code> and <code>\"</code> are quote characters, and <code>\\</code> is a backslash character. What looks like two source characters becomes one character inside the string.</p>
 </section>
 <section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
-<p class="sig"><code>
-    	    \'    \"    \</code></p>
-<p class="ko">따옴표 안의 글자열에 적는다. <code>print("a
-b")</code>는 a와 b를 두 줄로 보여 준다. 역슬래시 글자 자체를 쓰려면 <code>\</code>로 적는다. 경로나 정규식처럼 역슬래시가 많으면 <a href="#raw">raw</a> 문자열을 고려한다.</p>
-<p class="en">Write them inside a quoted string. <code>print("a
-b")</code> shows a and b on two lines. To include a backslash character itself, write <code>\</code>. When many backslashes are needed, as in a path, consider a <a href="#raw">raw</a> string.</p>
+<p class="sig"><code>\n    \t    \'    \"    \\</code></p>
+<p class="ko">따옴표 안의 글자열에 적는다. <code>print("a\nb")</code>는 a와 b를 두 줄로 보여 준다. 역슬래시 글자 자체를 쓰려면 <code>\\</code>로 적는다. 경로나 정규식처럼 역슬래시가 많으면 <a href="#raw">raw</a> 문자열을 고려한다.</p>
+<p class="en">Write them inside a quoted string. <code>print("a\nb")</code> shows a and b on two lines. To include a backslash character itself, write <code>\\</code>. When many backslashes are needed, as in a path, consider a <a href="#raw">raw</a> string.</p>
 </section>
 <section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
-<p class="ko"><code>len("
-")</code>은 1이다. 화면에 보이는 줄바꿈은 글자 두 개가 아니라 문자 하나다. <code>print</code>의 결과에 역슬래시와 n이 그대로 보이지 않는다. 소스에 <code>
-</code>을 글자로 보여 주려면 raw 문자열이나 <code>\n</code>을 쓴다.</p>
-<p class="en"><code>len("
-")</code> is 1. The newline that appears on screen is one character, not the two source characters. The output of <code>print</code> does not show a backslash and an n literally. To display the characters <code>
-</code> in the source sense, use a raw string or <code>\n</code>.</p>
+<p class="ko"><code>len("\n")</code>은 1이다. 화면에 보이는 줄바꿈은 글자 두 개가 아니라 문자 하나다. <code>print</code>의 결과에 역슬래시와 n이 그대로 보이지 않는다. 소스에 <code>\n</code>을 글자로 보여 주려면 raw 문자열이나 <code>\\n</code>을 쓴다.</p>
+<p class="en"><code>len("\n")</code> is 1. The newline that appears on screen is one character, not the two source characters. The output of <code>print</code> does not show a backslash and an n literally. To display the characters <code>\n</code> in the source sense, use a raw string or <code>\\n</code>.</p>
 </section>
 <section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
-<pre><code>print("a
-b")
+<pre><code>print("a\nb")
 # a
 # b</code></pre>
-<p class="ko"><code>
-</code>이 줄바꿈 문자 하나가 되어 a와 b가 두 줄로 출력된다.</p>
-<p class="en"><code>
-</code> becomes one newline character, so a and b print on two lines.</p>
-<pre><code>print("a	b")
+<p class="ko"><code>\n</code>이 줄바꿈 문자 하나가 되어 a와 b가 두 줄로 출력된다.</p>
+<p class="en"><code>\n</code> becomes one newline character, so a and b print on two lines.</p>
+<pre><code>print("a\tb")
 # a	b
-print(len("
-"))
+print(len("\n"))
 # 1</code></pre>
-<p class="ko"><code>	</code>는 탭 한 칸이고, <code>
-</code>의 길이는 1이다.</p>
-<p class="en"><code>	</code> is one tab, and the length of <code>
-</code> is 1.</p>
-<pre><code>print("c:\temp")
-# c:	emp
+<p class="ko"><code>\t</code>는 탭 한 칸이고, <code>\n</code>의 길이는 1이다.</p>
+<p class="en"><code>\t</code> is one tab, and the length of <code>\n</code> is 1.</p>
+<pre><code>print("c:\\temp")
+# c:\temp
 print("say \"hi\"")
 # say "hi"</code></pre>
-<p class="ko"><code>\</code>는 역슬래시 글자 하나, <code>\"</code>는 큰따옴표 글자다.</p>
-<p class="en"><code>\</code> is one backslash character, and <code>\"</code> is a double-quote character.</p>
+<p class="ko"><code>\\</code>는 역슬래시 글자 하나, <code>\"</code>는 큰따옴표 글자다.</p>
+<p class="en"><code>\\</code> is one backslash character, and <code>\"</code> is a double-quote character.</p>
 </section>
 </article>
 <article class="entry" id="raw" data-keys="raw string r 역슬래시">
 <header class="entry-head"><h3><code>raw</code></h3><p class="kind"><span class="ko">표기</span><span class="en">literal</span></p></header>
 <section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
-<p class="ko">문자열 앞의 <code>r</code> 또는 <code>R</code>은 raw 문자열을 만든다. 역슬래시를 이스케이프가 아니라 글자 역슬래시로 둔다. <code>
-</code>이 줄바꿈이 되지 않고, 역슬래시와 n 두 글자로 남는다. 경로처럼 역슬래시가 많을 때 쓴다.</p>
-<p class="en">An <code>r</code> or <code>R</code> before a string makes a raw string. Each backslash is kept as a backslash character instead of an escape. <code>
-</code> does not become a newline; it stays as the two characters backslash and n. Use it when the text needs many backslashes, as in a path.</p>
+<p class="ko">문자열 앞의 <code>r</code> 또는 <code>R</code>은 raw 문자열을 만든다. 역슬래시를 이스케이프가 아니라 글자 역슬래시로 둔다. <code>\n</code>이 줄바꿈이 되지 않고, 역슬래시와 n 두 글자로 남는다. 경로처럼 역슬래시가 많을 때 쓴다.</p>
+<p class="en">An <code>r</code> or <code>R</code> before a string makes a raw string. Each backslash is kept as a backslash character instead of an escape. <code>\n</code> does not become a newline; it stays as the two characters backslash and n. Use it when the text needs many backslashes, as in a path.</p>
 </section>
 <section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
-<p class="sig"><code>r"
-"
-r"c:	empile"</code></p>
-<p class="ko">따옴표 바로 앞에 <code>r</code>을 붙인다. <code>r"
-"</code>의 길이는 2다. 줄바꿈 하나가 아니다. 보통 문자열에서 역슬래시 글자를 쓰려면 <code>\</code>를 반복해야 하므로, raw가 더 읽기 쉬운 경우가 있다.</p>
-<p class="en">Place <code>r</code> immediately before the opening quote. The length of <code>r"
-"</code> is 2. It is not a single newline. In an ordinary string each backslash character needs <code>\</code>, so raw form is often easier to read.</p>
+<p class="sig"><code>r"\n"
+r"c:\temp\file"</code></p>
+<p class="ko">따옴표 바로 앞에 <code>r</code>을 붙인다. <code>r"\n"</code>의 길이는 2다. 줄바꿈 하나가 아니다. 보통 문자열에서 역슬래시 글자를 쓰려면 <code>\\</code>를 반복해야 하므로, raw가 더 읽기 쉬운 경우가 있다.</p>
+<p class="en">Place <code>r</code> immediately before the opening quote. The length of <code>r"\n"</code> is 2. It is not a single newline. In an ordinary string each backslash character needs <code>\\</code>, so raw form is often easier to read.</p>
 </section>
 <section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
-<p class="ko">raw여도 문자열을 닫는 따옴표는 이스케이프로 막을 수 없다. 끝에서 홀수 개의 역슬래시로 따옴표를 가리면 문법 오류가 난다. 줄바꿈이 실제로 필요하면 보통 문자열의 <code>
-</code>이나 삼중 따옴표를 쓴다.</p>
-<p class="en">Even in a raw string, the closing quote cannot be escaped away. An odd number of backslashes before the closing quote is a syntax error. When a real newline is required, use ordinary <code>
-</code> or triple quotes.</p>
+<p class="ko">raw여도 문자열을 닫는 따옴표는 이스케이프로 막을 수 없다. 끝에서 홀수 개의 역슬래시로 따옴표를 가리면 문법 오류가 난다. 줄바꿈이 실제로 필요하면 보통 문자열의 <code>\n</code>이나 삼중 따옴표를 쓴다.</p>
+<p class="en">Even in a raw string, the closing quote cannot be escaped away. An odd number of backslashes before the closing quote is a syntax error. When a real newline is required, use ordinary <code>\n</code> or triple quotes.</p>
 </section>
 <section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
-<pre><code>print(len("
-"))
+<pre><code>print(len("\n"))
 # 1
-print(len(r"
-"))
+print(len(r"\n"))
 # 2</code></pre>
-<p class="ko">보통 <code>
-</code>은 문자 하나, raw <code>
-</code>은 역슬래시와 n 두 글자다.</p>
-<p class="en">Ordinary <code>
-</code> is one character; raw <code>
-</code> is the two characters backslash and n.</p>
-<pre><code>print(r"c:	emp")
-# c:	emp
-print("c:\temp")
-# c:	emp</code></pre>
-<p class="ko">같은 경로 출력을 raw 한 번 또는 보통 문자열의 <code>\</code>로 얻을 수 있다.</p>
-<p class="en">The same path output can come from one raw string or from <code>\</code> in an ordinary string.</p>
-<pre><code>print(r"a
-b")
-# a
-b</code></pre>
-<p class="ko">raw에서는 <code>
-</code>이 줄바꿈으로 해석되지 않아 한 줄에 그대로 보인다.</p>
-<p class="en">In a raw string <code>
-</code> is not a newline, so it appears literally on one line.</p>
+<p class="ko">보통 <code>\n</code>은 문자 하나, raw <code>\n</code>은 역슬래시와 n 두 글자다.</p>
+<p class="en">Ordinary <code>\n</code> is one character; raw <code>\n</code> is the two characters backslash and n.</p>
+<pre><code>print(r"c:\temp")
+# c:\temp
+print("c:\\temp")
+# c:\temp</code></pre>
+<p class="ko">같은 경로 출력을 raw 한 번 또는 보통 문자열의 <code>\\</code>로 얻을 수 있다.</p>
+<p class="en">The same path output can come from one raw string or from <code>\\</code> in an ordinary string.</p>
+<pre><code>print(r"a\nb")
+# a\nb</code></pre>
+<p class="ko">raw에서는 <code>\n</code>이 줄바꿈으로 해석되지 않아 한 줄에 그대로 보인다.</p>
+<p class="en">In a raw string <code>\n</code> is not a newline, so it appears literally on one line.</p>
 </section>
 </article>
 <article class="entry" id="slice-omit" data-keys="슬라이스 생략 [:]">
@@ -1925,30 +1891,19 @@ s.split(구분자, maxsplit)</code></p>
 </section>
 <section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
 <p class="sig"><code>s.splitlines()</code></p>
-<p class="ko">인자를 비운 형태로 수업에서 쓴다. <code>
-</code>으로 이어진 문자열이 줄 리스트가 된다. 반환 리스트의 각 칸은 줄바꿈이 빠진 str이다.</p>
-<p class="en">The no-argument form is what the course uses. A string joined by <code>
-</code> becomes a list of lines. Each cell of the returned list is a str without the newline.</p>
+<p class="ko">인자를 비운 형태로 수업에서 쓴다. <code>\n</code>으로 이어진 문자열이 줄 리스트가 된다. 반환 리스트의 각 칸은 줄바꿈이 빠진 str이다.</p>
+<p class="en">The no-argument form is what the course uses. A string joined by <code>\n</code> becomes a list of lines. Each cell of the returned list is a str without the newline.</p>
 </section>
 <section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
-<p class="ko"><code>"a
-b".split("
-")</code>과 비슷해 보이지만, <code>splitlines</code>는 줄 끝 규칙에 맞춰 자른다. 빈 문자열에 호출하면 빈 리스트다. 마지막이 줄바꿈으로 끝나도 보통 맨 끝의 빈 줄을 결과에 넣지 않는 점이 <code>split("
-")</code>과 다를 수 있다.</p>
-<p class="en">It looks similar to <code>"a
-b".split("
-")</code>, but <code>splitlines</code> follows line-ending rules. Calling it on an empty string yields an empty list. Unlike <code>split("
-")</code>, a trailing newline usually does not add an empty last line to the result.</p>
+<p class="ko"><code>"a\nb".split("\n")</code>과 비슷해 보이지만, <code>splitlines</code>는 줄 끝 규칙에 맞춰 자른다. 빈 문자열에 호출하면 빈 리스트다. 마지막이 줄바꿈으로 끝나도 보통 맨 끝의 빈 줄을 결과에 넣지 않는 점이 <code>split("\n")</code>과 다를 수 있다.</p>
+<p class="en">It looks similar to <code>"a\nb".split("\n")</code>, but <code>splitlines</code> follows line-ending rules. Calling it on an empty string yields an empty list. Unlike <code>split("\n")</code>, a trailing newline usually does not add an empty last line to the result.</p>
 </section>
 <section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
-<pre><code>print("a
-b".splitlines())
+<pre><code>print("a\nb".splitlines())
 # ['a', 'b']</code></pre>
 <p class="ko">줄바꿈으로 나뉜 두 줄이 리스트 두 칸이 되고, 줄바꿈 자체는 빠진다.</p>
 <p class="en">Two lines separated by a newline become two list cells, and the newline itself is dropped.</p>
-<pre><code>text = "one
-two
-three"
+<pre><code>text = "one\ntwo\nthree"
 for line in text.splitlines():
     print(line)
 # one
@@ -1958,9 +1913,7 @@ for line in text.splitlines():
 <p class="en">The returned list can be walked to handle each line.</p>
 <pre><code>print("".splitlines())
 # []
-print("a
-b
-".splitlines())
+print("a\nb\n".splitlines())
 # ['a', 'b']</code></pre>
 <p class="ko">빈 문자열은 빈 리스트다. 끝 줄바꿈만으로는 보통 빈 칸이 추가되지 않는다.</p>
 <p class="en">An empty string yields an empty list. A trailing newline alone usually does not add an empty cell.</p>
@@ -4631,7 +4584,7 @@ print("hello", file=sys.stdout)
       <footer class="colophon"><p><span class="ko">수록 범위는 실습 day 1–day 4와 수업자료 Programming-2–7이다. 중간은 P2–6, 기말은 P7 함수 심화(+중간 전제)다. 예제 출력은 Python 3에서 확인했다.</span><span class="en">The scope is labs day 1–day 4 and lectures Programming-2–7. Midterm: P2–6. Final: P7 functions deep (+ midterm as prerequisite). Example output was checked in Python 3.</span></p></footer>
     </main>
   </div>
-  <script src="js/site.js?v=22"></script>
-  <script src="js/walks.js?v=22"></script>
+  <script src="js/site.js?v=23"></script>
+  <script src="js/walks.js?v=23"></script>
 </body>
 </html>
