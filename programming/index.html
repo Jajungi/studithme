@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>프로그래밍 참고</title>
-  <meta name="description" content="프로그래밍 실습 day 1–4의 Python 문법. 단원별 실행 순서와 형식별 정리.">
+  <meta name="description" content="프로그래밍 실습 day 1–4와 Programming-2–7의 Python 문법. 단원별 실행 순서와 형식별 정리.">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="css/site.css?v=18">
+  <link rel="stylesheet" href="css/site.css?v=20">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1d1f'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -20,36 +20,49 @@
     <div class="inner">
       <a class="brand" href="#overview">
         <strong>프로그래밍</strong>
-        <span>Python · day 1–4</span>
+        <span>Python · day 1–4 · P2–7</span>
       </a>
+      <nav class="exam-legend" aria-label="시험 범위">
+        <a class="exam-chip mid" href="#io"><span class="ko">중간</span><span class="en">Mid</span></a>
+        <a class="exam-chip final" href="#funcs"><span class="ko">기말</span><span class="en">Final</span></a>
+      </nav>
       <button type="button" id="lang-toggle" class="lang-toggle" aria-pressed="false">EN</button>
     </div>
   </header>
   <div class="layout">
     <nav class="sidenav" id="sidenav" aria-label="장">
-      <a href="#overview"><span class="idx">00</span><span class="ko">개요</span><span class="en">Overview</span></a>
-<a href="#io"><span class="idx">01</span><span class="ko">입출력</span><span class="en">Input / output</span></a>
-<a href="#values"><span class="idx">02</span><span class="ko">자료형</span><span class="en">Types</span></a>
-<a href="#convert"><span class="idx">03</span><span class="ko">변환</span><span class="en">Conversion</span></a>
-<a href="#ops"><span class="idx">04</span><span class="ko">연산</span><span class="en">Operators</span></a>
-<a href="#cond"><span class="idx">05</span><span class="ko">조건</span><span class="en">Conditions</span></a>
-<a href="#modules"><span class="idx">06</span><span class="ko">모듈</span><span class="en">Modules</span></a>
-<a href="#loops"><span class="idx">07</span><span class="ko">반복</span><span class="en">Loops</span></a>
-<a href="#indexing"><span class="idx">08</span><span class="ko">인덱스</span><span class="en">Index</span></a>
-<a href="#strings"><span class="idx">09</span><span class="ko">문자열</span><span class="en">Strings</span></a>
-<a href="#funcs"><span class="idx">10</span><span class="ko">함수</span><span class="en">Functions</span></a>
-<a href="#lists"><span class="idx">11</span><span class="ko">리스트</span><span class="en">Lists</span></a>
-<a href="#tuples"><span class="idx">12</span><span class="ko">튜플</span><span class="en">Tuples</span></a>
-<a href="#dicts"><span class="idx">13</span><span class="ko">딕셔너리</span><span class="en">Dictionaries</span></a>
-<a href="#sets"><span class="idx">14</span><span class="ko">집합</span><span class="en">Sets</span></a>
-<a href="#copy"><span class="idx">15</span><span class="ko">복사</span><span class="en">Copies</span></a>
-<a href="#compare"><span class="idx">16</span><span class="ko">대조</span><span class="en">Distinctions</span></a>
-<a href="#memo"><span class="idx">17</span><span class="ko">정리</span><span class="en">Summary</span></a>
+      <a class="nav-mid" href="#overview"><span class="idx">00</span><span class="ko">개요</span><span class="en">Overview</span></a>
+<p class="nav-label mid"><span class="ko">중간 · P2–6</span><span class="en">Mid · P2–6</span></p>
+<a class="nav-mid" href="#io"><span class="idx">01</span><span class="ko">입출력</span><span class="en">Input / output</span></a>
+<a class="nav-mid" href="#values"><span class="idx">02</span><span class="ko">자료형</span><span class="en">Types</span></a>
+<a class="nav-mid" href="#convert"><span class="idx">03</span><span class="ko">변환</span><span class="en">Conversion</span></a>
+<a class="nav-mid" href="#ops"><span class="idx">04</span><span class="ko">연산</span><span class="en">Operators</span></a>
+<a class="nav-mid" href="#cond"><span class="idx">05</span><span class="ko">조건</span><span class="en">Conditions</span></a>
+<a class="nav-mid" href="#modules"><span class="idx">06</span><span class="ko">모듈</span><span class="en">Modules</span></a>
+<a class="nav-mid" href="#loops"><span class="idx">07</span><span class="ko">반복</span><span class="en">Loops</span></a>
+<a class="nav-mid" href="#indexing"><span class="idx">08</span><span class="ko">인덱스</span><span class="en">Index</span></a>
+<a class="nav-mid" href="#strings"><span class="idx">09</span><span class="ko">문자열</span><span class="en">Strings</span></a>
+<p class="nav-label final"><span class="ko">기말 · P7</span><span class="en">Final · P7</span></p>
+<a class="nav-final" href="#funcs"><span class="idx">10</span><span class="ko">함수</span><span class="en">Functions</span></a>
+<p class="nav-label mid"><span class="ko">중간 이어서</span><span class="en">Mid continues</span></p>
+<a class="nav-mid" href="#lists"><span class="idx">11</span><span class="ko">리스트</span><span class="en">Lists</span></a>
+<a class="nav-mid" href="#tuples"><span class="idx">12</span><span class="ko">튜플</span><span class="en">Tuples</span></a>
+<a class="nav-mid" href="#dicts"><span class="idx">13</span><span class="ko">딕셔너리</span><span class="en">Dictionaries</span></a>
+<a class="nav-mid" href="#sets"><span class="idx">14</span><span class="ko">집합</span><span class="en">Sets</span></a>
+<a class="nav-mid" href="#copy"><span class="idx">15</span><span class="ko">복사</span><span class="en">Copies</span></a>
+<a class="nav-mid" href="#compare"><span class="idx">16</span><span class="ko">대조</span><span class="en">Distinctions</span></a>
+<a class="nav-mid" href="#memo"><span class="idx">17</span><span class="ko">정리</span><span class="en">Summary</span></a>
     </nav>
     <main class="main" id="main">
       <p id="count" class="count" aria-live="polite"></p>
       <p id="empty" class="empty" hidden><span class="ko">해당하는 항목이 없다.</span><span class="en">No matching entry.</span></p>
-      <section class="chapter" id="overview"><header class="chapter-head"><p class="num">00</p><div><h2><span class="ko">개요</span><span class="en">Overview</span></h2><p class="lead"><span class="ko">실습 day 1–day 4와 수업자료 Programming-2–6의 문법이다. 단원 끝은 그 단원을 한 프로그램의 실행 순서로 보고, 17에서 형식별로 다시 모은다.</span><span class="en">Syntax from labs day 1–day 4 and lectures Programming-2–6. Each chapter ends with one program followed in execution order, and chapter 17 gathers the forms again.</span></p></div></header>
+      <section class="chapter" id="overview"><header class="chapter-head"><p class="num">00</p><div><h2><span class="ko">개요</span><span class="en">Overview</span></h2><p class="lead"><span class="ko">실습 day 1–day 4와 수업자료 Programming-2–7의 문법이다. 단원 끝은 그 단원을 한 프로그램의 실행 순서로 보고, 17에서 형식별로 다시 모은다.</span><span class="en">Syntax from labs day 1–day 4 and lectures Programming-2–7. Each chapter ends with one program followed in execution order, and chapter 17 gathers the forms again.</span></p></div></header>
+<div class="table-wrap"><table class="spec"><caption><span class="ko">시험 범위</span><span class="en">Exam range</span></caption>
+<thead><tr><th><span class="ko">시험</span><span class="en">Exam</span></th><th><span class="ko">수업</span><span class="en">Lectures</span></th><th><span class="ko">이 사이트에서</span><span class="en">On this site</span></th></tr></thead>
+<tbody>
+<tr class="exam-row-mid"><td><span class="exam-tag mid"><span class="ko">중간</span><span class="en">Mid</span></span></td><td>Programming-2–6</td><td><span class="ko">단원 01–09·11–17. 입출력·자료형·연산·조건·모듈·반복·문자열·리스트·튜플·딕셔너리·집합·복사. 함수의 <code>def</code>/<code>return</code>/범위 기초도 여기.</span><span class="en">Chapters 01–09 and 11–17: I/O, types, operators, conditions, modules, loops, strings, lists, tuples, dicts, sets, copies. Also the base <code>def</code>/<code>return</code>/scope in Functions.</span></td></tr>
+<tr class="exam-row-final"><td><span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></td><td>Programming-7 (+ 중간 전제)</td><td><span class="ko"><a href="#funcs">함수</a> 단원 심화(호출·인자·반환·재귀·lambda·global/nonlocal 등). 배경이 조금 어두운 항목·목록이 기말이다. 막히면 해당 중간 단원으로 돌아간다.</span><span class="en">Deeper <a href="#funcs">Functions</a> (calls, arguments, returns, recursion, lambda, global/nonlocal, …). Slightly darker panels and nav mark the final layer. When stuck, return to the midterm chapter for that syntax.</span></td></tr>
+</tbody></table></div>
 <div class="table-wrap"><table class="spec"><caption><span class="ko">먼저 고정할 규칙</span><span class="en">Rules to fix first</span></caption>
 <thead><tr><th><span class="ko">규칙</span><span class="en">Rule</span></th><th><span class="ko">뜻</span><span class="en">Meaning</span></th></tr></thead>
 <tbody>
@@ -58,12 +71,13 @@
 <tr><td><span class="ko">칸을 못 바꾼다</span><span class="en">Elements cannot be replaced</span></td><td><span class="ko">문자열과 튜플은 불변(immutable)이다. <code>s[0] = "a"</code>는 성립하지 않는다. 새 값을 만들어 이름에 다시 대입한다.</span><span class="en">Strings and tuples are immutable. <code>s[0] = "a"</code> is invalid. Build a new value and assign it to the name.</span></td></tr>
 </tbody></table></div>
 <div class="catalog">
-<section><h3><span class="ko">입출력</span><span class="en">Input and output</span></h3><p><a href="#print">print</a><a href="#input">input</a><a href="#fstring">f-string</a><a href="#comment">#</a></p></section>
-<section><h3><span class="ko">자료형 · 변환</span><span class="en">Types and conversion</span></h3><p><a href="#assign">=</a><a href="#unpack">unpacking</a><a href="#int">int</a><a href="#float">float</a><a href="#str">str</a><a href="#list-fn">list</a><a href="#tuple-fn">tuple</a><a href="#dict-fn">dict</a></p></section>
-<section><h3><span class="ko">연산 · 반복</span><span class="en">Operators and loops</span></h3><p><a href="#arith">+</a><a href="#pow">pow</a><a href="#bool-op">and</a><a href="#if">if</a><a href="#while">while</a><a href="#while-true">while True</a><a href="#break">break</a><a href="#continue">continue</a><a href="#enumerate">enumerate</a></p></section>
-<section><h3><span class="ko">문자열 · 리스트</span><span class="en">Strings and lists</span></h3><p><a href="#slice">slice</a><a href="#split">split</a><a href="#join">join</a><a href="#append">append</a><a href="#extend">extend</a><a href="#pop">pop</a><a href="#sorted">sorted</a></p></section>
-<section><h3><span class="ko">튜플 · 딕셔너리</span><span class="en">Tuples and dictionaries</span></h3><p><a href="#tuple-one">(10,)</a><a href="#packing">*</a><a href="#dict-access">d[key]</a><a href="#set-make">set</a><a href="#is-op">is</a><a href="#def">def</a></p></section>
-<section><h3><span class="ko">정리</span><span class="en">Summary</span></h3><p><a href="#memo"><span class="ko">최종 정리</span><span class="en">Summary</span></a></p></section>
+<section class="exam-mid"><h3><span class="ko">입출력</span><span class="en">Input and output</span></h3><p><a href="#print">print</a><a href="#input">input</a><a href="#fstring">f-string</a><a href="#comment">#</a></p></section>
+<section class="exam-mid"><h3><span class="ko">자료형 · 변환</span><span class="en">Types and conversion</span></h3><p><a href="#assign">=</a><a href="#unpack">unpacking</a><a href="#int">int</a><a href="#float">float</a><a href="#str">str</a><a href="#list-fn">list</a><a href="#tuple-fn">tuple</a><a href="#dict-fn">dict</a></p></section>
+<section class="exam-mid"><h3><span class="ko">연산 · 반복</span><span class="en">Operators and loops</span></h3><p><a href="#arith">+</a><a href="#pow">pow</a><a href="#bool-op">and</a><a href="#if">if</a><a href="#while">while</a><a href="#while-true">while True</a><a href="#break">break</a><a href="#continue">continue</a><a href="#enumerate">enumerate</a></p></section>
+<section class="exam-mid"><h3><span class="ko">문자열 · 리스트</span><span class="en">Strings and lists</span></h3><p><a href="#slice">slice</a><a href="#split">split</a><a href="#join">join</a><a href="#append">append</a><a href="#extend">extend</a><a href="#pop">pop</a><a href="#sorted">sorted</a></p></section>
+<section class="exam-mid"><h3><span class="ko">튜플 · 딕셔너리</span><span class="en">Tuples and dictionaries</span></h3><p><a href="#tuple-one">(10,)</a><a href="#packing">*</a><a href="#dict-access">d[key]</a><a href="#set-make">set</a><a href="#is-op">is</a></p></section>
+<section class="exam-final"><h3><span class="ko">함수 심화</span><span class="en">Functions deep</span></h3><p><a href="#def">def</a><a class="exam-final-link" href="#call">call</a><a class="exam-final-link" href="#param-arg">param/arg</a><a href="#return">return</a><a class="exam-final-link" href="#recursion">recursion</a><a class="exam-final-link" href="#lambda">lambda</a><a class="exam-final-link" href="#args-kwargs">*args</a><a class="exam-final-link" href="#global-kw">global</a><a class="exam-final-link" href="#nonlocal">nonlocal</a></p></section>
+<section class="exam-mid"><h3><span class="ko">정리</span><span class="en">Summary</span></h3><p><a href="#memo"><span class="ko">최종 정리</span><span class="en">Summary</span></a> <a class="exam-final-link" href="#sum-funcs"><span class="ko">함수 심화 표</span><span class="en">Funcs deep table</span></a></p></section>
 </div>
 </section>
 <section class="chapter" id="io"><header class="chapter-head"><p class="num">01</p><div><h2><span class="ko">출력과 입력</span><span class="en">Output and input</span></h2><p class="lead"><span class="ko">계산이 끝나도 결과는 표준 출력에 스스로 나타나지 않는다. 보여줄 때만 print를 호출한다.</span><span class="en">A finished calculation does not appear by itself. Call print only when the result should be shown.</span></p></div></header><article class="entry" id="print" data-keys="print 프린트 출력 function sep end None">
@@ -274,8 +288,8 @@ print(a, b)
 <p class="en">Printed, it looks like <code>&lt;class 'int'&gt;</code>. To change type, call a conversion such as int, float, or str in the next chapter. Calling type alone does not change the original value.</p>
 </section>
 <section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
-<p class="ko">같은 글자라도 자료형이 다르면 쓰임이 다르다. 정수 4와 문자열 "4"는 print 결과는 비슷해 보여도, 하나는 더하기가 되고 하나는 글자 연결이 된다.</p>
-<p class="en">The same characters can mean different things under different types. The integer 4 and the string "4" may look alike when printed, but one takes part in addition and the other in text joining.</p>
+<p class="ko">같은 글자라도 자료형이 다르면 쓰임이 다르다. 정수 4와 문자열 "4"는 print 결과는 비슷해 보여도, 하나는 더하기가 되고 하나는 글자 연결이 된다. 슬라이드에 잠깐 나오는 <code>complex</code>(복소수)는 이 수업의 기본 형이 아니다. 시험·실습의 중심은 int, float, str, bool이다.</p>
+<p class="en">The same characters can mean different things under different types. The integer 4 and the string "4" may look alike when printed, but one takes part in addition and the other in text joining. <code>complex</code>, mentioned only briefly on the slides, is not a core type for this course. Exams and labs center on int, float, str, and bool.</p>
 </section>
 <section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
 <pre><code>number = 9
@@ -1103,22 +1117,769 @@ print("PyThOn".swapcase())  # pYtHoN
 print("python".upper())  # PYTHON</code></pre></section></article>
 <div class="walk-mount" data-walk="strings"></div>
 </section>
-<section class="chapter" id="funcs"><header class="chapter-head"><p class="num">10</p><div><h2><span class="ko">함수</span><span class="en">Functions</span></h2><p class="lead"><span class="ko">함수는 이름, 매개변수, 본문, 반환으로 이루어진 호출 단위다.</span><span class="en">A function is a callable unit made of a name, parameters, a body, and a return.</span></p></div></header><article class="entry" id="def" data-keys="def 함수 매개변수 parameter"><header class="entry-head"><h3><code>def</code></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header><section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko"><code>def</code>는 함수를 만드는 문이다. 함수 이름 다음의 괄호가 매개변수이고, 콜론 뒤의 들여쓴 블록이 함수의 본문이다.</p><p class="en"><code>def</code> is the statement that creates a function. The parentheses after the name hold the parameters, and the indented block after the colon is the function body.</p></section><section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>def 이름(매개변수):
-    본문</code></p><p class="ko">호출할 때 넘긴 인자가 매개변수의 값이 된다. <code>multiply(5, 4)</code>이면 <code>x</code>는 5, <code>y</code>는 4다.</p><p class="en">The arguments of a call become the parameter values. In <code>multiply(5, 4)</code>, <code>x</code> is 5 and <code>y</code> is 4.</p></section><section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>def multiply(x, y):
+<section class="chapter" id="funcs" data-exam="final"><header class="chapter-head"><p class="num">10</p><div><h2><span class="ko">함수</span><span class="en">Functions</span></h2><p class="lead"><span class="ko">함수는 이름, 매개변수, 본문, 반환으로 이루어진 호출 단위다. <code>def</code>·<code>return</code>·범위는 중간 기초이고, 배경이 어두운 항목(<span class="exam-tag">기말</span>)이 Programming-7 심화다.</span><span class="en">A function is a callable unit made of a name, parameters, a body, and a return. <code>def</code>, <code>return</code>, and scope are midterm basics; slightly darker panels tagged <span class="exam-tag">Final</span> are the Programming-7 layer.</span></p></div></header>
+
+<article class="entry" id="def" data-keys="def 함수 매개변수 parameter user-defined">
+<header class="entry-head"><h3><code>def</code></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><code>def</code>는 사용자 정의 함수(user-defined function)를 만드는 문이다. 함수는 특정 일을 하는 재사용 가능한 코드 블록이다. 같은 명령을 반복해 쓰지 않고 한 번 정의해 두고, 필요할 때마다 그 이름으로 불러 쓴다. <code>len</code>·<code>print</code> 같은 내장 함수와 달리, 원하는 동작이 없을 때 직접 만드는 것이 사용자 정의 함수다. <code>def</code> 줄 자체는 본문을 실행하지 않는다. 이름만 등록한다.</p>
+<p class="en"><code>def</code> is the statement that creates a user-defined function. A function is a reusable block of code that performs a specific task. Define it once instead of repeating the same commands, then use it by name whenever needed. Unlike built-ins such as <code>len</code> or <code>print</code>, a user-defined function is one you write when no existing function does the job. The <code>def</code> line itself does not run the body; it only registers the name.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>def 이름(매개변수들):
+    본문</code></p>
+<p class="ko">구성은 함수 이름(호출할 때 쓰는 식별자), 괄호 안의 매개변수(parameter) 목록, 콜론 뒤 들여쓴 본문(명령들의 블록)이다. 매개변수가 없으면 빈 괄호 <code>()</code>를 둔다. 함수를 쓰려면 이름·인자 개수와 자료형·반환값의 자료형(없으면 없음)을 알아 두면 된다. 예: 내장 <code>len</code>은 이름 <code>len</code>, 인자 1개(str), 반환형은 int다.</p>
+<p class="en">A function has a name (the identifier used to call it), a parameter list in parentheses, and an indented body (the block of statements) after the colon. Use empty <code>()</code> when there are no parameters. To use a function, know its name, how many arguments and of which types, and the return type (if any). Example: built-in <code>len</code> needs the name <code>len</code>, one argument (str), and returns int.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">매개변수는 본문 안에서 값을 받을 이름(자리)이고, 호출할 때 넘기는 실제 값이 인자다. <code>def</code>만으로는 본문이 돌지 않으므로, 실행은 호출(<code>이름(...)</code>)에서 일어난다. 본문에서 값을 돌려주려면 <a href="#return"><code>return</code></a>을 쓴다. 함수는 procedure·subroutine·method 등으로도 불리며, method는 클래스 안의 함수로 이 단원에서는 이름만 구분한다.</p>
+<p class="en">A parameter is the named placeholder inside the function; an argument is the actual value passed at a call. <code>def</code> alone does not run the body—execution happens at a call (<code>name(...)</code>). To send a value back from the body, use <a href="#return"><code>return</code></a>. Functions are also called procedures, subroutines, or methods; a method is a function inside a class, named only for distinction here.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>def multiply(x, y):
     result = x * y
     return result
 print(multiply(5, 4))
-# 20</code></pre></section></article>
-<article class="entry" id="return" data-keys="return 반환"><header class="entry-head"><h3><code>return</code></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header><section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko"><code>return</code>은 함수의 결과 값을 호출한 곳으로 돌려주고, 그 함수의 실행을 끝낸다. <code>return</code>이 없으면 함수의 결과는 None이다.</p><p class="en"><code>return</code> sends a result back to the caller and ends that function. Without <code>return</code>, the function's result is None.</p></section><section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="sig"><code>return 값</code></p><p class="ko">쉼표로 여러 값을 돌려주면 호출한 쪽은 튜플로 받는다.</p><p class="en">Returning several values separated by commas gives the caller a tuple.</p></section><section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>def pair(x):
+# 20</code></pre>
+<p class="ko">매개변수 x, y를 두고 본문에서 곱한 뒤 반환한다. <code>multiply(5, 4)</code>로 호출하면 20이 나온다.</p>
+<p class="en">Parameters x and y; the body multiplies and returns. Calling <code>multiply(5, 4)</code> yields 20.</p>
+<pre><code>def greet():
+    print("hi")
+greet()
+# hi</code></pre>
+<p class="ko">매개변수가 없으면 빈 괄호로 정의·호출한다. <code>def</code> 줄에서는 아무것도 출력되지 않고, <code>greet()</code>에서 본문이 실행된다.</p>
+<p class="en">With no parameters, define and call with empty parentheses. The <code>def</code> line prints nothing; the body runs at <code>greet()</code>.</p>
+</section>
+</article>
+
+<article class="entry" id="call" data-exam="final" data-keys="함수 호출 call return 제어">
+<header class="entry-head"><h3><code>함수 호출</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">동작</span><span class="en">action</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">함수 호출은 이미 정의된 함수를 실행하는 일이다. 호출하면 인터프리터가 그 함수의 본문으로 건너가 명령을 실행하고, 끝나면 호출했던 바로 그 지점으로 제어를 되돌린다. 이처럼 호출자에게 제어를 돌려주는 일을 함수 return이라고 한다.</p>
+<p class="en">A function call runs a function that has already been defined. The interpreter jumps to the function’s body, executes its statements, then returns control to the exact call site. That handing of control back to the caller is a function return.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>이름(인자들)</code></p>
+<p class="ko">호출에 필요한 것은 함수 이름과, 있으면 인자다. 인자가 없는 함수는 빈 괄호 <code>()</code>로 호출한다. 괄호가 있어야 실행된다.</p>
+<p class="en">A call needs the function name and any arguments. A function with no arguments is called with empty <code>()</code>. Parentheses are required for the function to run.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">이름만 적고 괄호를 빼면 호출이 아니다. 함수 객체를 가리킬 뿐 본문은 실행되지 않는다. 인자가 필요한 함수에 인자를 빠뜨리거나 개수를 틀리면 TypeError다.</p>
+<p class="en">Writing the name without parentheses is not a call—it only refers to the function object; the body does not run. Omitting a required argument or passing the wrong count raises TypeError.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>print("A")
+print("B")
+# A
+# B</code></pre>
+<p class="ko">첫 호출이 본문을 실행한 뒤 제어가 돌아와야 다음 줄의 둘째 호출이 실행된다.</p>
+<p class="en">Only after the first call finishes and control returns does the second call on the next line run.</p>
+<pre><code>n = abs(-3)
+print(n)
+# 3</code></pre>
+<p class="ko"><code>abs</code> 이름과 인자 <code>-3</code>으로 호출한다. 본문이 끝난 뒤 호출했던 줄로 제어가 돌아온다.</p>
+<p class="en">The name <code>abs</code> and the argument <code>-3</code> make the call. After the body finishes, control returns to the call line.</p>
+<pre><code>print()
+print("ok")
+# (빈 줄)
+# ok</code></pre>
+<p class="ko">인자가 없으면 빈 괄호로 호출하고, 있으면 괄호 안에 둔다. 어느 쪽이든 <code>()</code>가 있어야 실행된다.</p>
+<p class="en">Call with empty parentheses when there are no arguments; put any arguments inside. Either way, <code>()</code> is required to run.</p>
+</section>
+</article>
+
+<article class="entry" id="nested-call" data-exam="final" data-keys="중첩 호출 nested call">
+<header class="entry-head"><h3><code>중첩 호출</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">표기</span><span class="en">notation</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">중첩 호출은 한 함수의 인자에 다른 함수 호출을 두는 표기다. 가장 안쪽 함수가 먼저 실행되고, 그 반환값이 바로 바깥 함수의 인자가 된다. 안쪽에서 바깥으로 한 겹씩 진행된다.</p>
+<p class="en">A nested call places one function call inside another’s argument. The innermost function runs first; its return value becomes the next outer argument. Evaluation proceeds one layer at a time from the inside out.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>바깥(안쪽(값))</code></p>
+<p class="ko">괄호가 겹치면 안쪽 괄호부터 계산한다. <code>print(len("hi"))</code>는 먼저 <code>len("hi")</code> → 2, 그다음 <code>print(2)</code>다. 세 겹이면 안쪽 → 가운데 → 바깥 순이다.</p>
+<p class="en">With nested parentheses, evaluate the innermost call first. <code>print(len("hi"))</code> means <code>len("hi")</code> → 2, then <code>print(2)</code>. With three layers, order is inner → middle → outer.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">안쪽 반환형이 바깥이 받는 인자 형과 맞아야 한다. 중간 결과를 이름에 담아 두 줄로 나눠 써도 같은 일이다. 중첩 호출은 “함수 안에 함수를 정의”하는 중첩 함수와 다르다.</p>
+<p class="en">The inner return type must fit what the outer call expects. Storing the middle result in a name across two lines is the same idea. A nested call is not a nested function definition (a function defined inside another).</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>print(len("hi"))
+# 2</code></pre>
+<p class="ko">안쪽 먼저: <code>len("hi")</code> → 2. 그 2가 바깥 <code>print</code>의 인자가 되어 2가 출력된다.</p>
+<p class="en">Inside first: <code>len("hi")</code> → 2. That 2 becomes the argument of outer <code>print</code>, so 2 is shown.</p>
+<pre><code>print(str(len("Python")))
+# 6</code></pre>
+<p class="ko">세 겹, 안쪽부터: <code>len("Python")</code> → 6 → <code>str(6)</code> → <code>"6"</code> → <code>print("6")</code>. 화면에는 글자 6이 나온다.</p>
+<p class="en">Three layers, inside out: <code>len("Python")</code> → 6 → <code>str(6)</code> → <code>"6"</code> → <code>print("6")</code>. The screen shows the character 6.</p>
+<pre><code>n = len("hi")
+print(n)
+# 2</code></pre>
+<p class="ko"><code>print(len("hi"))</code>와 같다. 안쪽 반환값을 이름에 담은 뒤 바깥에 넘긴 것뿐이다.</p>
+<p class="en">Same as <code>print(len("hi"))</code>. The inner return value is stored in a name, then passed to the outer call.</p>
+</section>
+</article>
+
+<article class="entry" id="param-arg" data-exam="final" data-keys="parameter argument 매개변수 인자">
+<header class="entry-head"><h3><code>parameter / argument</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">용어</span><span class="en">terms</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><strong>parameter(매개변수)</strong>는 함수를 정의할 때 괄호 안에 적은 이름이다. 호출 때 들어올 값을 받을 자리(placeholder)다. <strong>argument(인자)</strong>는 호출할 때 괄호 안에 실제로 넘기는 값이다. 인자가 매개변수에 대입된다.</p>
+<p class="en">A <strong>parameter</strong> is a name in the parentheses of a definition—a placeholder for a value. An <strong>argument</strong> is the actual value passed in the call. The argument is assigned to the parameter.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>def f(x): ...
+f(3)</code></p>
+<p class="ko">정의의 <code>x</code>는 parameter, 호출의 <code>3</code>은 argument다. 한 매개변수로 여러 값을 받을 수 있어, 사람마다 함수를 따로 만들지 않고 같은 본문을 재사용한다.</p>
+<p class="en">In the definition, <code>x</code> is a parameter; in the call, <code>3</code> is an argument. One parameter can take many values, so the same body is reused instead of writing a separate function per case.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">용어를 섞어 써도 시험에서는 “정의 쪽 이름 / 호출 쪽 값”으로 구분하면 된다. 매개변수 없이 사람마다 함수를 네 개, 백 개 두면 코드·메모리·가독성이 나빠진다. 이름 하나만 매개변수로 두면 인자를 바꿔 같은 함수를 호출한다.</p>
+<p class="en">Even if the words are mixed, exams only need “name in the definition / value in the call.” Separate functions for each person waste code space and memory and hurt readability. One name parameter lets you call the same function with different arguments.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>def person(name):
+    print("hi", name)
+person("Kim")
+# hi Kim</code></pre>
+<p class="ko"><code>name</code>이 parameter, <code>"Kim"</code>이 argument다. 호출 때 넘긴 값이 본문의 <code>name</code>에 들어간다.</p>
+<p class="en"><code>name</code> is the parameter; <code>"Kim"</code> is the argument. The call value is assigned to <code>name</code> inside the body.</p>
+<pre><code>def person(name):
+    print("hi", name)
+person("Kim")
+person("Lee")
+# hi Kim
+# hi Lee</code></pre>
+<p class="ko">같은 함수에 인자만 바꿔 호출한다. 사람을 늘려도 정의는 하나면 된다.</p>
+<p class="en">The same function is called with different arguments. Adding people needs no new definitions.</p>
+</section>
+</article>
+
+<article class="entry" id="call-forms" data-exam="final" data-keys="인자 반환 void 네 형태">
+<header class="entry-head"><h3><code>인자 × 반환 네 형태</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">분류</span><span class="en">forms</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">함수 호출은 <strong>인자 유무</strong>와 <strong>반환값 유무</strong>로 네 가지 형태로 나뉜다. (1) 인자 없음·반환 없음 (2) 인자 있음·반환 없음 (3) 인자 없음·반환 있음 (4) 인자 있음·반환 있음.</p>
+<p class="en">Function calls fall into four forms by <strong>arguments</strong> × <strong>return value</strong>: (1) no args, no return (2) with args, no return (3) no args, with return (4) with args, with return.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>이름()</code> · <code>이름(인자)</code> · <code>결과 = 이름()</code> · <code>결과 = 이름(인자)</code></p>
+<p class="ko">인자 없음은 빈 <code>()</code>. 인자 있음은 괄호 안에 값을 둔다. 반환 있음은 호출 결과를 이름에 담거나 다른 식에서 쓴다. 반환 없음은 호출만 하고 결과를 쓰지 않는다.</p>
+<p class="en">No arguments: empty <code>()</code>. With arguments: values inside the parentheses. With a return: store the call result or use it in another expression. No return: call for its effect; do not use a result.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">네 칸은 서로 독립이다. 인자가 있다고 반드시 반환이 있는 것은 아니고, 그 반대도 아니다. “반환 없음”의 의미(암묵적 <code>None</code> 등)는 <a href="#void-return">void 함수</a>에서 다룬다.</p>
+<p class="en">The four cells are independent: having arguments does not imply a return, and vice versa. What “no return” means (implicit <code>None</code>, etc.) belongs under <a href="#void-return">void functions</a>.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>def greet():
+    print("hi")
+
+def shout(msg):
+    print(msg)
+
+def answer():
+    return 42
+
+def add(a, b):
+    return a + b
+
+greet()          # 인자 없음 · 반환 없음
+shout("yo")      # 인자 있음 · 반환 없음
+n = answer()     # 인자 없음 · 반환 있음
+s = add(2, 3)    # 인자 있음 · 반환 있음
+print(n, s)
+# hi
+# yo
+# 42 5</code></pre>
+<p class="ko">네 형태를 한 데 모은 예. 위 두 호출은 출력만 하고, 아래 두 호출은 반환값을 이름에 담는다.</p>
+<p class="en">One short demo of all four forms. The first two calls only print; the last two store return values.</p>
+</section>
+</article>
+
+<article class="entry" id="void-return" data-exam="final" data-keys="void value-returning None return">
+<header class="entry-head"><h3><code>void / 값 반환</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">구분</span><span class="en">distinction</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><strong>값 반환 함수(value-returning)</strong>는 본문이 끝난 뒤 <code>return</code>으로 결과를 호출한 코드에 보낸다. 호출한 쪽은 그 값을 저장하거나 식에 쓴다. <strong>void 함수</strong>는 호출자에게 쓸 값을 보내지 않는다. Python에서는 <code>return</code>이 없으면 <code>None</code>이 암묵적으로 반환된다.</p>
+<p class="en">A <strong>value-returning</strong> function sends a result to the caller with <code>return</code>. The caller may store or use it. A <strong>void</strong> function does not send a useful value; in Python, omitting <code>return</code> means <code>None</code> is returned implicitly.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>return 값</code> &nbsp;/&nbsp; <code>return</code> 없음 → <code>None</code></p>
+<p class="ko">계산 결과를 이어 쓰려면 <code>return 값</code>을 쓴다. 화면만 바꾸거나 일만 하는 함수는 <code>return</code>을 생략해도 되고, 그때 호출식의 값은 <code>None</code>이다.</p>
+<p class="en">Use <code>return value</code> when the caller needs the result. A function that only performs work may omit <code>return</code>; the call expression is then <code>None</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko"><code>x = void_fn()</code>처럼 대입하면 <code>x</code>는 <code>None</code>이다. void 함수의 반환값을 이어 쓰지 않는다.</p>
+<p class="en">Assigning <code>x = void_fn()</code> stores <code>None</code> in <code>x</code>. Do not chain the return value of a void function.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>def add(a, b):
+    return a + b
+print(add(2, 3))
+# 5</code></pre>
+<p class="ko">값 반환: <code>return</code>으로 보낸 결과가 호출식의 값이 된다.</p>
+<p class="en">Value-returning: the value sent by <code>return</code> becomes the call expression’s value.</p>
+<pre><code>def shout(msg):
+    print(msg)
+x = shout("ok")
+print(x)
+# ok
+# None</code></pre>
+<p class="ko">void: 본문에 <code>return</code>이 없어도 암묵적으로 <code>None</code>이 반환된다.</p>
+<p class="en">Void: with no <code>return</code>, Python still returns <code>None</code> implicitly.</p>
+<pre><code>print(print("hi"))
+# hi
+# None</code></pre>
+<p class="ko"><code>print</code>도 void에 가깝다. 화면에는 글자가 나오지만 호출식의 값은 항상 <code>None</code>이다.</p>
+<p class="en"><code>print</code> is void-like: text appears on the screen, but the call expression is always <code>None</code>.</p>
+</section>
+</article>
+
+<article class="entry" id="return" data-keys="return 반환 다중 double tuple">
+<header class="entry-head"><h3><code>return</code></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><code>return</code>은 함수가 만든 값을 호출한 곳으로 보내고, 그 함수의 실행을 즉시 끝낸다. <code>return</code>이 없으면 호출식의 값은 <code>None</code>이다. 본문에 <code>return</code>이 여러 줄 있어도, 한 번의 호출에서는 처음 도달한 하나만 실행된다. 쉼표로 여러 식을 적으면 값은 하나이고, 그 하나가 튜플이다.</p>
+<p class="en"><code>return</code> sends a value back to the caller and ends that function at once. Without <code>return</code>, the call expression is <code>None</code>. Several <code>return</code> lines may exist, but only the first one reached runs in a given call. Values separated by commas are still one return value: a tuple.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>return 값</code></p>
+<p class="ko">호출한 쪽은 그 값을 이름에 담거나 식에 쓴다. 조건에 따라 다른 결과가 필요하면 갈래마다 <code>return</code>을 둔다(이중·다중 return). 여러 결과를 한꺼번에 보내려면 <code>return a, b</code>처럼 쉼표로 적는다.</p>
+<p class="en">The caller stores the value or uses it in an expression. When results differ by condition, put a <code>return</code> on each branch (double / multiple returns). To send several results at once, write <code>return a, b</code> with commas.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">처음 도달한 <code>return</code> 아래 줄은 그 호출에서 실행되지 않는다. Python은 기술적으로 값 하나만 반환하므로, 여러 결과를 한꺼번에 보내는 일은 그 하나를 튜플로 만드는 것이다. 값을 보내지 않고 본문만 끝내는 함수(void)는 <code>return</code>이 없어도 되고, 그때도 결과는 <code>None</code>이다.</p>
+<p class="en">Lines below the first <code>return</code> reached do not run in that call. Technically Python returns one value; sending several results at once means that one value is a tuple. A void function that only finishes its body may omit <code>return</code>, and the result is still <code>None</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>def grade(score):
+    if score &gt;= 60:
+        return "pass"
+    return "fail"
+print(grade(70))
+# pass
+print(grade(40))
+# fail</code></pre>
+<p class="ko">점수가 60 이상이면 첫 <code>return</code>에서 끝나고 <code>"fail"</code> 줄은 실행되지 않는다. 아니면 아래 <code>return</code>이 실행된다.</p>
+<p class="en">At 60 or above, the first <code>return</code> ends the call so the <code>"fail"</code> line does not run. Otherwise the lower <code>return</code> runs.</p>
+<pre><code>def pair(x):
     return x, x + 1
 print(pair(3))
-# (3, 4)</code></pre></section></article>
-<article class="entry" id="scope" data-keys="local global 지역 전역"><header class="entry-head"><h3><code>지역과 전역</code></h3><p class="kind"><span class="ko">규칙</span><span class="en">rule</span></p></header><section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4><p class="ko">함수 안에서 대입한 이름은 그 함수의 지역 이름이다. 함수 밖에서 만든 이름은 전역 이름이고, 함수 안에서 읽기만 하면 그 값을 볼 수 있다. 지역 이름은 함수 밖에서 보이지 않는다.</p><p class="en">A name assigned inside a function is local to that function. A name created outside is global, and a function may read it. A local name is not visible outside the function.</p></section><section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4><p class="ko">함수가 끝난 뒤 지역 이름을 읽으면 NameError다. 전역 이름은 함수 밖에서도 그대로다.</p><p class="en">Reading a local name after the function has finished raises NameError. The global name is still there outside the function.</p></section><section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4><pre><code>global_variable = "ccc"
-def my_function():
-    local_variable = "abc"
-    print(global_variable)  # ccc
-    return local_variable
-print(my_function())  # abc</code></pre></section></article>
+# (3, 4)
+a, b = pair(3)
+print(a, b)
+# 3 4</code></pre>
+<p class="ko">쉼표 반환은 튜플 <code>(3, 4)</code> 하나다. 호출한 쪽에서 언패킹하면 각 칸을 이름에 나눈다.</p>
+<p class="en">The comma return is one tuple <code>(3, 4)</code>. Unpacking at the call site splits its elements into names.</p>
+</section>
+</article>
+
+<article class="entry" id="func-control" data-exam="final" data-keys="함수 if for while 조건 반복">
+<header class="entry-head"><h3><code>함수와 조건·반복</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">조합</span><span class="en">combo</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">함수 본문에는 <code>if</code>/<code>elif</code>/<code>else</code>와 <code>for</code>/<code>while</code>을 그대로 둔다. 조건·반복 규칙은 중간 단원과 같고, 그 결과가 함수의 반환이나 출력으로 이어진다.</p>
+<p class="en">A function body may hold <code>if</code>/<code>elif</code>/<code>else</code> and <code>for</code>/<code>while</code> as usual. Condition and loop rules match the midterm chapters; their results become the function’s return or printed output.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>def 이름(...):
+    if 조건:
+        ...
+    for 항목 in 묶음:
+        ...</code></p>
+<p class="ko"><code>if</code>·<code>for</code>·<code>while</code> 본문은 함수 들여쓰기 안에 한 단계 더 들어간다. 호출 뒤 어느 갈래가 실행되는지, 반복이 몇 바퀴인지 따라가며 출력을 추적한다.</p>
+<p class="en">The <code>if</code>/<code>for</code>/<code>while</code> body sits one indent deeper inside the function. After a call, trace which branch runs and how many loop passes print, then read the output.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">슬라이드 “Function with Conditional / Loop Statement”는 출력을 묻는 추적 연습이다. 새 문법이 아니라, 함수 안에서 이미 배운 조건·반복을 따라가면 된다.</p>
+<p class="en">Slide drills titled “Function with Conditional / Loop Statement” ask for traced output. No new syntax—follow the familiar condition or loop inside the function.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>def check(n):
+    if n &gt; 0:
+        print("pos")
+    else:
+        print("non-pos")
+check(3)
+check(-1)
+# pos
+# non-pos</code></pre>
+<p class="ko">함수 본문의 <code>if</code>/<code>else</code>. <code>check(3)</code>은 pos, <code>check(-1)</code>은 non-pos.</p>
+<p class="en"><code>if</code>/<code>else</code> inside the function. <code>check(3)</code> prints pos; <code>check(-1)</code> prints non-pos.</p>
+<pre><code>def sum_to(n):
+    total = 0
+    for i in range(1, n + 1):
+        total += i
+    return total
+print(sum_to(3))
+# 6</code></pre>
+<p class="ko">함수 본문의 <code>for</code>. 1+2+3 → 6. 호출 한 번으로 반복이 모두 끝난 뒤 반환값을 출력한다.</p>
+<p class="en"><code>for</code> inside the function. 1+2+3 → 6. One call finishes the whole loop, then the return value is printed.</p>
+</section>
+</article>
+
+<article class="entry" id="recursion" data-exam="final" data-keys="재귀 recursive factorial">
+<header class="entry-head"><h3><code>재귀</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">패턴</span><span class="en">pattern</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">재귀 함수는 실행 중에 자기 자신을 다시 호출한다. 더 작은 같은 꼴 문제로 나누어 풀 때 쓴다. 멈추는 조건(기저 사례)이 없으면 호출이 끝나지 않는다.</p>
+<p class="en">A recursive function calls itself during execution. It fits problems that break into smaller instances of the same shape. Without a base case, the calls never end.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>def f(n):
+    if 기저: return …
+    return … f(더 작은 n) …</code></p>
+<p class="ko">팩토리얼: <code>n! = n × (n−1)!</code>, <code>0! = 1</code>. 기저(<code>n == 0</code>)에서 1을 반환하고, 아니면 <code>n * factorial(n - 1)</code>을 반환한다.</p>
+<p class="en">Factorial: <code>n! = n × (n−1)!</code>, <code>0! = 1</code>. Return 1 at the base (<code>n == 0</code>); otherwise return <code>n * factorial(n - 1)</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">기저 사례가 반드시 있어야 호출 사슬이 끝난다. 매 호출마다 지역 이름과 인자가 새로 쌓인다.</p>
+<p class="en">A base case is required so the call chain ends. Each call stacks its own locals and arguments.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+print(factorial(4))
+# 24</code></pre>
+<p class="ko"><code>4!</code> 추적: <code>4×3!</code> → <code>3×2!</code> → <code>2×1!</code> → <code>1×0!</code> → 기저 <code>0! = 1</code>. 돌아오며 <code>1×1×2×3×4 = 24</code>.</p>
+<p class="en">Trace <code>4!</code>: <code>4×3!</code> → <code>3×2!</code> → <code>2×1!</code> → <code>1×0!</code> → base <code>0! = 1</code>. Unwinding gives <code>1×1×2×3×4 = 24</code>.</p>
+<pre><code>print(factorial(0))
+# 1</code></pre>
+<p class="ko">기저만 실행된다. <code>n == 0</code>이면 자기 호출 없이 1을 바로 반환한다.</p>
+<p class="en">Only the base runs. At <code>n == 0</code> it returns 1 with no further self-call.</p>
+<pre><code>print(factorial(3))
+# 6</code></pre>
+<p class="ko"><code>3! = 3×2×1 = 6</code>. 같은 식으로 <code>3×factorial(2)</code> … <code>0!</code>까지 내려간 뒤 곱해 올라온다.</p>
+<p class="en"><code>3! = 3×2×1 = 6</code>. Same idea: descend via <code>3×factorial(2)</code> … to <code>0!</code>, then multiply back up.</p>
+</section>
+</article>
+
+<article class="entry" id="fn-kinds" data-exam="final" data-keys="전역 함수 지역 함수 nested method">
+<header class="entry-head"><h3><code>전역·지역 함수 / method</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">종류</span><span class="en">kinds</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><strong>전역 함수</strong>는 모듈(.py 파일) 최상위에 정의한다. 같은 파일 어디서나 쓸 수 있고, import로 다른 파일에서도 쓸 수 있다. <strong>지역 함수(중첩 함수)</strong>는 다른 함수 안에 정의되며, 바깥 함수 안에서만 호출한다. 밖에서 쓸 필요 없는 도우미에 맞다. <strong>method</strong>는 클래스 안에 정의된 함수로, 인스턴스(또는 클래스)를 통해 호출하며 객체의 내부 데이터에 작용한다.</p>
+<p class="en">A <strong>global function</strong> is defined at the top level of a module (.py file). It can be used anywhere in that file and imported elsewhere. A <strong>local (nested) function</strong> is defined inside another function and can be called only within that outer function—useful as a helper that need not be visible elsewhere. A <strong>method</strong> is a function defined inside a class; it is called through an instance (or the class) and operates on the object’s internal data.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>def 이름(...):</code> (모듈 최상위) &nbsp;/&nbsp; <code>def 바깥(...):</code> 안에 <code>def 안(...):</code> &nbsp;/&nbsp; <code>객체.method(...)</code></p>
+<p class="ko">파일 전체에서 재사용할 코드는 전역 함수로 둔다. 바깥 함수 전용 도우미는 지역 함수로 둔다. method는 <code>객체.이름(...)</code> 형태로 호출한다는 점만 구분한다.</p>
+<p class="en">Put reusable file-level code in a global function. Put a helper used only by one outer function in a local function. For method, distinguish the call form <code>object.name(...)</code> only.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">지역 함수는 바깥 함수 밖에서는 이름으로 호출할 수 없다. method의 클래스 정의·작성은 이 수업 범위 밖이므로 이름과 “객체에 붙여 호출한다”만 기억한다.</p>
+<p class="en">A local function cannot be called by name outside its outer function. Class definition for methods is beyond this course; remember the name and that it is called on an object.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>def add(a, b):
+    return a + b
+print(add(2, 3))
+# 5</code></pre>
+<p class="ko">전역 함수: 모듈 최상위에 정의되어 같은 파일에서 바로 호출한다.</p>
+<p class="en">Global function: defined at module top level and called anywhere in the same file.</p>
+<pre><code>def outer(n):
+    def double(x):
+        return x * 2
+    return double(n)
+print(outer(5))
+# 10</code></pre>
+<p class="ko"><code>double</code>은 <code>outer</code> 안에만 보이는 지역(중첩) 함수다. <code>outer</code> 밖에서는 <code>double</code>을 호출할 수 없다.</p>
+<p class="en"><code>double</code> is a local (nested) function visible only inside <code>outer</code>. It cannot be called outside <code>outer</code>.</p>
+<pre><code>print("hi".upper())
+# HI</code></pre>
+<p class="ko">method 이름만: 문자열 객체의 <code>upper</code>처럼 <code>객체.이름()</code>으로 호출한다. 클래스 작성은 다루지 않는다.</p>
+<p class="en">Method name only: call form is <code>object.name()</code>, as with string <code>upper</code>. Class writing is not covered here.</p>
+</section>
+</article>
+
+<article class="entry" id="lambda" data-exam="final" data-keys="lambda 익명 함수">
+<header class="entry-head"><h3><code>lambda</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">식</span><span class="en">expression</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><code>lambda</code>는 <code>def</code> 없이 한 식만으로 함수를 만드는 표기다. 필요할 때 그 자리에서 쓰며, 이름이 없어 익명 함수라고도 한다. 콜론 뒤 식의 값이 곧 반환값이며 <code>return</code> 키워드는 쓰지 않는다. 짧고 잠깐 쓰는 연산에 맞다.</p>
+<p class="en"><code>lambda</code> builds a function as a single expression without <code>def</code>. It is written inline where needed and has no name—an anonymous function. The value of the expression after the colon is the return value; there is no <code>return</code> keyword. It fits short, temporary operations.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>lambda 매개변수: 식</code></p>
+<p class="ko">매개변수는 쉼표로 여러 개 둘 수 있고, 없으면 콜론 앞을 비운다. 식은 하나뿐이며, 그 결과가 호출의 반환값이다. 필요하면 이름에 대입해 두고 일반 함수처럼 호출한다. 같은 본문을 <code>def</code>로 쓴 것과 동작은 같다.</p>
+<p class="en">Parameters may be zero or more, separated by commas. Only one expression follows the colon; its value is what the call returns. You may bind the lambda to a name and call it like any function. Behavior matches the same body written with <code>def</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko"><code>return</code>을 적거나 여러 문장을 두면 문법 오류다. 복잡한 분기·여러 줄 본문은 <code>def</code>가 읽기 쉽다. lambda 식 자체에는 이름이 없고, 이름에 대입한 것은 그 이름의 함수 객체를 가리킬 뿐이다.</p>
+<p class="en">Writing <code>return</code> or several statements is a syntax error. Complex branches or a multi-line body are clearer with <code>def</code>. The lambda expression itself has no name; assigning it to a name only binds that name to the function object.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>square = lambda x: x * x
+print(square(5))
+# 25</code></pre>
+<p class="ko">매개변수 x, 식 <code>x * x</code>. <code>return</code> 없이 식의 값 25가 반환된다.</p>
+<p class="en">Parameter x, expression <code>x * x</code>. With no <code>return</code>, the expression’s value 25 is returned.</p>
+<pre><code>add = lambda a, b: a + b
+print(add(2, 3))
+# 5</code></pre>
+<p class="ko">매개변수가 둘이면 쉼표로 나열한다. 호출 <code>add(2, 3)</code>의 결과는 식 <code>a + b</code>의 값이다.</p>
+<p class="en">Two parameters are listed with a comma. The call <code>add(2, 3)</code> yields the value of <code>a + b</code>.</p>
+<pre><code>print((lambda x: x + 1)(4))
+# 5</code></pre>
+<p class="ko">이름에 담지 않고 그 자리에서 바로 호출할 수 있다. 괄호로 lambda를 묶은 뒤 <code>(4)</code>로 인자를 넘긴다.</p>
+<p class="en">You can call it inline without binding a name. Parenthesize the lambda, then pass the argument with <code>(4)</code>.</p>
+</section>
+</article>
+
+<article class="entry" id="lambda-key" data-exam="final" data-keys="lambda key sorted sort">
+<header class="entry-head"><h3><code>lambda와 key</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">조합</span><span class="en">combo</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><a href="#sorted"><code>sorted</code></a>와 리스트 <code>sort</code>는 <code>key</code> 매개변수로 “정렬 기준을 계산하는 함수”를 받는다. 한 번만 쓰는 짧은 기준이면 <a href="#lambda"><code>lambda</code></a>를 <code>key=</code> 인자로 넘긴다.</p>
+<p class="en"><a href="#sorted"><code>sorted</code></a> and list <code>sort</code> take a <code>key</code> parameter: a function that computes the sort key. For a short one-off rule, pass a <a href="#lambda"><code>lambda</code></a> as <code>key=</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>sorted(묶음, key=lambda 항목: 기준)</code><br><code>lst.sort(key=lambda 항목: 기준)</code></p>
+<p class="ko">각 항목에 key 함수를 적용한 결과로 순서를 정한다. <code>sorted</code>는 새 리스트를 반환하고 원본은 그대로다. <code>sort(key=...)</code>는 리스트를 제자리에서 바꾼다.</p>
+<p class="en">Order is decided by applying the key function to each item. <code>sorted</code> returns a new list and leaves the original alone. <code>sort(key=...)</code> changes the list in place.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko"><code>key</code>는 비교에 쓸 값을 만드는 함수이지, True/False 필터가 아니다. 같은 기준을 <code>def</code>로 따로 정의해도 동작은 같다. 잠깐 쓰는 짧은 식이면 lambda가 맞다.</p>
+<p class="en"><code>key</code> builds a value used for ordering; it is not a True/False filter. A separate <code>def</code> with the same rule works the same. lambda fits a short one-off expression.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>words = ["bb", "a", "ccc"]
+print(sorted(words, key=lambda s: len(s)))
+# ['a', 'bb', 'ccc']</code></pre>
+<p class="ko"><code>key=lambda s: len(s)</code>로 길이 순 새 리스트를 만든다. <code>words</code> 원본은 그대로다.</p>
+<p class="en"><code>key=lambda s: len(s)</code> builds a new list by length. The original <code>words</code> is unchanged.</p>
+<pre><code>words = ["ccc", "a", "bb"]
+words.sort(key=lambda s: len(s))
+print(words)
+# ['a', 'bb', 'ccc']</code></pre>
+<p class="ko"><code>sort(key=lambda s: len(s))</code>는 길이 순으로 제자리 정렬한다. 호출 뒤 <code>words</code> 자체가 바뀐다.</p>
+<p class="en"><code>sort(key=lambda s: len(s))</code> sorts by length in place. After the call, <code>words</code> itself is changed.</p>
+</section>
+</article>
+
+<article class="entry" id="default-param" data-exam="final" data-keys="기본값 default optional parameter">
+<header class="entry-head"><h3><code>기본값 매개변수</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">매개변수</span><span class="en">parameter</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><strong>필수 매개변수</strong>는 기본값이 없다. 호출할 때 대응 인자를 반드시 넘겨야 하고, 빼먹으면 TypeError다. <strong>선택 매개변수</strong>는 <code>이름=기본값</code>으로 기본값을 둔 것이다. 인자를 생략하면 그 기본값이 쓰이고, 다른 값을 원할 때만 넘긴다. 호출 쪽에서도 같은 구분이다: 필수 인자는 반드시, 선택 인자는 생략 가능하다.</p>
+<p class="en">A <strong>required parameter</strong> has no default. You must pass a matching argument, or Python raises TypeError. An <strong>optional parameter</strong> is written <code>name=default</code>. Omit the argument to use the default; pass a value only when you want something else. The same split applies at the call: a required argument must be given; an optional argument may be omitted.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>def f(필수, 선택=기본값):
+    ...
+f(값)
+f(값, 다른값)</code></p>
+<p class="ko">정의할 때 기본값이 있는 매개변수는 기본값이 없는 것 <strong>뒤</strong>에만 둔다. 호출에서는 선택 인자를 빼거나, 바꿀 때만 값을 넘긴다. 문서에서는 선택 인자를 대괄호 <code>[ ]</code>로 표시하는 경우가 많다.</p>
+<p class="en">In a definition, parameters with defaults must come <strong>after</strong> those without. At a call, omit an optional argument or pass a value only to override it. Documentation often marks optional arguments with square brackets <code>[ ]</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">필수 인자를 빼먹으면 TypeError다. 내장 <code>range</code>가 대표 예다. <code>stop</code>에 해당하는 값은 사실상 필수이고, <code>start</code>·<code>step</code>은 선택이다(끝 값은 수열에 들어가지 않는다).</p>
+<p class="en">Omitting a required argument raises TypeError. Built-in <code>range</code> is the usual example: a stop-like value is effectively required; start and step are optional (the stop itself is excluded from the sequence).</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>def greet(name, title="Mr."):
+    print(title, name)
+greet("Kim")
+# Mr. Kim
+greet("Lee", "Dr.")
+# Dr. Lee</code></pre>
+<p class="ko"><code>name</code>은 필수, <code>title</code>은 기본값 <code>"Mr."</code>인 선택이다. 한 인자만 주면 기본 칭호가 쓰이고, 둘째를 주면 칭호가 바뀐다.</p>
+<p class="en"><code>name</code> is required; <code>title</code> is optional with default <code>"Mr."</code>. One argument uses the default title; a second argument overrides it.</p>
+<pre><code>print(list(range(3)))
+# [0, 1, 2]
+print(list(range(1, 4)))
+# [1, 2, 3]
+print(list(range(0, 5, 2)))
+# [0, 2, 4]</code></pre>
+<p class="ko"><code>range</code>는 필수·선택 인자가 함께 있는 예다. <code>range(3)</code>은 stop만, <code>range(1, 4)</code>는 start·stop, <code>range(0, 5, 2)</code>는 step까지 넘긴다.</p>
+<p class="en"><code>range</code> shows required and optional arguments together. <code>range(3)</code> passes only stop; <code>range(1, 4)</code> adds start; <code>range(0, 5, 2)</code> also sets step.</p>
+</section>
+</article>
+
+<article class="entry" id="arg-forms" data-exam="final" data-keys="위치 인자 키워드 인자 positional keyword">
+<header class="entry-head"><h3><code>위치·키워드 인자</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">호출</span><span class="en">call</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">호출할 때 인자는 넘기는 방식에 따라 둘로 나뉜다. <strong>위치 인자</strong>는 매개변수 정의 순서와 같은 자리에 값을 둔다. <strong>키워드 인자</strong>는 <code>이름=값</code>으로 넘기며, 이름을 밝히므로 순서가 바뀌어도 된다.</p>
+<p class="en">At call time, arguments are of two formats. A <strong>positional</strong> argument fills parameters in definition order. A <strong>keyword</strong> argument uses <code>name=value</code>; with names given, order does not matter.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>f(1, 2)</code> &nbsp;/&nbsp; <code>f(a=1, b=2)</code> &nbsp;/&nbsp; <code>f(1, b=2)</code></p>
+<p class="ko">위치만, 키워드만, 또는 앞에 위치·뒤에 키워드를 섞어 호출할 수 있다. 가독성을 위해 일부만 키워드로 쓰는 경우가 많다.</p>
+<p class="en">Call with positionals only, keywords only, or positionals first then keywords. Optional clarity often comes from naming some arguments.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">위치 인자는 항상 키워드 인자보다 <strong>앞</strong>에 와야 한다. 키워드 뒤에 위치 인자를 두면 오류다. 기대한 개수보다 적거나 많으면 TypeError다.</p>
+<p class="en">Positional arguments must come <strong>before</strong> keyword arguments. A positional after a keyword is invalid. Too few or too many arguments raise TypeError.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>def f(a, b):
+    return a, b
+print(f(1, 2))
+# (1, 2)</code></pre>
+<p class="ko">위치 인자: 첫 값이 <code>a</code>, 둘째가 <code>b</code>에 대응한다.</p>
+<p class="en">Positional: the first value goes to <code>a</code>, the second to <code>b</code>.</p>
+<pre><code>def f(a, b):
+    return a, b
+print(f(b=2, a=1))
+print(f(1, b=2))
+# (1, 2)
+# (1, 2)</code></pre>
+<p class="ko">키워드만 쓰면 순서가 달라도 같다. 위치와 키워드를 섞을 때는 위치가 앞이다.</p>
+<p class="en">Keywords alone may be reordered. When mixing, positionals come first.</p>
+<pre><code>def f(a, b):
+    return a, b
+# print(f(a=1, 2))  # SyntaxError: 키워드 뒤에 위치 인자
+# print(f(1))       # TypeError: 인자 개수 부족
+print(f(1, 2))
+# (1, 2)</code></pre>
+<p class="ko">키워드 뒤에 위치 인자를 두면 SyntaxError다. 개수가 맞지 않으면 TypeError다. 위 두 줄은 오류 예이므로 주석으로만 둔다.</p>
+<p class="en">A positional after a keyword is SyntaxError. A wrong count is TypeError. Those two lines are shown only as comments.</p>
+</section>
+</article>
+
+<article class="entry" id="keyword-only" data-exam="final" data-keys="* 키워드 전용 keyword-only">
+<header class="entry-head"><h3><code>* (키워드 전용)</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">표기</span><span class="en">notation</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">함수 정의에서 단독 <code>*</code>는 위치 인자와 키워드 인자의 경계를 만든다. <code>*</code> <strong>뒤</strong>의 매개변수는 반드시 키워드로만 넘겨야 한다. 이름을 명시하게 해서 호출이 더 분명해지고 실수를 줄인다.</p>
+<p class="en">A bare <code>*</code> in a parameter list marks the boundary: parameters <strong>after</strong> <code>*</code> must be passed by keyword only. Naming them at the call makes calls clearer and less error-prone.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>def f(a, *, b):</code></p>
+<p class="ko"><code>f(1, b=2)</code>는 되고 <code>f(1, 2)</code>는 TypeError다. <code>sorted</code> 시그니처의 <code>*</code>도 같은 계열이다(<code>/</code>는 위치 전용 경계).</p>
+<p class="en"><code>f(1, b=2)</code> works; <code>f(1, 2)</code> is TypeError. The <code>*</code> in <code>sorted</code>’s signature is the same idea (<code>/</code> marks positional-only).</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">이 항목의 <code>*</code>는 이름 없는 경계 표기다. <code>*args</code> 패킹과는 별개다. <code>*</code>를 매개변수 목록 맨 앞에 두면, 그 뒤 매개변수는 모두 키워드 전용이다.</p>
+<p class="en">Here <code>*</code> is a nameless boundary, not <code>*args</code> packing. With <code>*</code> first in the list, every following parameter is keyword-only.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>def connect(host, *, port=80):
+    return host, port
+print(connect("a.com", port=443))
+# ('a.com', 443)
+# connect("a.com", 443)  # TypeError</code></pre>
+<p class="ko"><code>port</code>는 <code>*</code> 뒤라 <code>port=443</code>처럼 이름으로만 넘긴다. 위치 인자 <code>443</code>은 TypeError다.</p>
+<p class="en"><code>port</code> is after <code>*</code>, so it must be <code>port=443</code>. A positional <code>443</code> is TypeError.</p>
+<pre><code>def greet(*, name):
+    print("hi", name)
+greet(name="Kim")
+# hi Kim
+# greet("Kim")  # TypeError</code></pre>
+<p class="ko"><code>*</code>가 맨 앞이면 모든 매개변수가 키워드 전용이다. <code>name="Kim"</code>만 되고 위치 호출은 오류다.</p>
+<p class="en">With <code>*</code> first, every parameter is keyword-only. Only <code>name="Kim"</code> works; a positional call errors.</p>
+</section>
+</article>
+
+<article class="entry" id="args-kwargs" data-exam="final" data-keys="*args **kwargs 가변 인자">
+<header class="entry-head"><h3><code>*args / **kwargs</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">매개변수</span><span class="en">parameter</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><code>*</code>는 시퀀스 패킹 연산자다. <code>*args</code>는 임의의 개수 위치 인자를 받아 모두 튜플로 모은다. <code>**</code>는 매핑 패킹 연산자다. <code>**kwargs</code>는 임의의 개수 키워드 인자를 받아 모두 딕셔너리로 모은다.</p>
+<p class="en"><code>*</code> is the sequence packing operator: <code>*args</code> accepts any number of positional arguments and collects them into a tuple. <code>**</code> is the mapping packing operator: <code>**kwargs</code> accepts any number of keyword arguments and collects them into a dictionary.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>def f(*args):</code> &nbsp;/&nbsp; <code>def g(**kwargs):</code> &nbsp;/&nbsp; <code>def h(*args, **kwargs):</code></p>
+<p class="ko">가변 위치는 <code>*이름</code>, 가변 키워드는 <code>**이름</code>으로 둔다. 둘을 함께 쓰면 반드시 <code>*args</code>가 먼저, 그다음 <code>**kwargs</code>다. 이름 <code>args</code>·<code>kwargs</code>는 관례이고, 핵심은 <code>*</code>·<code>**</code>다.</p>
+<p class="en">Write variable positionals as <code>*name</code> and variable keywords as <code>**name</code>. Combined, <code>*args</code> must come first, then <code>**kwargs</code>. The names args/kwargs are convention; <code>*</code> and <code>**</code> matter.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">순서를 바꿔 <code>**kwargs</code>를 <code>*args</code>보다 앞에 두면 정의 자체가 잘못된 문법이다. 이 항목의 <code>*args</code>는 남은 위치 인자를 튜플로 패킹하는 것이고, 이름 없는 단독 <code>*</code>(키워드 전용 경계)와는 다르다.</p>
+<p class="en">Putting <code>**kwargs</code> before <code>*args</code> is invalid syntax. Here <code>*args</code> packs leftover positionals into a tuple; that is not the bare <code>*</code> keyword-only boundary.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>def total(*nums):
+    s = 0
+    for n in nums:
+        s += n
+    return s
+print(total(1, 2, 3))
+# 6
+print(total())
+# 0</code></pre>
+<p class="ko"><code>*nums</code>가 위치 인자 <code>1, 2, 3</code>을 튜플 <code>(1, 2, 3)</code>으로 모은다. 인자가 없어도 빈 튜플이라 <code>0</code>이 된다.</p>
+<p class="en"><code>*nums</code> packs positionals <code>1, 2, 3</code> into the tuple <code>(1, 2, 3)</code>. With no arguments the tuple is empty, so the result is <code>0</code>.</p>
+<pre><code>def show(**info):
+    return info
+print(show(a=1, b=2))
+# {'a': 1, 'b': 2}</code></pre>
+<p class="ko"><code>**info</code>가 키워드 인자 <code>a=1</code>, <code>b=2</code>를 딕셔너리로 모은다.</p>
+<p class="en"><code>**info</code> packs keyword arguments <code>a=1</code>, <code>b=2</code> into a dictionary.</p>
+<pre><code>def both(*args, **kwargs):
+    return args, kwargs
+print(both(1, 2, x=3, y=4))
+# ((1, 2), {'x': 3, 'y': 4})</code></pre>
+<p class="ko">함께 쓸 때 위치는 <code>*args</code> 튜플, 키워드는 <code>**kwargs</code> 딕셔너리로 나뉜다. 정의 순서는 <code>*args</code> 다음 <code>**kwargs</code>다.</p>
+<p class="en">Together, positionals go to the <code>*args</code> tuple and keywords to the <code>**kwargs</code> dict. In the definition, <code>*args</code> comes before <code>**kwargs</code>.</p>
+</section>
+</article>
+
+<article class="entry" id="scope" data-keys="local global 지역 전역 scope visibility">
+<header class="entry-head"><h3><code>지역과 전역</code></h3><p class="kind"><span class="ko">규칙</span><span class="en">rule</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">scope는 이름(변수·함수)이 보이고 쓰일 수 있는 범위다. 가시성(visibility)과 수명(어디서 존재하고 어디서 사라지는지)을 정한다. 범위를 벗어나면 더 이상 접근할 수 없다. <strong>전역(global)</strong>은 모든 함수 밖, 모듈 최상위에 두며 프로그램이 살아 있는 동안 존재한다. 함수 안에서도(같은 이름 지역이 가리지 않는 한) 보인다. <strong>지역(local)</strong>은 함수 안에서 만들어지며 그 함수 안에서만 보인다. 함수 밖에서는 쓸 수 없다.</p>
+<p class="en">Scope is where a name (variable or function) can be seen and used. It controls visibility and lifetime—where the name exists and where it does not. Outside that range it cannot be accessed. A <strong>global</strong> name is defined outside all functions, at module top level, and lives for the program’s lifetime. It is visible inside functions unless a local of the same name shadows it. A <strong>local</strong> name is created inside a function and is visible only there. It cannot be used outside that function.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>x = ...          # 전역
+def f():
+    y = ...      # 지역</code></p>
+<p class="ko">함수 안에서는 전역 이름을 <strong>읽기만</strong> 하면 <code>global</code> 없이도 된다. 같은 이름의 지역이 있으면 함수 안에서는 그 지역이 우선한다(name shadowing). 함수가 끝난 뒤 지역 이름을 읽으면 NameError다. 전역을 함수 안에서 <strong>바꾸려면</strong> <a href="#global-kw"><code>global</code></a>이 필요하다(키워드 본문은 그 항목).</p>
+<p class="en">Inside a function, <strong>reading</strong> a global needs no <code>global</code>. If a local has the same name, that local takes precedence inside the function (name shadowing). Reading a local after the function ends raises NameError. To <strong>modify</strong> a global from inside, use <a href="#global-kw"><code>global</code></a> (details in that entry).</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">visibility는 프로그램의 어느 부분이 그 이름을 합법적으로 “볼” 수 있는지다. 같은 scope에 있어도, 우선순위가 더 높은 다른 이름에 잠깐 가려질 수 있다. 이것이 name shadowing이다.</p>
+<p class="en">Visibility is which parts of the program may legally see a name. Even in the same scope, a name can be temporarily hidden by another with higher priority—name shadowing.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>g = "ccc"
+def show():
+    loc = "abc"
+    print(g)
+    return loc
+print(show())
+# ccc
+# abc
+# print(loc)  # NameError</code></pre>
+<p class="ko">전역 <code>g</code>는 함수 안에서 읽힌다. 지역 <code>loc</code>은 반환으로만 밖으로 나가고, 이름 자체는 함수 밖에서 쓸 수 없다.</p>
+<p class="en">Global <code>g</code> is read inside the function. Local <code>loc</code> leaves only as a return value; the name itself is not usable outside.</p>
+<pre><code>name = "global"
+def f():
+    name = "local"
+    print(name)
+f()
+print(name)
+# local
+# global</code></pre>
+<p class="ko">같은 이름이면 함수 안에서는 지역이 우선한다. 밖의 전역 <code>name</code>은 그대로다.</p>
+<p class="en">With the same name, the local wins inside the function. The outer global <code>name</code> is unchanged.</p>
+<pre><code>n = 1
+def f():
+    print(n)
+f()
+# 1</code></pre>
+<p class="ko">읽기만 하면 <code>global</code> 없이 전역이 보인다. 대입으로 바꾸려면 <a href="#global-kw"><code>global</code></a>이 필요하다.</p>
+<p class="en">Reading alone sees the global without <code>global</code>. Changing it by assignment needs <a href="#global-kw"><code>global</code></a>.</p>
+</section>
+</article>
+
+<article class="entry" id="global-kw" data-exam="final" data-keys="global 키워드 전역 수정">
+<header class="entry-head"><h3><code>global</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">함수 안에서 이름에 대입하면 기본적으로 그 이름은 지역이 된다. 전역 변수를 함수 안에서 <strong>바꾸려면</strong> 함수 본문에서 <code>global 이름</code>을 선언한 뒤 대입한다.</p>
+<p class="en">Assignment inside a function makes the name local by default. To <strong>change</strong> a global from inside, declare <code>global name</code> in the body, then assign.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>global 이름</code></p>
+<p class="ko">대입보다 앞에 둔다. 여러 이름은 쉼표로 나열할 수 있다.</p>
+<p class="en">Place it before the assignment. Several names may be listed with commas.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">읽기만 하면 <code>global</code>이 필요 없다. 남용하면 흐름을 쫓기 어려우므로, 가능하면 인자와 반환으로 값을 주고받는다.</p>
+<p class="en">Reading alone does not need <code>global</code>. Overuse makes flow hard to follow; prefer arguments and return values when you can.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>n = 10
+def show():
+    print(n)
+show()
+# 10</code></pre>
+<p class="ko">읽기만 하면 <code>global</code> 없이 전역 <code>n</code>을 쓸 수 있다.</p>
+<p class="en">Reading alone can use the global <code>n</code> without <code>global</code>.</p>
+<pre><code>count = 0
+def bump():
+    global count
+    count = count + 1
+bump()
+print(count)
+# 1</code></pre>
+<p class="ko"><code>global count</code> 뒤에 대입하면 전역 <code>count</code>가 바뀐다.</p>
+<p class="en">After <code>global count</code>, the assignment changes the global <code>count</code>.</p>
+<pre><code>x = 1
+def set_local():
+    x = 99
+set_local()
+print(x)
+# 1</code></pre>
+<p class="ko"><code>global</code> 없이 대입하면 지역 <code>x</code>만 생기고, 전역 <code>x</code>는 그대로 1이다.</p>
+<p class="en">Assignment without <code>global</code> makes a local <code>x</code>; the global stays 1.</p>
+</section>
+</article>
+
+<article class="entry" id="nonlocal" data-exam="final" data-keys="nonlocal 중첩 enclosing">
+<header class="entry-head"><h3><code>nonlocal</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><code>nonlocal</code>은 중첩 함수(안쪽 함수)에서 쓴다. 안쪽 함수가 <strong>바로 바깥 함수</strong>의 지역 이름을 수정하게 한다. 전역은 건드리지 않고, 가장 가까운 enclosing scope만 대상으로 한다.</p>
+<p class="en"><code>nonlocal</code> is used in a nested (inner) function. It lets the inner function modify a name from the <strong>enclosing</strong> function’s local scope—not the global—targeting the nearest enclosing scope.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>nonlocal 이름</code></p>
+<p class="ko">안쪽 함수 본문에서 대입 전에 선언한다. 바깥 함수에 그 이름이 이미 있어야 한다.</p>
+<p class="en">Declare it in the inner body before assigning. The enclosing function must already have that name.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko"><code>global</code>은 모듈 전역을 바꾸고, <code>nonlocal</code>은 중첩의 바깥 지역만 바꾼다. 둘을 혼동하지 않는다. 대입 없이 읽기만 하면 <code>nonlocal</code>이 필요 없다.</p>
+<p class="en"><code>global</code> changes a module global; <code>nonlocal</code> changes only the outer local of a nest. Do not mix them up. Reading alone does not need <code>nonlocal</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>def make_counter():
+    n = 0
+    def inc():
+        nonlocal n
+        n = n + 1
+        return n
+    return inc
+c = make_counter()
+print(c(), c())
+# 1 2</code></pre>
+<p class="ko">중첩 카운터: <code>inc</code>가 <code>nonlocal n</code>으로 바깥 <code>n</code>을 수정한다. 호출할 때마다 1, 2…</p>
+<p class="en">Nested counter: <code>inc</code> uses <code>nonlocal n</code> to update the outer <code>n</code>. Each call yields 1, 2, …</p>
+<pre><code>def outer():
+    x = 10
+    def inner():
+        nonlocal x
+        x = x + 5
+    inner()
+    print(x)
+outer()
+# 15</code></pre>
+<p class="ko">안쪽에서 바꾼 값이 바깥 지역 <code>x</code>에 남는다. 전역이 아니다.</p>
+<p class="en">The change stays in the enclosing local <code>x</code>—not a global.</p>
+<pre><code>def outer():
+    msg = "hi"
+    def inner():
+        print(msg)
+    inner()
+outer()
+# hi</code></pre>
+<p class="ko">읽기만 하면 <code>nonlocal</code> 없이 바깥 이름을 볼 수 있다. 대입할 때만 선언이 필요하다.</p>
+<p class="en">Reading alone can see the outer name without <code>nonlocal</code>. Declare it only when assigning.</p>
+</section>
+</article>
+
+<article class="entry" id="print-flush" data-exam="final" data-keys="print flush file sys.stdout">
+<header class="entry-head"><h3><code>print</code> · flush / file <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">매개변수</span><span class="en">parameter</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><code>flush</code>는 출력 버퍼를 바로 비울지 정한다. 기본은 <code>False</code>이고, <code>True</code>면 찍은 글자가 즉시 화면에 나온다. 실시간 로그·진행 표시에 쓴다. <code>file</code>은 출력이 어디로 가는지 정한다. 기본은 표준 출력 <code>sys.stdout</code>(터미널)이고, 파일 객체를 넘기면 그쪽으로 보낸다. <code>sep</code>·<code>end</code>·반환값 <code>None</code>은 <a href="#print"><code>print</code></a>를 본다.</p>
+<p class="en"><code>flush</code> controls whether the output buffer is flushed at once. Default is <code>False</code>; <code>True</code> forces the text to appear immediately—useful for real-time logging or progress. <code>file</code> sets where the output goes. Default is standard output <code>sys.stdout</code> (the terminal); pass a file object to redirect. For <code>sep</code>, <code>end</code>, and return value <code>None</code>, see <a href="#print"><code>print</code></a>.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>print(..., flush=False)
+print(..., file=sys.stdout)</code></p>
+<p class="ko">키워드로만 넘긴다. <code>flush=True</code>는 버퍼를 즉시 비운다. <code>file</code>에는 열린 파일(쓰기 모드)을 넘긴다. 기본 <code>file</code>을 쓰려면 <code>import sys</code> 뒤 <code>sys.stdout</code>을 쓴다.</p>
+<p class="en">Pass them by keyword. <code>flush=True</code> empties the buffer at once. For <code>file</code>, pass an open writable file. The default target is <code>sys.stdout</code> after <code>import sys</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko"><code>flush</code>는 화면에 언제 보일지만 바꾼다. 글자 내용·줄바꿈은 그대로다. <code>file</code>을 바꿔도 반환값은 여전히 <code>None</code>이다.</p>
+<p class="en"><code>flush</code> only changes when text appears, not what is written or the newline. Changing <code>file</code> does not change the return value—it is still <code>None</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>print("progress", flush=True)
+# progress</code></pre>
+<p class="ko"><code>flush=True</code>라 버퍼를 기다리지 않고 바로 출력된다. 진행 표시처럼 즉시 보여야 할 때 쓴다.</p>
+<p class="en">With <code>flush=True</code>, the line appears at once without waiting on the buffer—typical for progress updates.</p>
+<pre><code>import sys
+f = open("out.txt", "w")
+print("hello", file=f)
+f.close()
+print("hello", file=sys.stdout)
+# hello</code></pre>
+<p class="ko"><code>file=f</code>면 <code>out.txt</code>에 쓰고, <code>file=sys.stdout</code>(기본)이면 터미널에 쓴다.</p>
+<p class="en"><code>file=f</code> writes to <code>out.txt</code>; <code>file=sys.stdout</code> (the default) writes to the terminal.</p>
+</section>
+</article>
+
 <div class="walk-mount" data-walk="funcs"></div>
 </section>
 <section class="chapter" id="lists"><header class="chapter-head"><p class="num">11</p><div><h2><span class="ko">리스트</span><span class="en">Lists</span></h2><p class="lead"><span class="ko">리스트(list)는 순서가 있고 칸을 바꿀 수 있는 값이다. 메서드마다 원본을 고치는지, None을 반환하는지가 다르다.</span><span class="en">A list is an ordered mutable value. Each method differs in whether it changes the original and whether it returns None.</span></p></div></header><article class="entry" id="list-make" data-keys="리스트 만들기 []">
@@ -1551,15 +2312,33 @@ print(d)  # [[9], 2]</code></pre></section></article>
 
 <article class="entry sum" id="sum-flow" data-keys="if elif else nested and or not def return import math random">
 <h3><span class="ko">조건, 함수, 모듈</span><span class="en">Conditions, functions, modules</span></h3>
-<div class="table-wrap"><table class="spec"><thead><tr><th><span class="ko">명령</span><span class="en">Command</span></th><th><span class="ko">형식</span><span class="en">On</span></th><th><span class="ko">한 줄</span><span class="en">In one line</span></th></tr></thead><tbody><tr><td><code>and / or / not</code></td><td><span class="ko">연산 (bool)</span><span class="en">operators (bool)</span></td><td><span class="ko">논리 연산. and는 왼쪽이 거짓이면 오른쪽을 보지 않는다. or는 왼쪽이 참이면 오른쪽을 보지 않는다.</span><span class="en">Boolean operators. and skips the right when the left is false; or skips it when the left is true.</span></td></tr><tr><td><code>if / elif / else</code></td><td><span class="ko">문법</span><span class="en">syntax</span></td><td><span class="ko">위에서부터 참인 첫 갈래만 실행. 콜론과 들여쓰기(4칸).</span><span class="en">Only the first true branch from the top runs. Colon and indent (four spaces).</span></td></tr><tr><td><code>중첩 if</code></td><td><span class="ko">문법</span><span class="en">syntax</span></td><td><span class="ko">바깥이 참일 때만 안쪽 조건을 본다. 안쪽은 한 단계 더 들여씀.</span><span class="en">Inner condition is tested only when the outer is true. Inner body is one indent deeper.</span></td></tr><tr><td><code>def / return</code></td><td><span class="ko">문법</span><span class="en">syntax</span></td><td><span class="ko">함수를 만들고, return이 결과를 돌려준 뒤 함수를 끝낸다.</span><span class="en">def creates a function; return sends the result back and ends the function.</span></td></tr><tr><td><code>지역 / 전역</code></td><td><span class="ko">규칙</span><span class="en">rule</span></td><td><span class="ko">함수 안에서 대입한 이름은 지역. 밖에서 만든 이름은 읽기만 하면 보임. 지역은 밖에서 NameError.</span><span class="en">A name assigned inside is local. An outer name can be read. Reading a local outside raises NameError.</span></td></tr><tr><td><code>import</code></td><td><span class="ko">문법</span><span class="en">syntax</span></td><td><span class="ko">모듈을 불러 모듈.이름으로 쓴다. .py는 적지 않는다.</span><span class="en">Loads a module, then uses module.name. Omit .py.</span></td></tr><tr><td><code>math</code></td><td><span class="ko">모듈 · function들</span><span class="en">module · functions</span></td><td><span class="ko">pi, e, exp, log, log10, sqrt, cos, sin. x=1.0이면 log·log10은 0.0, sqrt는 1.0.</span><span class="en">pi, e, exp, log, log10, sqrt, cos, sin. For x=1.0, log and log10 are 0.0 and sqrt is 1.0.</span></td></tr><tr><td><code>random</code></td><td><span class="ko">모듈 · function들</span><span class="en">module · functions</span></td><td><span class="ko">random/uniform 실수. randrange는 끝 빠짐, randint는 끝 포함, choice는 하나 선택.</span><span class="en">random/uniform floats; randrange excludes stop; randint includes end; choice picks one.</span></td></tr></tbody></table></div></article>
+<div class="table-wrap"><table class="spec"><thead><tr><th><span class="ko">명령</span><span class="en">Command</span></th><th><span class="ko">형식</span><span class="en">On</span></th><th><span class="ko">한 줄</span><span class="en">In one line</span></th></tr></thead><tbody><tr><td><code>and / or / not</code></td><td><span class="ko">연산 (bool)</span><span class="en">operators (bool)</span></td><td><span class="ko">논리 연산. and는 왼쪽이 거짓이면 오른쪽을 보지 않는다. or는 왼쪽이 참이면 오른쪽을 보지 않는다.</span><span class="en">Boolean operators. and skips the right when the left is false; or skips it when the left is true.</span></td></tr><tr><td><code>if / elif / else</code></td><td><span class="ko">문법</span><span class="en">syntax</span></td><td><span class="ko">위에서부터 참인 첫 갈래만 실행. 콜론과 들여쓰기(4칸).</span><span class="en">Only the first true branch from the top runs. Colon and indent (four spaces).</span></td></tr><tr><td><code>중첩 if</code></td><td><span class="ko">문법</span><span class="en">syntax</span></td><td><span class="ko">바깥이 참일 때만 안쪽 조건을 본다. 안쪽은 한 단계 더 들여씀.</span><span class="en">Inner condition is tested only when the outer is true. Inner body is one indent deeper.</span></td></tr><tr><td><code>def / return</code></td><td><span class="ko">문법</span><span class="en">syntax</span></td><td><span class="ko">함수를 만들고, return이 결과를 돌려준 뒤 함수를 끝낸다. return이 여러 개여도 한 호출에 하나만 실행.</span><span class="en">def creates a function; return sends the result back and ends the function. Only one return runs per call.</span></td></tr><tr><td><code>지역 / 전역</code></td><td><span class="ko">규칙</span><span class="en">rule</span></td><td><span class="ko">함수 안에서 대입한 이름은 지역. 밖에서 만든 이름은 읽기만 하면 보임. 지역은 밖에서 NameError.</span><span class="en">A name assigned inside is local. An outer name can be read. Reading a local outside raises NameError.</span></td></tr><tr><td><code>import</code></td><td><span class="ko">문법</span><span class="en">syntax</span></td><td><span class="ko">모듈을 불러 모듈.이름으로 쓴다. .py는 적지 않는다.</span><span class="en">Loads a module, then uses module.name. Omit .py.</span></td></tr><tr><td><code>math</code></td><td><span class="ko">모듈 · function들</span><span class="en">module · functions</span></td><td><span class="ko">pi, e, exp, log, log10, sqrt, cos, sin. x=1.0이면 log·log10은 0.0, sqrt는 1.0.</span><span class="en">pi, e, exp, log, log10, sqrt, cos, sin. For x=1.0, log and log10 are 0.0 and sqrt is 1.0.</span></td></tr><tr><td><code>random</code></td><td><span class="ko">모듈 · function들</span><span class="en">module · functions</span></td><td><span class="ko">random/uniform 실수. randrange는 끝 빠짐, randint는 끝 포함, choice는 하나 선택.</span><span class="en">random/uniform floats; randrange excludes stop; randint includes end; choice picks one.</span></td></tr></tbody></table></div></article>
+<article class="entry sum" id="sum-funcs" data-exam="final" data-keys="call parameter argument void lambda *args **kwargs global nonlocal recursion flush 기말 함수">
+<h3><span class="ko">함수 심화 (Programming-7 · 기말)</span><span class="en">Functions deep (Programming-7 · final)</span> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3>
+<div class="table-wrap"><table class="spec"><thead><tr><th><span class="ko">명령</span><span class="en">Command</span></th><th><span class="ko">형식</span><span class="en">On</span></th><th><span class="ko">한 줄</span><span class="en">In one line</span></th></tr></thead><tbody>
+<tr><td><code>함수 호출</code></td><td><span class="ko">동작</span><span class="en">action</span></td><td><span class="ko">본문으로 들어갔다가 끝나면 호출한 지점으로 제어가 돌아온다. 괄호가 있어야 실행.</span><span class="en">Enter the body, then control returns to the call site. Parentheses are required to run.</span></td></tr>
+<tr><td><code>중첩 호출</code></td><td><span class="ko">표기</span><span class="en">notation</span></td><td><span class="ko">안쪽 함수가 먼저 실행되고, 반환값이 바깥 인자가 된다.</span><span class="en">Innermost runs first; its return value becomes the outer argument.</span></td></tr>
+<tr><td><code>parameter / argument</code></td><td><span class="ko">용어</span><span class="en">terms</span></td><td><span class="ko">parameter는 정의 쪽 이름, argument는 호출 때 넘기는 값.</span><span class="en">Parameter: name in the definition. Argument: value in the call.</span></td></tr>
+<tr><td><code>void / 값 반환</code></td><td><span class="ko">구분</span><span class="en">distinction</span></td><td><span class="ko">쓸 값을 return하면 값 반환. 없으면 None(void에 가까움).</span><span class="en">return of a useful value vs implicit None (void-like).</span></td></tr>
+<tr><td><code>튜플 반환</code></td><td><span class="ko">문법</span><span class="en">syntax</span></td><td><span class="ko">기술적으로 값 하나. 쉼표로 여러 값을 쓰면 그 하나가 튜플.</span><span class="en">Technically one value; comma-separated results are one tuple.</span></td></tr>
+<tr><td><code>재귀</code></td><td><span class="ko">패턴</span><span class="en">pattern</span></td><td><span class="ko">자기 자신을 호출. 기저 사례가 있어야 끝난다. 예: factorial.</span><span class="en">Calls itself. Needs a base case. Example: factorial.</span></td></tr>
+<tr><td><code>전역·지역 함수 / method</code></td><td><span class="ko">종류</span><span class="en">kinds</span></td><td><span class="ko">전역은 모듈 최상위. 지역은 함수 안. method는 클래스 안(이름만).</span><span class="en">Global at module top; local inside a function; method inside a class (name only).</span></td></tr>
+<tr><td><code>lambda</code></td><td><span class="ko">식</span><span class="en">expression</span></td><td><span class="ko">한 줄 익명 함수. 식 결과가 반환. sorted(..., key=lambda ...)에 자주 씀.</span><span class="en">One-line anonymous function; expression is the return. Often key= in sorted.</span></td></tr>
+<tr><td><code>기본값 / 위치·키워드 인자</code></td><td><span class="ko">매개변수·호출</span><span class="en">params·call</span></td><td><span class="ko">기본값 있는 매개변수는 뒤. 호출 때 위치 인자가 키워드보다 앞.</span><span class="en">Defaults after required params. At call, positionals before keywords.</span></td></tr>
+<tr><td><code>* (키워드 전용)</code></td><td><span class="ko">표기</span><span class="en">notation</span></td><td><span class="ko">* 뒤 매개변수는 반드시 이름=값으로만 넘긴다.</span><span class="en">Parameters after * must be passed by keyword only.</span></td></tr>
+<tr><td><code>*args / **kwargs</code></td><td><span class="ko">매개변수</span><span class="en">parameter</span></td><td><span class="ko">남은 위치 인자→튜플, 남은 키워드→딕셔너리. *args가 **kwargs보다 앞.</span><span class="en">Leftover positionals→tuple; keywords→dict. *args before **kwargs.</span></td></tr>
+<tr><td><code>global</code></td><td><span class="ko">문</span><span class="en">statement</span></td><td><span class="ko">함수 안에서 전역 이름을 수정할 때 선언. 읽기만이면 불필요.</span><span class="en">Declare to modify a global inside a function. Not needed for read-only.</span></td></tr>
+<tr><td><code>nonlocal</code></td><td><span class="ko">문</span><span class="en">statement</span></td><td><span class="ko">중첩 함수가 바로 바깥 함수의 지역을 수정. 전역이 아님.</span><span class="en">Inner function modifies the enclosing function’s local—not the global.</span></td></tr>
+<tr><td><code>print flush / file</code></td><td><span class="ko">function 매개변수</span><span class="en">function params</span></td><td><span class="ko">flush=True면 즉시 출력. file로 출력 대상 변경. 반환은 여전히 None.</span><span class="en">flush=True forces immediate output; file redirects it. Still returns None.</span></td></tr>
+</tbody></table></div></article>
 <article class="entry sum" id="sum-more" data-keys="set is copy deepcopy get setdefault fromkeys">
 <h3><span class="ko">집합, 복사, 딕셔너리 추가</span><span class="en">Sets, copies, more dict</span></h3>
 <div class="table-wrap"><table class="spec"><thead><tr><th><span class="ko">명령</span><span class="en">Command</span></th><th><span class="ko">형식</span><span class="en">On</span></th><th><span class="ko">한 줄</span><span class="en">In one line</span></th></tr></thead><tbody><tr><td><code>set()</code></td><td><span class="ko">function → set</span><span class="en">function → set</span></td><td><span class="ko">빈 집합. {}는 빈 딕셔너리. 중복 없음, 순서 보장 없음.</span><span class="en">Empty set. {} is an empty dict. No duplicates; order not guaranteed.</span></td></tr><tr><td><code>| &amp; - ^</code></td><td><span class="ko">연산 · set</span><span class="en">ops · set</span></td><td><span class="ko">합, 교, 차, 대칭차. 새 집합. update 계열은 제자리.</span><span class="en">Union, intersection, difference, symmetric difference as a new set. update forms edit in place.</span></td></tr><tr><td><code>add / discard / remove</code></td><td><span class="ko">method · set</span><span class="en">method · set</span></td><td><span class="ko">원소 추가·제거. remove는 없으면 KeyError, discard는 조용히 넘어감.</span><span class="en">Add or remove an element. remove raises KeyError if missing; discard stays quiet.</span></td></tr><tr><td><code>is</code></td><td><span class="ko">연산 (객체)</span><span class="en">operator (objects)</span></td><td><span class="ko">같은 객체인지. 값 비교는 ==. None 검사는 is None.</span><span class="en">Same object? Values use ==. A None check is is None.</span></td></tr><tr><td><code>대입 =</code></td><td><span class="ko">연산</span><span class="en">operator</span></td><td><span class="ko">참조만 옮긴다. 같은 리스트면 한쪽 수정이 다른 쪽에 보임.</span><span class="en">Moves a reference. Editing a shared list is visible through both names.</span></td></tr><tr><td><code>copy</code></td><td><span class="ko">method · list/dict/set</span><span class="en">method · list/dict/set</span></td><td><span class="ko">얕은 복사. 바깥만 새 객체, 안쪽 가변 객체는 공유.</span><span class="en">Shallow copy: new outer object, shared inner mutables.</span></td></tr><tr><td><code>deepcopy</code></td><td><span class="ko">function · copy 모듈</span><span class="en">function · copy module</span></td><td><span class="ko">안쪽까지 새로 만들어 참조를 공유하지 않는다. import copy.</span><span class="en">Rebuilds the inside too so references are not shared. import copy.</span></td></tr><tr><td><code>get / setdefault</code></td><td><span class="ko">method · dict만</span><span class="en">method · dict only</span></td><td><span class="ko">없으면 get은 기본값(없으면 None). setdefault는 없을 때 넣고 그 값을 반환.</span><span class="en">get returns a default (or None). setdefault inserts when missing and returns that value.</span></td></tr><tr><td><code>fromkeys / clear / popitem</code></td><td><span class="ko">method · dict (clear는 list/set도)</span><span class="en">method · dict (clear also list/set)</span></td><td><span class="ko">키만으로 새 dict. clear는 전부 삭제. popitem은 마지막 쌍.</span><span class="en">New dict from keys; clear deletes all; popitem removes the last pair.</span></td></tr></tbody></table></div></article>
 </section>
-      <footer class="colophon"><p><span class="ko">수록 범위는 실습 day 1–day 4와 수업자료 Programming-2–6다. 예제 출력은 Python 3에서 확인했다.</span><span class="en">The scope is labs day 1–day 4 and lectures Programming-2–6. Example output was checked in Python 3.</span></p></footer>
+      <footer class="colophon"><p><span class="ko">수록 범위는 실습 day 1–day 4와 수업자료 Programming-2–7이다. 중간은 P2–6, 기말은 P7 함수 심화(+중간 전제)다. 예제 출력은 Python 3에서 확인했다.</span><span class="en">The scope is labs day 1–day 4 and lectures Programming-2–7. Midterm: P2–6. Final: P7 functions deep (+ midterm as prerequisite). Example output was checked in Python 3.</span></p></footer>
     </main>
   </div>
-  <script src="js/site.js?v=18"></script>
-  <script src="js/walks.js?v=18"></script>
+  <script src="js/site.js?v=20"></script>
+  <script src="js/walks.js?v=20"></script>
 </body>
 </html>
