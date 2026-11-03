@@ -129,6 +129,9 @@
     if (!el) return false;
     el.scrollIntoView({ block: "start" });
     stripHash();
+    requestAnimationFrame(function () {
+      if (typeof updateCurrent === "function") updateCurrent();
+    });
     return true;
   }
 
@@ -312,6 +315,38 @@
   window.addEventListener("resize", syncHeader);
   syncHeader();
 
+  var lastNavId = null;
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function ensureNavVisible(link) {
+    if (!link || !sidenav) return;
+    var navRect = sidenav.getBoundingClientRect();
+    var linkRect = link.getBoundingClientRect();
+    var narrow = window.matchMedia("(max-width: 860px)").matches;
+    if (narrow) {
+      var midNav = navRect.left + navRect.width / 2;
+      var midLink = linkRect.left + linkRect.width / 2;
+      var nextLeft = sidenav.scrollLeft + (midLink - midNav);
+      if (Math.abs(midLink - midNav) < 8) return;
+      if (reduceMotion || typeof sidenav.scrollTo !== "function") {
+        sidenav.scrollLeft = nextLeft;
+      } else {
+        sidenav.scrollTo({ left: nextLeft, behavior: "smooth" });
+      }
+      return;
+    }
+    var pad = 12;
+    if (linkRect.top >= navRect.top + pad && linkRect.bottom <= navRect.bottom - pad) return;
+    var midNavY = navRect.top + navRect.height / 2;
+    var midLinkY = linkRect.top + linkRect.height / 2;
+    var nextTop = sidenav.scrollTop + (midLinkY - midNavY);
+    if (reduceMotion || typeof sidenav.scrollTo !== "function") {
+      sidenav.scrollTop = nextTop;
+    } else {
+      sidenav.scrollTo({ top: nextTop, behavior: "smooth" });
+    }
+  }
+
   function updateCurrent() {
     var marker = (document.querySelector(".site-header").offsetHeight || 0)
       + (window.matchMedia("(max-width: 860px)").matches ? document.getElementById("sidenav").offsetHeight : 0)
@@ -321,11 +356,20 @@
       if (chapter.hidden) return;
       if (chapter.getBoundingClientRect().top <= marker) current = chapter.id;
     });
+    var active = null;
     links.forEach(function (link) {
       var on = current !== null && link.getAttribute("href") === "#" + current;
-      if (on) link.setAttribute("aria-current", "true");
-      else link.removeAttribute("aria-current");
+      if (on) {
+        link.setAttribute("aria-current", "true");
+        active = link;
+      } else {
+        link.removeAttribute("aria-current");
+      }
     });
+    if (active && current !== lastNavId) {
+      lastNavId = current;
+      ensureNavVisible(active);
+    }
   }
 
   document.addEventListener("scroll", updateCurrent, { passive: true });

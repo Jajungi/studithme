@@ -310,17 +310,75 @@ body {
 }
 
 .sidenav .nav-label.ref {
-  margin-top: 22px;
-  color: var(--tertiary);
+  margin-top: 28px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+  color: #6b5f4a;
+  letter-spacing: 0.06em;
+  text-transform: none;
 }
 
 .sidenav a.nav-ref {
-  color: var(--secondary);
+  margin-top: 4px;
+  padding: 10px 10px 10px 12px;
+  border: 1px dashed #c4b89a;
+  border-radius: 8px;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 5px,
+      rgba(196, 184, 154, 0.12) 5px,
+      rgba(196, 184, 154, 0.12) 6px
+    ),
+    #faf7f0;
+  color: #4a4336;
+  box-shadow: none;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+}
+
+.sidenav a.nav-ref .idx {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.2em;
+  padding: 1px 6px;
+  border: 1px solid #c4b89a;
+  border-radius: 999px;
+  background: #fff;
+  color: #6b5f4a;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.sidenav a.nav-ref:hover {
+  color: #2f2a22;
+  border-color: #9a8b6a;
 }
 
 .sidenav a.nav-ref[aria-current="true"] {
-  color: var(--ink);
-  box-shadow: inset 2px 0 0 var(--line);
+  color: #2f2a22;
+  font-weight: 650;
+  border-style: solid;
+  border-color: #8a7a58;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 5px,
+      rgba(138, 122, 88, 0.14) 5px,
+      rgba(138, 122, 88, 0.14) 6px
+    ),
+    #f3eee3;
+  box-shadow: 0 0 0 1px rgba(138, 122, 88, 0.25);
+}
+
+.sidenav a.nav-ref[aria-current="true"] .idx {
+  background: #2f2a22;
+  border-color: #2f2a22;
+  color: #faf7f0;
 }
 
 .catalog section.exam-ref h3::before {
@@ -1213,6 +1271,22 @@ details.q p {
 
   .sidenav a[aria-current="true"] {
     box-shadow: inset 0 -2px 0 var(--ink);
+  }
+
+  .sidenav a.nav-ref {
+    margin: 4px 6px 4px 10px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    align-items: center;
+    box-shadow: none;
+  }
+
+  .sidenav a.nav-ref[aria-current="true"] {
+    box-shadow: 0 0 0 1px #8a7a58;
+  }
+
+  .sidenav a.nav-ref .idx {
+    min-width: 0;
   }
 
   .exam-legend {
