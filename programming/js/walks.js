@@ -645,6 +645,41 @@
         ["True", "[2]", "[1, 2, 3]", "True"]
       ]
     },
+    packages: {
+      lines: [
+        [w("import ", null, "kw"), w("math", "m0")],
+        [w("print", "p0", "fn"), w("("), w("math.sqrt", "ms", "fn"), w("("), w("9", "n9", "num"), w("))")],
+        [w("import ", null, "kw"), w("math", "m1"), w(" as ", null, "kw"), w("m", "al")],
+        [w("print", "p1", "fn"), w("("), w("m.exp", "me", "fn"), w("("), w("0", "z0", "num"), w("))")],
+        [w("from ", null, "kw"), w("math", "m2"), w(" import ", null, "kw"), w("factorial, sqrt", "names")],
+        [w("print", "p2", "fn"), w("("), w("factorial", "fc", "fn"), w("("), w("5", "n5", "num"), w("))")],
+        [w("print", "p3", "fn"), w("("), w("sqrt", "sq", "fn"), w("("), w("9", "n92", "num"), w("))")],
+        [w("# from math import *   # 비권장", "bad", "cmt")],
+        [w("print", "p4", "fn"), w("("), w("\"ok\"", "ok", "str"), w(")")]
+      ],
+      steps: [
+        step("표준 모듈 math를 불러온다", "Import standard module math", "중간에서 쓰던 형태다. import는 설치 없이 표준 math를 이 프로그램에 연결한다. 아직 출력은 없다.", "The midterm form. import binds standard math with no install. No output yet.", { line: 0, name: ["m0"] }),
+        step("접두사 math.sqrt로 호출한다", "Call with prefix math.sqrt", "모듈 이름 뒤 점으로 함수를 고른다. sqrt(9)는 3.0이고 print가 쓴다.", "Select the function with a dot after the module name. sqrt(9) is 3.0 and print writes it.", { line: 1, name: ["ms"], idx: ["n9"], out: ["p0"] }),
+        step("별칭 m으로 다시 붙인다", "Bind alias m", "import math as m은 같은 모듈을 짧은 이름 m에 연결한다. 이후 접두사는 m이다.", "import math as m binds the same module to the short name m. Later prefixes use m.", { line: 2, name: ["m1", "al"] }),
+        step("m.exp(0)을 출력한다", "Print m.exp(0)", "별칭으로 exp를 고른다. exp(0)은 1.0이다. math.가 아니라 m.인 점이 이 줄의 요지다.", "Select exp through the alias. exp(0) is 1.0. The point of this line is m., not math.", { line: 3, name: ["me"], idx: ["z0"], out: ["p1"] }),
+        step("필요한 이름만 from으로 가져온다", "Bring needed names with from", "권장 형태다. factorial과 sqrt만 현재 범위로 온다. 모듈 접두사 math는 생기지 않는다.", "The recommended form. Only factorial and sqrt enter this scope. The prefix name math is not bound.", { line: 4, name: ["m2"], idx: ["names"] }),
+        step("접두사 없이 factorial(5)", "factorial(5) with no prefix", "from으로 가져온 이름은 바로 호출한다. 5!는 120이다.", "Names brought by from are called bare. 5! is 120.", { line: 5, name: ["fc"], idx: ["n5"], out: ["p2"] }),
+        step("접두사 없이 sqrt(9)", "sqrt(9) with no prefix", "같은 from 줄에서 가져온 sqrt도 접두사 없이 3.0을 만든다.", "sqrt from the same from line also runs bare and yields 3.0.", { line: 6, name: ["sq"], idx: ["n92"], out: ["p3"] }),
+        step("import * 는 주석으로만 둔다", "Leave import * as a comment", "와일드카드는 동작하지만 수업에서 비권장(wrong)이다. 실행하지 않고 표시만 한다.", "A wildcard would run but the lecture marks it not recommended (wrong). It stays as a comment.", { line: 7, idx: ["bad"] }),
+        step("흐름이 끝났음을 출력한다", "Print that the flow is done", "import · as · from 권장까지 한 프로그램으로 이은 끝이다. print가 ok를 쓴다.", "One program tied import, as, and recommended from. print writes ok.", { line: 8, name: ["ok"], out: ["p4"] })
+      ],
+      terms: [
+        [],
+        ["3.0"],
+        ["3.0"],
+        ["3.0", "1.0"],
+        ["3.0", "1.0"],
+        ["3.0", "1.0", "120"],
+        ["3.0", "1.0", "120", "3.0"],
+        ["3.0", "1.0", "120", "3.0"],
+        ["3.0", "1.0", "120", "3.0", "ok"]
+      ]
+    },
     copy: {
       lines: [
         [w("a"), w(" = "), w("[[1], 2]", "a0")],
@@ -702,6 +737,7 @@
     indexing: ["통합 코드", "Combined code"],
     strings: ["통합 코드", "Combined code"],
     funcs: ["통합 코드", "Combined code"],
+    packages: ["통합 코드", "Combined code"],
     lists: ["통합 코드", "Combined code"],
     tuples: ["통합 코드", "Combined code"],
     dicts: ["통합 코드", "Combined code"],

@@ -7,7 +7,7 @@
   <meta name="description" content="프로그래밍 실습 day 1–4와 Programming-2–7의 Python 문법. 단원별 실행 순서와 형식별 정리.">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="css/site.css?v=24">
+  <link rel="stylesheet" href="css/site.css?v=25">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1d1f'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -47,20 +47,21 @@
 <a class="nav-mid" href="#dicts"><span class="idx">12</span><span class="ko">딕셔너리</span><span class="en">Dictionaries</span></a>
 <a class="nav-mid" href="#sets"><span class="idx">13</span><span class="ko">집합</span><span class="en">Sets</span></a>
 <a class="nav-mid" href="#copy"><span class="idx">14</span><span class="ko">복사</span><span class="en">Copies</span></a>
-<p class="nav-label final"><span class="ko">기말 · P7</span><span class="en">Final · P7</span></p>
+<p class="nav-label final"><span class="ko">기말 · P7–8</span><span class="en">Final · P7–8</span></p>
 <a class="nav-final" href="#funcs"><span class="idx">15</span><span class="ko">함수</span><span class="en">Functions</span></a>
+<a class="nav-final" href="#packages"><span class="idx">16</span><span class="ko">모듈·패키지</span><span class="en">Modules · packages</span></a>
 <p class="nav-label ref"><span class="ko">참고</span><span class="en">Reference</span></p>
-<a class="nav-ref" href="#review"><span class="idx">16</span><span class="ko">대조 · 정리</span><span class="en">Distinctions · summary</span></a>
+<a class="nav-ref" href="#review"><span class="idx">17</span><span class="ko">대조 · 정리</span><span class="en">Distinctions · summary</span></a>
     </nav>
     <main class="main" id="main">
       <p id="count" class="count" aria-live="polite"></p>
       <p id="empty" class="empty" hidden><span class="ko">해당하는 항목이 없다.</span><span class="en">No matching entry.</span></p>
-      <section class="chapter" id="overview"><header class="chapter-head"><p class="num">00</p><div><h2><span class="ko">개요</span><span class="en">Overview</span></h2><p class="lead"><span class="ko">실습 day 1–day 4와 수업자료 Programming-2–7의 문법이다. 단원 끝은 그 단원을 한 프로그램의 실행 순서로 보고, 맨 아래 대조·정리에서 형식별로 다시 모은다.</span><span class="en">Syntax from labs day 1–day 4 and lectures Programming-2–7. Each chapter ends with one program followed in execution order, and Distinctions · summary at the end gathers the forms again.</span></p></div></header>
+      <section class="chapter" id="overview"><header class="chapter-head"><p class="num">00</p><div><h2><span class="ko">개요</span><span class="en">Overview</span></h2><p class="lead"><span class="ko">실습 day 1–day 4와 수업자료 Programming-2–8의 문법이다. 단원 끝은 그 단원을 한 프로그램의 실행 순서로 보고, 맨 아래 대조·정리에서 형식별로 다시 모은다.</span><span class="en">Syntax from labs day 1–day 4 and lectures Programming-2–8. Each chapter ends with one program followed in execution order, and Distinctions · summary at the end gathers the forms again.</span></p></div></header>
 <div class="table-wrap"><table class="spec"><caption><span class="ko">시험 범위</span><span class="en">Exam range</span></caption>
 <thead><tr><th><span class="ko">시험</span><span class="en">Exam</span></th><th><span class="ko">수업</span><span class="en">Lectures</span></th><th><span class="ko">이 사이트에서</span><span class="en">On this site</span></th></tr></thead>
 <tbody>
 <tr class="exam-row-mid"><td><span class="exam-tag mid"><span class="ko">중간</span><span class="en">Mid</span></span></td><td>Programming-2–6</td><td><span class="ko">단원 01–14. 입출력·자료형·연산·조건·모듈·반복·문자열·리스트·튜플·딕셔너리·집합·복사. 함수의 <code>def</code>/<code>return</code>/범위 기초도 여기.</span><span class="en">Chapters 01–14: I/O, types, operators, conditions, modules, loops, strings, lists, tuples, dicts, sets, copies. Also the base <code>def</code>/<code>return</code>/scope in Functions.</span></td></tr>
-<tr class="exam-row-final"><td><span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></td><td>Programming-7 (+ 중간 전제)</td><td><span class="ko"><a href="#funcs">함수</a> 단원(15) 심화. 배경이 조금 어두운 항목이 기말이다. 막히면 해당 중간 단원으로 돌아간다.</span><span class="en">Functions chapter (15) deep dive. Slightly darker panels mark the final layer. When stuck, return to the midterm chapter for that syntax.</span></td></tr>
+<tr class="exam-row-final"><td><span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></td><td>Programming-7–8 (+ 중간 전제)</td><td><span class="ko"><a href="#funcs">함수</a>(15)·<a href="#packages">모듈·패키지</a>(16) 심화. 배경이 조금 어두운 항목이 기말이다. 막히면 해당 중간 단원으로 돌아간다.</span><span class="en">Deep dive: <a href="#funcs">Functions</a> (15) and <a href="#packages">Modules · packages</a> (16). Slightly darker panels mark the final layer. When stuck, return to the midterm chapter for that syntax.</span></td></tr>
 </tbody></table></div>
 <div class="table-wrap"><table class="spec"><caption><span class="ko">먼저 고정할 규칙</span><span class="en">Rules to fix first</span></caption>
 <thead><tr><th><span class="ko">규칙</span><span class="en">Rule</span></th><th><span class="ko">뜻</span><span class="en">Meaning</span></th></tr></thead>
@@ -76,7 +77,8 @@
 <section class="exam-mid"><h3><span class="ko">문자열 · 리스트</span><span class="en">Strings and lists</span></h3><p><a href="#slice">slice</a><a href="#split">split</a><a href="#join">join</a><a href="#append">append</a><a href="#extend">extend</a><a href="#pop">pop</a><a href="#sorted">sorted</a></p></section>
 <section class="exam-mid"><h3><span class="ko">튜플 · 딕셔너리</span><span class="en">Tuples and dictionaries</span></h3><p><a href="#tuple-one">(10,)</a><a href="#packing">*</a><a href="#dict-access">d[key]</a><a href="#set-make">set</a><a href="#is-op">is</a></p></section>
 <section class="exam-final"><h3><span class="ko">함수 심화</span><span class="en">Functions deep</span></h3><p><a href="#def">def</a><a class="exam-final-link" href="#call">call</a><a class="exam-final-link" href="#param-arg">param/arg</a><a href="#return">return</a><a class="exam-final-link" href="#recursion">recursion</a><a class="exam-final-link" href="#lambda">lambda</a><a class="exam-final-link" href="#args-kwargs">*args</a><a class="exam-final-link" href="#global-kw">global</a><a class="exam-final-link" href="#nonlocal">nonlocal</a></p></section>
-<section class="exam-ref"><h3><span class="ko">대조 · 정리</span><span class="en">Distinctions · summary</span></h3><p><a href="#review"><span class="ko">같이 보는 구분</span><span class="en">Distinctions</span></a> <a href="#memo"><span class="ko">최종 정리</span><span class="en">Summary</span></a> <a class="exam-final-link" href="#sum-funcs"><span class="ko">함수 심화 표</span><span class="en">Funcs deep table</span></a></p></section>
+<section class="exam-final"><h3><span class="ko">모듈 · 패키지</span><span class="en">Modules · packages</span></h3><p><a class="exam-final-link" href="#modularize">모듈화</a><a class="exam-final-link" href="#package">패키지</a><a class="exam-final-link" href="#init-py">__init__.py</a><a class="exam-final-link" href="#from-import">from import</a><a class="exam-final-link" href="#import-star">import *</a><a class="exam-final-link" href="#stdlib-pip">표준·외부</a></p></section>
+<section class="exam-ref"><h3><span class="ko">대조 · 정리</span><span class="en">Distinctions · summary</span></h3><p><a href="#review"><span class="ko">같이 보는 구분</span><span class="en">Distinctions</span></a> <a href="#memo"><span class="ko">최종 정리</span><span class="en">Summary</span></a> <a class="exam-final-link" href="#sum-funcs"><span class="ko">함수 심화 표</span><span class="en">Funcs deep table</span></a> <a class="exam-final-link" href="#sum-packages"><span class="ko">모듈·패키지 표</span><span class="en">Packages table</span></a></p></section>
 </div>
 </section>
 <section class="chapter" id="io"><header class="chapter-head"><p class="num">01</p><div><h2><span class="ko">출력과 입력</span><span class="en">Output and input</span></h2><p class="lead"><span class="ko">계산이 끝나도 결과는 표준 출력에 스스로 나타나지 않는다. 보여줄 때만 print를 호출한다.</span><span class="en">A finished calculation does not appear by itself. Call print only when the result should be shown.</span></p></div></header><article class="entry" id="print" data-keys="print 프린트 출력 function sep end None">
@@ -906,8 +908,8 @@ print("done")  # done</code></pre>
 <p class="en">Omit the <code>.py</code> suffix. Run <code>import</code> first, then select a constant or call a function with <code>module.name</code>. Importing once is enough even if the module is used many times later.</p>
 </section>
 <section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
-<p class="ko"><code>import math.py</code>처럼 확장자를 붙이면 오류다. <code>import math</code>만으로 <code>pi</code>나 <code>sqrt</code>가 현재 이름 공간에 생기는 것은 아니다. 접두사 없이 <code>print(pi)</code>를 쓰면 NameError다. 반드시 <code>math.pi</code>·<code>math.sqrt(...)</code>처럼 모듈 이름을 앞에 둔다.</p>
-<p class="en"><code>import math.py</code> with the extension is an error. <code>import math</code> alone does not place <code>pi</code> or <code>sqrt</code> in the current namespace. A bare <code>print(pi)</code> raises NameError. Always write the module name first, as in <code>math.pi</code> or <code>math.sqrt(...)</code>.</p>
+<p class="ko"><code>import math.py</code>처럼 확장자를 붙이면 오류다. <code>import math</code>만으로 <code>pi</code>나 <code>sqrt</code>가 현재 이름 공간에 생기는 것은 아니다. 접두사 없이 <code>print(pi)</code>를 쓰면 NameError다. 반드시 <code>math.pi</code>·<code>math.sqrt(...)</code>처럼 모듈 이름을 앞에 둔다. 기말에서는 <a href="#import-as"><code>as</code> 별칭</a>·<a href="#from-import"><code>from … import</code></a>·<a href="#import-star"><code>import *</code>(비권장)</a>도 같이 본다.</p>
+<p class="en"><code>import math.py</code> with the extension is an error. <code>import math</code> alone does not place <code>pi</code> or <code>sqrt</code> in the current namespace. A bare <code>print(pi)</code> raises NameError. Always write the module name first, as in <code>math.pi</code> or <code>math.sqrt(...)</code>. The final lecture also covers <a href="#import-as"><code>as</code> aliases</a>, <a href="#from-import"><code>from … import</code></a>, and <a href="#import-star"><code>import *</code> (not recommended)</a>.</p>
 </section>
 <section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
 <pre><code>import math
@@ -4457,7 +4459,322 @@ print("hello", file=sys.stdout)
 <div class="walk-mount" data-walk="funcs"></div>
 </section>
 
-<section class="chapter" id="review"><header class="chapter-head"><p class="num">16</p><div><h2><span class="ko">대조 · 정리</span><span class="en">Distinctions · summary</span></h2><p class="lead"><span class="ko">형식·반환·없을 때의 구분과, 명령을 형식별로 다시 모은 시험용 한 줄 요약이다. 중간·기말 공통 참고.</span><span class="en">Distinctions of form, return value, and missing-target behavior, plus one-line exam summaries by form. Shared reference for midterm and final.</span></p></div></header>
+<section class="chapter" id="packages" data-exam="final"><header class="chapter-head"><p class="num">16</p><div><h2><span class="ko">모듈과 패키지</span><span class="en">Modules and packages</span></h2><p class="lead"><span class="ko">Programming-8. 큰 코드를 모듈·패키지로 나누고, import 형태와 표준·외부 라이브러리를 구분한다. 배경이 어두운 항목이 기말이다. 중간 <a href="#modules">모듈(math·random)</a> 기초 위에 얹는다.</span><span class="en">Programming-8. Split large code into modules and packages, tell import forms apart, and separate standard vs external libraries. Darker panels are final. Builds on midterm <a href="#modules">modules (math·random)</a>.</span></p></div></header>
+
+<article class="entry" id="modularize" data-exam="final" data-keys="modularization 모듈화 divide conquer 재사용">
+<header class="entry-head"><h3><code>모듈화</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">개념</span><span class="en">concept</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">모듈화(modularization)는 큰 프로그램을 작고 다루기 쉬운 부분(모듈)으로 나누는 일이다. 각 모듈은 한 가지 역할에 가깝게 모인 함수·상수·관련 코드를 담는다. 나누어 정복(divide and conquer)처럼, 작은 문제를 모듈로 푼 뒤 합쳐 전체 프로그램을 만든다. 같은 코드를 여러 프로그램에 다시 쓰기 쉬워진다.</p>
+<p class="en">Modularization splits a large program into smaller, manageable parts (modules). Each module holds related functions, constants, and code for one role. Like divide and conquer, solve subproblems in modules and combine them into the full program. The same code becomes easier to reuse across programs.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code># 자주 쓰는 기능을 모듈(.py)로 두고
+# 다른 프로그램에서 import 로 불러 쓴다</code></p>
+<p class="ko">중복되던 코드를 모듈 한곳에 두고, 여러 파일에서 <a href="#import"><code>import</code></a>로 부른다. 고칠 때도 그 모듈만 손보면 된다. 팀에서는 모듈마다 따로 작업한 뒤 합친다.</p>
+<p class="en">Put repeated code in one module file and load it with <a href="#import"><code>import</code></a> from other files. Fixes stay in that module. In a team, people can work on separate modules and integrate later.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">모듈화는 “파일로 나눈다”만이 아니라, 역할이 섞이지 않게 경계를 두는 일이다. 추상화(abstraction)는 모듈이 <em>무엇을</em> 하는지만 알고 <em>어떻게</em> 하는지는 숨기는 관점이다. 호출하는 쪽은 인터페이스만 보면 된다.</p>
+<p class="en">Modularization is not only splitting files; it is drawing clear role boundaries. Abstraction means caring what a module does, not how. Callers use the interface only.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code># tax.py  (세금 계산만 모은 모듈)
+def add_tax(price, rate=0.1):
+    return int(price * (1 + rate))
+
+# main.py
+import tax
+print(tax.add_tax(10000))
+# 11000</code></pre>
+<p class="ko">세금 식을 <code>tax.py</code>에 두고 <code>main.py</code>는 불러 쓰기만 한다. 같은 식을 여러 프로그램에 복사하지 않는다.</p>
+<p class="en">The tax formula lives in <code>tax.py</code>; <code>main.py</code> only imports it. The same formula is not copied into many programs.</p>
+<pre><code># 모듈화 전: 같은 합산 코드가 여러 곳에 반복
+# 모듈화 후: total.py의 sum_prices 한 곳만 고치면 된다</code></pre>
+<p class="ko">유지보수는 “한 모듈만 고친다”는 점이 이득이다. 전체 프로그램을 다시 뜯지 않는다.</p>
+<p class="en">Maintenance gains from editing one module instead of reopening the whole program.</p>
+</section>
+</article>
+<article class="entry" id="module-vs-program" data-exam="final" data-keys="module program .py 모듈 프로그램">
+<header class="entry-head"><h3><code>모듈과 프로그램</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">개념</span><span class="en">concept</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">파이썬에서 모듈과 프로그램은 둘 다 <code>.py</code> 파일이다. 차이는 목적이다. 프로그램은 특정 일을 수행하려고 <em>직접 실행</em>하는 스크립트다. 모듈은 함수·상수 등 재사용 코드를 담아 두고, 다른 파일이 <code>import</code>로 불러 쓰게 한다.</p>
+<p class="en">In Python both a module and a program are <code>.py</code> files. The difference is purpose. A program is a script you run directly to do a task. A module holds reusable functions and constants for other files to load with <code>import</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>python main.py          # 프로그램 실행
+import utils            # 모듈로 불러 쓰기</code></p>
+<p class="ko"><code>main.py</code>처럼 실행 진입점이 프로그램이다. <code>math.py</code>·<code>utils.py</code>처럼 남이 불러 쓰라고 만든 파일이 모듈이다. 같은 파일이 상황에 따라 둘 다 될 수 있지만, 수업에서는 역할을 구분해 부른다.</p>
+<p class="en"><code>main.py</code> as an entry point is a program. Files such as <code>math.py</code> or <code>utils.py</code> meant to be imported are modules. One file can act as both, but this course names them by role.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko"><code>import</code>할 때 파일 이름에 <code>.py</code>를 붙이지 않는다. 내장 <code>math</code>도 모듈이다. “모듈 = 폴더”가 아니다. 폴더로 묶은 것은 <a href="#package">패키지</a>다.</p>
+<p class="en">Do not write <code>.py</code> in an <code>import</code> name. Built-in <code>math</code> is a module too. A module is not a folder; a folder of modules is a <a href="#package">package</a>.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code># greet.py  — 모듈: 함수만 두고 실행 진입이 아님
+def hello(name):
+    return "hi " + name
+
+# app.py  — 프로그램: 직접 실행
+import greet
+print(greet.hello("Ada"))
+# hi Ada</code></pre>
+<p class="ko"><code>greet.py</code>는 불러 쓰는 모듈, <code>app.py</code>는 실행하는 프로그램이다.</p>
+<p class="en"><code>greet.py</code> is the imported module; <code>app.py</code> is the program you run.</p>
+<pre><code>import math
+print(math.pi)
+# 3.141592653589793</code></pre>
+<p class="ko">표준 라이브러리 <code>math</code>도 “재사용 코드를 담은 모듈”이다. 직접 <code>python math.py</code>를 돌리라고 만든 파일이 아니다.</p>
+<p class="en">The standard <code>math</code> library is also a reusable module—not a script you are meant to run as <code>python math.py</code>.</p>
+</section>
+</article>
+<article class="entry" id="package" data-exam="final" data-keys="package 패키지 폴더 계층">
+<header class="entry-head"><h3><code>패키지</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">개념</span><span class="en">concept</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">패키지(package)는 관련 모듈을 모은 디렉터리(폴더)다. 컴퓨터의 폴더·하위 폴더처럼 계층으로 코드를 정리한다. 패키지 이름은 그 폴더 이름이고, 안에서 모듈을 고를 때 점(<code>.</code>)으로 이어 쓴다.</p>
+<p class="en">A package is a directory that groups related modules. It organizes code in a hierarchy, like folders and subfolders. The package name is the folder name; you select a module inside with dot notation.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>import 패키지.모듈
+from 패키지 import 모듈</code></p>
+<p class="ko">파이썬이 폴더를 패키지로 보려면 그 안에 <a href="#init-py"><code>__init__.py</code></a>가 있어야 한다(비어 있어도 된다). 중첩 패키지는 폴더 안에 또 패키지 폴더를 둔 형태다.</p>
+<p class="en">Python treats a directory as a package when it contains <a href="#init-py"><code>__init__.py</code></a> (even if empty). A nested package is a package folder inside another.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">모듈은 파일 하나, 패키지는 모듈들을 담은 폴더다. <code>{}</code> 빈 딕셔너리와 헷갈리지 말 것—패키지는 파일 시스템 구조다. 점 표기 <code>pkg.mod</code>는 “pkg 안의 mod 모듈”이다.</p>
+<p class="en">A module is one file; a package is a folder of modules. Do not confuse this with an empty dict <code>{}</code>—a package is a filesystem layout. Dot form <code>pkg.mod</code> means module mod inside pkg.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code># 폴더 구조
+# calc/
+#   __init__.py
+#   add.py
+# main.py
+#
+# add.py
+def plus(a, b):
+    return a + b
+
+# main.py
+import calc.add
+print(calc.add.plus(2, 3))
+# 5</code></pre>
+<p class="ko"><code>calc</code> 패키지 안의 <code>add</code> 모듈을 <code>calc.add</code>로 불러 함수를 쓴다.</p>
+<p class="en">Load module <code>add</code> inside package <code>calc</code> as <code>calc.add</code>, then call its function.</p>
+<pre><code>from calc import add
+print(add.plus(2, 3))
+# 5</code></pre>
+<p class="ko"><code>from 패키지 import 모듈</code>이면 짧은 이름 <code>add</code>로 쓸 수 있다.</p>
+<p class="en">With <code>from package import module</code>, you can use the short name <code>add</code>.</p>
+</section>
+</article>
+<article class="entry" id="init-py" data-exam="final" data-keys="__init__.py init 패키지 표식">
+<header class="entry-head"><h3><code>__init__.py</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">파일</span><span class="en">file</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><code>__init__.py</code>는 디렉터리를 파이썬 패키지로 인식하게 하는 표식 파일이다. 내용이 비어 있어도 된다. 패키지를 <code>import</code>할 때 이 파일이 실행되며, 초기화 코드나 짧은 import 경로를 적어 둘 수 있다.</p>
+<p class="en"><code>__init__.py</code> marks a directory as a Python package. It may be empty. When the package is imported, this file runs; it can hold init code or short import shortcuts.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>패키지폴더/__init__.py</code></p>
+<p class="ko">패키지 폴더 바로 아래에 둔다. 비우거나, 하위 모듈을 미리 불러 <code>from 패키지 import 이름</code>이 되게 할 수 있다. 수업에서는 “있어야 패키지”라는 점이 핵심이다.</p>
+<p class="en">Place it at the top of the package folder. Leave it empty, or import submodules so <code>from package import name</code> works. For this course, the key point is that the file must exist for a classic package.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">이름 앞뒤의 밑줄 두 개까지 포함해 정확히 <code>__init__.py</code>다. <code>init.py</code>는 다른 파일이다. 이 파일이 없으면(구버전·설정에 따라) 일반 폴더로만 보이거나 import가 실패할 수 있다.</p>
+<p class="en">The name must be exactly <code>__init__.py</code>, including the double underscores. <code>init.py</code> is a different file. Without it, older or strict setups may treat the folder as a plain directory and import can fail.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code># calc/__init__.py  (비어 있어도 됨)
+# calc/add.py
+def plus(a, b):
+    return a + b
+
+import calc.add
+print(calc.add.plus(1, 2))
+# 3</code></pre>
+<p class="ko">빈 <code>__init__.py</code>만으로도 <code>calc</code>는 패키지로 취급된다.</p>
+<p class="en">Even an empty <code>__init__.py</code> makes <code>calc</code> a package.</p>
+<pre><code># calc/__init__.py
+from .add import plus
+# 그러면 사용 측에서:
+# import calc
+# calc.plus(1, 2)</code></pre>
+<p class="ko">초기화 파일에서 하위 이름을 끌어 올리면 패키지 바로 아래에서 함수를 쓸 수 있다. 수업 시험에서는 표식 역할만 알아도 충분하다.</p>
+<p class="en">Pulling names up in the init file lets callers use functions on the package itself. Knowing the marker role is enough for the exam.</p>
+</section>
+</article>
+<article class="entry" id="import-as" data-exam="final" data-keys="import as 별칭 alias">
+<header class="entry-head"><h3><code>import … as</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><code>import 모듈 as 별칭</code>은 모듈을 불러오되, 현재 프로그램에서 쓸 이름을 짧게 바꾼다. 모듈 객체는 같고, 호출할 때 앞에 붙이는 이름만 별칭이다. 수업 슬라이드의 <code>import math as m</code> 뒤 <code>m.exp(10)</code>이 그 형태다.</p>
+<p class="en"><code>import module as alias</code> loads the module but binds a shorter name in this program. The module object is the same; only the prefix used at calls is the alias. The lecture slide <code>import math as m</code> then <code>m.exp(10)</code> is that form.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>import math as m
+m.이름(...)</code></p>
+<p class="ko">별칭으로만 고른다. <code>import math as m</code> 뒤에 <code>math.exp</code>를 쓰면 NameError가 날 수 있다—이 범위에서는 <code>m</code>이 이름이다. 기본 <a href="#import"><code>import math</code></a>와 같은 모듈을 다른 이름으로 붙인 것이다.</p>
+<p class="en">Select names through the alias. After <code>import math as m</code>, bare <code>math.exp</code> can raise NameError—in that scope the name is <code>m</code>. It is the same module as plain <a href="#import"><code>import math</code></a> under another name.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">별칭은 가독성을 위한 짧은 이름이다. 한 프로그램 안에서 같은 모듈을 <code>math</code>와 <code>m</code> 둘 다로 쓰려면 각각 import해야 한다. <code>as</code> 없이 <code>import m</code>은 <code>m.py</code>를 찾는 다른 뜻이다.</p>
+<p class="en">An alias is a short name for readability. To use both <code>math</code> and <code>m</code> in one program, import under each name. Bare <code>import m</code> without <code>as</code> looks for a file <code>m.py</code>—a different meaning.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>import math as m
+x = m.exp(0)
+print(x)
+# 1.0</code></pre>
+<p class="ko"><code>m</code>이 <code>math</code> 모듈을 가리키므로 <code>m.exp(0)</code>은 1.0이다.</p>
+<p class="en"><code>m</code> refers to the <code>math</code> module, so <code>m.exp(0)</code> is 1.0.</p>
+<pre><code>import math as m
+print(m.sqrt(9))
+# 3.0</code></pre>
+<p class="ko">다른 함수도 같은 별칭 접두사로 고른다.</p>
+<p class="en">Other functions use the same alias prefix.</p>
+</section>
+</article>
+<article class="entry" id="from-import" data-exam="final" data-keys="from import 선택 import 권장">
+<header class="entry-head"><h3><code>from … import</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><code>from 모듈 import 이름</code>은 모듈 전체가 아니라 고른 이름만 현재 범위로 가져온다. 가져온 뒤에는 모듈 접두사 없이 <code>이름(...)</code>으로 호출한다. 수업에서 권장하는 형태는 필요한 이름만 명시해 가져오는 것이다. 예: <code>from math import factorial, exp, log, sqrt</code>.</p>
+<p class="en"><code>from module import name</code> brings selected names into the current scope, not the whole module prefix. Afterward you call <code>name(...)</code> with no module prefix. The recommended lecture form lists only the names you need, e.g. <code>from math import factorial, exp, log, sqrt</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>from math import exp
+from math import factorial, isnan, exp, log, sqrt</code></p>
+<p class="ko">쉼표로 여러 이름을 한 줄에 적을 수 있다. <code>from math import exp</code> 뒤에는 <code>exp(10)</code>처럼 쓰고, <code>math.exp</code>는 이 형태만으로는 생기지 않는다.</p>
+<p class="en">Comma-separate several names on one line. After <code>from math import exp</code>, write <code>exp(10)</code>; bare <code>math.exp</code> is not created by this form alone.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">이미 같은 이름이 있으면 덮어쓴다. 무엇을 쓰는지 파일 상단에 드러나 <a href="#import-star"><code>import *</code></a>보다 안전하다. 중간에서 배운 <code>import math</code> 뒤 <code>math.이름</code>도 맞고, 기말에서는 이 선택 import를 권장 방식으로 같이 본다.</p>
+<p class="en">A name already in scope is overwritten. Listing imports at the top is clearer and safer than <a href="#import-star"><code>import *</code></a>. Midterm-style <code>import math</code> then <code>math.name</code> remains correct; the final lecture also presents selective <code>from</code> import as the recommended style.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>from math import exp
+x = exp(0)
+print(x)
+# 1.0</code></pre>
+<p class="ko">접두사 없이 <code>exp</code>만으로 호출한다.</p>
+<p class="en">Call <code>exp</code> with no module prefix.</p>
+<pre><code>from math import factorial, sqrt
+print(factorial(5))
+# 120
+print(sqrt(9))
+# 3.0</code></pre>
+<p class="ko">쓸 이름만 나열한 권장 형태다. 슬라이드의 <code>factorial, isnan, exp, log, sqrt</code>와 같은 방식이다.</p>
+<p class="en">List only the names you use—the recommended form, like the slide with <code>factorial, isnan, exp, log, sqrt</code>.</p>
+<pre><code>from math import exp
+# print(math.exp(0))  # NameError: math 이름이 없음
+print(exp(0))
+# 1.0</code></pre>
+<p class="ko"><code>from</code>만 쓰면 모듈 이름 <code>math</code>는 생기지 않는다. 접두사가 필요하면 <code>import math</code>도 함께 쓴다.</p>
+<p class="en">A bare <code>from</code> does not bind the name <code>math</code>. Import the module too if you need the prefix.</p>
+</section>
+</article>
+<article class="entry" id="import-star" data-exam="final" data-keys="import * 와일드카드 비권장">
+<header class="entry-head"><h3><code>from … import *</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">문</span><span class="en">statement</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><code>from 모듈 import *</code>는 모듈이 공개한 이름을 한꺼번에 현재 범위로 가져온다. 접두사 없이 <code>exp(10)</code>처럼 쓸 수 있다. 문법은 동작하지만, 수업에서는 네 가지 import 형태 중 피해야 할(wrong / 비권장) 쪽으로 본다.</p>
+<p class="en"><code>from module import *</code> pulls the module’s public names into the current scope at once. You can write <code>exp(10)</code> with no prefix. It runs, but among the four import styles in the lecture it is the one treated as wrong / not recommended.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>from math import *
+exp(0)</code></p>
+<p class="ko">시험·숙제 코드에서는 쓰지 말고, <a href="#from-import"><code>from math import exp, …</code></a>처럼 필요한 이름만 적거나 <a href="#import"><code>import math</code></a> 뒤 <code>math.exp</code>를 쓴다.</p>
+<p class="en">Avoid it in exam and homework code. Prefer <a href="#from-import"><code>from math import exp, …</code></a> for the names you need, or <a href="#import"><code>import math</code></a> then <code>math.exp</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">어떤 이름이 들어왔는지 파일만 봐서는 알기 어렵다. 이미 있던 지역 이름과 겹치면 조용히 덮어쓴다. 그래서 “Which one is wrong?”에서 가리키는 형태가 보통 이 와일드카드다. 권장 예는 이름을 나열한 <code>from math import factorial, isnan, exp, log, sqrt</code>다.</p>
+<p class="en">You cannot tell which names arrived by reading the import line alone. Existing local names can be overwritten silently. That is why the “Which one is wrong?” slide usually points at this wildcard. The recommended example lists names: <code>from math import factorial, isnan, exp, log, sqrt</code>.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code># 비권장
+from math import *
+print(exp(0))
+# 1.0</code></pre>
+<p class="ko">동작은 하지만, 가져온 이름 목록이 코드에 드러나지 않는다.</p>
+<p class="en">It works, but the imported names are not listed in the code.</p>
+<pre><code># 권장 (같은 결과)
+from math import exp
+print(exp(0))
+# 1.0</code></pre>
+<p class="ko">쓰는 이름이 import 줄에 보인다. 수업이 가리키는 Recommended Way다.</p>
+<p class="en">The names you use appear on the import line—the lecture’s Recommended Way.</p>
+</section>
+</article>
+<article class="entry" id="stdlib-pip" data-exam="final" data-keys="standard library pip 외부 라이브러리">
+<header class="entry-head"><h3><code>표준·외부 라이브러리</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">개념</span><span class="en">concept</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">표준 라이브러리(standard library)는 파이썬과 함께 오는 모듈·패키지 모음이다. 따로 설치하지 않고 <code>import</code>만으로 쓴다. 외부 라이브러리는 pip 등으로 추가로 설치하는 코드다. 수학·파일·자료구조·네트워크 등 넓은 일을 표준만으로도 많이 덮는다.</p>
+<p class="en">The standard library is the set of modules and packages that ship with Python. You import them with no extra install. External libraries are installed separately (e.g. with pip). Math, files, data structures, and networking are largely covered by the standard set alone.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>import math          # 표준 — 설치 불필요
+pip install numpy    # 외부 — 설치 후 import</code></p>
+<p class="ko">수업에서 이미 쓴 <code>math</code>·<code>random</code>·<code>copy</code>는 표준이다. 슬라이드에 나온 matplotlib·numpy·pandas 등은 외부 예시다. 문서 입구는 docs.python.org 라이브러리 색인을 본다.</p>
+<p class="en"><code>math</code>, <code>random</code>, and <code>copy</code> from earlier lectures are standard. Names like matplotlib, numpy, and pandas on the slide are external examples. The docs.python.org library index is the catalog entry point.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">표준이라고 해서 시험에 모든 모듈 API를 외우라는 뜻이 아니다. “설치 없이 import 가능한가 / pip가 필요한가”를 구분하는 것이 이 항목의 요지다. 자주 쓰는 표준 묶음 안내는 <a href="#stdlib-map">표준 라이브러리 지도</a>를 본다.</p>
+<p class="en">Standard does not mean memorize every API for the exam. The point here is whether import works with no install, or whether pip is required. For a map of common standard groups, see <a href="#stdlib-map">standard library map</a>.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>import math
+import random
+print(math.sqrt(4), random.randint(1, 1))
+# 2.0 1</code></pre>
+<p class="ko">둘 다 표준 모듈이라 설치 단계 없이 import된다.</p>
+<p class="en">Both are standard modules, so import needs no install step.</p>
+<pre><code># 외부 예 (환경에 설치되어 있을 때만)
+# import numpy
+# pip로 설치하지 않은 환경에서는 ModuleNotFoundError</code></pre>
+<p class="ko">외부 패키지는 설치 전에는 import가 실패한다. 표준 <code>math</code>와 그 점이 다르다.</p>
+<p class="en">An external package fails to import before install—unlike standard <code>math</code>.</p>
+</section>
+</article>
+<article class="entry" id="stdlib-map" data-exam="final" data-keys="datetime os csv pickle shutil 표준 지도">
+<header class="entry-head"><h3><code>표준 라이브러리 지도</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">개요</span><span class="en">overview</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">Programming-8은 표준 모듈을 분야별로 훑는다. 날짜·시간(<code>datetime</code>·<code>time</code>·<code>calendar</code>), 알고리즘·자료형(<code>bisect</code>·<code>heapq</code>·<code>array</code>), 파일 형식(<code>csv</code>·<code>pickle</code>), 압축(<code>zipfile</code>·<code>gzip</code>), 경로·파일(<code>os</code>·<code>os.path</code>·<code>shutil</code>), 네트워크(<code>urllib</code>·<code>http</code>) 등이 나온다. 시험에서는 각 API를 외우기보다 “어느 분야 모듈인가”를 구분한다.</p>
+<p class="en">Programming-8 surveys standard modules by area: date/time (<code>datetime</code>, <code>time</code>, <code>calendar</code>), algorithms/types (<code>bisect</code>, <code>heapq</code>, <code>array</code>), file formats (<code>csv</code>, <code>pickle</code>), compression (<code>zipfile</code>, <code>gzip</code>), paths/files (<code>os</code>, <code>os.path</code>, <code>shutil</code>), networking (<code>urllib</code>, <code>http</code>), and more. For the exam, classify the area rather than memorize every API.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>import datetime
+import os
+import csv</code></p>
+<p class="ko">자주 언급된 이름만 기억해 두면 된다. <code>os.getcwd</code>·<code>os.listdir</code>, <code>os.path.join</code>·<code>exists</code>, <code>shutil.copy</code>, <code>csv</code>로 표 읽기 정도가 실용 예다. 슬라이드의 긴 목록은 “이런 분야가 있다”는 지도다.</p>
+<p class="en">Remember the frequently named modules. Practical touches include <code>os.getcwd</code>, <code>os.listdir</code>, <code>os.path.join</code>/<code>exists</code>, <code>shutil.copy</code>, and reading tables with <code>csv</code>. The long slide lists are a map of areas, not an API drill.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko"><code>weakref</code>·저수준 소켓·구식 <code>asyncore</code> 등은 소개 수준이다. 중간에서 깊게 쓴 <code>math</code>·<code>random</code>과 달리, 이 지도 항목은 이름과 역할을 짝 지우는 것이 목표다. 외부 설치 예(numpy 등)는 <a href="#stdlib-pip">표준·외부</a>에서 구분한다.</p>
+<p class="en"><code>weakref</code>, low-level sockets, and legacy <code>asyncore</code> are survey-only. Unlike midterm <code>math</code>/<code>random</code>, this map pairs names with roles. External installs such as numpy are separated under <a href="#stdlib-pip">standard vs external</a>.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>import os
+print(os.path.join("a", "b.txt").replace("\\", "/"))
+# a/b.txt</code></pre>
+<p class="ko">경로 문자열을 운영체제에 맞게 이어 주는 것이 <code>os.path</code> 쪽 일이다.</p>
+<p class="en"><code>os.path</code> joins path parts with the right separator for the OS.</p>
+<pre><code>import datetime
+print(datetime.date(2026, 1, 1).isoformat())
+# 2026-01-01</code></pre>
+<p class="ko">날짜·시간은 <code>datetime</code> 모듈 분야다.</p>
+<p class="en">Dates and times belong to the <code>datetime</code> family.</p>
+<pre><code>import csv
+from io import StringIO
+text = "n,v\n1,10\n"
+for row in csv.DictReader(StringIO(text)):
+    print(row["n"], row["v"])
+# 1 10</code></pre>
+<p class="ko">표 형식 읽기는 <code>csv</code> 분야다. 파일 대신 문자열 버퍼로 같은 인터페이스를 보여 준다.</p>
+<p class="en">Tabular reading is the <code>csv</code> area. A string buffer shows the same interface without a disk file.</p>
+</section>
+</article>
+
+<div class="walk-mount" data-walk="packages"></div>
+</section>
+
+<section class="chapter" id="review"><header class="chapter-head"><p class="num">17</p><div><h2><span class="ko">대조 · 정리</span><span class="en">Distinctions · summary</span></h2><p class="lead"><span class="ko">형식·반환·없을 때의 구분과, 명령을 형식별로 다시 모은 시험용 한 줄 요약이다. 중간·기말 공통 참고.</span><span class="en">Distinctions of form, return value, and missing-target behavior, plus one-line exam summaries by form. Shared reference for midterm and final.</span></p></div></header>
 <div id="compare" class="review-block">
 <h3 class="review-sub"><span class="ko">같이 보는 구분</span><span class="en">Distinctions</span></h3>
 <div class="where sheet">
@@ -4575,16 +4892,27 @@ print("hello", file=sys.stdout)
 <tr><td><code>nonlocal</code></td><td><span class="ko">문</span><span class="en">statement</span></td><td><span class="ko">중첩 함수가 바로 바깥 함수의 지역을 수정. 전역이 아님.</span><span class="en">Inner function modifies the enclosing function’s local—not the global.</span></td></tr>
 <tr><td><code>print flush / file</code></td><td><span class="ko">function 매개변수</span><span class="en">function params</span></td><td><span class="ko">flush=True면 즉시 출력. file로 출력 대상 변경. 반환은 여전히 None.</span><span class="en">flush=True forces immediate output; file redirects it. Still returns None.</span></td></tr>
 </tbody></table></div></article>
+<article class="entry sum" id="sum-packages" data-exam="final" data-keys="모듈 패키지 import from as * 표준 pip 기말">
+<header class="entry-head"><h3><span class="ko">모듈·패키지 한 줄</span><span class="en">Modules · packages in one line</span> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3></header>
+<div class="table-wrap"><table class="spec"><thead><tr><th><span class="ko">명령</span><span class="en">Command</span></th><th><span class="ko">형식</span><span class="en">On</span></th><th><span class="ko">한 줄</span><span class="en">In one line</span></th></tr></thead><tbody>
+<tr><td><code>모듈화</code></td><td><span class="ko">개념</span><span class="en">concept</span></td><td><span class="ko">큰 프로그램을 역할별 .py로 나눈다. 재사용·유지보수.</span><span class="en">Split a large program into role-based .py files for reuse and maintenance.</span></td></tr>
+<tr><td><code>모듈 / 프로그램</code></td><td><span class="ko">개념</span><span class="en">concept</span></td><td><span class="ko">둘 다 .py. 프로그램은 실행, 모듈은 import로 재사용.</span><span class="en">Both are .py. A program is run; a module is imported for reuse.</span></td></tr>
+<tr><td><code>패키지</code></td><td><span class="ko">폴더</span><span class="en">folder</span></td><td><span class="ko">관련 모듈 모음. __init__.py 표식. pkg.mod 점 표기.</span><span class="en">Group of modules. Marked by __init__.py. Dot form pkg.mod.</span></td></tr>
+<tr><td><code>import / as / from</code></td><td><span class="ko">문</span><span class="en">statement</span></td><td><span class="ko">import math · import math as m · from math import exp. * 는 비권장.</span><span class="en">import math; import math as m; from math import exp. Avoid import *.</span></td></tr>
+<tr><td><code>표준 / 외부</code></td><td><span class="ko">구분</span><span class="en">split</span></td><td><span class="ko">표준은 설치 없이 import. 외부는 pip 등 설치 후.</span><span class="en">Standard: import with no install. External: install (pip) first.</span></td></tr>
+</tbody></table></div>
+</article>
+
 <article class="entry sum" id="sum-more" data-keys="set is copy deepcopy get setdefault fromkeys">
 <h3><span class="ko">집합, 복사, 딕셔너리 추가</span><span class="en">Sets, copies, more dict</span></h3>
 <div class="table-wrap"><table class="spec"><thead><tr><th><span class="ko">명령</span><span class="en">Command</span></th><th><span class="ko">형식</span><span class="en">On</span></th><th><span class="ko">한 줄</span><span class="en">In one line</span></th></tr></thead><tbody><tr><td><code>set()</code></td><td><span class="ko">function → set</span><span class="en">function → set</span></td><td><span class="ko">빈 집합. {}는 빈 딕셔너리. 중복 없음, 순서 보장 없음.</span><span class="en">Empty set. {} is an empty dict. No duplicates; order not guaranteed.</span></td></tr><tr><td><code>| &amp; - ^</code></td><td><span class="ko">연산 · set</span><span class="en">ops · set</span></td><td><span class="ko">합, 교, 차, 대칭차. 새 집합. update 계열은 제자리.</span><span class="en">Union, intersection, difference, symmetric difference as a new set. update forms edit in place.</span></td></tr><tr><td><code>add / discard / remove</code></td><td><span class="ko">method · set</span><span class="en">method · set</span></td><td><span class="ko">원소 추가·제거. remove는 없으면 KeyError, discard는 조용히 넘어감.</span><span class="en">Add or remove an element. remove raises KeyError if missing; discard stays quiet.</span></td></tr><tr><td><code>is</code></td><td><span class="ko">연산 (객체)</span><span class="en">operator (objects)</span></td><td><span class="ko">같은 객체인지. 값 비교는 ==. None 검사는 is None.</span><span class="en">Same object? Values use ==. A None check is is None.</span></td></tr><tr><td><code>대입 =</code></td><td><span class="ko">연산</span><span class="en">operator</span></td><td><span class="ko">참조만 옮긴다. 같은 리스트면 한쪽 수정이 다른 쪽에 보임.</span><span class="en">Moves a reference. Editing a shared list is visible through both names.</span></td></tr><tr><td><code>copy</code></td><td><span class="ko">method · list/dict/set</span><span class="en">method · list/dict/set</span></td><td><span class="ko">얕은 복사. 바깥만 새 객체, 안쪽 가변 객체는 공유.</span><span class="en">Shallow copy: new outer object, shared inner mutables.</span></td></tr><tr><td><code>deepcopy</code></td><td><span class="ko">function · copy 모듈</span><span class="en">function · copy module</span></td><td><span class="ko">안쪽까지 새로 만들어 참조를 공유하지 않는다. import copy.</span><span class="en">Rebuilds the inside too so references are not shared. import copy.</span></td></tr><tr><td><code>get / setdefault</code></td><td><span class="ko">method · dict만</span><span class="en">method · dict only</span></td><td><span class="ko">없으면 get은 기본값(없으면 None). setdefault는 없을 때 넣고 그 값을 반환.</span><span class="en">get returns a default (or None). setdefault inserts when missing and returns that value.</span></td></tr><tr><td><code>fromkeys / clear / popitem</code></td><td><span class="ko">method · dict (clear는 list/set도)</span><span class="en">method · dict (clear also list/set)</span></td><td><span class="ko">키만으로 새 dict. clear는 전부 삭제. popitem은 마지막 쌍.</span><span class="en">New dict from keys; clear deletes all; popitem removes the last pair.</span></td></tr></tbody></table></div></article>
 </div>
 </section>
 
-      <footer class="colophon"><p><span class="ko">수록 범위는 실습 day 1–day 4와 수업자료 Programming-2–7이다. 중간은 P2–6, 기말은 P7 함수 심화(+중간 전제)다. 예제 출력은 Python 3에서 확인했다.</span><span class="en">The scope is labs day 1–day 4 and lectures Programming-2–7. Midterm: P2–6. Final: P7 functions deep (+ midterm as prerequisite). Example output was checked in Python 3.</span></p></footer>
+      <footer class="colophon"><p><span class="ko">수록 범위는 실습 day 1–day 4와 수업자료 Programming-2–8이다. 중간은 P2–6, 기말은 P7 함수·P8 모듈·패키지(+중간 전제)다. 예제 출력은 Python 3에서 확인했다.</span><span class="en">The scope is labs day 1–day 4 and lectures Programming-2–8. Midterm: P2–6. Final: P7 functions and P8 modules·packages (+ midterm as prerequisite). Example output was checked in Python 3.</span></p></footer>
     </main>
   </div>
-  <script src="js/site.js?v=24"></script>
-  <script src="js/walks.js?v=24"></script>
+  <script src="js/site.js?v=25"></script>
+  <script src="js/walks.js?v=25"></script>
 </body>
 </html>
