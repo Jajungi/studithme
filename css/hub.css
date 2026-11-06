@@ -6,14 +6,17 @@
   --line: rgba(20, 36, 40, 0.12);
   --accent: #0d6e6e;
   --accent-deep: #094f4f;
-  --surface: rgba(255, 255, 255, 0.72);
   --shadow: 0 18px 50px rgba(20, 36, 40, 0.1);
+  --mid-bg: #eef2ff;
+  --mid-accent: #3b4fd4;
+  --final-bg: #fff4ec;
+  --final-accent: #c45c26;
   --chem-bg: #eef8f4;
   --chem-accent: #0d6e6e;
   --phys-bg: #eef2ff;
   --phys-accent: #3b4fd4;
-  --prog-bg: #fff4ec;
-  --prog-accent: #c45c26;
+  --prog-bg: #fff8e8;
+  --prog-accent: #b45309;
   --font-display: "Fraunces", "Apple SD Gothic Neo", "Malgun Gothic", serif;
   --font-body: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 }
@@ -27,7 +30,6 @@
 html {
   color-scheme: light;
   -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
 }
 
 body {
@@ -47,6 +49,14 @@ body {
 
 a {
   color: inherit;
+}
+
+button.pane {
+  border: 0;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
 }
 
 :focus-visible {
@@ -83,7 +93,7 @@ a {
 
 .lead {
   margin: 0.65rem auto 0;
-  max-width: 32rem;
+  max-width: 34rem;
   color: var(--ink-soft);
   font-size: 1rem;
   opacity: 0;
@@ -117,12 +127,6 @@ a {
   font-weight: 650;
   font-size: 0.92rem;
   box-shadow: var(--shadow);
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.continue-link:hover {
-  background: var(--accent-deep);
-  transform: translateY(-1px);
 }
 
 .continue-link small {
@@ -130,10 +134,60 @@ a {
   font-weight: 500;
 }
 
+.step-subjects {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.step-subjects[hidden] {
+  display: none !important;
+}
+
+.term-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.back-term {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 650;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.term-chip {
+  font-size: 0.82rem;
+  font-weight: 750;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+}
+
+.term-chip[data-term='mid'] {
+  background: var(--mid-bg);
+  color: var(--mid-accent);
+  border-color: #c9d0f5;
+}
+
+.term-chip[data-term='final'] {
+  background: var(--final-bg);
+  color: var(--final-accent);
+  border-color: #f0c9b0;
+}
+
 .split {
   flex: 1;
   display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr;
   min-height: min(58dvh, 480px);
   border-radius: 18px;
   overflow: hidden;
@@ -143,19 +197,40 @@ a {
   opacity: 0;
   transform: translateY(14px);
   animation: rise 0.75s ease 0.16s forwards;
-  transition: grid-template-columns 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: grid-template-columns 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.split[data-hover='chem'] {
+.split-term {
+  grid-template-columns: 1fr auto 1fr;
+}
+
+.split-term[data-hover='mid'] {
+  grid-template-columns: 1.55fr auto 0.7fr;
+}
+
+.split-term[data-hover='final'] {
+  grid-template-columns: 0.7fr auto 1.55fr;
+}
+
+.split-subjects {
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+}
+
+.split-subjects[data-hover='chem'] {
   grid-template-columns: 1.55fr auto 0.72fr auto 0.72fr;
 }
 
-.split[data-hover='phys'] {
+.split-subjects[data-hover='phys'] {
   grid-template-columns: 0.72fr auto 1.55fr auto 0.72fr;
 }
 
-.split[data-hover='prog'] {
+.split-subjects[data-hover='prog'] {
   grid-template-columns: 0.72fr auto 0.72fr auto 1.55fr;
+}
+
+.split-term[hidden] {
+  display: none !important;
 }
 
 .divider {
@@ -178,6 +253,14 @@ a {
   transition: background 0.35s ease;
 }
 
+.pane.mid {
+  background: var(--mid-bg);
+}
+
+.pane.final {
+  background: var(--final-bg);
+}
+
 .pane.chem {
   background: var(--chem-bg);
 }
@@ -196,6 +279,14 @@ a {
   font-weight: 650;
   letter-spacing: -0.02em;
   line-height: 1.1;
+}
+
+.pane.mid .pane-label {
+  color: var(--mid-accent);
+}
+
+.pane.final .pane-label {
+  color: var(--final-accent);
 }
 
 .pane.chem .pane-label {
@@ -231,6 +322,8 @@ a {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+.split[data-hover='mid'] .pane.mid .pane-cta,
+.split[data-hover='final'] .pane.final .pane-cta,
 .split[data-hover='chem'] .pane.chem .pane-cta,
 .split[data-hover='phys'] .pane.phys .pane-cta,
 .split[data-hover='prog'] .pane.prog .pane-cta,
@@ -256,23 +349,38 @@ a {
 }
 
 @media (max-width: 820px) {
-  .split {
+  .split-term {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto 1fr;
+  }
+
+  .split-term[data-hover='mid'] {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.4fr auto 0.75fr;
+  }
+
+  .split-term[data-hover='final'] {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.75fr auto 1.4fr;
+  }
+
+  .split-subjects {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto 1fr auto 1fr;
     min-height: 68dvh;
   }
 
-  .split[data-hover='chem'] {
+  .split-subjects[data-hover='chem'] {
     grid-template-columns: 1fr;
     grid-template-rows: 1.4fr auto 0.8fr auto 0.8fr;
   }
 
-  .split[data-hover='phys'] {
+  .split-subjects[data-hover='phys'] {
     grid-template-columns: 1fr;
     grid-template-rows: 0.8fr auto 1.4fr auto 0.8fr;
   }
 
-  .split[data-hover='prog'] {
+  .split-subjects[data-hover='prog'] {
     grid-template-columns: 1fr;
     grid-template-rows: 0.8fr auto 0.8fr auto 1.4fr;
   }
@@ -296,11 +404,6 @@ a {
   }
 
   .split {
-    transition: none;
-  }
-
-  .continue-link,
-  .pane-cta {
     transition: none;
   }
 }

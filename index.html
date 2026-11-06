@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>studithme</title>
-  <meta name="description" content="화학 · 물리 · 프로그래밍 공부 허브. 과목을 고르면 새 탭에서 엽니다.">
+  <meta name="description" content="중간·기말 트랙을 고른 뒤 화학·물리·프로그래밍으로 들어갑니다.">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,10 +14,10 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d6e6e'/%3E%3Ctext x='16' y='22' text-anchor='middle' fill='%23f4fafa' font-size='14' font-family='Georgia,serif'%3Es%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-  <main class="shell gate-shell">
+  <main class="shell gate-shell" data-hub>
     <header class="gate-head">
       <h1 class="brand">studithme</h1>
-      <p class="lead">과목을 고르면 새 탭에서 각 사이트가 열립니다 · 가로로 올려보세요</p>
+      <p class="lead" data-lead>먼저 중간 / 기말을 고르세요 · 가로로 올려보세요</p>
     </header>
 
     <div class="continue" data-continue hidden>
@@ -27,54 +27,84 @@
       </a>
     </div>
 
-    <div class="split" data-split>
-      <a
-        class="pane chem"
-        href="chemistry/"
-        target="_blank"
-        rel="noopener"
-        data-side="chem"
-        data-subject="chemistry"
-        data-label="화학"
-      >
-        <span class="pane-label">화학</span>
-        <span class="pane-en">Chemistry</span>
-        <span class="pane-range">BS119 · 개념 · 문제 · 요약</span>
-        <span class="pane-cta">열기 →</span>
-      </a>
+    <!-- Step 1: term -->
+    <div class="split split-term" data-split data-step="term">
+      <button type="button" class="pane mid" data-side="mid" data-pick-term="mid">
+        <span class="pane-label">중간</span>
+        <span class="pane-en">Midterm</span>
+        <span class="pane-range">중간고사 범위</span>
+        <span class="pane-cta">과목 고르기 →</span>
+      </button>
       <div class="divider" aria-hidden="true"></div>
-      <a
-        class="pane phys"
-        href="physics/"
-        target="_blank"
-        rel="noopener"
-        data-side="phys"
-        data-subject="physics"
-        data-label="물리"
-      >
-        <span class="pane-label">물리</span>
-        <span class="pane-en">Physics</span>
-        <span class="pane-range">GP2 · 중간·기말 · 개념·문제</span>
-        <span class="pane-cta">열기 →</span>
-      </a>
-      <div class="divider" aria-hidden="true"></div>
-      <a
-        class="pane prog"
-        href="programming/"
-        target="_blank"
-        rel="noopener"
-        data-side="prog"
-        data-subject="programming"
-        data-label="프로그래밍"
-      >
-        <span class="pane-label">프로그래밍</span>
-        <span class="pane-en">Programming</span>
-        <span class="pane-range">Python · day 1–4 · 검색</span>
-        <span class="pane-cta">열기 →</span>
-      </a>
+      <button type="button" class="pane final" data-side="final" data-pick-term="final">
+        <span class="pane-label">기말</span>
+        <span class="pane-en">Final</span>
+        <span class="pane-range">기말고사 범위</span>
+        <span class="pane-cta">과목 고르기 →</span>
+      </button>
     </div>
 
-    <p class="foot">개인 학습용 허브 · 브라우저에 최근 과목·문제 위치를 기억합니다.</p>
+    <!-- Step 2: subjects (hidden until term chosen) -->
+    <div class="step-subjects" data-step="subjects" hidden>
+      <div class="term-bar">
+        <button type="button" class="back-term" data-back-term>← 중간 / 기말</button>
+        <span class="term-chip" data-term-chip></span>
+      </div>
+      <div class="split split-subjects" data-split-subjects>
+        <a
+          class="pane chem"
+          href="chemistry/"
+          target="_blank"
+          rel="noopener"
+          data-side="chem"
+          data-subject="chemistry"
+          data-label="화학"
+          data-href-mid="chemistry/"
+          data-href-final="chemistry/final/"
+        >
+          <span class="pane-label">화학</span>
+          <span class="pane-en">Chemistry</span>
+          <span class="pane-range" data-range-chem>BS119</span>
+          <span class="pane-cta">열기 →</span>
+        </a>
+        <div class="divider" aria-hidden="true"></div>
+        <a
+          class="pane phys"
+          href="physics/mid/"
+          target="_blank"
+          rel="noopener"
+          data-side="phys"
+          data-subject="physics"
+          data-label="물리"
+          data-href-mid="physics/mid/"
+          data-href-final="physics/final/"
+        >
+          <span class="pane-label">물리</span>
+          <span class="pane-en">Physics</span>
+          <span class="pane-range" data-range-phys>GP2</span>
+          <span class="pane-cta">열기 →</span>
+        </a>
+        <div class="divider" aria-hidden="true"></div>
+        <a
+          class="pane prog"
+          href="programming/"
+          target="_blank"
+          rel="noopener"
+          data-side="prog"
+          data-subject="programming"
+          data-label="프로그래밍"
+          data-href-mid="programming/"
+          data-href-final="programming/"
+        >
+          <span class="pane-label">프로그래밍</span>
+          <span class="pane-en">Programming</span>
+          <span class="pane-range">Python · 기존 사이트</span>
+          <span class="pane-cta">열기 →</span>
+        </a>
+      </div>
+    </div>
+
+    <p class="foot">개인 학습용 허브 · 프로그래밍은 중간·기말 모두 같은 사이트로 연결됩니다.</p>
   </main>
   <script src="js/hub.js"></script>
 </body>
