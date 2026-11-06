@@ -83,7 +83,7 @@ function applySubjectHrefs(term) {
   }
   if (physRange) {
     physRange.textContent =
-      term === 'final' ? 'GP2 · Ch.7+ 기말' : 'GP2 · Ch.1–6 중간';
+      term === 'final' ? 'GP2 · Ch.7–9 기말' : 'GP2 · Ch.1–6 중간';
   }
 }
 
