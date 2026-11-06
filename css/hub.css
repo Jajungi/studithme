@@ -134,14 +134,16 @@ button.pane {
   font-weight: 500;
 }
 
-.step-subjects {
+.step-subjects,
+.step-term {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-height: 0;
 }
 
-.step-subjects[hidden] {
+.step-subjects[hidden],
+.step-term[hidden] {
   display: none !important;
 }
 
@@ -165,24 +167,14 @@ button.pane {
   cursor: pointer;
 }
 
-.term-chip {
+.subject-chip {
   font-size: 0.82rem;
   font-weight: 750;
   padding: 0.25rem 0.7rem;
   border-radius: 999px;
   border: 1px solid var(--line);
-}
-
-.term-chip[data-term='mid'] {
-  background: var(--mid-bg);
-  color: var(--mid-accent);
-  border-color: #c9d0f5;
-}
-
-.term-chip[data-term='final'] {
-  background: var(--final-bg);
-  color: var(--final-accent);
-  border-color: #f0c9b0;
+  background: #fff;
+  color: var(--ink);
 }
 
 .split {
