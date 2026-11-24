@@ -21,7 +21,7 @@ const SUBJECTS = {
     id: 'programming',
     label: '프로그래밍',
     mid: { href: 'programming/', range: 'Python · P2–6 (중간)' },
-    final: { href: 'programming/#funcs', range: 'Python · P7–8 (기말)' },
+    final: { href: 'programming/#funcs', range: 'Python · P7–10 (기말)' },
   },
 };
 
