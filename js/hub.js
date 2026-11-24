@@ -1,6 +1,6 @@
 const STORAGE_KEY = 'studithme-last-subject';
 const TERM_KEY = 'studithme-last-term';
-const SUBJECT_KEY = 'studithme-last-subject-id';
+const SUBJECT_KEY = 'studithme-last-subject-id';const NOTICE_KEY = 'studithme-notice-v1';
 
 /** @typedef {{ id: string, label: string, href: string, term?: string, at: number }} LastSubject */
 
@@ -195,7 +195,60 @@ function bindSplitHover(split) {
   });
 }
 
+function noticeDismissed() {
+  try {
+    return localStorage.getItem(NOTICE_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
+function dismissNotice(permanent) {
+  const root = document.querySelector('[data-notice]');
+  if (root) {
+    root.hidden = true;
+    root.setAttribute('aria-hidden', 'true');
+  }
+  if (permanent) {
+    try {
+      localStorage.setItem(NOTICE_KEY, '1');
+    } catch {
+      /* ignore */
+    }
+  }
+}
+
+function initNotice() {
+  const root = document.querySelector('[data-notice]');
+  const ok = document.querySelector('[data-notice-ok]');
+  const hide = document.querySelector('[data-notice-hide]');
+  if (!root || !ok) return;
+
+  if (noticeDismissed()) {
+    root.hidden = true;
+    return;
+  }
+
+  root.hidden = false;
+  root.removeAttribute('aria-hidden');
+  // Focus primary action for keyboard users
+  queueMicrotask(() => ok.focus());
+
+  ok.addEventListener('click', () => {
+    dismissNotice(Boolean(hide && hide.checked));
+  });
+
+  root.addEventListener('click', (event) => {
+    if (event.target === root) dismissNotice(false);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !root.hidden) dismissNotice(false);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  initNotice();
   bindSubjectPick();
   bindTermLinks();
   bindSplitHover(document.querySelector('[data-split-subjects]'));
