@@ -70,7 +70,7 @@ EXCEPTIONS = [
                 "Division by zero raises ZeroDivisionError and stops unless caught.",
             ),
             (
-                'int("I am inevitable..")\n# ValueError: invalid literal for int() with base 10',
+                'int("abc")\n# ValueError: invalid literal for int() with base 10',
                 "숫자로 바꿀 수 없는 문자열은 ValueError다. 수업 슬라이드의 입력 예와 같다.",
                 "A non-numeric string raises ValueError—the lecture’s input example.",
             ),
@@ -91,12 +91,12 @@ EXCEPTIONS = [
         "Catching only ZeroDivisionError still crashes on a ValueError from bad text. Cover both with separate except blocks or a grouped except.",
         [
             (
-                'try:\n    i = 0\n    print(f"15 / {i} = {15 / i}")\nexcept ZeroDivisionError:\n    print("Oops! You can\'t divide by zero")\n# Oops! You can\'t divide by zero',
+                'try:\n    i = 0\n    print(f"15 / {i} = {15 / i}")\nexcept ZeroDivisionError:\n    print("cannot divide by zero")\n# cannot divide by zero',
                 "0으로 나누려다 ZeroDivisionError가 나고 except가 메시지를 출력한다. 프로그램은 종료되지 않는다.",
                 "Division by zero is caught; the message prints and the program does not exit.",
             ),
             (
-                'try:\n    i = int("bad")\n    print(15 / i)\nexcept ZeroDivisionError:\n    print("zero")\nexcept ValueError:\n    print("Please enter a valid number !!!")\n# Please enter a valid number !!!',
+                'try:\n    i = int("bad")\n    print(15 / i)\nexcept ZeroDivisionError:\n    print("zero")\nexcept ValueError:\n    print("Please enter a valid number")\n# Please enter a valid number',
                 "int 변환 실패는 ValueError. 두 번째 except가 잡는다.",
                 "Failed int conversion is ValueError; the second except handles it.",
             ),

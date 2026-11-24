@@ -118,7 +118,7 @@ function showStep(subjectId) {
   if (lead) {
     lead.textContent =
       subjectId === 'programming'
-        ? `${subject.label} · 중간·기말 모두 같은 사이트로 연결됩니다`
+        ? `${subject.label} · 중간 P2–6 / 기말 P7–10 · 같은 사이트`
         : `${subject.label} · 중간 / 기말을 고르면 새 탭에서 엽니다`;
   }
   if (chip) chip.textContent = subject.label;
