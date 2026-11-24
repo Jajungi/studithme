@@ -9,19 +9,19 @@ const SUBJECTS = {
     id: 'chemistry',
     label: '화학',
     mid: { href: 'chemistry/', range: 'BS119 · Ch.13–16' },
-    final: { href: 'chemistry/final/', range: 'BS119 · Ch.5·17·19' },
+    final: { href: 'chemistry/final/', range: 'BS119 · Ch.5·17·19·20·23' },
   },
   physics: {
     id: 'physics',
     label: '물리',
     mid: { href: 'physics/mid/', range: 'GP2 · Ch.1–6' },
-    final: { href: 'physics/final/', range: 'GP2 · Ch.7–9' },
+    final: { href: 'physics/final/', range: 'GP2 · Ch.7–11' },
   },
   programming: {
     id: 'programming',
     label: '프로그래밍',
-    mid: { href: 'programming/', range: 'Python · 동일 사이트' },
-    final: { href: 'programming/', range: 'Python · 동일 사이트' },
+    mid: { href: 'programming/', range: 'Python · P2–6 (중간)' },
+    final: { href: 'programming/#funcs', range: 'Python · P7–8 (기말)' },
   },
 };
 
