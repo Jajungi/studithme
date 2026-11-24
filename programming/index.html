@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>프로그래밍 참고</title>
-  <meta name="description" content="프로그래밍 실습 day 1–4와 Programming-2–10의 Python 문법. 중간 P2–6, 기말 P7–10(함수·모듈·예외·파일).">
+  <meta name="description" content="프로그래밍 실습 day 1–4와 Programming-2–11의 Python 문법. 중간 P2–6, 기말 P7–11(함수·모듈·예외·파일·클래스).">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="css/site.css?v=31">
+  <link rel="stylesheet" href="css/site.css?v=32">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1d1f'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -20,7 +20,7 @@
     <div class="inner">
       <a class="brand" href="#overview">
         <strong>프로그래밍</strong>
-        <span>Python · day 1–4 · P2–10</span>
+        <span>Python · day 1–4 · P2–11</span>
       </a>
       <nav class="exam-legend" aria-label="시험 범위">
         <a class="exam-chip mid" href="#io"><span class="ko">중간</span><span class="en">Mid</span></a>
@@ -47,23 +47,24 @@
 <a class="nav-mid" href="#dicts"><span class="idx">12</span><span class="ko">딕셔너리</span><span class="en">Dictionaries</span></a>
 <a class="nav-mid" href="#sets"><span class="idx">13</span><span class="ko">집합</span><span class="en">Sets</span></a>
 <a class="nav-mid" href="#copy"><span class="idx">14</span><span class="ko">복사</span><span class="en">Copies</span></a>
-<p class="nav-label final"><span class="ko">기말 · P7–10</span><span class="en">Final · P7–10</span></p>
+<p class="nav-label final"><span class="ko">기말 · P7–11</span><span class="en">Final · P7–11</span></p>
 <a class="nav-final" href="#funcs"><span class="idx">15</span><span class="ko">함수</span><span class="en">Functions</span></a>
 <a class="nav-final" href="#packages"><span class="idx">16</span><span class="ko">모듈·패키지</span><span class="en">Modules · packages</span></a>
 <a class="nav-final" href="#exceptions"><span class="idx">17</span><span class="ko">예외 처리</span><span class="en">Exceptions</span></a>
 <a class="nav-final" href="#files"><span class="idx">18</span><span class="ko">파일</span><span class="en">Files</span></a>
+<a class="nav-final" href="#classes"><span class="idx">19</span><span class="ko">클래스</span><span class="en">Classes</span></a>
 <p class="nav-label ref"><span class="ko">참고</span><span class="en">Reference</span></p>
 <a class="nav-ref" href="#review"><span class="idx"><span class="ko">참고</span><span class="en">Ref</span></span><span class="ko">대조 · 정리</span><span class="en">Distinctions · summary</span></a>
     </nav>
     <main class="main" id="main">
       <p id="count" class="count" aria-live="polite"></p>
       <p id="empty" class="empty" hidden><span class="ko">해당하는 항목이 없다.</span><span class="en">No matching entry.</span></p>
-      <section class="chapter" id="overview"><header class="chapter-head"><p class="num">00</p><div><h2><span class="ko">개요</span><span class="en">Overview</span></h2><p class="lead"><span class="ko">실습 day 1–day 4와 수업자료 Programming-2–10의 문법이다. 일부 단원 끝에는 실행 순서 통합 코드가 있고, 맨 아래 대조·정리에서 형식별로 다시 모은다.</span><span class="en">Syntax from labs day 1–day 4 and lectures Programming-2–10. Some chapters end with a combined walk-through; Distinctions · summary at the end gathers the forms again.</span></p></div></header>
+      <section class="chapter" id="overview"><header class="chapter-head"><p class="num">00</p><div><h2><span class="ko">개요</span><span class="en">Overview</span></h2><p class="lead"><span class="ko">실습 day 1–day 4와 수업자료 Programming-2–11의 문법이다. 일부 단원 끝에는 실행 순서 통합 코드가 있고, 맨 아래 대조·정리에서 형식별로 다시 모은다.</span><span class="en">Syntax from labs day 1–day 4 and lectures Programming-2–11. Some chapters end with a combined walk-through; Distinctions · summary at the end gathers the forms again.</span></p></div></header>
 <div class="table-wrap"><table class="spec"><caption><span class="ko">시험 범위</span><span class="en">Exam range</span></caption>
 <thead><tr><th><span class="ko">시험</span><span class="en">Exam</span></th><th><span class="ko">수업</span><span class="en">Lectures</span></th><th><span class="ko">이 사이트에서</span><span class="en">On this site</span></th></tr></thead>
 <tbody>
 <tr class="exam-row-mid"><td><span class="exam-tag mid"><span class="ko">중간</span><span class="en">Mid</span></span></td><td>Programming-2–6</td><td><span class="ko">단원 01–14. 입출력·자료형·연산·조건·모듈·반복·문자열·리스트·튜플·딕셔너리·집합·복사. 함수의 <code>def</code>/<code>return</code>/범위 기초도 여기.</span><span class="en">Chapters 01–14: I/O, types, operators, conditions, modules, loops, strings, lists, tuples, dicts, sets, copies. Also the base <code>def</code>/<code>return</code>/scope in Functions.</span></td></tr>
-<tr class="exam-row-final"><td><span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></td><td>Programming-7–10 (+ 중간 전제)</td><td><span class="ko">기말 = <strong>P7 함수</strong>·<strong>P8 모듈·패키지</strong>·<strong>P9 예외</strong>·<strong>P10 파일</strong> (사이트 15–18). <a href="#funcs">함수</a>·<a href="#packages">모듈</a>·<a href="#exceptions">예외</a>·<a href="#files">파일</a>. 어두운 패널이 기말.</span><span class="en">Final = <strong>P7–10</strong> (site 15–18): <a href="#funcs">Functions</a>, <a href="#packages">Modules</a>, <a href="#exceptions">Exceptions</a>, <a href="#files">Files</a>. Darker panels mark final.</span></td></tr>
+<tr class="exam-row-final"><td><span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></td><td>Programming-7–11 (+ 중간 전제)</td><td><span class="ko">기말 = <strong>P7 함수</strong>·<strong>P8 모듈·패키지</strong>·<strong>P9 예외</strong>·<strong>P10 파일</strong>·<strong>P11 클래스</strong> (사이트 15–19). <a href="#funcs">함수</a>·<a href="#packages">모듈</a>·<a href="#exceptions">예외</a>·<a href="#files">파일</a>·<a href="#classes">클래스</a>. 어두운 패널이 기말.</span><span class="en">Final = <strong>P7–11</strong> (site 15–19): <a href="#funcs">Functions</a>, <a href="#packages">Modules</a>, <a href="#exceptions">Exceptions</a>, <a href="#files">Files</a>, <a href="#classes">Classes</a>. Darker panels mark final.</span></td></tr>
 </tbody></table></div>
 <div class="table-wrap"><table class="spec"><caption><span class="ko">먼저 고정할 규칙</span><span class="en">Rules to fix first</span></caption>
 <thead><tr><th><span class="ko">규칙</span><span class="en">Rule</span></th><th><span class="ko">뜻</span><span class="en">Meaning</span></th></tr></thead>
@@ -81,7 +82,8 @@
 <section class="exam-final"><h3><span class="ko">함수 심화</span><span class="en">Functions deep</span></h3><p><a href="#def">def</a><a class="exam-final-link" href="#call">call</a><a class="exam-final-link" href="#param-arg">param/arg</a><a href="#return">return</a><a class="exam-final-link" href="#recursion">recursion</a><a class="exam-final-link" href="#lambda">lambda</a><a class="exam-final-link" href="#args-kwargs">*args</a><a class="exam-final-link" href="#global-kw">global</a><a class="exam-final-link" href="#nonlocal">nonlocal</a></p></section>
 <section class="exam-final"><h3><span class="ko">모듈 · 패키지</span><span class="en">Modules · packages</span></h3><p><a class="exam-final-link" href="#modularize">모듈화</a><a class="exam-final-link" href="#package">패키지</a><a class="exam-final-link" href="#init-py">__init__.py</a><a class="exam-final-link" href="#from-import">from import</a><a class="exam-final-link" href="#import-star">import *</a><a class="exam-final-link" href="#stdlib-pip">표준·외부</a></p></section>
 <section class="exam-final"><h3><span class="ko">예외 · 파일</span><span class="en">Exceptions · files</span></h3><p><a class="exam-final-link" href="#try-except">try/except</a><a class="exam-final-link" href="#try-else-finally">else/finally</a><a class="exam-final-link" href="#open">open</a><a class="exam-final-link" href="#read">read</a><a class="exam-final-link" href="#write">write</a><a class="exam-final-link" href="#with-open">with</a></p></section>
-<section class="exam-ref"><h3><span class="ko">대조 · 정리</span><span class="en">Distinctions · summary</span></h3><p><a href="#review"><span class="ko">같이 보는 구분</span><span class="en">Distinctions</span></a> <a href="#memo"><span class="ko">최종 정리</span><span class="en">Summary</span></a> <a class="exam-final-link" href="#sum-funcs"><span class="ko">함수 심화 표</span><span class="en">Funcs deep table</span></a> <a class="exam-final-link" href="#sum-packages"><span class="ko">모듈·패키지 표</span><span class="en">Packages table</span></a> <a class="exam-final-link" href="#sum-exceptions"><span class="ko">예외 표</span><span class="en">Exceptions table</span></a> <a class="exam-final-link" href="#sum-files"><span class="ko">파일 표</span><span class="en">Files table</span></a></p></section>
+<section class="exam-final"><h3><span class="ko">클래스 · 객체</span><span class="en">Classes · objects</span></h3><p><a class="exam-final-link" href="#class-kw">class</a><a class="exam-final-link" href="#init-self">__init__</a><a class="exam-final-link" href="#attr-class-inst">속성</a><a class="exam-final-link" href="#inst-method">메서드</a><a class="exam-final-link" href="#classmethod">classmethod</a><a class="exam-final-link" href="#staticmethod">staticmethod</a><a class="exam-final-link" href="#encapsulation">캡슐화</a><a class="exam-final-link" href="#inheritance">상속</a><a class="exam-final-link" href="#override-super">오버라이드</a><a class="exam-final-link" href="#polymorphism">다형성</a></p></section>
+<section class="exam-ref"><h3><span class="ko">대조 · 정리</span><span class="en">Distinctions · summary</span></h3><p><a href="#review"><span class="ko">같이 보는 구분</span><span class="en">Distinctions</span></a> <a href="#memo"><span class="ko">최종 정리</span><span class="en">Summary</span></a> <a class="exam-final-link" href="#sum-funcs"><span class="ko">함수 심화 표</span><span class="en">Funcs deep table</span></a> <a class="exam-final-link" href="#sum-packages"><span class="ko">모듈·패키지 표</span><span class="en">Packages table</span></a> <a class="exam-final-link" href="#sum-exceptions"><span class="ko">예외 표</span><span class="en">Exceptions table</span></a> <a class="exam-final-link" href="#sum-files"><span class="ko">파일 표</span><span class="en">Files table</span></a> <a class="exam-final-link" href="#sum-classes"><span class="ko">클래스 표</span><span class="en">Classes table</span></a></p></section>
 </div>
 </section>
 <section class="chapter" id="io"><header class="chapter-head"><p class="num">01</p><div><h2><span class="ko">출력과 입력</span><span class="en">Output and input</span></h2><p class="lead"><span class="ko">계산이 끝나도 결과는 표준 출력에 스스로 나타나지 않는다. 보여줄 때만 print를 호출한다.</span><span class="en">A finished calculation does not appear by itself. Call print only when the result should be shown.</span></p></div></header><article class="entry" id="print" data-keys="print 프린트 출력 function sep end None">
@@ -5360,6 +5362,387 @@ print(vals)</code></pre>
 </article>
 </section>
 
+<section class="chapter" id="classes" data-exam="final"><header class="chapter-head"><p class="num">19</p><div><h2><span class="ko">클래스와 객체</span><span class="en">Classes and objects</span></h2><p class="lead"><span class="ko">Programming-11. 클래스는 객체를 만드는 설계도이고, 객체는 그 설계도로 만든 실제 값이다. 속성(데이터)·메서드(행동)·상속·다형성까지 기말 범위다.</span><span class="en">Programming-11. A class is a blueprint; an object is one instance built from it. Attributes, methods, inheritance, and polymorphism are in the final range.</span></p></div></header>
+<article class="entry" id="class-kw" data-exam="final" data-keys="class object OOP 클래스 객체 설계도 blueprint">
+<header class="entry-head"><h3><code>class</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">문법</span><span class="en">syntax</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">class는 객체를 만들기 위한 <strong>설계도</strong>다. 설계도에는 속성(attribute, 데이터)과 메서드(method, 행동)를 적어 둔다. 같은 설계도로 Student·Car처럼 여러 객체를 만들 수 있고, 객체마다 다른 값을 담을 수 있다. 집 설계도(class)와 실제로 지은 집(object) 비유를 떠올리면 된다.</p>
+<p class="en">class defines a blueprint for objects: attributes (data) and methods (behavior). Many objects can share one blueprint with different data—like a house plan versus built houses.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>class Name:
+    …</code></p>
+<p class="ko">키워드 class 뒤에 이름, 콜론, 들여쓴 본문이다. 본문이 비어 있으면 잠시 pass를 둔다. 객체는 <code>Name(...)</code>처럼 호출해 만든다.</p>
+<p class="en">Write class, a name, a colon, then an indented body (pass if empty). Create an object by calling Name(...).</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">관련 데이터와 함수를 한곳에 모아 재사용하고, 현실의 Student·BankAccount 같은 대상을 코드로 옮길 때 쓴다. 클래스 이름은 보통 대문자로 시작한다(관례).</p>
+<p class="en">Group related data and functions; model real entities. Class names usually start with a capital letter by convention.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>class Student:
+    def __init__(self, name, major):
+        self.name = name
+        self.major = major
+
+s = Student("Kisub", "Computer Science")
+print(s.name, s.major)
+# Kisub Computer Science</code></pre>
+<p class="ko">Student 설계도로 학생 하나(s)를 만들고, 점(.)으로 그 학생의 name·major를 읽는다.</p>
+<p class="en">Build one student from the Student blueprint; read its fields with a dot.</p>
+<pre><code>class Empty:
+    pass
+
+e = Empty()
+print(type(e))
+# &lt;class '__main__.Empty'&gt;</code></pre>
+<p class="ko">아직 내용이 없어도 class와 객체 만들기는 가능하다. pass는 “지금은 비움” 표시다.</p>
+<p class="en">An empty class still works; pass means “nothing here yet.”</p>
+</section>
+</article>
+<article class="entry" id="init-self" data-exam="final" data-keys="__init__ self constructor 생성자 초기화">
+<header class="entry-head"><h3><code>__init__</code> · <code>self</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">특수 메서드</span><span class="en">special method</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><code>__init__</code>은 객체가 만들어질 때 <strong>자동으로</strong> 호출되는 초기화 메서드다. 첫 매개변수는 반드시 self이며, “지금 만들어지는 그 객체”를 가리킨다. self.이름 = … 으로 그 객체만의 칸을 채운다.</p>
+<p class="en"><code>__init__</code> runs automatically when an object is created. Its first parameter is always self—the new object. Assign self.name = … to store fields on that object.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>def __init__(self, …):
+    self.필드 = …</code></p>
+<p class="ko">호출할 때는 self를 직접 넘기지 않는다. <code>Car("Tesla")</code>처럼 나머지 인자만 적으면, 파이썬이 self를 채워 넣는다.</p>
+<p class="en">Do not pass self yourself. Car("Tesla") supplies the other arguments; Python fills in self.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">일반 함수 정의와 비슷하지만 첫 자리가 self라는 점이 다르다. __init__은 보통 값을 return하지 않는다(암묵적으로 None). 객체를 “만드는” 일은 클래스 호출이 하고, __init__은 그 객체를 채운다.</p>
+<p class="en">Like a normal def, but self comes first. __init__ usually returns nothing; the class call creates the object, __init__ fills it.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>class Car:
+    def __init__(self, model):
+        self.model = model
+        self.speed = 0
+
+c = Car("Tesla")
+print(c.model, c.speed)
+# Tesla 0</code></pre>
+<p class="ko">만들자마자 model은 인자 값, speed는 0으로 맞춰진다.</p>
+<p class="en">Right after creation, model comes from the argument and speed starts at 0.</p>
+</section>
+</article>
+<article class="entry" id="attr-class-inst" data-exam="final" data-keys="class attribute instance attribute self ClassName 클래스속성 인스턴스속성">
+<header class="entry-head"><h3><span class="ko">클래스 속성 · 인스턴스 속성</span><span class="en">Class vs instance attributes</span> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">개념</span><span class="en">concept</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko"><strong>인스턴스 속성</strong>은 객체마다 따로 있는 값이다(self.model). 한쪽을 바꿔도 다른 객체는 안 바뀐다. <strong>클래스 속성</strong>은 클래스에 한 번 두고 모든 객체가 같이 본다(이자율·카운터처럼 공통 값). 진짜 구분은 “어디에 선언했나”보다 <strong>한정자(qualifier)</strong>다: self.이면 인스턴스, ClassName.이면 클래스.</p>
+<p class="en">Instance attributes are per object (self.model). Class attributes are shared by all instances. The real rule is the qualifier: self. → instance, ClassName. → class—not only where the line sits.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>class C:
+    shared = 0          # class attribute
+    def __init__(self):
+        self.own = 1    # instance attribute</code></p>
+<p class="ko">공통이면 클래스 속성, 학생 이름처럼 각자 다르면 인스턴스 속성으로 둔다.</p>
+<p class="en">Use a class attribute for shared data; use instance attributes for per-object data.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">클래스에 같은 이름 속성이 있어도 self.name = … 을 하면 그 객체에 인스턴스 속성이 새로 생긴다(가려짐). 메서드 안에서도 Counter.count처럼 클래스 이름으로 쓰면 클래스 속성을 고친다.</p>
+<p class="en">self.name = … creates an instance attribute even if a class attribute shares the name. Inside a method, ClassName.attr still updates the class attribute.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>class Car:
+    def __init__(self, model):
+        self.model = model   # instance
+        self.price = 30000   # instance
+
+c1 = Car("Tesla")
+c2 = Car("BMW")
+c1.price = 50000
+print(c1.price)  # 50000
+print(c2.price)  # 30000</code></pre>
+<p class="ko">c1만 값을 바꿨다. c2의 price는 그대로다. 각자 칸이 따로 있기 때문이다.</p>
+<p class="en">Only c1 changed; c2 keeps 30000 because each object has its own price.</p>
+<pre><code>class Counter:
+    count = 0
+    def increase(self):
+        Counter.count += 1  # class attribute
+
+a = Counter()
+b = Counter()
+a.increase()
+b.increase()
+print(Counter.count)  # 2</code></pre>
+<p class="ko">a와 b가 같은 count를 올린다. 클래스 속성이라 두 객체가 숫자를 공유한다.</p>
+<p class="en">Both objects bump the same Counter.count—shared class state.</p>
+</section>
+</article>
+<article class="entry" id="inst-method" data-exam="final" data-keys="instance method self accelerate 인스턴스메서드">
+<header class="entry-head"><h3><span class="ko">인스턴스 메서드</span><span class="en">Instance methods</span> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">메서드</span><span class="en">method</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">인스턴스 메서드는 <strong>그 객체</strong>의 데이터를 읽고 바꾼다. 첫 인자는 self다. 호출은 <code>객체.메서드()</code> 형태이고, self는 자동으로 들어간다.</p>
+<p class="en">An instance method works on one object’s data. Its first parameter is self. Call it as obj.method(); Python passes self.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>def method(self, …):
+    …</code></p>
+<p class="ko">객체 상태를 바꾸는 행동(가속, 입금)은 여기에 둔다.</p>
+<p class="en">Put behaviors that change object state here (accelerate, deposit).</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">클래스 안의 함수를 메서드라고 부른다. self를 빼먹으면 호출 때 TypeError가 난다.</p>
+<p class="en">A function inside a class is a method. Omitting self causes TypeError on call.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>class Car:
+    def __init__(self, model):
+        self.model = model
+        self.speed = 0
+
+    def accelerate(self):
+        self.speed += 10
+        print(f"{self.model} speed: {self.speed} km/h")
+
+c = Car("Tesla")
+c.accelerate()  # Tesla speed: 10 km/h
+c.accelerate()  # Tesla speed: 20 km/h</code></pre>
+<p class="ko">같은 차(c)를 두 번 가속하면 speed가 10 → 20으로 쌓인다. 상태가 객체 안에 남아 있다.</p>
+<p class="en">Two accelerates on the same car stack speed 10 → 20; state lives on the object.</p>
+</section>
+</article>
+<article class="entry" id="classmethod" data-exam="final" data-keys="@classmethod cls factory 클래스메서드">
+<header class="entry-head"><h3><code>@classmethod</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">장식자 · 메서드</span><span class="en">decorator · method</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">클래스 메서드는 <strong>클래스 자체</strong>를 첫 인자로 받는다(관례 이름 cls). 객체가 없어도 ClassName.method()로 호출할 수 있다. 다른 형식의 입력으로 객체를 만들어 주는 <strong>팩토리(생성 도우미)</strong>에 자주 쓴다. __init__을 깔끔히 두고, 변환·검사만 클래스 메서드에 맡기는 패턴이다.</p>
+<p class="en">A classmethod receives the class as its first argument (usually cls). Call it on the class. Often used as a factory that converts or validates input before construction, keeping __init__ simple.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>@classmethod
+def from_…(cls, …):
+    return cls(…)</code></p>
+<p class="ko">cls(...)는 같은 클래스의 생성자를 호출한다. 상속해도 자식 클래스가 cls로 들어온다.</p>
+<p class="en">cls(...) calls that class’s constructor. With inheritance, cls is the subclass.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">나이가 음수면 객체를 만들고 싶지 않을 때처럼, 만들기 전에 거절해야 하는 검사는 __init__만으로는 어색하다. 팩토리에서 먼저 걸러 낸다.</p>
+<p class="en">Checks that must refuse construction (e.g. negative age) fit better in a factory than only inside __init__.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    @classmethod
+    def from_birth_year(cls, name, year, now=2026):
+        age = now - year
+        if age &lt; 0:
+            raise ValueError("birth year in the future")
+        return cls(name, age)
+
+p = Person.from_birth_year("Kisub", 2001)
+print(p.name, p.age)
+# Kisub 25</code></pre>
+<p class="ko">연도만 있어도 나이를 계산해 Person을 만든다. __init__은 이름·나이만 받는다.</p>
+<p class="en">Birth year is converted to age in the factory; __init__ still only stores name and age.</p>
+</section>
+</article>
+<article class="entry" id="staticmethod" data-exam="final" data-keys="@staticmethod utility 정적메서드">
+<header class="entry-head"><h3><code>@staticmethod</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">장식자 · 메서드</span><span class="en">decorator · method</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">정적 메서드는 클래스 안에 두지만 self도 cls도 받지 않는다. 그 클래스와 <strong>논리적으로 관련된 도구 함수</strong>를 모아 둘 때 쓴다. 객체 상태·클래스 속성을 건드리지 않는다.</p>
+<p class="en">A staticmethod lives in the class but takes neither self nor cls. Use it for utility helpers that belong with the class but do not touch instance or class state.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>@staticmethod
+def helper(…):
+    …</code></p>
+<p class="ko"><code>ClassName.helper()</code> 또는 <code>객체.helper()</code>로 호출한다. 보통은 클래스 이름으로 부른다.</p>
+<p class="en">Call ClassName.helper() (or on an instance). Prefer the class name.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">그냥 모듈 함수로 둬도 되지만, MathTool처럼 “이 도구 모음”을 클래스 이름으로 묶고 싶을 때 정적 메서드가 읽기 좋다.</p>
+<p class="en">A module-level function also works; staticmethod groups helpers under a clear class name.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>class MathTool:
+    @staticmethod
+    def is_even(n):
+        return n % 2 == 0
+
+    @staticmethod
+    def square(n):
+        return n * n
+
+print(MathTool.is_even(10))  # True
+print(MathTool.square(10))   # 100</code></pre>
+<p class="ko">객체를 만들지 않고도 짝수 검사·제곱을 호출한다.</p>
+<p class="en">No instance needed—call the helpers on the class.</p>
+</section>
+</article>
+<article class="entry" id="encapsulation" data-exam="final" data-keys="encapsulation private __ getter setter 캡슐화 정보은닉">
+<header class="entry-head"><h3><span class="ko">캡슐화 · <code>__</code> 비공개</span><span class="en">Encapsulation · private <code>__</code></span> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">개념</span><span class="en">concept</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">캡슐화는 객체 안의 세부 데이터를 바깥에서 함부로 만지지 못하게 감추는 일이다(정보 은닉). 파이썬에서는 이름 앞에 밑줄 두 개(<code>__balance</code>)를 붙이면 바깥에서 <code>obj.__balance</code>로 직접 접근하기 어렵게 만든다. 읽기·쓰기는 get_balance·deposit처럼 <strong>메서드를 통해서만</strong> 하도록 유도한다.</p>
+<p class="en">Encapsulation hides internal data. A leading double underscore (__balance) makes casual outside access awkward. Prefer getters/setters (or deposit/withdraw) for controlled access.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>self.__field
+get_…() / deposit() / withdraw()</code></p>
+<p class="ko">입금·출금에 조건(양수, 잔액 이하)을 걸어 데이터가 깨지지 않게 한다.</p>
+<p class="en">Validate in methods (positive amounts, no overdraft) so the data stay consistent.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">완전 봉쇄는 아니다(이름 변환 name mangling). 그래도 “직접 건드리지 말라”는 약속과 실수를 줄이는 데 충분하다. 잔액을 아무나 음수로 바꾸는 코드보다 안전하다.</p>
+<p class="en">It is not a hard lock (name mangling), but it reduces accidents versus a public balance anyone can set to a negative value.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>class Account:
+    def __init__(self, balance):
+        self.__balance = balance  # private
+
+    def get_balance(self):
+        return self.__balance
+
+    def deposit(self, amount):
+        if amount &gt; 0:
+            self.__balance += amount
+
+    def withdraw(self, amount):
+        if 0 &lt; amount &lt;= self.__balance:
+            self.__balance -= amount
+
+a = Account(100)
+a.deposit(50)
+a.withdraw(30)
+print(a.get_balance())  # 120
+# print(a.__balance)  # AttributeError (outside)</code></pre>
+<p class="ko">잔액은 메서드로만 바꾼다. 바깥에서 __balance를 직접 읽으려 하면 오류가 난다.</p>
+<p class="en">Change balance only through methods; direct a.__balance from outside fails.</p>
+</section>
+</article>
+<article class="entry" id="inheritance" data-exam="final" data-keys="inheritance subclass parent child 상속 부모 자식">
+<header class="entry-head"><h3><span class="ko">상속</span><span class="en">Inheritance</span> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">문법 · 개념</span><span class="en">syntax · concept</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">상속은 자식 클래스(subclass)가 부모(base)의 속성과 메서드를 <strong>물려받아</strong> 재사용·확장하는 일이다. 같은 코드를 여러 곳에 복사하지 않아도 된다.</p>
+<p class="en">Inheritance lets a subclass reuse and extend a parent’s attributes and methods without copying code.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>class Child(Parent):
+    …</code></p>
+<p class="ko">괄호 안에 부모 이름을 적는다. 자식 객체는 부모 메서드를 그대로 호출할 수 있다.</p>
+<p class="en">Put the parent in parentheses. A child instance can call inherited methods as-is.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">계층(동물→개, 탈것→자동차)을 코드로 옮길 때 자연스럽다. 너무 깊은 상속 나무는 읽기 어려우니 필요한 만큼만 쓴다.</p>
+<p class="en">Fits hierarchies (Animal→Dog). Keep trees shallow when you can.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>class Parent:
+    pass
+
+class Child(Parent):
+    pass
+
+print(issubclass(Child, Parent))  # True</code></pre>
+<p class="ko">가장 짧은 상속 형태다. Child는 Parent의 하위 타입이다.</p>
+<p class="en">Minimal inheritance; Child is a subtype of Parent.</p>
+<pre><code>class Vehicle:
+    def move(self):
+        print("The vehicle moves.")
+
+class Car(Vehicle):
+    pass
+
+Car().move()
+# The vehicle moves.</code></pre>
+<p class="ko">Car에 move를 안 적어도 부모 것이 실행된다.</p>
+<p class="en">Car inherits move without rewriting it.</p>
+</section>
+</article>
+<article class="entry" id="override-super" data-exam="final" data-keys="override super 메서드 재정의">
+<header class="entry-head"><h3><span class="ko">오버라이드 · <code>super()</code></span><span class="en">Override · <code>super()</code></span> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">개념</span><span class="en">concept</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">자식이 부모와 <strong>같은 이름·같은 매개변수 형태</strong>의 메서드를 다시 정의하면 오버라이드(덮어쓰기)다. 호출하면 자식 버전이 우선한다. 부모 동작을 버리지 않고 덧붙이려면 <code>super().메서드()</code>로 부모 쪽을 먼저(또는 나중에) 부른다.</p>
+<p class="en">Redefining a method with the same name (and matching signature) overrides the parent. Call super().method() to keep and extend the parent’s behavior.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>def speak(self):
+    super().speak()
+    …</code></p>
+<p class="ko">이름이나 인자 개수를 바꾸면 “오버라이드”가 아니라 그냥 다른 메서드가 된다. 실수하기 쉬운 지점이다.</p>
+<p class="en">A different name or signature is not an override—just another method. Easy mistake.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">맞춤 행동·다형성·프레임워크에서 자주 필요하다. 부모 로직을 잊고 통째로 바꿔야 할 때만 super 없이 완전히 교체한다.</p>
+<p class="en">Useful for customized behavior and frameworks. Skip super only when you truly replace the parent logic.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>class Animal:
+    def speak(self):
+        print("Some sound")
+
+class Cat(Animal):
+    def speak(self):
+        print("Meow")
+
+Cat().speak()
+# Meow</code></pre>
+<p class="ko">Cat.speak가 Animal.speak를 덮어썼다. “Some sound”는 나오지 않는다.</p>
+<p class="en">Cat.speak replaces Animal.speak; “Some sound” is not printed.</p>
+<pre><code>class Animal:
+    def speak(self):
+        print("Animal makes a sound")
+
+class Dog(Animal):
+    def speak(self):
+        super().speak()  # parent first
+        print("Dog barks")
+
+Dog().speak()
+# Animal makes a sound
+# Dog barks</code></pre>
+<p class="ko">부모 메시지 뒤에 자식 메시지를 이어 붙인 형태다. 확장(extend) 오버라이드.</p>
+<p class="en">Parent line then child line—an extending override.</p>
+</section>
+</article>
+<article class="entry" id="polymorphism" data-exam="final" data-keys="polymorphism duck typing 다형성 같은메서드">
+<header class="entry-head"><h3><span class="ko">다형성</span><span class="en">Polymorphism</span> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">개념</span><span class="en">concept</span></p></header>
+<section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
+<p class="ko">다형성은 “같은 메서드 이름, 객체마다 다른 행동”이다. 함수는 타입이 뭔지 세세히 몰라도 <code>obj.sound()</code>만 부르면 된다. 상속이 없어도 메서드 이름만 맞으면 동작한다(덕 타이핑에 가깝다). len·+ 도 자료형마다 다르게 움직이는 다형성의 예다.</p>
+<p class="en">Polymorphism: same method name, different behavior per object. A helper can call obj.sound() without caring about the exact type. Inheritance is optional if the names match. len and + are polymorphic too.</p>
+</section>
+<section class="block"><h4><span class="ko">사용</span><span class="en">Usage</span></h4>
+<p class="sig"><code>def make_sound(obj):
+    obj.sound()</code></p>
+<p class="ko">if로 종류를 나누지 않고, 공통 메서드 이름에 맡긴다. 새 종류를 추가해도 그 함수는 그대로인 경우가 많다.</p>
+<p class="en">Avoid type if-else; rely on a shared method name. New types often plug in without editing the helper.</p>
+</section>
+<section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
+<p class="ko">코드가 짧아지고 확장하기 쉽다. 다만 문서·이름으로 “이 메서드가 있어야 한다”는 약속을 맞춰 두는 것이 중요하다.</p>
+<p class="en">Keeps code short and extensible; document the expected method names clearly.</p>
+</section>
+<section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
+<pre><code>class Dog:
+    def sound(self):
+        print("Woof")
+
+class RobotDog:  # no inheritance
+    def sound(self):
+        print("Mechanical Woof")
+
+def make_sound(obj):
+    obj.sound()
+
+make_sound(Dog())       # Woof
+make_sound(RobotDog())  # Mechanical Woof</code></pre>
+<p class="ko">부모-자식이 아니어도 sound만 있으면 make_sound가 같이 쓴다.</p>
+<p class="en">No parent link needed—only the shared sound method.</p>
+<pre><code>print(len("hi"))   # 2  (characters)
+print(len([1, 2])) # 2  (items)</code></pre>
+<p class="ko">len 이름 하나로 문자열·리스트에 맞게 동작한다. 수업이 말한 “상속 없는 다형성” 감각이다.</p>
+<p class="en">One name, len, behaves by type—polymorphism without a shared parent class.</p>
+</section>
+</article>
+</section>
+
 <section class="chapter" id="review"><header class="chapter-head"><p class="num"><span class="ko">참고</span><span class="en">Ref</span></p><div><h2><span class="ko">대조 · 정리</span><span class="en">Distinctions · summary</span></h2><p class="lead"><span class="ko">형식·반환·없을 때의 구분과, 명령을 형식별로 다시 모은 시험용 한 줄 요약이다. 중간·기말 공통 참고.</span><span class="en">Distinctions of form, return value, and missing-target behavior, plus one-line exam summaries by form. Shared reference for midterm and final.</span></p></div></header>
 <div id="compare" class="review-block">
 <h3 class="review-sub"><span class="ko">같이 보는 구분</span><span class="en">Distinctions</span></h3>
@@ -5431,7 +5814,7 @@ print(vals)</code></pre>
 <tr><td><code>key in d</code></td><td><span class="ko">dict (키만)</span><span class="en">dict (keys only)</span></td><td><span class="ko">키만 본다. 값이면 False일 수 있다</span><span class="en">Keys only. A value may still be False</span></td></tr>
 </tbody></table></div>
 <div class="table-wrap sheet"><table class="spec sheet"><caption><span class="ko">비어 있는 값과 비슷해 보이는 표기</span><span class="en">Empty values and lookalike notation</span></caption><thead><tr><th><span class="ko">표기</span><span class="en">Form</span></th><th><span class="ko">뜻</span><span class="en">Meaning</span></th></tr></thead><tbody><tr><td><code>[]</code></td><td><span class="ko">빈 리스트. list()와 같다</span><span class="en">Empty list. Same as list()</span></td></tr><tr><td><code>()</code></td><td><span class="ko">빈 튜플. tuple()와 같다</span><span class="en">Empty tuple. Same as tuple()</span></td></tr><tr><td><code>(10,)</code></td><td><span class="ko">값이 하나인 튜플</span><span class="en">A one-element tuple</span></td></tr><tr><td><code>(10)</code></td><td><span class="ko">정수 10</span><span class="en">The integer 10</span></td></tr><tr><td><code>{}</code></td><td><span class="ko">빈 딕셔너리. dict()와 같다. 빈 집합은 set()이다</span><span class="en">Empty dictionary. Same as dict(). An empty set is set()</span></td></tr></tbody></table></div>
-<article class="entry" id="questions" data-keys="문제 확인 퀴즈 check"><header class="entry-head"><h3 class="plain"><span class="ko">확인하고 답하기</span><span class="en">Check, then answer</span></h3><p class="kind"><span class="ko">확인</span><span class="en">Check</span></p></header><div class="q-list"><details class="q"><summary>range(1, 4) <span class="ko">에 들어 있는 수는?</span><span class="en">contains which integers?</span></summary><p class="ko">1, 2, 3이다. 끝 값 4는 포함되지 않는다.</p><p class="en">1, 2, and 3. The stop 4 is excluded.</p></details><details class="q"><summary>5 / 2 와 5 // 2 <span class="ko">의 결과는?</span><span class="en">evaluate to?</span></summary><p class="ko"><code>5 / 2</code>는 2.5, <code>5 // 2</code>는 2다. 슬래시 하나는 float다.</p><p class="en"><code>5 / 2</code> is 2.5 and <code>5 // 2</code> is 2. A single slash yields a float.</p></details><details class="q"><summary>input() <span class="ko">으로 3을 읽으면 자료형은?</span><span class="en">reads 3 as which type?</span></summary><p class="ko">문자열 "3"이다. 정수로 쓰려면 int로 감싼다.</p><p class="en">The string "3". Wrap it in int when an integer is required.</p></details><details class="q"><summary>"Python"[1:-1] <span class="ko">의 값은?</span><span class="en">evaluates to?</span></summary><p class="ko">ytho다. 끝 문자 n은 빠진다.</p><p class="en">ytho. The final character n is excluded.</p></details><details class="q"><summary>"-".join("HELLO") <span class="ko">의 값은?</span><span class="en">evaluates to?</span></summary><p class="ko">H-E-L-L-O다. 구분자는 메서드 앞에 둔다.</p><p class="en">H-E-L-L-O. The separator stands before the method.</p></details><details class="q"><summary>append와 extend <span class="ko">의 차이는?</span><span class="en">differ how?</span></summary><p class="ko">append는 인자 전체가 한 칸이고, extend는 안을 푼다. 둘 다 None을 반환한다.</p><p class="en">append stores the whole argument as one element. extend unpacks it. Both return None.</p></details><details class="q"><summary>lst.sort() <span class="ko">를 print하면?</span><span class="en">prints as?</span></summary><p class="ko">None이다. 정렬은 리스트 안에서 이미 끝났다.</p><p class="en">None. The sort has already finished inside the list.</p></details><details class="q"><summary>(10)과 (10,) <span class="ko">의 차이는?</span><span class="en">differ how?</span></summary><p class="ko">(10)은 정수이고 (10,)은 튜플이다.</p><p class="en">(10) is an integer and (10,) is a tuple.</p></details><details class="q"><summary>{} <span class="ko">는 무엇인가?</span><span class="en">is what?</span></summary><p class="ko">빈 딕셔너리다. 빈 집합은 set()이다.</p><p class="en">An empty dictionary. An empty set is set().</p></details><details class="q"><summary>while True <span class="ko">는 어떻게 끝나나?</span><span class="en">ends how?</span></summary><p class="ko">본문의 break로 끝내거나, 터미널에서 Ctrl+C로 끊는다.</p><p class="en">End it with break in the body, or stop it with Ctrl+C in the terminal.</p></details><details class="q"><summary>break와 continue <span class="ko">의 차이는?</span><span class="en">differ how?</span></summary><p class="ko">break는 반복을 끝낸다. continue는 이번만 건너뛰고 다음 바퀴로 간다.</p><p class="en">break ends the loop. continue skips only this pass and goes to the next one.</p></details><details class="q"><summary>"Math" in d  (값이 Math일 때) <span class="ko">는?</span><span class="en">is?</span></summary><p class="ko">키가 아니면 False다.</p><p class="en">False, unless that text is a key.</p></details><details class="q"><summary>d.get("address")와 d["address"] <span class="ko">의 차이는?</span><span class="en">differ how?</span></summary><p class="ko">get은 None이고, 대괄호는 KeyError다.</p><p class="en">get returns None, and brackets raise KeyError.</p></details><details class="q"><summary>[1, 2].append([3]) <span class="ko">이후의 리스트는?</span><span class="en">leaves which list?</span></summary><p class="ko">[1, 2, [3]]이다. append의 반환값은 None이다.</p><p class="en">[1, 2, [3]]. The return value of append is None.</p></details></div></article>
+<article class="entry" id="questions" data-keys="문제 확인 퀴즈 check"><header class="entry-head"><h3 class="plain"><span class="ko">확인하고 답하기</span><span class="en">Check, then answer</span></h3><p class="kind"><span class="ko">확인</span><span class="en">Check</span></p></header><div class="q-list"><details class="q"><summary>range(1, 4) <span class="ko">에 들어 있는 수는?</span><span class="en">contains which integers?</span></summary><p class="ko">1, 2, 3이다. 끝 값 4는 포함되지 않는다.</p><p class="en">1, 2, and 3. The stop 4 is excluded.</p></details><details class="q"><summary>5 / 2 와 5 // 2 <span class="ko">의 결과는?</span><span class="en">evaluate to?</span></summary><p class="ko"><code>5 / 2</code>는 2.5, <code>5 // 2</code>는 2다. 슬래시 하나는 float다.</p><p class="en"><code>5 / 2</code> is 2.5 and <code>5 // 2</code> is 2. A single slash yields a float.</p></details><details class="q"><summary>input() <span class="ko">으로 3을 읽으면 자료형은?</span><span class="en">reads 3 as which type?</span></summary><p class="ko">문자열 "3"이다. 정수로 쓰려면 int로 감싼다.</p><p class="en">The string "3". Wrap it in int when an integer is required.</p></details><details class="q"><summary>"Python"[1:-1] <span class="ko">의 값은?</span><span class="en">evaluates to?</span></summary><p class="ko">ytho다. 끝 문자 n은 빠진다.</p><p class="en">ytho. The final character n is excluded.</p></details><details class="q"><summary>"-".join("HELLO") <span class="ko">의 값은?</span><span class="en">evaluates to?</span></summary><p class="ko">H-E-L-L-O다. 구분자는 메서드 앞에 둔다.</p><p class="en">H-E-L-L-O. The separator stands before the method.</p></details><details class="q"><summary>append와 extend <span class="ko">의 차이는?</span><span class="en">differ how?</span></summary><p class="ko">append는 인자 전체가 한 칸이고, extend는 안을 푼다. 둘 다 None을 반환한다.</p><p class="en">append stores the whole argument as one element. extend unpacks it. Both return None.</p></details><details class="q"><summary>lst.sort() <span class="ko">를 print하면?</span><span class="en">prints as?</span></summary><p class="ko">None이다. 정렬은 리스트 안에서 이미 끝났다.</p><p class="en">None. The sort has already finished inside the list.</p></details><details class="q"><summary>(10)과 (10,) <span class="ko">의 차이는?</span><span class="en">differ how?</span></summary><p class="ko">(10)은 정수이고 (10,)은 튜플이다.</p><p class="en">(10) is an integer and (10,) is a tuple.</p></details><details class="q"><summary>{} <span class="ko">는 무엇인가?</span><span class="en">is what?</span></summary><p class="ko">빈 딕셔너리다. 빈 집합은 set()이다.</p><p class="en">An empty dictionary. An empty set is set().</p></details><details class="q"><summary>while True <span class="ko">는 어떻게 끝나나?</span><span class="en">ends how?</span></summary><p class="ko">본문의 break로 끝내거나, 터미널에서 Ctrl+C로 끊는다.</p><p class="en">End it with break in the body, or stop it with Ctrl+C in the terminal.</p></details><details class="q"><summary>break와 continue <span class="ko">의 차이는?</span><span class="en">differ how?</span></summary><p class="ko">break는 반복을 끝낸다. continue는 이번만 건너뛰고 다음 바퀴로 간다.</p><p class="en">break ends the loop. continue skips only this pass and goes to the next one.</p></details><details class="q"><summary>"Math" in d  (값이 Math일 때) <span class="ko">는?</span><span class="en">is?</span></summary><p class="ko">키가 아니면 False다.</p><p class="en">False, unless that text is a key.</p></details><details class="q"><summary>d.get("address")와 d["address"] <span class="ko">의 차이는?</span><span class="en">differ how?</span></summary><p class="ko">get은 None이고, 대괄호는 KeyError다.</p><p class="en">get returns None, and brackets raise KeyError.</p></details><details class="q"><summary>[1, 2].append([3]) <span class="ko">이후의 리스트는?</span><span class="en">leaves which list?</span></summary><p class="ko">[1, 2, [3]]이다. append의 반환값은 None이다.</p><p class="en">[1, 2, [3]]. The return value of append is None.</p></details><details class="q"><summary>class <span class="ko">와 객체의 차이는?</span><span class="en">vs object?</span></summary><p class="ko">class는 설계도, 객체는 그 설계도로 만든 실제 값이다.</p><p class="en">A class is the blueprint; an object is one built instance.</p></details><details class="q"><summary>self.price와 Car.count <span class="ko">의 차이는?</span><span class="en">differ how?</span></summary><p class="ko">self.는 객체마다, 클래스이름.은 모든 객체가 공유한다.</p><p class="en">self. is per object; ClassName. is shared by all instances.</p></details><details class="q"><summary>@staticmethod <span class="ko">는 self가 필요한가?</span><span class="en">need self?</span></summary><p class="ko">필요 없다. 클래스에 묶인 도구 함수다.</p><p class="en">No. It is a utility grouped under the class.</p></details><details class="q"><summary>super().speak() <span class="ko">는 왜 쓰나?</span><span class="en">why?</span></summary><p class="ko">오버라이드하면서도 부모 메서드를 이어서 호출하려고 쓴다.</p><p class="en">To call the parent version while overriding.</p></details></div></article>
 </div>
 <div id="memo" class="review-block">
 <h3 class="review-sub"><span class="ko">최종 정리</span><span class="en">Summary</span></h3>
@@ -5510,16 +5893,31 @@ print(vals)</code></pre>
 </tbody></table></div>
 </article>
 
+
+<article class="entry sum" id="sum-classes" data-exam="final" data-keys="class __init__ self classmethod staticmethod inheritance override super polymorphism 클래스 기말">
+<header class="entry-head"><h3><span class="ko">클래스·객체 한 줄 (Programming-11 · 기말)</span><span class="en">Classes in one line (Programming-11 · final)</span> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3></header>
+<div class="table-wrap"><table class="spec"><thead><tr><th><span class="ko">명령</span><span class="en">Command</span></th><th><span class="ko">형식</span><span class="en">On</span></th><th><span class="ko">한 줄</span><span class="en">In one line</span></th></tr></thead><tbody>
+<tr><td><code>class</code></td><td><span class="ko">문법</span><span class="en">syntax</span></td><td><span class="ko">객체의 설계도. 속성·메서드를 담는다.</span><span class="en">Blueprint for objects: attributes and methods.</span></td></tr>
+<tr><td><code>__init__ / self</code></td><td><span class="ko">특수 메서드</span><span class="en">special method</span></td><td><span class="ko">생성 시 자동 호출. self는 그 객체.</span><span class="en">Runs on create; self is that object.</span></td></tr>
+<tr><td><code>클래스·인스턴스 속성</code></td><td><span class="ko">개념</span><span class="en">concept</span></td><td><span class="ko">ClassName.은 공유, self.은 객체마다.</span><span class="en">ClassName. shared; self. per object.</span></td></tr>
+<tr><td><code>@classmethod</code></td><td><span class="ko">장식자</span><span class="en">decorator</span></td><td><span class="ko">cls 받음. 팩토리·클래스 단위 동작.</span><span class="en">Gets cls; factories / class-level work.</span></td></tr>
+<tr><td><code>@staticmethod</code></td><td><span class="ko">장식자</span><span class="en">decorator</span></td><td><span class="ko">self/cls 없음. 관련 도구 함수.</span><span class="en">No self/cls; utility helpers.</span></td></tr>
+<tr><td><code>__비공개</code></td><td><span class="ko">캡슐화</span><span class="en">encapsulation</span></td><td><span class="ko">바깥 직접 접근을 막고 메서드로만.</span><span class="en">Discourage outside access; use methods.</span></td></tr>
+<tr><td><code>상속 / 오버라이드</code></td><td><span class="ko">문법</span><span class="en">syntax</span></td><td><span class="ko">Child(Parent). 같은 이름 재정의. super()로 부모 호출.</span><span class="en">Child(Parent); redefine; super() calls parent.</span></td></tr>
+<tr><td><code>다형성</code></td><td><span class="ko">개념</span><span class="en">concept</span></td><td><span class="ko">같은 메서드 이름, 객체마다 다른 행동.</span><span class="en">Same method name; behavior depends on the object.</span></td></tr>
+</tbody></table></div>
+</article>
+
 <article class="entry sum" id="sum-more" data-keys="set is copy deepcopy get setdefault fromkeys">
 <h3><span class="ko">집합, 복사, 딕셔너리 추가</span><span class="en">Sets, copies, more dict</span></h3>
 <div class="table-wrap"><table class="spec"><thead><tr><th><span class="ko">명령</span><span class="en">Command</span></th><th><span class="ko">형식</span><span class="en">On</span></th><th><span class="ko">한 줄</span><span class="en">In one line</span></th></tr></thead><tbody><tr><td><code>set()</code></td><td><span class="ko">function → set</span><span class="en">function → set</span></td><td><span class="ko">빈 집합. {}는 빈 딕셔너리. 중복 없음, 순서 보장 없음.</span><span class="en">Empty set. {} is an empty dict. No duplicates; order not guaranteed.</span></td></tr><tr><td><code>| &amp; - ^</code></td><td><span class="ko">연산 · set</span><span class="en">ops · set</span></td><td><span class="ko">합, 교, 차, 대칭차. 새 집합. update 계열은 제자리.</span><span class="en">Union, intersection, difference, symmetric difference as a new set. update forms edit in place.</span></td></tr><tr><td><code>add / discard / remove</code></td><td><span class="ko">method · set</span><span class="en">method · set</span></td><td><span class="ko">원소 추가·제거. remove는 없으면 KeyError, discard는 조용히 넘어감.</span><span class="en">Add or remove an element. remove raises KeyError if missing; discard stays quiet.</span></td></tr><tr><td><code>is</code></td><td><span class="ko">연산 (객체)</span><span class="en">operator (objects)</span></td><td><span class="ko">같은 객체인지. 값 비교는 ==. None 검사는 is None.</span><span class="en">Same object? Values use ==. A None check is is None.</span></td></tr><tr><td><code>대입 =</code></td><td><span class="ko">연산</span><span class="en">operator</span></td><td><span class="ko">참조만 옮긴다. 같은 리스트면 한쪽 수정이 다른 쪽에 보임.</span><span class="en">Moves a reference. Editing a shared list is visible through both names.</span></td></tr><tr><td><code>copy</code></td><td><span class="ko">method · list/dict/set</span><span class="en">method · list/dict/set</span></td><td><span class="ko">얕은 복사. 바깥만 새 객체, 안쪽 가변 객체는 공유.</span><span class="en">Shallow copy: new outer object, shared inner mutables.</span></td></tr><tr><td><code>deepcopy</code></td><td><span class="ko">function · copy 모듈</span><span class="en">function · copy module</span></td><td><span class="ko">안쪽까지 새로 만들어 참조를 공유하지 않는다. import copy.</span><span class="en">Rebuilds the inside too so references are not shared. import copy.</span></td></tr><tr><td><code>get / setdefault</code></td><td><span class="ko">method · dict만</span><span class="en">method · dict only</span></td><td><span class="ko">없으면 get은 기본값(없으면 None). setdefault는 없을 때 넣고 그 값을 반환.</span><span class="en">get returns a default (or None). setdefault inserts when missing and returns that value.</span></td></tr><tr><td><code>fromkeys / clear / popitem</code></td><td><span class="ko">method · dict (clear는 list/set도)</span><span class="en">method · dict (clear also list/set)</span></td><td><span class="ko">키만으로 새 dict. clear는 전부 삭제. popitem은 마지막 쌍.</span><span class="en">New dict from keys; clear deletes all; popitem removes the last pair.</span></td></tr></tbody></table></div></article>
 </div>
 </section>
 
-      <footer class="colophon"><p><span class="ko">수록 범위는 실습 day 1–day 4와 수업자료 Programming-2–10이다. 중간은 P2–6, 기말은 P7–10(함수·모듈·예외·파일, +중간 전제)다. 예제 출력은 Python 3에서 확인했다.</span><span class="en">The scope is labs day 1–day 4 and lectures Programming-2–10. Midterm: P2–6. Final: P7–10 functions, modules, exceptions, files (+ midterm as prerequisite). Example output was checked in Python 3.</span></p></footer>
+      <footer class="colophon"><p><span class="ko">수록 범위는 실습 day 1–day 4와 수업자료 Programming-2–11이다. 중간은 P2–6, 기말은 P7–11(함수·모듈·예외·파일·클래스, +중간 전제)다. 예제 출력은 Python 3에서 확인했다.</span><span class="en">The scope is labs day 1–day 4 and lectures Programming-2–11. Midterm: P2–6. Final: P7–11 functions, modules, exceptions, files, classes (+ midterm as prerequisite). Example output was checked in Python 3.</span></p></footer>
     </main>
   </div>
-  <script src="js/site.js?v=31"></script>
-  <script src="js/walks.js?v=31"></script>
+  <script src="js/site.js?v=32"></script>
+  <script src="js/walks.js?v=32"></script>
 </body>
 </html>

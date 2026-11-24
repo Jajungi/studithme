@@ -21,7 +21,7 @@ const SUBJECTS = {
     id: 'programming',
     label: '프로그래밍',
     mid: { href: 'programming/', range: 'Python · P2–6 (중간)' },
-    final: { href: 'programming/#funcs', range: 'Python · P7–10 (기말)' },
+    final: { href: 'programming/#funcs', range: 'Python · P7–11 (기말)' },
   },
 };
 
@@ -118,7 +118,7 @@ function showStep(subjectId) {
   if (lead) {
     lead.textContent =
       subjectId === 'programming'
-        ? `${subject.label} · 중간 P2–6 / 기말 P7–10 · 같은 사이트`
+        ? `${subject.label} · 중간 P2–6 / 기말 P7–11 · 같은 사이트`
         : `${subject.label} · 중간 / 기말을 고르면 새 탭에서 엽니다`;
   }
   if (chip) chip.textContent = subject.label;
