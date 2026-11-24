@@ -7,7 +7,7 @@
   <meta name="description" content="프로그래밍 실습 day 1–4와 Programming-2–10의 Python 문법. 중간 P2–6, 기말 P7–10(함수·모듈·예외·파일).">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="css/site.css?v=27">
+  <link rel="stylesheet" href="css/site.css?v=28">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1d1f'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -4777,7 +4777,7 @@ for row in csv.DictReader(StringIO(text)):
 <div class="walk-mount" data-walk="packages"></div>
 </section>
 
-<section class="chapter" id="exceptions" data-exam="final"><header class="chapter-head"><p class="num">17</p><div><h2><span class="ko">오류와 예외 처리</span><span class="en">Errors and exception handling</span></h2><p class="lead"><span class="ko">Programming-9. 실행 중 예외가 나도 프로그램이 바로 죽지 않게 try·except·else·finally로 다룬다. 배경이 어두운 항목이 기말이다.</span><span class="en">Programming-9. Use try, except, else, and finally so run-time exceptions do not crash the program. Darker panels are final.</span></p></div></header>
+<section class="chapter" id="exceptions" data-exam="final"><header class="chapter-head"><p class="num">17</p><div><h2><span class="ko">오류와 예외 처리</span><span class="en">Errors and exception handling</span></h2><p class="lead"><span class="ko">Programming-9. 실행 중 예외가 나도 프로그램이 바로 종료되지 않도록 try·except·else·finally로 다룬다. 배경이 어두운 항목이 기말이다.</span><span class="en">Programming-9. Use try, except, else, and finally so run-time exceptions do not crash the program. Darker panels are final.</span></p></div></header>
 <article class="entry" id="exception" data-exam="final" data-keys="exception 예외 Error SyntaxError ZeroDivisionError ValueError">
 <header class="entry-head"><h3><code>예외</code> <span class="exam-tag"><span class="ko">기말</span><span class="en">Final</span></span></h3><p class="kind"><span class="ko">개념</span><span class="en">concept</span></p></header>
 <section class="block"><h4><span class="ko">특징</span><span class="en">Behavior</span></h4>
@@ -4819,7 +4819,7 @@ except SomeError:
 <p class="en">try needs at least one except (unless it is try…finally alone). Naming a concrete exception catches only that kind.</p>
 </section>
 <section class="block"><h4><span class="ko">보충</span><span class="en">Notes</span></h4>
-<p class="ko">ZeroDivisionError만 잡으면 문자열 입력의 ValueError는 그대로 터진다. 수업처럼 0과 잘못된 문자를 모두 막으려면 except를 여러 개 두거나 묶는다.</p>
+<p class="ko">ZeroDivisionError만 잡으면 문자열 입력의 ValueError는 그대로 발생한다. 수업처럼 0과 잘못된 문자를 모두 막으려면 except를 여러 개 두거나 묶는다.</p>
 <p class="en">Catching only ZeroDivisionError still crashes on a ValueError from bad text. Cover both with separate except blocks or a grouped except.</p>
 </section>
 <section class="block"><h4><span class="ko">예시</span><span class="en">Example</span></h4>
@@ -5518,7 +5518,7 @@ print(vals)</code></pre>
       <footer class="colophon"><p><span class="ko">수록 범위는 실습 day 1–day 4와 수업자료 Programming-2–10이다. 중간은 P2–6, 기말은 P7–10(함수·모듈·예외·파일, +중간 전제)다. 예제 출력은 Python 3에서 확인했다.</span><span class="en">The scope is labs day 1–day 4 and lectures Programming-2–10. Midterm: P2–6. Final: P7–10 functions, modules, exceptions, files (+ midterm as prerequisite). Example output was checked in Python 3.</span></p></footer>
     </main>
   </div>
-  <script src="js/site.js?v=27"></script>
-  <script src="js/walks.js?v=27"></script>
+  <script src="js/site.js?v=28"></script>
+  <script src="js/walks.js?v=28"></script>
 </body>
 </html>
