@@ -15,7 +15,7 @@ const SUBJECTS = {
     id: 'physics',
     label: '물리',
     mid: { href: 'physics/mid/', range: 'GP2 · Ch.1–6' },
-    final: { href: 'physics/final/', range: 'GP2 · Ch.7–11' },
+    final: { href: 'physics/final/', range: 'GP2 · Ch.7–12' },
   },
   programming: {
     id: 'programming',
